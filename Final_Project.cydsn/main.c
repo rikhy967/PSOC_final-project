@@ -2,6 +2,7 @@
 #include "project.h"
 #include "stdio.h"
 #include "LIS3DH_Registers.h"
+#include "LIS3DH_FIFO_Registers.h"
 
 
 int main(void)

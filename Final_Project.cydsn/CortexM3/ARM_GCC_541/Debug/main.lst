@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccw0jshO.s 			page 1
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccWCGEMk.s 			page 1
 
 
    1              		.syntax unified
@@ -38,11 +38,12 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccw0jshO.s 			page 1
    2:main.c        **** #include "project.h"
    3:main.c        **** #include "stdio.h"
    4:main.c        **** #include "LIS3DH_Registers.h"
-   5:main.c        **** 
+   5:main.c        **** #include "LIS3DH_FIFO_Registers.h"
    6:main.c        **** 
-   7:main.c        **** int main(void)
-   8:main.c        **** {
-  34              		.loc 1 8 0
+   7:main.c        **** 
+   8:main.c        **** int main(void)
+   9:main.c        **** {
+  34              		.loc 1 9 0
   35              		.cfi_startproc
   36              		@ args = 0, pretend = 0, frame = 88
   37              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -52,529 +53,529 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccw0jshO.s 			page 1
   41              		.cfi_offset 14, -4
   42 0002 96B0     		sub	sp, sp, #88
   43              		.cfi_def_cfa_offset 96
-   9:main.c        ****     CyGlobalIntEnable; /* Enable global interrupts. */
-  44              		.loc 1 9 0
+  10:main.c        ****     CyGlobalIntEnable; /* Enable global interrupts. */
+  44              		.loc 1 10 0
   45              		.syntax unified
-  46              	@ 9 "main.c" 1
+  46              	@ 10 "main.c" 1
   47 0004 62B6     		CPSIE   i
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccWCGEMk.s 			page 2
+
+
   48              	@ 0 "" 2
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccw0jshO.s 			page 2
-
-
-  10:main.c        ****     CS_LIS3DH_Write(1); //I2C enabled
-  49              		.loc 1 10 0
+  11:main.c        ****     CS_LIS3DH_Write(1); //I2C enabled
+  49              		.loc 1 11 0
   50              		.thumb
   51              		.syntax unified
   52 0006 0120     		movs	r0, #1
   53 0008 FFF7FEFF 		bl	CS_LIS3DH_Write
   54              	.LVL0:
-  11:main.c        ****     SDO_LIS3DH_Write(0);
-  55              		.loc 1 11 0
+  12:main.c        ****     SDO_LIS3DH_Write(0);
+  55              		.loc 1 12 0
   56 000c 0020     		movs	r0, #0
   57 000e FFF7FEFF 		bl	SDO_LIS3DH_Write
   58              	.LVL1:
-  12:main.c        ****     /* Place your initialization/startup code here (e.g. MyInst_Start()) */
-  13:main.c        ****     I2C_Peripheral_Start(); //I2C started
-  59              		.loc 1 13 0
+  13:main.c        ****     /* Place your initialization/startup code here (e.g. MyInst_Start()) */
+  14:main.c        ****     I2C_Peripheral_Start(); //I2C started
+  59              		.loc 1 14 0
   60 0012 FFF7FEFF 		bl	I2C_Peripheral_Start
   61              	.LVL2:
-  14:main.c        ****     UART_Debug_Start(); // UART enabled
-  62              		.loc 1 14 0
+  15:main.c        ****     UART_Debug_Start(); // UART enabled
+  62              		.loc 1 15 0
   63 0016 FFF7FEFF 		bl	UART_Debug_Start
   64              	.LVL3:
-  15:main.c        ****     
-  16:main.c        ****     CyDelay(5); //"The boot procedure is complete about 5 milliseconds after device power-up."
-  65              		.loc 1 16 0
+  16:main.c        ****     
+  17:main.c        ****     CyDelay(5); //"The boot procedure is complete about 5 milliseconds after device power-up."
+  65              		.loc 1 17 0
   66 001a 0520     		movs	r0, #5
   67 001c FFF7FEFF 		bl	CyDelay
   68              	.LVL4:
   69              	.LBB2:
-  17:main.c        ****     
-  18:main.c        ****     // String to print out messages on the UART
-  19:main.c        ****     char message[50];
-  20:main.c        **** 
-  21:main.c        ****     // Check which devices are present on the I2C bus
-  22:main.c        ****     for (int i = 0 ; i < 128; i++)
-  70              		.loc 1 22 0
+  18:main.c        ****     
+  19:main.c        ****     // String to print out messages on the UART
+  20:main.c        ****     char message[50];
+  21:main.c        **** 
+  22:main.c        ****     // Check which devices are present on the I2C bus
+  23:main.c        ****     for (int i = 0 ; i < 128; i++)
+  70              		.loc 1 23 0
   71 0020 0024     		movs	r4, #0
   72 0022 0CE0     		b	.L2
   73              	.LVL5:
   74              	.L4:
-  23:main.c        ****     {
-  24:main.c        ****         if (I2C_Peripheral_IsDeviceConnected(i))
-  75              		.loc 1 24 0
+  24:main.c        ****     {
+  25:main.c        ****         if (I2C_Peripheral_IsDeviceConnected(i))
+  75              		.loc 1 25 0
   76 0024 E0B2     		uxtb	r0, r4
   77 0026 FFF7FEFF 		bl	I2C_Peripheral_IsDeviceConnected
   78              	.LVL6:
   79 002a 38B1     		cbz	r0, .L3
-  25:main.c        ****         {
-  26:main.c        ****             // print out the address is hex format
-  27:main.c        ****             sprintf(message, "Device 0x%02X is connected\r\n", i);
-  80              		.loc 1 27 0
+  26:main.c        ****         {
+  27:main.c        ****             // print out the address is hex format
+  28:main.c        ****             sprintf(message, "Device 0x%02X is connected\r\n", i);
+  80              		.loc 1 28 0
   81 002c 2246     		mov	r2, r4
   82 002e AA49     		ldr	r1, .L25+8
   83 0030 09A8     		add	r0, sp, #36
   84 0032 FFF7FEFF 		bl	sprintf
   85              	.LVL7:
-  28:main.c        ****             UART_Debug_PutString(message); 
-  86              		.loc 1 28 0
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccw0jshO.s 			page 3
+  29:main.c        ****             UART_Debug_PutString(message); 
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccWCGEMk.s 			page 3
 
 
+  86              		.loc 1 29 0
   87 0036 09A8     		add	r0, sp, #36
   88 0038 FFF7FEFF 		bl	UART_Debug_PutString
   89              	.LVL8:
   90              	.L3:
-  22:main.c        ****     {
-  91              		.loc 1 22 0 discriminator 2
+  23:main.c        ****     {
+  91              		.loc 1 23 0 discriminator 2
   92 003c 0134     		adds	r4, r4, #1
   93              	.LVL9:
   94              	.L2:
-  22:main.c        ****     {
-  95              		.loc 1 22 0 is_stmt 0 discriminator 1
+  23:main.c        ****     {
+  95              		.loc 1 23 0 is_stmt 0 discriminator 1
   96 003e 7F2C     		cmp	r4, #127
   97 0040 F0DD     		ble	.L4
   98              	.LBE2:
-  29:main.c        ****         }
-  30:main.c        ****         
-  31:main.c        ****     }
-  32:main.c        ****     
-  33:main.c        ****     /******************************************/
-  34:main.c        ****     /*            I2C Reading                 */
-  35:main.c        ****     /******************************************/
-  36:main.c        ****     
-  37:main.c        ****     /* Read WHO AM I REGISTER register */
-  38:main.c        ****     uint8_t who_am_i_reg;
-  39:main.c        ****     ErrorCode error = I2C_Peripheral_ReadRegister(LIS3DH_DEVICE_ADDRESS,
-  99              		.loc 1 39 0 is_stmt 1
+  30:main.c        ****         }
+  31:main.c        ****         
+  32:main.c        ****     }
+  33:main.c        ****     
+  34:main.c        ****     /******************************************/
+  35:main.c        ****     /*            I2C Reading                 */
+  36:main.c        ****     /******************************************/
+  37:main.c        ****     
+  38:main.c        ****     /* Read WHO AM I REGISTER register */
+  39:main.c        ****     uint8_t who_am_i_reg;
+  40:main.c        ****     ErrorCode error = I2C_Peripheral_ReadRegister(LIS3DH_DEVICE_ADDRESS,
+  99              		.loc 1 40 0 is_stmt 1
  100 0042 0DF12302 		add	r2, sp, #35
  101 0046 0F21     		movs	r1, #15
  102 0048 1820     		movs	r0, #24
  103 004a FFF7FEFF 		bl	I2C_Peripheral_ReadRegister
  104              	.LVL10:
-  40:main.c        ****                                                   LIS3DH_WHO_AM_I_REG_ADDR, 
-  41:main.c        ****                                                   &who_am_i_reg);
-  42:main.c        ****     if (error == NO_ERROR)
- 105              		.loc 1 42 0
+  41:main.c        ****                                                   LIS3DH_WHO_AM_I_REG_ADDR, 
+  42:main.c        ****                                                   &who_am_i_reg);
+  43:main.c        ****     if (error == NO_ERROR)
+ 105              		.loc 1 43 0
  106 004e 48B9     		cbnz	r0, .L5
-  43:main.c        ****     {
-  44:main.c        ****         sprintf(message, "WHO AM I REG: 0x%02X [Expected: 0x33]\r\n", who_am_i_reg);
- 107              		.loc 1 44 0
+  44:main.c        ****     {
+  45:main.c        ****         sprintf(message, "WHO AM I REG: 0x%02X [Expected: 0x33]\r\n", who_am_i_reg);
+ 107              		.loc 1 45 0
  108 0050 9DF82320 		ldrb	r2, [sp, #35]	@ zero_extendqisi2
  109 0054 A149     		ldr	r1, .L25+12
  110 0056 09A8     		add	r0, sp, #36
  111              	.LVL11:
  112 0058 FFF7FEFF 		bl	sprintf
  113              	.LVL12:
-  45:main.c        ****         UART_Debug_PutString(message); 
- 114              		.loc 1 45 0
+  46:main.c        ****         UART_Debug_PutString(message); 
+ 114              		.loc 1 46 0
  115 005c 09A8     		add	r0, sp, #36
  116 005e FFF7FEFF 		bl	UART_Debug_PutString
  117              	.LVL13:
  118 0062 02E0     		b	.L6
  119              	.LVL14:
  120              	.L5:
-  46:main.c        ****     }
-  47:main.c        ****     else
-  48:main.c        ****     {
-  49:main.c        ****         UART_Debug_PutString("Error occurred during I2C comm\r\n");   
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccw0jshO.s 			page 4
+  47:main.c        ****     }
+  48:main.c        ****     else
+  49:main.c        ****     {
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccWCGEMk.s 			page 4
 
 
- 121              		.loc 1 49 0
+  50:main.c        ****         UART_Debug_PutString("Error occurred during I2C comm\r\n");   
+ 121              		.loc 1 50 0
  122 0064 9E48     		ldr	r0, .L25+16
  123              	.LVL15:
  124 0066 FFF7FEFF 		bl	UART_Debug_PutString
  125              	.LVL16:
  126              	.L6:
-  50:main.c        ****     }
-  51:main.c        ****     
-  52:main.c        ****     /*      I2C Reading Status Register       */
-  53:main.c        ****     
-  54:main.c        ****     uint8_t status_register; 
-  55:main.c        ****     error = I2C_Peripheral_ReadRegister(LIS3DH_DEVICE_ADDRESS,
- 127              		.loc 1 55 0
+  51:main.c        ****     }
+  52:main.c        ****     
+  53:main.c        ****     /*      I2C Reading Status Register       */
+  54:main.c        ****     
+  55:main.c        ****     uint8_t status_register; 
+  56:main.c        ****     error = I2C_Peripheral_ReadRegister(LIS3DH_DEVICE_ADDRESS,
+ 127              		.loc 1 56 0
  128 006a 0DF12202 		add	r2, sp, #34
  129 006e 2721     		movs	r1, #39
  130 0070 1820     		movs	r0, #24
  131 0072 FFF7FEFF 		bl	I2C_Peripheral_ReadRegister
  132              	.LVL17:
-  56:main.c        ****                                         LIS3DH_STATUS_REG,
-  57:main.c        ****                                         &status_register);
-  58:main.c        ****     
-  59:main.c        ****     if (error == NO_ERROR)
- 133              		.loc 1 59 0
+  57:main.c        ****                                         LIS3DH_STATUS_REG,
+  58:main.c        ****                                         &status_register);
+  59:main.c        ****     
+  60:main.c        ****     if (error == NO_ERROR)
+ 133              		.loc 1 60 0
  134 0076 48B9     		cbnz	r0, .L7
-  60:main.c        ****     {
-  61:main.c        ****         sprintf(message, "STATUS REGISTER: 0x%02X\r\n", status_register);
- 135              		.loc 1 61 0
+  61:main.c        ****     {
+  62:main.c        ****         sprintf(message, "STATUS REGISTER: 0x%02X\r\n", status_register);
+ 135              		.loc 1 62 0
  136 0078 9DF82220 		ldrb	r2, [sp, #34]	@ zero_extendqisi2
  137 007c 9949     		ldr	r1, .L25+20
  138 007e 09A8     		add	r0, sp, #36
  139              	.LVL18:
  140 0080 FFF7FEFF 		bl	sprintf
  141              	.LVL19:
-  62:main.c        ****         UART_Debug_PutString(message); 
- 142              		.loc 1 62 0
+  63:main.c        ****         UART_Debug_PutString(message); 
+ 142              		.loc 1 63 0
  143 0084 09A8     		add	r0, sp, #36
  144 0086 FFF7FEFF 		bl	UART_Debug_PutString
  145              	.LVL20:
  146 008a 02E0     		b	.L8
  147              	.LVL21:
  148              	.L7:
-  63:main.c        ****     }
-  64:main.c        ****     else
-  65:main.c        ****     {
-  66:main.c        ****         UART_Debug_PutString("Error occurred during I2C comm to read status register\r\n");   
- 149              		.loc 1 66 0
+  64:main.c        ****     }
+  65:main.c        ****     else
+  66:main.c        ****     {
+  67:main.c        ****         UART_Debug_PutString("Error occurred during I2C comm to read status register\r\n");   
+ 149              		.loc 1 67 0
  150 008c 9648     		ldr	r0, .L25+24
  151              	.LVL22:
  152 008e FFF7FEFF 		bl	UART_Debug_PutString
  153              	.LVL23:
  154              	.L8:
-  67:main.c        ****     }
-  68:main.c        ****     
-  69:main.c        ****     /******************************************/
-  70:main.c        ****     /*        Read Control Register 1         */
-  71:main.c        ****     /******************************************/
-  72:main.c        ****     uint8_t ctrl_reg1; 
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccw0jshO.s 			page 5
+  68:main.c        ****     }
+  69:main.c        ****     
+  70:main.c        ****     /******************************************/
+  71:main.c        ****     /*        Read Control Register 1         */
+  72:main.c        ****     /******************************************/
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccWCGEMk.s 			page 5
 
 
-  73:main.c        ****     error = I2C_Peripheral_ReadRegister(LIS3DH_DEVICE_ADDRESS,
- 155              		.loc 1 73 0
+  73:main.c        ****     uint8_t ctrl_reg1; 
+  74:main.c        ****     error = I2C_Peripheral_ReadRegister(LIS3DH_DEVICE_ADDRESS,
+ 155              		.loc 1 74 0
  156 0092 0DF12102 		add	r2, sp, #33
  157 0096 2021     		movs	r1, #32
  158 0098 1820     		movs	r0, #24
  159 009a FFF7FEFF 		bl	I2C_Peripheral_ReadRegister
  160              	.LVL24:
-  74:main.c        ****                                         LIS3DH_CTRL_REG1,
-  75:main.c        ****                                         &ctrl_reg1);
-  76:main.c        ****     
-  77:main.c        ****     if (error == NO_ERROR)
- 161              		.loc 1 77 0
+  75:main.c        ****                                         LIS3DH_CTRL_REG1,
+  76:main.c        ****                                         &ctrl_reg1);
+  77:main.c        ****     
+  78:main.c        ****     if (error == NO_ERROR)
+ 161              		.loc 1 78 0
  162 009e 48B9     		cbnz	r0, .L9
-  78:main.c        ****     {
-  79:main.c        ****         sprintf(message, "CONTROL REGISTER 1: 0x%02X\r\n", ctrl_reg1);
- 163              		.loc 1 79 0
+  79:main.c        ****     {
+  80:main.c        ****         sprintf(message, "CONTROL REGISTER 1: 0x%02X\r\n", ctrl_reg1);
+ 163              		.loc 1 80 0
  164 00a0 9DF82120 		ldrb	r2, [sp, #33]	@ zero_extendqisi2
  165 00a4 9149     		ldr	r1, .L25+28
  166 00a6 09A8     		add	r0, sp, #36
  167              	.LVL25:
  168 00a8 FFF7FEFF 		bl	sprintf
  169              	.LVL26:
-  80:main.c        ****         UART_Debug_PutString(message); 
- 170              		.loc 1 80 0
+  81:main.c        ****         UART_Debug_PutString(message); 
+ 170              		.loc 1 81 0
  171 00ac 09A8     		add	r0, sp, #36
  172 00ae FFF7FEFF 		bl	UART_Debug_PutString
  173              	.LVL27:
  174 00b2 02E0     		b	.L10
  175              	.LVL28:
  176              	.L9:
-  81:main.c        ****     }
-  82:main.c        ****     else
-  83:main.c        ****     {
-  84:main.c        ****         UART_Debug_PutString("Error occurred during I2C comm to read control register 1\r\n");   
- 177              		.loc 1 84 0
+  82:main.c        ****     }
+  83:main.c        ****     else
+  84:main.c        ****     {
+  85:main.c        ****         UART_Debug_PutString("Error occurred during I2C comm to read control register 1\r\n");   
+ 177              		.loc 1 85 0
  178 00b4 8E48     		ldr	r0, .L25+32
  179              	.LVL29:
  180 00b6 FFF7FEFF 		bl	UART_Debug_PutString
  181              	.LVL30:
  182              	.L10:
-  85:main.c        ****     }
-  86:main.c        ****     
-  87:main.c        ****     /******************************************/
-  88:main.c        ****     /*            I2C Writing                 */
-  89:main.c        ****     /******************************************/
-  90:main.c        ****     
-  91:main.c        ****         
-  92:main.c        ****     UART_Debug_PutString("\r\nWriting new values..\r\n");
- 183              		.loc 1 92 0
+  86:main.c        ****     }
+  87:main.c        ****     
+  88:main.c        ****     /******************************************/
+  89:main.c        ****     /*            I2C Writing                 */
+  90:main.c        ****     /******************************************/
+  91:main.c        ****     
+  92:main.c        ****         
+  93:main.c        ****     UART_Debug_PutString("\r\nWriting new values..\r\n");
+ 183              		.loc 1 93 0
  184 00ba 8E48     		ldr	r0, .L25+36
  185 00bc FFF7FEFF 		bl	UART_Debug_PutString
  186              	.LVL31:
-  93:main.c        ****     
-  94:main.c        ****     if (ctrl_reg1 != LIS3DH_NORMAL_MODE_100_CTRL_REG1)
- 187              		.loc 1 94 0
+  94:main.c        ****     
+  95:main.c        ****     if (ctrl_reg1 != LIS3DH_NORMAL_MODE_100_CTRL_REG1)
+ 187              		.loc 1 95 0
  188 00c0 9DF82130 		ldrb	r3, [sp, #33]	@ zero_extendqisi2
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccWCGEMk.s 			page 6
+
+
  189 00c4 572B     		cmp	r3, #87
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccw0jshO.s 			page 6
-
-
  190 00c6 14D0     		beq	.L11
-  95:main.c        ****     {
-  96:main.c        ****         ctrl_reg1 = LIS3DH_NORMAL_MODE_100_CTRL_REG1;
- 191              		.loc 1 96 0
+  96:main.c        ****     {
+  97:main.c        ****         ctrl_reg1 = LIS3DH_NORMAL_MODE_100_CTRL_REG1;
+ 191              		.loc 1 97 0
  192 00c8 5722     		movs	r2, #87
  193 00ca 8DF82120 		strb	r2, [sp, #33]
-  97:main.c        ****     
-  98:main.c        ****         error = I2C_Peripheral_WriteRegister(LIS3DH_DEVICE_ADDRESS,
- 194              		.loc 1 98 0
+  98:main.c        ****     
+  99:main.c        ****         error = I2C_Peripheral_WriteRegister(LIS3DH_DEVICE_ADDRESS,
+ 194              		.loc 1 99 0
  195 00ce 2021     		movs	r1, #32
  196 00d0 1820     		movs	r0, #24
  197 00d2 FFF7FEFF 		bl	I2C_Peripheral_WriteRegister
  198              	.LVL32:
-  99:main.c        ****                                              LIS3DH_CTRL_REG1,
- 100:main.c        ****                                              ctrl_reg1);
- 101:main.c        ****     
- 102:main.c        ****         if (error == NO_ERROR)
- 199              		.loc 1 102 0
+ 100:main.c        ****                                              LIS3DH_CTRL_REG1,
+ 101:main.c        ****                                              ctrl_reg1);
+ 102:main.c        ****     
+ 103:main.c        ****         if (error == NO_ERROR)
+ 199              		.loc 1 103 0
  200 00d6 48B9     		cbnz	r0, .L12
- 103:main.c        ****         {
- 104:main.c        ****             sprintf(message, "CONTROL REGISTER 1 successfully written as: 0x%02X\r\n", ctrl_reg1);
- 201              		.loc 1 104 0
+ 104:main.c        ****         {
+ 105:main.c        ****             sprintf(message, "CONTROL REGISTER 1 successfully written as: 0x%02X\r\n", ctrl_reg1);
+ 201              		.loc 1 105 0
  202 00d8 9DF82120 		ldrb	r2, [sp, #33]	@ zero_extendqisi2
  203 00dc 8649     		ldr	r1, .L25+40
  204 00de 09A8     		add	r0, sp, #36
  205              	.LVL33:
  206 00e0 FFF7FEFF 		bl	sprintf
  207              	.LVL34:
- 105:main.c        ****             UART_Debug_PutString(message); 
- 208              		.loc 1 105 0
+ 106:main.c        ****             UART_Debug_PutString(message); 
+ 208              		.loc 1 106 0
  209 00e4 09A8     		add	r0, sp, #36
  210 00e6 FFF7FEFF 		bl	UART_Debug_PutString
  211              	.LVL35:
  212 00ea 02E0     		b	.L11
  213              	.LVL36:
  214              	.L12:
- 106:main.c        ****         }
- 107:main.c        ****         else
- 108:main.c        ****         {
- 109:main.c        ****             UART_Debug_PutString("Error occurred during I2C comm to set control register 1\r\n");  
- 215              		.loc 1 109 0
+ 107:main.c        ****         }
+ 108:main.c        ****         else
+ 109:main.c        ****         {
+ 110:main.c        ****             UART_Debug_PutString("Error occurred during I2C comm to set control register 1\r\n");  
+ 215              		.loc 1 110 0
  216 00ec 8348     		ldr	r0, .L25+44
  217              	.LVL37:
  218 00ee FFF7FEFF 		bl	UART_Debug_PutString
  219              	.LVL38:
  220              	.L11:
- 110:main.c        ****         }
- 111:main.c        ****     }
- 112:main.c        ****     
- 113:main.c        ****     /******************************************/
- 114:main.c        ****     /*     Read Control Register 1 again      */
- 115:main.c        ****     /******************************************/
- 116:main.c        **** 
- 117:main.c        ****     error = I2C_Peripheral_ReadRegister(LIS3DH_DEVICE_ADDRESS,
- 221              		.loc 1 117 0
+ 111:main.c        ****         }
+ 112:main.c        ****     }
+ 113:main.c        ****     
+ 114:main.c        ****     /******************************************/
+ 115:main.c        ****     /*     Read Control Register 1 again      */
+ 116:main.c        ****     /******************************************/
+ 117:main.c        **** 
+ 118:main.c        ****     error = I2C_Peripheral_ReadRegister(LIS3DH_DEVICE_ADDRESS,
+ 221              		.loc 1 118 0
  222 00f2 0DF12102 		add	r2, sp, #33
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccWCGEMk.s 			page 7
+
+
  223 00f6 2021     		movs	r1, #32
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccw0jshO.s 			page 7
-
-
  224 00f8 1820     		movs	r0, #24
  225 00fa FFF7FEFF 		bl	I2C_Peripheral_ReadRegister
  226              	.LVL39:
- 118:main.c        ****                                         LIS3DH_CTRL_REG1,
- 119:main.c        ****                                         &ctrl_reg1);
- 120:main.c        ****     
- 121:main.c        ****     if (error == NO_ERROR)
- 227              		.loc 1 121 0
+ 119:main.c        ****                                         LIS3DH_CTRL_REG1,
+ 120:main.c        ****                                         &ctrl_reg1);
+ 121:main.c        ****     
+ 122:main.c        ****     if (error == NO_ERROR)
+ 227              		.loc 1 122 0
  228 00fe 48B9     		cbnz	r0, .L13
- 122:main.c        ****     {
- 123:main.c        ****         sprintf(message, "CONTROL REGISTER 1 after overwrite operation: 0x%02X\r\n", ctrl_reg1);
- 229              		.loc 1 123 0
+ 123:main.c        ****     {
+ 124:main.c        ****         sprintf(message, "CONTROL REGISTER 1 after overwrite operation: 0x%02X\r\n", ctrl_reg1);
+ 229              		.loc 1 124 0
  230 0100 9DF82120 		ldrb	r2, [sp, #33]	@ zero_extendqisi2
  231 0104 7E49     		ldr	r1, .L25+48
  232 0106 09A8     		add	r0, sp, #36
  233              	.LVL40:
  234 0108 FFF7FEFF 		bl	sprintf
  235              	.LVL41:
- 124:main.c        ****         UART_Debug_PutString(message); 
- 236              		.loc 1 124 0
+ 125:main.c        ****         UART_Debug_PutString(message); 
+ 236              		.loc 1 125 0
  237 010c 09A8     		add	r0, sp, #36
  238 010e FFF7FEFF 		bl	UART_Debug_PutString
  239              	.LVL42:
  240 0112 02E0     		b	.L14
  241              	.LVL43:
  242              	.L13:
- 125:main.c        ****     }
- 126:main.c        ****     else
- 127:main.c        ****     {
- 128:main.c        ****         UART_Debug_PutString("Error occurred during I2C comm to read control register 1\r\n");   
- 243              		.loc 1 128 0
+ 126:main.c        ****     }
+ 127:main.c        ****     else
+ 128:main.c        ****     {
+ 129:main.c        ****         UART_Debug_PutString("Error occurred during I2C comm to read control register 1\r\n");   
+ 243              		.loc 1 129 0
  244 0114 7648     		ldr	r0, .L25+32
  245              	.LVL44:
  246 0116 FFF7FEFF 		bl	UART_Debug_PutString
  247              	.LVL45:
  248              	.L14:
- 129:main.c        ****     }
- 130:main.c        ****     
- 131:main.c        ****      /******************************************/
- 132:main.c        ****      /* Read Control Register 4 */
- 133:main.c        ****      /******************************************/
- 134:main.c        **** 
- 135:main.c        ****     
+ 130:main.c        ****     }
+ 131:main.c        ****     
+ 132:main.c        ****      /******************************************/
+ 133:main.c        ****      /* Read Control Register 4 */
+ 134:main.c        ****      /******************************************/
+ 135:main.c        **** 
  136:main.c        ****     
- 137:main.c        ****     uint8_t ctrl_reg4;
- 138:main.c        **** 
- 139:main.c        ****     error = I2C_Peripheral_ReadRegister(LIS3DH_DEVICE_ADDRESS,
- 249              		.loc 1 139 0
+ 137:main.c        ****     
+ 138:main.c        ****     uint8_t ctrl_reg4;
+ 139:main.c        **** 
+ 140:main.c        ****     error = I2C_Peripheral_ReadRegister(LIS3DH_DEVICE_ADDRESS,
+ 249              		.loc 1 140 0
  250 011a 08AA     		add	r2, sp, #32
  251 011c 2321     		movs	r1, #35
  252 011e 1820     		movs	r0, #24
  253 0120 FFF7FEFF 		bl	I2C_Peripheral_ReadRegister
  254              	.LVL46:
- 140:main.c        ****                                         LIS3DH_CTRL_REG4,
- 141:main.c        ****                                         &ctrl_reg4);
- 142:main.c        ****     
- 143:main.c        ****     if (error == NO_ERROR)
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccw0jshO.s 			page 8
+ 141:main.c        ****                                         LIS3DH_CTRL_REG4,
+ 142:main.c        ****                                         &ctrl_reg4);
+ 143:main.c        ****     
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccWCGEMk.s 			page 8
 
 
- 255              		.loc 1 143 0
+ 144:main.c        ****     if (error == NO_ERROR)
+ 255              		.loc 1 144 0
  256 0124 48B9     		cbnz	r0, .L15
- 144:main.c        ****     {
- 145:main.c        ****         sprintf(message, "CONTROL REGISTER 4: 0x%02X\r\n", ctrl_reg4);
- 257              		.loc 1 145 0
+ 145:main.c        ****     {
+ 146:main.c        ****         sprintf(message, "CONTROL REGISTER 4: 0x%02X\r\n", ctrl_reg4);
+ 257              		.loc 1 146 0
  258 0126 9DF82020 		ldrb	r2, [sp, #32]	@ zero_extendqisi2
  259 012a 7649     		ldr	r1, .L25+52
  260 012c 09A8     		add	r0, sp, #36
  261              	.LVL47:
  262 012e FFF7FEFF 		bl	sprintf
  263              	.LVL48:
- 146:main.c        ****         UART_Debug_PutString(message); 
- 264              		.loc 1 146 0
+ 147:main.c        ****         UART_Debug_PutString(message); 
+ 264              		.loc 1 147 0
  265 0132 09A8     		add	r0, sp, #36
  266 0134 FFF7FEFF 		bl	UART_Debug_PutString
  267              	.LVL49:
  268 0138 02E0     		b	.L16
  269              	.LVL50:
  270              	.L15:
- 147:main.c        ****     }
- 148:main.c        ****     else
- 149:main.c        ****     {
- 150:main.c        ****         UART_Debug_PutString("Error occurred during I2C comm to read control register4\r\n");   
- 271              		.loc 1 150 0
+ 148:main.c        ****     }
+ 149:main.c        ****     else
+ 150:main.c        ****     {
+ 151:main.c        ****         UART_Debug_PutString("Error occurred during I2C comm to read control register4\r\n");   
+ 271              		.loc 1 151 0
  272 013a 7348     		ldr	r0, .L25+56
  273              	.LVL51:
  274 013c FFF7FEFF 		bl	UART_Debug_PutString
  275              	.LVL52:
  276              	.L16:
- 151:main.c        ****     }
- 152:main.c        ****     
+ 152:main.c        ****     }
  153:main.c        ****     
- 154:main.c        ****     ctrl_reg4 = LIS3DH_CTRL_REG4_BDU_ACTIVE; 
- 277              		.loc 1 154 0
+ 154:main.c        ****     
+ 155:main.c        ****     ctrl_reg4 = LIS3DH_CTRL_REG4_BDU_ACTIVE; 
+ 277              		.loc 1 155 0
  278 0140 9822     		movs	r2, #152
  279 0142 16AC     		add	r4, sp, #88
  280              	.LVL53:
  281 0144 04F8382D 		strb	r2, [r4, #-56]!
- 155:main.c        ****     
- 156:main.c        ****     error = I2C_Peripheral_WriteRegister(LIS3DH_DEVICE_ADDRESS,
- 282              		.loc 1 156 0
+ 156:main.c        ****     
+ 157:main.c        ****     error = I2C_Peripheral_WriteRegister(LIS3DH_DEVICE_ADDRESS,
+ 282              		.loc 1 157 0
  283 0148 2321     		movs	r1, #35
  284 014a 1820     		movs	r0, #24
  285 014c FFF7FEFF 		bl	I2C_Peripheral_WriteRegister
  286              	.LVL54:
- 157:main.c        ****                                          LIS3DH_CTRL_REG4,
- 158:main.c        ****                                          ctrl_reg4);
- 159:main.c        ****     
- 160:main.c        ****     error = I2C_Peripheral_ReadRegister(LIS3DH_DEVICE_ADDRESS,
- 287              		.loc 1 160 0
+ 158:main.c        ****                                          LIS3DH_CTRL_REG4,
+ 159:main.c        ****                                          ctrl_reg4);
+ 160:main.c        ****     
+ 161:main.c        ****     error = I2C_Peripheral_ReadRegister(LIS3DH_DEVICE_ADDRESS,
+ 287              		.loc 1 161 0
  288 0150 2246     		mov	r2, r4
  289 0152 2321     		movs	r1, #35
  290 0154 1820     		movs	r0, #24
  291 0156 FFF7FEFF 		bl	I2C_Peripheral_ReadRegister
  292              	.LVL55:
- 161:main.c        ****                                         LIS3DH_CTRL_REG4,
- 162:main.c        ****                                         &ctrl_reg4);
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccw0jshO.s 			page 9
+ 162:main.c        ****                                         LIS3DH_CTRL_REG4,
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccWCGEMk.s 			page 9
 
 
- 163:main.c        ****     
+ 163:main.c        ****                                         &ctrl_reg4);
  164:main.c        ****     
- 165:main.c        ****     if (error == NO_ERROR)
- 293              		.loc 1 165 0
+ 165:main.c        ****     
+ 166:main.c        ****     if (error == NO_ERROR)
+ 293              		.loc 1 166 0
  294 015a 48B9     		cbnz	r0, .L17
- 166:main.c        ****     {
- 167:main.c        ****         sprintf(message, "CONTROL REGISTER 4 after being updated: 0x%02X\r\n", ctrl_reg4);
- 295              		.loc 1 167 0
+ 167:main.c        ****     {
+ 168:main.c        ****         sprintf(message, "CONTROL REGISTER 4 after being updated: 0x%02X\r\n", ctrl_reg4);
+ 295              		.loc 1 168 0
  296 015c 9DF82020 		ldrb	r2, [sp, #32]	@ zero_extendqisi2
  297 0160 6A49     		ldr	r1, .L25+60
  298 0162 09A8     		add	r0, sp, #36
  299              	.LVL56:
  300 0164 FFF7FEFF 		bl	sprintf
  301              	.LVL57:
- 168:main.c        ****         UART_Debug_PutString(message); 
- 302              		.loc 1 168 0
+ 169:main.c        ****         UART_Debug_PutString(message); 
+ 302              		.loc 1 169 0
  303 0168 09A8     		add	r0, sp, #36
  304 016a FFF7FEFF 		bl	UART_Debug_PutString
  305              	.LVL58:
  306 016e 02E0     		b	.L18
  307              	.LVL59:
  308              	.L17:
- 169:main.c        ****     }
- 170:main.c        ****     else
- 171:main.c        ****     {
- 172:main.c        ****         UART_Debug_PutString("Error occurred during I2C comm to read control register4\r\n");   
- 309              		.loc 1 172 0
+ 170:main.c        ****     }
+ 171:main.c        ****     else
+ 172:main.c        ****     {
+ 173:main.c        ****         UART_Debug_PutString("Error occurred during I2C comm to read control register4\r\n");   
+ 309              		.loc 1 173 0
  310 0170 6548     		ldr	r0, .L25+56
  311              	.LVL60:
  312 0172 FFF7FEFF 		bl	UART_Debug_PutString
  313              	.LVL61:
  314              	.L18:
- 173:main.c        ****     }
- 174:main.c        ****     
- 175:main.c        ****     //variables to save the registers output value in digit
- 176:main.c        ****     int16_t Out_X; 
- 177:main.c        ****     int16_t Out_Y;
- 178:main.c        ****     int16_t Out_Z;
- 179:main.c        ****     
- 180:main.c        ****     //variables to save the output value in mg
- 181:main.c        ****     int16_t Out_X_mg; 
- 182:main.c        ****     int16_t Out_Y_mg;
- 183:main.c        ****     int16_t Out_Z_mg;
- 184:main.c        ****     
- 185:main.c        ****     //float variables to save the output value in m/s^2
- 186:main.c        ****     float32 Out_X_ms2;
- 187:main.c        ****     float32 Out_Y_ms2;
- 188:main.c        ****     float32 Out_Z_ms2;
- 189:main.c        ****     
- 190:main.c        ****     //int  variables for the casting of the float values, the obtained results are acceleration
- 191:main.c        ****     //values in mm/s^2
- 192:main.c        ****     int32_t Out_X_mms2;
- 193:main.c        ****     int32_t Out_Y_mms2;
- 194:main.c        ****     int32_t Out_Z_mms2;
- 195:main.c        ****     
- 196:main.c        ****     uint8_t header = 0xA0;
- 197:main.c        ****     uint8_t footer = 0xC0;
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccw0jshO.s 			page 10
+ 174:main.c        ****     }
+ 175:main.c        ****     
+ 176:main.c        ****     //variables to save the registers output value in digit
+ 177:main.c        ****     int16_t Out_X; 
+ 178:main.c        ****     int16_t Out_Y;
+ 179:main.c        ****     int16_t Out_Z;
+ 180:main.c        ****     
+ 181:main.c        ****     //variables to save the output value in mg
+ 182:main.c        ****     int16_t Out_X_mg; 
+ 183:main.c        ****     int16_t Out_Y_mg;
+ 184:main.c        ****     int16_t Out_Z_mg;
+ 185:main.c        ****     
+ 186:main.c        ****     //float variables to save the output value in m/s^2
+ 187:main.c        ****     float32 Out_X_ms2;
+ 188:main.c        ****     float32 Out_Y_ms2;
+ 189:main.c        ****     float32 Out_Z_ms2;
+ 190:main.c        ****     
+ 191:main.c        ****     //int  variables for the casting of the float values, the obtained results are acceleration
+ 192:main.c        ****     //values in mm/s^2
+ 193:main.c        ****     int32_t Out_X_mms2;
+ 194:main.c        ****     int32_t Out_Y_mms2;
+ 195:main.c        ****     int32_t Out_Z_mms2;
+ 196:main.c        ****     
+ 197:main.c        ****     uint8_t header = 0xA0;
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccWCGEMk.s 			page 10
 
 
- 198:main.c        ****     uint8_t OutArray[14]; 
- 199:main.c        ****     uint8_t X_Data[2];
- 200:main.c        ****     uint8_t Y_Data[2];
- 201:main.c        ****     uint8_t Z_Data[2];
- 202:main.c        ****     uint8_t status_reg;
- 203:main.c        ****     
- 204:main.c        ****     OutArray[0] = header;
- 315              		.loc 1 204 0
+ 198:main.c        ****     uint8_t footer = 0xC0;
+ 199:main.c        ****     uint8_t OutArray[14]; 
+ 200:main.c        ****     uint8_t X_Data[2];
+ 201:main.c        ****     uint8_t Y_Data[2];
+ 202:main.c        ****     uint8_t Z_Data[2];
+ 203:main.c        ****     uint8_t status_reg;
+ 204:main.c        ****     
+ 205:main.c        ****     OutArray[0] = header;
+ 315              		.loc 1 205 0
  316 0176 A023     		movs	r3, #160
  317 0178 8DF81030 		strb	r3, [sp, #16]
- 205:main.c        ****     OutArray[13] = footer;
- 318              		.loc 1 205 0
+ 206:main.c        ****     OutArray[13] = footer;
+ 318              		.loc 1 206 0
  319 017c C023     		movs	r3, #192
  320 017e 8DF81D30 		strb	r3, [sp, #29]
  321              	.L21:
- 206:main.c        ****     
- 207:main.c        ****     for(;;)
- 208:main.c        ****     {error= I2C_Peripheral_ReadRegister(LIS3DH_DEVICE_ADDRESS, //read the status register
- 322              		.loc 1 208 0
+ 207:main.c        ****     
+ 208:main.c        ****     for(;;)
+ 209:main.c        ****     {error= I2C_Peripheral_ReadRegister(LIS3DH_DEVICE_ADDRESS, //read the status register
+ 322              		.loc 1 209 0
  323 0182 0DF10302 		add	r2, sp, #3
  324 0186 2721     		movs	r1, #39
  325 0188 1820     		movs	r0, #24
  326 018a FFF7FEFF 		bl	I2C_Peripheral_ReadRegister
  327              	.LVL62:
- 209:main.c        ****                                         LIS3DH_STATUS_REG,
- 210:main.c        ****                                         &status_reg);
- 211:main.c        ****         //CyDelay(5); //output data at 100Hz = data available every 10ms, so the delay must be lowe
- 212:main.c        ****         while(!(status_reg & 0x08))//check if new data is available on all axes
- 328              		.loc 1 212 0
+ 210:main.c        ****                                         LIS3DH_STATUS_REG,
+ 211:main.c        ****                                         &status_reg);
+ 212:main.c        ****         //CyDelay(5); //output data at 100Hz = data available every 10ms, so the delay must be lowe
+ 213:main.c        ****         while(!(status_reg & 0x08))//check if new data is available on all axes
+ 328              		.loc 1 213 0
  329 018e 05E0     		b	.L19
  330              	.L20:
- 213:main.c        ****         
- 214:main.c        ****         {error= I2C_Peripheral_ReadRegister(LIS3DH_DEVICE_ADDRESS, //read the status register until
- 331              		.loc 1 214 0
+ 214:main.c        ****         
+ 215:main.c        ****         {error= I2C_Peripheral_ReadRegister(LIS3DH_DEVICE_ADDRESS, //read the status register until
+ 331              		.loc 1 215 0
  332 0190 0DF10302 		add	r2, sp, #3
  333 0194 2721     		movs	r1, #39
  334 0196 1820     		movs	r0, #24
@@ -582,85 +583,85 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccw0jshO.s 			page 1
  336 0198 FFF7FEFF 		bl	I2C_Peripheral_ReadRegister
  337              	.LVL64:
  338              	.L19:
- 212:main.c        ****         
- 339              		.loc 1 212 0
+ 213:main.c        ****         
+ 339              		.loc 1 213 0
  340 019c 9DF80330 		ldrb	r3, [sp, #3]	@ zero_extendqisi2
  341 01a0 13F0080F 		tst	r3, #8
  342 01a4 F4D0     		beq	.L20
- 215:main.c        ****                                             LIS3DH_STATUS_REG,
- 216:main.c        ****                                            &status_reg);}
- 217:main.c        ****         if (error==NO_ERROR)
- 343              		.loc 1 217 0
+ 216:main.c        ****                                             LIS3DH_STATUS_REG,
+ 217:main.c        ****                                            &status_reg);}
+ 218:main.c        ****         if (error==NO_ERROR)
+ 343              		.loc 1 218 0
  344 01a6 0028     		cmp	r0, #0
  345 01a8 EBD1     		bne	.L21
- 218:main.c        ****          {
- 219:main.c        ****             error = I2C_Peripheral_ReadRegisterMulti(LIS3DH_DEVICE_ADDRESS,
- 346              		.loc 1 219 0
+ 219:main.c        ****          {
+ 220:main.c        ****             error = I2C_Peripheral_ReadRegisterMulti(LIS3DH_DEVICE_ADDRESS,
+ 346              		.loc 1 220 0
  347 01aa 03AB     		add	r3, sp, #12
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccWCGEMk.s 			page 11
+
+
  348 01ac 0222     		movs	r2, #2
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccw0jshO.s 			page 11
-
-
  349 01ae 2821     		movs	r1, #40
  350 01b0 1820     		movs	r0, #24
  351              	.LVL65:
  352 01b2 FFF7FEFF 		bl	I2C_Peripheral_ReadRegisterMulti
  353              	.LVL66:
- 220:main.c        ****                                             LIS3DH_OUT_X_L,
- 221:main.c        ****                                             2,
- 222:main.c        ****                                             &X_Data[0]);
- 223:main.c        ****             
- 224:main.c        ****             error = I2C_Peripheral_ReadRegisterMulti(LIS3DH_DEVICE_ADDRESS,
- 354              		.loc 1 224 0
+ 221:main.c        ****                                             LIS3DH_OUT_X_L,
+ 222:main.c        ****                                             2,
+ 223:main.c        ****                                             &X_Data[0]);
+ 224:main.c        ****             
+ 225:main.c        ****             error = I2C_Peripheral_ReadRegisterMulti(LIS3DH_DEVICE_ADDRESS,
+ 354              		.loc 1 225 0
  355 01b6 02AB     		add	r3, sp, #8
  356 01b8 0222     		movs	r2, #2
  357 01ba 2A21     		movs	r1, #42
  358 01bc 1820     		movs	r0, #24
  359 01be FFF7FEFF 		bl	I2C_Peripheral_ReadRegisterMulti
  360              	.LVL67:
- 225:main.c        ****                                             LIS3DH_OUT_Y_L,
- 226:main.c        ****                                             2,
- 227:main.c        ****                                             &Y_Data[0]);
- 228:main.c        ****             
- 229:main.c        ****             error = I2C_Peripheral_ReadRegisterMulti(LIS3DH_DEVICE_ADDRESS,
- 361              		.loc 1 229 0
+ 226:main.c        ****                                             LIS3DH_OUT_Y_L,
+ 227:main.c        ****                                             2,
+ 228:main.c        ****                                             &Y_Data[0]);
+ 229:main.c        ****             
+ 230:main.c        ****             error = I2C_Peripheral_ReadRegisterMulti(LIS3DH_DEVICE_ADDRESS,
+ 361              		.loc 1 230 0
  362 01c2 01AB     		add	r3, sp, #4
  363 01c4 0222     		movs	r2, #2
  364 01c6 2C21     		movs	r1, #44
  365 01c8 1820     		movs	r0, #24
  366 01ca FFF7FEFF 		bl	I2C_Peripheral_ReadRegisterMulti
  367              	.LVL68:
- 230:main.c        ****                                             LIS3DH_OUT_Z_L,
- 231:main.c        ****                                             2,
- 232:main.c        ****                                             &Z_Data[0]);
- 233:main.c        ****                 
- 234:main.c        ****              
- 235:main.c        ****             /*if (error == NO_ERROR)
- 236:main.c        ****             {sprintf(message, "OUT_Z_L: 0x%02X\r\n", Z_Data[0]);
- 237:main.c        ****              UART_Debug_PutString(message); 
- 238:main.c        ****              sprintf(message, "OUT_Z_H: 0x%02X\r\n", Z_Data[1]);
- 239:main.c        ****              UART_Debug_PutString(message); 
- 240:main.c        ****             }*/
- 241:main.c        ****             if(error == NO_ERROR)
- 368              		.loc 1 241 0
+ 231:main.c        ****                                             LIS3DH_OUT_Z_L,
+ 232:main.c        ****                                             2,
+ 233:main.c        ****                                             &Z_Data[0]);
+ 234:main.c        ****                 
+ 235:main.c        ****              
+ 236:main.c        ****             /*if (error == NO_ERROR)
+ 237:main.c        ****             {sprintf(message, "OUT_Z_L: 0x%02X\r\n", Z_Data[0]);
+ 238:main.c        ****              UART_Debug_PutString(message); 
+ 239:main.c        ****              sprintf(message, "OUT_Z_H: 0x%02X\r\n", Z_Data[1]);
+ 240:main.c        ****              UART_Debug_PutString(message); 
+ 241:main.c        ****             }*/
+ 242:main.c        ****             if(error == NO_ERROR)
+ 368              		.loc 1 242 0
  369 01ce 0028     		cmp	r0, #0
  370 01d0 D7D1     		bne	.L21
- 242:main.c        ****               {
- 243:main.c        ****                Out_X = (int16)((X_Data[0] | (X_Data[1]<<8)))>>4;//out_x in digit (12bit)
- 371              		.loc 1 243 0
+ 243:main.c        ****               {
+ 244:main.c        ****                Out_X = (int16)((X_Data[0] | (X_Data[1]<<8)))>>4;//out_x in digit (12bit)
+ 371              		.loc 1 244 0
  372 01d2 9DF80C30 		ldrb	r3, [sp, #12]	@ zero_extendqisi2
  373 01d6 9DF80D00 		ldrb	r0, [sp, #13]	@ zero_extendqisi2
  374              	.LVL69:
  375 01da 43EA0020 		orr	r0, r3, r0, lsl #8
  376 01de 40F30B10 		sbfx	r0, r0, #4, #12
  377              	.LVL70:
- 244:main.c        ****                Out_X_mg = Out_X*2;//out_x in mg, the sensitivity is 2mg/digit in this operation mod
- 245:main.c        ****                Out_X_ms2 = Out_X_mg*9.81/1000;//out_x in m/s^2 (float variable)
- 378              		.loc 1 245 0
+ 245:main.c        ****                Out_X_mg = Out_X*2;//out_x in mg, the sensitivity is 2mg/digit in this operation mod
+ 246:main.c        ****                Out_X_ms2 = Out_X_mg*9.81/1000;//out_x in m/s^2 (float variable)
+ 378              		.loc 1 246 0
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccWCGEMk.s 			page 12
+
+
  379 01e2 4000     		lsls	r0, r0, #1
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccw0jshO.s 			page 12
-
-
  380              	.LVL71:
  381 01e4 FFF7FEFF 		bl	__aeabi_i2d
  382              	.LVL72:
@@ -674,53 +675,53 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccw0jshO.s 			page 1
  390              	.LVL74:
  391 01fa FFF7FEFF 		bl	__aeabi_d2f
  392              	.LVL75:
- 246:main.c        **** 
- 247:main.c        ****      //cast of the float variable to int that mantains the first 3 decimals. now the value is in mm
- 248:main.c        ****                Out_X_mms2 = (int32)((Out_X_ms2*1000));//int32 needed since this value can exceed th
- 393              		.loc 1 248 0
+ 247:main.c        **** 
+ 248:main.c        ****      //cast of the float variable to int that mantains the first 3 decimals. now the value is in mm
+ 249:main.c        ****                Out_X_mms2 = (int32)((Out_X_ms2*1000));//int32 needed since this value can exceed th
+ 393              		.loc 1 249 0
  394 01fe 4549     		ldr	r1, .L25+68
  395 0200 FFF7FEFF 		bl	__aeabi_fmul
  396              	.LVL76:
  397 0204 FFF7FEFF 		bl	__aeabi_f2iz
  398              	.LVL77:
- 249:main.c        ****                OutArray[1] = (uint8_t)(Out_X_mms2 & 0xFF);
- 399              		.loc 1 249 0
+ 250:main.c        ****                OutArray[1] = (uint8_t)(Out_X_mms2 & 0xFF);
+ 399              		.loc 1 250 0
  400 0208 C4B2     		uxtb	r4, r0
  401 020a 8DF81140 		strb	r4, [sp, #17]
- 250:main.c        ****                OutArray[2] = (uint8_t)(Out_X_mms2 >> 8);
- 402              		.loc 1 250 0
+ 251:main.c        ****                OutArray[2] = (uint8_t)(Out_X_mms2 >> 8);
+ 402              		.loc 1 251 0
  403 020e C0F30723 		ubfx	r3, r0, #8, #8
  404 0212 8DF81230 		strb	r3, [sp, #18]
- 251:main.c        ****                OutArray[3] = (uint8_t)(Out_X_mms2 >> 16);
- 405              		.loc 1 251 0
+ 252:main.c        ****                OutArray[3] = (uint8_t)(Out_X_mms2 >> 16);
+ 405              		.loc 1 252 0
  406 0216 C0F30743 		ubfx	r3, r0, #16, #8
  407 021a 8DF81330 		strb	r3, [sp, #19]
- 252:main.c        ****                OutArray[4] = (uint8_t)(Out_X_mms2 >> 24);
- 408              		.loc 1 252 0
+ 253:main.c        ****                OutArray[4] = (uint8_t)(Out_X_mms2 >> 24);
+ 408              		.loc 1 253 0
  409 021e 000E     		lsrs	r0, r0, #24
  410              	.LVL78:
  411 0220 8DF81400 		strb	r0, [sp, #20]
- 253:main.c        ****              
- 254:main.c        ****                
- 255:main.c        ****                Out_Y = (int16)((Y_Data[0] | (Y_Data[1]<<8)))>>4;//out_y in digit (12bit)
- 412              		.loc 1 255 0
+ 254:main.c        ****              
+ 255:main.c        ****                
+ 256:main.c        ****                Out_Y = (int16)((Y_Data[0] | (Y_Data[1]<<8)))>>4;//out_y in digit (12bit)
+ 412              		.loc 1 256 0
  413 0224 9DF80830 		ldrb	r3, [sp, #8]	@ zero_extendqisi2
  414 0228 9DF80900 		ldrb	r0, [sp, #9]	@ zero_extendqisi2
  415 022c 43EA0020 		orr	r0, r3, r0, lsl #8
  416 0230 40F30B10 		sbfx	r0, r0, #4, #12
  417              	.LVL79:
- 256:main.c        ****                Out_Y_mg = Out_Y*2;//out_y in mg (13 bits needed)
- 257:main.c        ****                Out_Y_ms2 = Out_Y_mg*9.81/1000;
- 418              		.loc 1 257 0
+ 257:main.c        ****                Out_Y_mg = Out_Y*2;//out_y in mg (13 bits needed)
+ 258:main.c        ****                Out_Y_ms2 = Out_Y_mg*9.81/1000;
+ 418              		.loc 1 258 0
  419 0234 4000     		lsls	r0, r0, #1
  420              	.LVL80:
  421 0236 FFF7FEFF 		bl	__aeabi_i2d
  422              	.LVL81:
  423 023a 25A3     		adr	r3, .L25
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccWCGEMk.s 			page 13
+
+
  424 023c D3E90023 		ldrd	r2, [r3]
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccw0jshO.s 			page 13
-
-
  425 0240 FFF7FEFF 		bl	__aeabi_dmul
  426              	.LVL82:
  427 0244 0022     		movs	r2, #0
@@ -729,40 +730,40 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccw0jshO.s 			page 1
  430              	.LVL83:
  431 024c FFF7FEFF 		bl	__aeabi_d2f
  432              	.LVL84:
- 258:main.c        ****                Out_Y_mms2 = (int32)((Out_Y_ms2*1000));
- 433              		.loc 1 258 0
+ 259:main.c        ****                Out_Y_mms2 = (int32)((Out_Y_ms2*1000));
+ 433              		.loc 1 259 0
  434 0250 3049     		ldr	r1, .L25+68
  435 0252 FFF7FEFF 		bl	__aeabi_fmul
  436              	.LVL85:
  437 0256 FFF7FEFF 		bl	__aeabi_f2iz
  438              	.LVL86:
- 259:main.c        ****                OutArray[5] = (uint8_t)(Out_Y_mms2 & 0xFF);
- 439              		.loc 1 259 0
+ 260:main.c        ****                OutArray[5] = (uint8_t)(Out_Y_mms2 & 0xFF);
+ 439              		.loc 1 260 0
  440 025a 8DF81500 		strb	r0, [sp, #21]
- 260:main.c        ****                OutArray[6] = (uint8_t)(Out_Y_mms2 >> 8);
- 441              		.loc 1 260 0
+ 261:main.c        ****                OutArray[6] = (uint8_t)(Out_Y_mms2 >> 8);
+ 441              		.loc 1 261 0
  442 025e C0F30723 		ubfx	r3, r0, #8, #8
  443 0262 8DF81630 		strb	r3, [sp, #22]
- 261:main.c        ****                OutArray[7] = (uint8_t)(Out_Y_mms2 >> 16);
- 444              		.loc 1 261 0
+ 262:main.c        ****                OutArray[7] = (uint8_t)(Out_Y_mms2 >> 16);
+ 444              		.loc 1 262 0
  445 0266 C0F30743 		ubfx	r3, r0, #16, #8
  446 026a 8DF81730 		strb	r3, [sp, #23]
- 262:main.c        ****                OutArray[8] = (uint8_t)(Out_Y_mms2 >> 24);
- 447              		.loc 1 262 0
+ 263:main.c        ****                OutArray[8] = (uint8_t)(Out_Y_mms2 >> 24);
+ 447              		.loc 1 263 0
  448 026e 000E     		lsrs	r0, r0, #24
  449              	.LVL87:
  450 0270 8DF81800 		strb	r0, [sp, #24]
- 263:main.c        ****             
- 264:main.c        ****                Out_Z = (int16)((Z_Data[0] | (Z_Data[1]<<8)))>>4;//out_z in digit (12bit)
- 451              		.loc 1 264 0
+ 264:main.c        ****             
+ 265:main.c        ****                Out_Z = (int16)((Z_Data[0] | (Z_Data[1]<<8)))>>4;//out_z in digit (12bit)
+ 451              		.loc 1 265 0
  452 0274 9DF80430 		ldrb	r3, [sp, #4]	@ zero_extendqisi2
  453 0278 9DF80500 		ldrb	r0, [sp, #5]	@ zero_extendqisi2
  454 027c 43EA0020 		orr	r0, r3, r0, lsl #8
  455 0280 40F30B10 		sbfx	r0, r0, #4, #12
  456              	.LVL88:
- 265:main.c        ****                Out_Z_mg= Out_Z*2;//out_z in mg (13 bits needed)
- 266:main.c        ****                Out_Z_ms2=Out_Z_mg*9.81/1000;
- 457              		.loc 1 266 0
+ 266:main.c        ****                Out_Z_mg= Out_Z*2;//out_z in mg (13 bits needed)
+ 267:main.c        ****                Out_Z_ms2=Out_Z_mg*9.81/1000;
+ 457              		.loc 1 267 0
  458 0284 4000     		lsls	r0, r0, #1
  459              	.LVL89:
  460 0286 FFF7FEFF 		bl	__aeabi_i2d
@@ -777,36 +778,36 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccw0jshO.s 			page 1
  469              	.LVL92:
  470 029c FFF7FEFF 		bl	__aeabi_d2f
  471              	.LVL93:
- 267:main.c        ****                Out_Z_mms2= (int32)((Out_Z_ms2*1000));
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccw0jshO.s 			page 14
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccWCGEMk.s 			page 14
 
 
- 472              		.loc 1 267 0
+ 268:main.c        ****                Out_Z_mms2= (int32)((Out_Z_ms2*1000));
+ 472              		.loc 1 268 0
  473 02a0 1C49     		ldr	r1, .L25+68
  474 02a2 FFF7FEFF 		bl	__aeabi_fmul
  475              	.LVL94:
  476 02a6 FFF7FEFF 		bl	__aeabi_f2iz
  477              	.LVL95:
- 268:main.c        ****                OutArray[9] = (uint8_t)(Out_X_mms2 & 0xFF);
- 478              		.loc 1 268 0
+ 269:main.c        ****                OutArray[9] = (uint8_t)(Out_X_mms2 & 0xFF);
+ 478              		.loc 1 269 0
  479 02aa 8DF81940 		strb	r4, [sp, #25]
- 269:main.c        ****                OutArray[10] = (uint8_t)(Out_Z_mms2>> 8);
- 480              		.loc 1 269 0
+ 270:main.c        ****                OutArray[10] = (uint8_t)(Out_Z_mms2>> 8);
+ 480              		.loc 1 270 0
  481 02ae C0F30723 		ubfx	r3, r0, #8, #8
  482 02b2 8DF81A30 		strb	r3, [sp, #26]
- 270:main.c        ****                OutArray[11] = (uint8_t)(Out_Z_mms2>> 16);
- 483              		.loc 1 270 0
+ 271:main.c        ****                OutArray[11] = (uint8_t)(Out_Z_mms2>> 16);
+ 483              		.loc 1 271 0
  484 02b6 C0F30743 		ubfx	r3, r0, #16, #8
  485 02ba 8DF81B30 		strb	r3, [sp, #27]
- 271:main.c        ****                OutArray[12] = (uint8_t) (Out_Z_mms2 >> 24);
- 486              		.loc 1 271 0
+ 272:main.c        ****                OutArray[12] = (uint8_t) (Out_Z_mms2 >> 24);
+ 486              		.loc 1 272 0
  487 02be 000E     		lsrs	r0, r0, #24
  488              	.LVL96:
  489 02c0 8DF81C00 		strb	r0, [sp, #28]
- 272:main.c        ****                //sprintf(message, "OUT_Z_mms2: %d\r\n OUT_Z_mg: %d\r\n" ,Out_z_mms2, Out_Z_mg);
- 273:main.c        ****                 //UART_Debug_PutString(message);
- 274:main.c        ****                UART_Debug_PutArray(OutArray, 14);
- 490              		.loc 1 274 0
+ 273:main.c        ****                //sprintf(message, "OUT_Z_mms2: %d\r\n OUT_Z_mg: %d\r\n" ,Out_z_mms2, Out_Z_mg);
+ 274:main.c        ****                 //UART_Debug_PutString(message);
+ 275:main.c        ****                UART_Debug_PutArray(OutArray, 14);
+ 490              		.loc 1 275 0
  491 02c4 0E21     		movs	r1, #14
  492 02c6 04A8     		add	r0, sp, #16
  493 02c8 FFF7FEFF 		bl	UART_Debug_PutArray
@@ -837,10 +838,10 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccw0jshO.s 			page 1
  518              	.LFE64:
  519              		.size	main, .-main
  520              		.section	.rodata.str1.4,"aMS",%progbits,1
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccWCGEMk.s 			page 15
+
+
  521              		.align	2
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccw0jshO.s 			page 15
-
-
  522              	.LC0:
  523 0000 44657669 		.ascii	"Device 0x%02X is connected\015\012\000"
  523      63652030 
@@ -897,10 +898,10 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccw0jshO.s 			page 1
  544 0120 0D0A5772 		.ascii	"\015\012Writing new values..\015\012\000"
  544      6974696E 
  544      67206E65 
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccWCGEMk.s 			page 16
+
+
  544      77207661 
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccw0jshO.s 			page 16
-
-
  544      6C756573 
  545 0139 000000   		.space	3
  546              	.LC8:
@@ -957,10 +958,10 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccw0jshO.s 			page 1
  571              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.3\\psoc creator\\import\\gnu\\arm\\5.4.
  572              		.file 4 "Generated_Source\\PSoC5/cytypes.h"
  573              		.file 5 "ErrorCodes.h"
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccWCGEMk.s 			page 17
+
+
  574              		.file 6 "I2C_Interface.h"
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccw0jshO.s 			page 17
-
-
  575              		.file 7 "c:\\program files (x86)\\cypress\\psoc creator\\4.3\\psoc creator\\import\\gnu\\arm\\5.4.
  576              		.file 8 "Generated_Source\\PSoC5/UART_Debug.h"
  577              		.file 9 "Generated_Source\\PSoC5/CS_LIS3DH.h"
@@ -1017,10 +1018,10 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccw0jshO.s 			page 1
  628 0064 05       		.byte	0x5
  629 0065 47010000 		.4byte	.LASF7
  630 0069 02       		.uleb128 0x2
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccWCGEMk.s 			page 18
+
+
  631 006a 04       		.byte	0x4
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccw0jshO.s 			page 18
-
-
  632 006b 07       		.byte	0x7
  633 006c 0A020000 		.4byte	.LASF8
  634 0070 02       		.uleb128 0x2
@@ -1077,10 +1078,10 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccw0jshO.s 			page 1
  685 00d9 08       		.byte	0x8
  686 00da 04       		.byte	0x4
  687 00db C7020000 		.4byte	.LASF19
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccWCGEMk.s 			page 19
+
+
  688 00df 02       		.uleb128 0x2
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccw0jshO.s 			page 19
-
-
  689 00e0 01       		.byte	0x1
  690 00e1 08       		.byte	0x8
  691 00e2 44020000 		.4byte	.LASF20
@@ -1113,7 +1114,7 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccw0jshO.s 			page 1
  718 0118 08       		.uleb128 0x8
  719 0119 A8000000 		.4byte	.LASF66
  720 011d 01       		.byte	0x1
- 721 011e 07       		.byte	0x7
+ 721 011e 08       		.byte	0x8
  722 011f 7E000000 		.4byte	0x7e
  723 0123 00000000 		.4byte	.LFB64
  724 0127 18030000 		.4byte	.LFE64-.LFB64
@@ -1123,7 +1124,7 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccw0jshO.s 			page 1
  728 0131 09       		.uleb128 0x9
  729 0132 B9020000 		.4byte	.LASF26
  730 0136 01       		.byte	0x1
- 731 0137 13       		.byte	0x13
+ 731 0137 14       		.byte	0x14
  732 0138 17070000 		.4byte	0x717
  733 013c 02       		.uleb128 0x2
  734 013d 91       		.byte	0x91
@@ -1131,24 +1132,24 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccw0jshO.s 			page 1
  736 013f 09       		.uleb128 0x9
  737 0140 E0000000 		.4byte	.LASF27
  738 0144 01       		.byte	0x1
- 739 0145 26       		.byte	0x26
+ 739 0145 27       		.byte	0x27
  740 0146 8C000000 		.4byte	0x8c
  741 014a 02       		.uleb128 0x2
  742 014b 91       		.byte	0x91
  743 014c 43       		.sleb128 -61
  744 014d 0A       		.uleb128 0xa
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccWCGEMk.s 			page 20
+
+
  745 014e F7020000 		.4byte	.LASF28
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccw0jshO.s 			page 20
-
-
  746 0152 01       		.byte	0x1
- 747 0153 27       		.byte	0x27
+ 747 0153 28       		.byte	0x28
  748 0154 FF000000 		.4byte	0xff
  749 0158 00000000 		.4byte	.LLST0
  750 015c 09       		.uleb128 0x9
  751 015d ED000000 		.4byte	.LASF29
  752 0161 01       		.byte	0x1
- 753 0162 36       		.byte	0x36
+ 753 0162 37       		.byte	0x37
  754 0163 8C000000 		.4byte	0x8c
  755 0167 02       		.uleb128 0x2
  756 0168 91       		.byte	0x91
@@ -1156,7 +1157,7 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccw0jshO.s 			page 1
  758 016a 09       		.uleb128 0x9
  759 016b 00000000 		.4byte	.LASF30
  760 016f 01       		.byte	0x1
- 761 0170 48       		.byte	0x48
+ 761 0170 49       		.byte	0x49
  762 0171 8C000000 		.4byte	0x8c
  763 0175 02       		.uleb128 0x2
  764 0176 91       		.byte	0x91
@@ -1164,7 +1165,7 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccw0jshO.s 			page 1
  766 0178 09       		.uleb128 0x9
  767 0179 1F000000 		.4byte	.LASF31
  768 017d 01       		.byte	0x1
- 769 017e 89       		.byte	0x89
+ 769 017e 8A       		.byte	0x8a
  770 017f 8C000000 		.4byte	0x8c
  771 0183 02       		.uleb128 0x2
  772 0184 91       		.byte	0x91
@@ -1172,97 +1173,97 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccw0jshO.s 			page 1
  774 0186 0A       		.uleb128 0xa
  775 0187 35010000 		.4byte	.LASF32
  776 018b 01       		.byte	0x1
- 777 018c B0       		.byte	0xb0
+ 777 018c B1       		.byte	0xb1
  778 018d 97000000 		.4byte	0x97
  779 0191 C3000000 		.4byte	.LLST1
  780 0195 0A       		.uleb128 0xa
  781 0196 3B010000 		.4byte	.LASF33
  782 019a 01       		.byte	0x1
- 783 019b B1       		.byte	0xb1
+ 783 019b B2       		.byte	0xb2
  784 019c 97000000 		.4byte	0x97
  785 01a0 F4000000 		.4byte	.LLST2
  786 01a4 0A       		.uleb128 0xa
  787 01a5 41010000 		.4byte	.LASF34
  788 01a9 01       		.byte	0x1
- 789 01aa B2       		.byte	0xb2
+ 789 01aa B3       		.byte	0xb3
  790 01ab 97000000 		.4byte	0x97
  791 01af 25010000 		.4byte	.LLST3
  792 01b3 0A       		.uleb128 0xa
  793 01b4 49020000 		.4byte	.LASF35
  794 01b8 01       		.byte	0x1
- 795 01b9 B5       		.byte	0xb5
+ 795 01b9 B6       		.byte	0xb6
  796 01ba 97000000 		.4byte	0x97
  797 01be 56010000 		.4byte	.LLST4
  798 01c2 0A       		.uleb128 0xa
  799 01c3 FD020000 		.4byte	.LASF36
  800 01c7 01       		.byte	0x1
- 801 01c8 B6       		.byte	0xb6
+ 801 01c8 B7       		.byte	0xb7
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccWCGEMk.s 			page 21
+
+
  802 01c9 97000000 		.4byte	0x97
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccw0jshO.s 			page 21
-
-
  803 01cd 8D010000 		.4byte	.LLST5
  804 01d1 0A       		.uleb128 0xa
  805 01d2 AD000000 		.4byte	.LASF37
  806 01d6 01       		.byte	0x1
- 807 01d7 B7       		.byte	0xb7
+ 807 01d7 B8       		.byte	0xb8
  808 01d8 97000000 		.4byte	0x97
  809 01dc C4010000 		.4byte	.LLST6
  810 01e0 0A       		.uleb128 0xa
  811 01e1 C8000000 		.4byte	.LASF38
  812 01e5 01       		.byte	0x1
- 813 01e6 BA       		.byte	0xba
+ 813 01e6 BB       		.byte	0xbb
  814 01e7 C5000000 		.4byte	0xc5
  815 01eb FB010000 		.4byte	.LLST7
  816 01ef 0A       		.uleb128 0xa
  817 01f0 00020000 		.4byte	.LASF39
  818 01f4 01       		.byte	0x1
- 819 01f5 BB       		.byte	0xbb
+ 819 01f5 BC       		.byte	0xbc
  820 01f6 C5000000 		.4byte	0xc5
  821 01fa 0E020000 		.4byte	.LLST8
  822 01fe 0A       		.uleb128 0xa
  823 01ff 06030000 		.4byte	.LASF40
  824 0203 01       		.byte	0x1
- 825 0204 BC       		.byte	0xbc
+ 825 0204 BD       		.byte	0xbd
  826 0205 C5000000 		.4byte	0xc5
  827 0209 21020000 		.4byte	.LLST9
  828 020d 0A       		.uleb128 0xa
  829 020e 0B010000 		.4byte	.LASF41
  830 0212 01       		.byte	0x1
- 831 0213 C0       		.byte	0xc0
+ 831 0213 C1       		.byte	0xc1
  832 0214 A2000000 		.4byte	0xa2
  833 0218 34020000 		.4byte	.LLST10
  834 021c 0A       		.uleb128 0xa
  835 021d 1C010000 		.4byte	.LASF42
  836 0221 01       		.byte	0x1
- 837 0222 C1       		.byte	0xc1
+ 837 0222 C2       		.byte	0xc2
  838 0223 A2000000 		.4byte	0xa2
  839 0227 47020000 		.4byte	.LLST11
  840 022b 0A       		.uleb128 0xa
  841 022c 9D000000 		.4byte	.LASF43
  842 0230 01       		.byte	0x1
- 843 0231 C2       		.byte	0xc2
+ 843 0231 C3       		.byte	0xc3
  844 0232 A2000000 		.4byte	0xa2
  845 0236 5A020000 		.4byte	.LLST12
  846 023a 0B       		.uleb128 0xb
  847 023b C1000000 		.4byte	.LASF44
  848 023f 01       		.byte	0x1
- 849 0240 C4       		.byte	0xc4
+ 849 0240 C5       		.byte	0xc5
  850 0241 8C000000 		.4byte	0x8c
  851 0245 A07F     		.sleb128 -96
  852 0247 0B       		.uleb128 0xb
  853 0248 D5020000 		.4byte	.LASF45
  854 024c 01       		.byte	0x1
- 855 024d C5       		.byte	0xc5
+ 855 024d C6       		.byte	0xc6
  856 024e 8C000000 		.4byte	0x8c
  857 0252 40       		.sleb128 -64
  858 0253 09       		.uleb128 0x9
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccWCGEMk.s 			page 22
+
+
  859 0254 29000000 		.4byte	.LASF46
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccw0jshO.s 			page 22
-
-
  860 0258 01       		.byte	0x1
- 861 0259 C6       		.byte	0xc6
+ 861 0259 C7       		.byte	0xc7
  862 025a 27070000 		.4byte	0x727
  863 025e 03       		.uleb128 0x3
  864 025f 91       		.byte	0x91
@@ -1270,7 +1271,7 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccw0jshO.s 			page 1
  866 0262 09       		.uleb128 0x9
  867 0263 04010000 		.4byte	.LASF47
  868 0267 01       		.byte	0x1
- 869 0268 C7       		.byte	0xc7
+ 869 0268 C8       		.byte	0xc8
  870 0269 37070000 		.4byte	0x737
  871 026d 03       		.uleb128 0x3
  872 026e 91       		.byte	0x91
@@ -1278,7 +1279,7 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccw0jshO.s 			page 1
  874 0271 09       		.uleb128 0x9
  875 0272 CE020000 		.4byte	.LASF48
  876 0276 01       		.byte	0x1
- 877 0277 C8       		.byte	0xc8
+ 877 0277 C9       		.byte	0xc9
  878 0278 37070000 		.4byte	0x737
  879 027c 03       		.uleb128 0x3
  880 027d 91       		.byte	0x91
@@ -1286,7 +1287,7 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccw0jshO.s 			page 1
  882 0280 09       		.uleb128 0x9
  883 0281 FD000000 		.4byte	.LASF49
  884 0285 01       		.byte	0x1
- 885 0286 C9       		.byte	0xc9
+ 885 0286 CA       		.byte	0xca
  886 0287 37070000 		.4byte	0x737
  887 028b 03       		.uleb128 0x3
  888 028c 91       		.byte	0x91
@@ -1294,7 +1295,7 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccw0jshO.s 			page 1
  890 028f 09       		.uleb128 0x9
  891 0290 B6000000 		.4byte	.LASF50
  892 0294 01       		.byte	0x1
- 893 0295 CA       		.byte	0xca
+ 893 0295 CB       		.byte	0xcb
  894 0296 8C000000 		.4byte	0x8c
  895 029a 03       		.uleb128 0x3
  896 029b 91       		.byte	0x91
@@ -1306,7 +1307,7 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccw0jshO.s 			page 1
  902 02ab 0D       		.uleb128 0xd
  903 02ac 6900     		.ascii	"i\000"
  904 02ae 01       		.byte	0x1
- 905 02af 16       		.byte	0x16
+ 905 02af 17       		.byte	0x17
  906 02b0 7E000000 		.4byte	0x7e
  907 02b4 6D020000 		.4byte	.LLST13
  908 02b8 0E       		.uleb128 0xe
@@ -1317,10 +1318,10 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccw0jshO.s 			page 1
  913 02c6 01       		.uleb128 0x1
  914 02c7 50       		.byte	0x50
  915 02c8 02       		.uleb128 0x2
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccWCGEMk.s 			page 23
+
+
  916 02c9 74       		.byte	0x74
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccw0jshO.s 			page 23
-
-
  917 02ca 00       		.sleb128 0
  918 02cb 00       		.byte	0
  919 02cc 0E       		.uleb128 0xe
@@ -1377,10 +1378,10 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccw0jshO.s 			page 1
  970 0323 01       		.uleb128 0x1
  971 0324 30       		.byte	0x30
  972 0325 00       		.byte	0
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccWCGEMk.s 			page 24
+
+
  973 0326 11       		.uleb128 0x11
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccw0jshO.s 			page 24
-
-
  974 0327 16000000 		.4byte	.LVL2
  975 032b 8F070000 		.4byte	0x78f
  976 032f 11       		.uleb128 0x11
@@ -1437,10 +1438,10 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccw0jshO.s 			page 1
  1027 0386 0E       		.uleb128 0xe
  1028 0387 62000000 		.4byte	.LVL13
  1029 038b 6E070000 		.4byte	0x76e
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccWCGEMk.s 			page 25
+
+
  1030 038f 9A030000 		.4byte	0x39a
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccw0jshO.s 			page 25
-
-
  1031 0393 0F       		.uleb128 0xf
  1032 0394 01       		.uleb128 0x1
  1033 0395 50       		.byte	0x50
@@ -1497,10 +1498,10 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccw0jshO.s 			page 1
  1084 03e6 05       		.uleb128 0x5
  1085 03e7 03       		.byte	0x3
  1086 03e8 6C000000 		.4byte	.LC3
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccWCGEMk.s 			page 26
+
+
  1087 03ec 00       		.byte	0
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccw0jshO.s 			page 26
-
-
  1088 03ed 0E       		.uleb128 0xe
  1089 03ee 8A000000 		.4byte	.LVL20
  1090 03f2 6E070000 		.4byte	0x76e
@@ -1557,10 +1558,10 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccw0jshO.s 			page 1
  1141 0449 44       		.sleb128 -60
  1142 044a 0F       		.uleb128 0xf
  1143 044b 01       		.uleb128 0x1
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccWCGEMk.s 			page 27
+
+
  1144 044c 51       		.byte	0x51
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccw0jshO.s 			page 27
-
-
  1145 044d 05       		.uleb128 0x5
  1146 044e 03       		.byte	0x3
  1147 044f C4000000 		.4byte	.LC5
@@ -1617,10 +1618,10 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccw0jshO.s 			page 1
  1198 04af 01       		.uleb128 0x1
  1199 04b0 52       		.byte	0x52
  1200 04b1 02       		.uleb128 0x2
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccWCGEMk.s 			page 28
+
+
  1201 04b2 08       		.byte	0x8
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccw0jshO.s 			page 28
-
-
  1202 04b3 57       		.byte	0x57
  1203 04b4 00       		.byte	0
  1204 04b5 0E       		.uleb128 0xe
@@ -1677,10 +1678,10 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccw0jshO.s 			page 1
  1255 0512 02       		.uleb128 0x2
  1256 0513 08       		.byte	0x8
  1257 0514 20       		.byte	0x20
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccWCGEMk.s 			page 29
+
+
  1258 0515 0F       		.uleb128 0xf
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccw0jshO.s 			page 29
-
-
  1259 0516 01       		.uleb128 0x1
  1260 0517 52       		.byte	0x52
  1261 0518 02       		.uleb128 0x2
@@ -1737,10 +1738,10 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccw0jshO.s 			page 1
  1312 0575 48       		.byte	0x48
  1313 0576 0F       		.uleb128 0xf
  1314 0577 01       		.uleb128 0x1
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccWCGEMk.s 			page 30
+
+
  1315 0578 51       		.byte	0x51
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccw0jshO.s 			page 30
-
-
  1316 0579 02       		.uleb128 0x2
  1317 057a 08       		.byte	0x8
  1318 057b 23       		.byte	0x23
@@ -1797,10 +1798,10 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccw0jshO.s 			page 1
  1369 05d8 0F       		.uleb128 0xf
  1370 05d9 01       		.uleb128 0x1
  1371 05da 50       		.byte	0x50
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccWCGEMk.s 			page 31
+
+
  1372 05db 01       		.uleb128 0x1
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccw0jshO.s 			page 31
-
-
  1373 05dc 48       		.byte	0x48
  1374 05dd 0F       		.uleb128 0xf
  1375 05de 01       		.uleb128 0x1
@@ -1857,10 +1858,10 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccw0jshO.s 			page 1
  1426 0626 0E       		.uleb128 0xe
  1427 0627 6E010000 		.4byte	.LVL58
  1428 062b 6E070000 		.4byte	0x76e
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccWCGEMk.s 			page 32
+
+
  1429 062f 3A060000 		.4byte	0x63a
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccw0jshO.s 			page 32
-
-
  1430 0633 0F       		.uleb128 0xf
  1431 0634 01       		.uleb128 0x1
  1432 0635 50       		.byte	0x50
@@ -1917,10 +1918,10 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccw0jshO.s 			page 1
  1483 0687 08       		.byte	0x8
  1484 0688 27       		.byte	0x27
  1485 0689 0F       		.uleb128 0xf
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccWCGEMk.s 			page 33
+
+
  1486 068a 01       		.uleb128 0x1
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccw0jshO.s 			page 33
-
-
  1487 068b 52       		.byte	0x52
  1488 068c 03       		.uleb128 0x3
  1489 068d 91       		.byte	0x91
@@ -1977,10 +1978,10 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccw0jshO.s 			page 1
  1540 06d4 01       		.uleb128 0x1
  1541 06d5 53       		.byte	0x53
  1542 06d6 03       		.uleb128 0x3
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccWCGEMk.s 			page 34
+
+
  1543 06d7 91       		.byte	0x91
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccw0jshO.s 			page 34
-
-
  1544 06d8 A87F     		.sleb128 -88
  1545 06da 00       		.byte	0
  1546 06db 0E       		.uleb128 0xe
@@ -2037,10 +2038,10 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccw0jshO.s 			page 1
  1597 0728 8C000000 		.4byte	0x8c
  1598 072c 37070000 		.4byte	0x737
  1599 0730 13       		.uleb128 0x13
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccWCGEMk.s 			page 35
+
+
  1600 0731 11010000 		.4byte	0x111
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccw0jshO.s 			page 35
-
-
  1601 0735 0D       		.byte	0xd
  1602 0736 00       		.byte	0
  1603 0737 12       		.uleb128 0x12
@@ -2097,10 +2098,10 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccw0jshO.s 			page 1
  1654 07aa BF030000 		.4byte	.LASF58
  1655 07ae 0B       		.byte	0xb
  1656 07af 76       		.byte	0x76
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccWCGEMk.s 			page 36
+
+
  1657 07b0 16       		.uleb128 0x16
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccw0jshO.s 			page 36
-
-
  1658 07b1 57000000 		.4byte	.LASF59
  1659 07b5 57000000 		.4byte	.LASF59
  1660 07b9 06       		.byte	0x6
@@ -2157,10 +2158,10 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccw0jshO.s 			page 1
  1711 001f 16       		.uleb128 0x16
  1712 0020 00       		.byte	0
  1713 0021 03       		.uleb128 0x3
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccWCGEMk.s 			page 37
+
+
  1714 0022 0E       		.uleb128 0xe
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccw0jshO.s 			page 37
-
-
  1715 0023 3A       		.uleb128 0x3a
  1716 0024 0B       		.uleb128 0xb
  1717 0025 3B       		.uleb128 0x3b
@@ -2217,10 +2218,10 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccw0jshO.s 			page 1
  1768 0058 0B       		.uleb128 0xb
  1769 0059 00       		.byte	0
  1770 005a 00       		.byte	0
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccWCGEMk.s 			page 38
+
+
  1771 005b 08       		.uleb128 0x8
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccw0jshO.s 			page 38
-
-
  1772 005c 2E       		.uleb128 0x2e
  1773 005d 01       		.byte	0x1
  1774 005e 3F       		.uleb128 0x3f
@@ -2277,10 +2278,10 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccw0jshO.s 			page 1
  1825 0093 13       		.uleb128 0x13
  1826 0094 02       		.uleb128 0x2
  1827 0095 17       		.uleb128 0x17
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccWCGEMk.s 			page 39
+
+
  1828 0096 00       		.byte	0
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccw0jshO.s 			page 39
-
-
  1829 0097 00       		.byte	0
  1830 0098 0B       		.uleb128 0xb
  1831 0099 34       		.uleb128 0x34
@@ -2337,10 +2338,10 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccw0jshO.s 			page 1
  1882 00ce 0F       		.uleb128 0xf
  1883 00cf 8A8201   		.uleb128 0x410a
  1884 00d2 00       		.byte	0
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccWCGEMk.s 			page 40
+
+
  1885 00d3 02       		.uleb128 0x2
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccw0jshO.s 			page 40
-
-
  1886 00d4 18       		.uleb128 0x18
  1887 00d5 9142     		.uleb128 0x2111
  1888 00d7 18       		.uleb128 0x18
@@ -2397,10 +2398,10 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccw0jshO.s 			page 1
  1939 010e 19       		.uleb128 0x19
  1940 010f 3C       		.uleb128 0x3c
  1941 0110 19       		.uleb128 0x19
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccWCGEMk.s 			page 41
+
+
  1942 0111 00       		.byte	0
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccw0jshO.s 			page 41
-
-
  1943 0112 00       		.byte	0
  1944 0113 15       		.uleb128 0x15
  1945 0114 35       		.uleb128 0x35
@@ -2457,10 +2458,10 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccw0jshO.s 			page 1
  1996 0042 D6000000 		.4byte	.LVL32
  1997 0046 E0000000 		.4byte	.LVL33
  1998 004a 0100     		.2byte	0x1
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccWCGEMk.s 			page 42
+
+
  1999 004c 50       		.byte	0x50
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccw0jshO.s 			page 42
-
-
  2000 004d EC000000 		.4byte	.LVL36
  2001 0051 EE000000 		.4byte	.LVL37
  2002 0055 0100     		.2byte	0x1
@@ -2517,10 +2518,10 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccw0jshO.s 			page 1
  2053 00dc 01       		.byte	0x1
  2054 00dd 08       		.byte	0x8
  2055 00de FF       		.byte	0xff
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccWCGEMk.s 			page 43
+
+
  2056 00df 1A       		.byte	0x1a
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccw0jshO.s 			page 43
-
-
  2057 00e0 38       		.byte	0x38
  2058 00e1 24       		.byte	0x24
  2059 00e2 73       		.byte	0x73
@@ -2577,10 +2578,10 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccw0jshO.s 			page 1
  2110 013d 94       		.byte	0x94
  2111 013e 01       		.byte	0x1
  2112 013f 08       		.byte	0x8
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccWCGEMk.s 			page 44
+
+
  2113 0140 FF       		.byte	0xff
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccw0jshO.s 			page 44
-
-
  2114 0141 1A       		.byte	0x1a
  2115 0142 38       		.byte	0x38
  2116 0143 24       		.byte	0x24
@@ -2637,10 +2638,10 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccw0jshO.s 			page 1
  2167 0195 0500     		.2byte	0x5
  2168 0197 70       		.byte	0x70
  2169 0198 00       		.sleb128 0
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccWCGEMk.s 			page 45
+
+
  2170 0199 31       		.byte	0x31
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccw0jshO.s 			page 45
-
-
  2171 019a 24       		.byte	0x24
  2172 019b 9F       		.byte	0x9f
  2173 019c 36020000 		.4byte	.LVL80
@@ -2697,10 +2698,10 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccw0jshO.s 			page 1
  2224 01eb F4       		.byte	0xf4
  2225 01ec 24       		.byte	0x24
  2226 01ed 09       		.byte	0x9
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccWCGEMk.s 			page 46
+
+
  2227 01ee F8       		.byte	0xf8
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccw0jshO.s 			page 46
-
-
  2228 01ef 26       		.byte	0x26
  2229 01f0 31       		.byte	0x31
  2230 01f1 24       		.byte	0x24
@@ -2757,10 +2758,10 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccw0jshO.s 			page 1
  2281 0278 9F       		.byte	0x9f
  2282 0279 24000000 		.4byte	.LVL5
  2283 027d 44010000 		.4byte	.LVL53
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccWCGEMk.s 			page 47
+
+
  2284 0281 0100     		.2byte	0x1
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccw0jshO.s 			page 47
-
-
  2285 0283 54       		.byte	0x54
  2286 0284 00000000 		.4byte	0
  2287 0288 00000000 		.4byte	0
@@ -2817,10 +2818,10 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccw0jshO.s 			page 1
  2320      00
  2321              	.LASF17:
  2322 0045 666C6F61 		.ascii	"float32\000"
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccWCGEMk.s 			page 48
+
+
  2322      74333200 
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccw0jshO.s 			page 48
-
-
  2323              	.LASF4:
  2324 004d 73686F72 		.ascii	"short int\000"
  2324      7420696E 
@@ -2877,10 +2878,10 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccw0jshO.s 			page 1
  2349              	.LASF29:
  2350 00ed 73746174 		.ascii	"status_register\000"
  2350      75735F72 
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccWCGEMk.s 			page 49
+
+
  2350      65676973 
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccw0jshO.s 			page 49
-
-
  2350      74657200 
  2351              	.LASF49:
  2352 00fd 5A5F4461 		.ascii	"Z_Data\000"
@@ -2937,10 +2938,10 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccw0jshO.s 			page 1
  2380 017c 756E7369 		.ascii	"unsigned char\000"
  2380      676E6564 
  2380      20636861 
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccWCGEMk.s 			page 50
+
+
  2380      7200
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccw0jshO.s 			page 50
-
-
  2381              	.LASF52:
  2382 018a 73707269 		.ascii	"sprintf\000"
  2382      6E746600 
@@ -2997,10 +2998,10 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccw0jshO.s 			page 1
  2402 0244 63686172 		.ascii	"char\000"
  2402      00
  2403              	.LASF35:
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccWCGEMk.s 			page 51
+
+
  2404 0249 4F75745F 		.ascii	"Out_X_mg\000"
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccw0jshO.s 			page 51
-
-
  2404      585F6D67 
  2404      00
  2405              	.LASF55:
@@ -3057,10 +3058,10 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccw0jshO.s 			page 1
  2430              	.LASF28:
  2431 02f7 6572726F 		.ascii	"error\000"
  2431      7200
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccWCGEMk.s 			page 52
+
+
  2432              	.LASF36:
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccw0jshO.s 			page 52
-
-
  2433 02fd 4F75745F 		.ascii	"Out_Y_mg\000"
  2433      595F6D67 
  2433      00

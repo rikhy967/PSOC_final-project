@@ -173,6 +173,66 @@ int main(void)
         UART_Debug_PutString("Error occurred during I2C comm to read control register4\r\n");   
     }
     
+    /******************************************************/
+    // FIFO CONFIGURATION 
+    /******************************************************/
+    ////////// CONTROL REGISTER 5 ///////////////////
+     
+    
+   
+    uint8_t ctrl_reg_5 = FIFO_ENABLE;
+    
+        error = I2C_Peripheral_WriteRegister(LIS3DH_DEVICE_ADDRESS,
+                                             LIS3DH_CTRL_REG_5,
+                                             ctrl_reg_5);
+    
+        if (error == NO_ERROR)
+        {
+            sprintf(message, "CONTROL REGISTER 5 FIFO ENABLE successfully written as: 0x%02X\r\n", ctrl_reg_5);
+            UART_Debug_PutString(message); 
+        }
+        else
+        {
+            UART_Debug_PutString("Error occurred during I2C comm to set control register 5\r\n");   
+        }
+    
+    
+    //////////////// FIFO CONTROL REGISTER /////////////////
+    
+    
+    
+   
+    uint8_t    fifo_ctrl_reg = BYPASS_MODE;
+    
+        error = I2C_Peripheral_WriteRegister(LIS3DH_DEVICE_ADDRESS,
+                                             LIS3DH_CTRL_REG_5,
+                                             fifo_ctrl_reg);
+    
+        if (error == NO_ERROR)
+        {
+            sprintf(message, "CONTROL REGISTER 5 BYPASS MODE successfully written as: 0x%02X\r\n", fifo_ctrl_reg);
+            UART_Debug_PutString(message); 
+        }
+        else
+        {
+            UART_Debug_PutString("Error occurred during I2C comm to set control register 5\r\n");   
+        }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    /*******************************************************/
+    
+    
+    
     //variables to save the registers output value in digit
     int16_t Out_X; 
     int16_t Out_Y;
@@ -200,23 +260,44 @@ int main(void)
     uint8_t X_Data[2];
     uint8_t Y_Data[2];
     uint8_t Z_Data[2];
-    uint8_t status_reg;
+    
     
     OutArray[0] = header;
     OutArray[13] = footer;
     
+    uint8_t flag_mode = 1;
+    uint8_t overrun_reg;
+    uint8_t empty_reg;
+    uint8_t flag_overrun = 0;
+    uint8_t counter = 0;
     for(;;)
-    {error= I2C_Peripheral_ReadRegister(LIS3DH_DEVICE_ADDRESS, //read the status register
-                                        LIS3DH_STATUS_REG,
-                                        &status_reg);
-        //CyDelay(5); //output data at 100Hz = data available every 10ms, so the delay must be lower
-        while(!(status_reg & 0x08))//check if new data is available on all axes
+    {
+        if (flag_mode ==1){
+            fifo_ctrl_reg = FIFO_MODE;
+            error = I2C_Peripheral_WriteRegister(LIS3DH_DEVICE_ADDRESS,
+                                             LIS3DH_FIFO_CTRL_REG,
+                                             fifo_ctrl_reg);
+            sprintf(message, "Enter FIFO mode!!\r\n");
+            UART_Debug_PutString(message);
+            flag_mode=0;
+        }
         
-        {error= I2C_Peripheral_ReadRegister(LIS3DH_DEVICE_ADDRESS, //read the status register until new data is available
-                                            LIS3DH_STATUS_REG,
-                                           &status_reg);}
-        if (error==NO_ERROR)
-         {
+        if (flag_mode ==0){
+        error = I2C_Peripheral_ReadRegister(LIS3DH_DEVICE_ADDRESS,
+                                        LIS3DH_FIFO_SRC_REG_3,
+                                        &overrun_reg);
+        }
+        
+        if ((overrun_reg & 0x40)==0x40){
+            
+            flag_overrun = 1;   
+            sprintf(message, "Overrun!!\r\n");
+            UART_Debug_PutString(message);
+            counter=0;
+        }    
+        
+        while (flag_overrun){
+
             error = I2C_Peripheral_ReadRegisterMulti(LIS3DH_DEVICE_ADDRESS,
                                             LIS3DH_OUT_X_L,
                                             2,
@@ -231,18 +312,11 @@ int main(void)
                                             LIS3DH_OUT_Z_L,
                                             2,
                                             &Z_Data[0]);
-                
-             
-            /*if (error == NO_ERROR)
-            {sprintf(message, "OUT_Z_L: 0x%02X\r\n", Z_Data[0]);
-             UART_Debug_PutString(message); 
-             sprintf(message, "OUT_Z_H: 0x%02X\r\n", Z_Data[1]);
-             UART_Debug_PutString(message); 
-            }*/
+            
             if(error == NO_ERROR)
               {
-               Out_X = (int16)((X_Data[0] | (X_Data[1]<<8)))>>4;//out_x in digit (12bit)
-               Out_X_mg = Out_X*2;//out_x in mg, the sensitivity is 2mg/digit in this operation mode (13 bits needed [-4096;+4095])
+               Out_X = (int16)((X_Data[0] | (X_Data[1]<<8)))>>6;//out_x in digit (10bit)
+               Out_X_mg = Out_X*8;//out_x in mg, the sensitivity is 2mg/digit in this operation mode (13 bits needed [-4096;+4095])
                Out_X_ms2 = Out_X_mg*9.81/1000;//out_x in m/s^2 (float variable)
 
      //cast of the float variable to int that mantains the first 3 decimals. now the value is in mm/s^2
@@ -253,8 +327,8 @@ int main(void)
                OutArray[4] = (uint8_t)(Out_X_mms2 >> 24);
              
                
-               Out_Y = (int16)((Y_Data[0] | (Y_Data[1]<<8)))>>4;//out_y in digit (12bit)
-               Out_Y_mg = Out_Y*2;//out_y in mg (13 bits needed)
+               Out_Y = (int16)((Y_Data[0] | (Y_Data[1]<<8)))>>6;//out_y in digit (10bit)
+               Out_Y_mg = Out_Y*8;//out_y in mg (13 bits needed)
                Out_Y_ms2 = Out_Y_mg*9.81/1000;
                Out_Y_mms2 = (int32)((Out_Y_ms2*1000));
                OutArray[5] = (uint8_t)(Out_Y_mms2 & 0xFF);
@@ -262,19 +336,42 @@ int main(void)
                OutArray[7] = (uint8_t)(Out_Y_mms2 >> 16);
                OutArray[8] = (uint8_t)(Out_Y_mms2 >> 24);
             
-               Out_Z = (int16)((Z_Data[0] | (Z_Data[1]<<8)))>>4;//out_z in digit (12bit)
-               Out_Z_mg= Out_Z*2;//out_z in mg (13 bits needed)
+               Out_Z = (int16)((Z_Data[0] | (Z_Data[1]<<8)))>>6;//out_z in digit (10bit)
+               Out_Z_mg= Out_Z*8;//out_z in mg (13 bits needed)
                Out_Z_ms2=Out_Z_mg*9.81/1000;
                Out_Z_mms2= (int32)((Out_Z_ms2*1000));
                OutArray[9] = (uint8_t)(Out_X_mms2 & 0xFF);
                OutArray[10] = (uint8_t)(Out_Z_mms2>> 8);
                OutArray[11] = (uint8_t)(Out_Z_mms2>> 16);
                OutArray[12] = (uint8_t) (Out_Z_mms2 >> 24);
-               //sprintf(message, "OUT_Z_mms2: %d\r\n OUT_Z_mg: %d\r\n" ,Out_z_mms2, Out_Z_mg);
-                //UART_Debug_PutString(message);
-               UART_Debug_PutArray(OutArray, 14);
-              }
+               sprintf(message, "X: %d    Y: %d     Z:%d\r\n",Out_X,Out_Y,Out_Z);
+               UART_Debug_PutString(message);
+               //UART_Debug_PutArray(OutArray, 14);
             }
-         }
-   }
-/* [] END OF FILE */
+            
+            counter++;
+            
+            error = I2C_Peripheral_ReadRegister(LIS3DH_DEVICE_ADDRESS,
+                                        LIS3DH_FIFO_SRC_REG_3,
+                                        &empty_reg);
+            
+            if ((empty_reg&FIFO_EMPTY)==FIFO_EMPTY) {
+                flag_overrun=0;
+                flag_mode=1;
+            }
+                
+        }
+        
+        if (flag_mode ==1){
+            fifo_ctrl_reg = BYPASS_MODE;
+            error = I2C_Peripheral_WriteRegister(LIS3DH_DEVICE_ADDRESS,
+                                             LIS3DH_FIFO_CTRL_REG,
+                                             fifo_ctrl_reg);
+            sprintf(message, "N cycles: %d\r\n",counter);
+            UART_Debug_PutString(message);
+            sprintf(message, "Bypass Mode!!\r\n");
+            UART_Debug_PutString(message);
+        }
+    }
+}
+

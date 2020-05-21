@@ -1322,7 +1322,7 @@
       </registers>
     </peripheral>
     <peripheral>
-      <name>ADC_DelSig_1</name>
+      <name>ADC_DelSig</name>
       <description>No description available</description>
       <baseAddress>0x0</baseAddress>
       <addressBlock>
@@ -1332,7 +1332,7 @@
       </addressBlock>
       <registers>
         <register>
-          <name>ADC_DelSig_1_DSM_DEC_PM_ACT_CFG</name>
+          <name>ADC_DelSig_DSM_DEC_PM_ACT_CFG</name>
           <description>Decimator Active mode Power Register</description>
           <addressOffset>0x400043AA</addressOffset>
           <size>8</size>
@@ -1381,7 +1381,7 @@
           </fields>
         </register>
         <register>
-          <name>ADC_DelSig_1_DSM_DEC_PM_STBY_CFG</name>
+          <name>ADC_DelSig_DSM_DEC_PM_STBY_CFG</name>
           <description>Decimator Alternate Active mode Power Register</description>
           <addressOffset>0x400043BA</addressOffset>
           <size>8</size>
@@ -1430,7 +1430,7 @@
           </fields>
         </register>
         <register>
-          <name>ADC_DelSig_1_DEC_CR</name>
+          <name>ADC_DelSig_DEC_CR</name>
           <description>Decimator Control Register</description>
           <addressOffset>0x40004E00</addressOffset>
           <size>8</size>
@@ -1584,7 +1584,7 @@
           </fields>
         </register>
         <register>
-          <name>ADC_DelSig_1_DEC_SR</name>
+          <name>ADC_DelSig_DEC_SR</name>
           <description>Decimator Status Register</description>
           <addressOffset>0x40004E01</addressOffset>
           <size>8</size>
@@ -1709,7 +1709,7 @@
           </fields>
         </register>
         <register>
-          <name>ADC_DelSig_1_DEC_SHIFT1</name>
+          <name>ADC_DelSig_DEC_SHIFT1</name>
           <description>Decimator Shift Register</description>
           <addressOffset>0x40004E02</addressOffset>
           <size>8</size>
@@ -1727,7 +1727,7 @@
           </fields>
         </register>
         <register>
-          <name>ADC_DelSig_1_DEC_SHIFT2</name>
+          <name>ADC_DelSig_DEC_SHIFT2</name>
           <description>Decimator Shift Register</description>
           <addressOffset>0x40004E03</addressOffset>
           <size>8</size>
@@ -1745,7 +1745,7 @@
           </fields>
         </register>
         <register>
-          <name>ADC_DelSig_1_DEC_DR2</name>
+          <name>ADC_DelSig_DEC_DR2</name>
           <description>Decimator Decimation Rate (2) Register</description>
           <addressOffset>0x40004E04</addressOffset>
           <size>8</size>
@@ -1763,7 +1763,7 @@
           </fields>
         </register>
         <register>
-          <name>ADC_DelSig_1_DEC_DR2H</name>
+          <name>ADC_DelSig_DEC_DR2H</name>
           <description>Decimator Decimation Rate and Overflow Correction Register</description>
           <addressOffset>0x40004E05</addressOffset>
           <size>8</size>
@@ -1788,7 +1788,7 @@
           </fields>
         </register>
         <register>
-          <name>ADC_DelSig_1_DEC_DR1</name>
+          <name>ADC_DelSig_DEC_DR1</name>
           <description>Decimator Decimation Rate (1) Register</description>
           <addressOffset>0x40004E06</addressOffset>
           <size>8</size>
@@ -1806,7 +1806,7 @@
           </fields>
         </register>
         <register>
-          <name>ADC_DelSig_1_DEC_OCOR</name>
+          <name>ADC_DelSig_DEC_OCOR</name>
           <description>Decimator Offset Correction Coefficient (Low Byte) Register</description>
           <addressOffset>0x40004E08</addressOffset>
           <size>8</size>
@@ -1824,7 +1824,7 @@
           </fields>
         </register>
         <register>
-          <name>ADC_DelSig_1_DEC_OCORM</name>
+          <name>ADC_DelSig_DEC_OCORM</name>
           <description>Decimator Offset Correction Coefficient (Middle Byte) Register</description>
           <addressOffset>0x40004E09</addressOffset>
           <size>8</size>
@@ -1842,7 +1842,7 @@
           </fields>
         </register>
         <register>
-          <name>ADC_DelSig_1_DEC_OCORH</name>
+          <name>ADC_DelSig_DEC_OCORH</name>
           <description>Decimator Offset Correction Coefficient (High Byte) Register</description>
           <addressOffset>0x40004E0A</addressOffset>
           <size>8</size>
@@ -1860,7 +1860,7 @@
           </fields>
         </register>
         <register>
-          <name>ADC_DelSig_1_DEC_GCOR</name>
+          <name>ADC_DelSig_DEC_GCOR</name>
           <description>Decimator Gain Correction Coefficient (Low Byte) Register</description>
           <addressOffset>0x40004E0C</addressOffset>
           <size>8</size>
@@ -1878,7 +1878,7 @@
           </fields>
         </register>
         <register>
-          <name>ADC_DelSig_1_DEC_GCORH</name>
+          <name>ADC_DelSig_DEC_GCORH</name>
           <description>Decimator Gain Correction Coefficient (High Byte) Register</description>
           <addressOffset>0x40004E0D</addressOffset>
           <size>8</size>
@@ -1896,7 +1896,7 @@
           </fields>
         </register>
         <register>
-          <name>ADC_DelSig_1_DEC_GVAL</name>
+          <name>ADC_DelSig_DEC_GVAL</name>
           <description>Decimator Gain Correction Size Register</description>
           <addressOffset>0x40004E0E</addressOffset>
           <size>8</size>
@@ -1914,7 +1914,7 @@
           </fields>
         </register>
         <register>
-          <name>ADC_DelSig_1_DEC_OUTSAMP</name>
+          <name>ADC_DelSig_DEC_OUTSAMP</name>
           <description>Decimator Output Data Sample (Low Byte) Register</description>
           <addressOffset>0x40004E10</addressOffset>
           <size>8</size>
@@ -1932,7 +1932,7 @@
           </fields>
         </register>
         <register>
-          <name>ADC_DelSig_1_DEC_OUTSAMPM</name>
+          <name>ADC_DelSig_DEC_OUTSAMPM</name>
           <description>Decimator Output Data Sample (Middle Byte) Register</description>
           <addressOffset>0x40004E11</addressOffset>
           <size>8</size>
@@ -1950,7 +1950,7 @@
           </fields>
         </register>
         <register>
-          <name>ADC_DelSig_1_DEC_OUTSAMPH</name>
+          <name>ADC_DelSig_DEC_OUTSAMPH</name>
           <description>Decimator Output Data Sample (High Byte) Register</description>
           <addressOffset>0x40004E12</addressOffset>
           <size>8</size>
@@ -1968,7 +1968,7 @@
           </fields>
         </register>
         <register>
-          <name>ADC_DelSig_1_DEC_COHER</name>
+          <name>ADC_DelSig_DEC_COHER</name>
           <description>Decimator Coherency Register</description>
           <addressOffset>0x40004E14</addressOffset>
           <size>8</size>
@@ -2066,7 +2066,7 @@
           </fields>
         </register>
         <register>
-          <name>ADC_DelSig_1_DSM_CR0</name>
+          <name>ADC_DelSig_DSM_CR0</name>
           <description>Delta Sigma Modulator Control Register 0</description>
           <addressOffset>0x40005880</addressOffset>
           <size>8</size>
@@ -2135,7 +2135,7 @@
           </fields>
         </register>
         <register>
-          <name>ADC_DelSig_1_DSM_CR1</name>
+          <name>ADC_DelSig_DSM_CR1</name>
           <description>Delta Sigma Modulator Control Register 1</description>
           <addressOffset>0x40005881</addressOffset>
           <size>8</size>
@@ -2179,7 +2179,7 @@
           </fields>
         </register>
         <register>
-          <name>ADC_DelSig_1_DSM_CR2</name>
+          <name>ADC_DelSig_DSM_CR2</name>
           <description>Delta Sigma Modulator Control Register 2</description>
           <addressOffset>0x40005882</addressOffset>
           <size>8</size>
@@ -2334,7 +2334,7 @@
           </fields>
         </register>
         <register>
-          <name>ADC_DelSig_1_DSM_CR3</name>
+          <name>ADC_DelSig_DSM_CR3</name>
           <description>Delta Sigma Modulator Control Register 3</description>
           <addressOffset>0x40005883</addressOffset>
           <size>8</size>
@@ -2491,7 +2491,7 @@
           </fields>
         </register>
         <register>
-          <name>ADC_DelSig_1_DSM_CR4</name>
+          <name>ADC_DelSig_DSM_CR4</name>
           <description>Delta Sigma Modulator Control Register 4</description>
           <addressOffset>0x40005884</addressOffset>
           <size>8</size>
@@ -2575,7 +2575,7 @@
           </fields>
         </register>
         <register>
-          <name>ADC_DelSig_1_DSM_CR5</name>
+          <name>ADC_DelSig_DSM_CR5</name>
           <description>Delta Sigma Modulator Control Register 5</description>
           <addressOffset>0x40005885</addressOffset>
           <size>8</size>
@@ -2659,7 +2659,7 @@
           </fields>
         </register>
         <register>
-          <name>ADC_DelSig_1_DSM_CR6</name>
+          <name>ADC_DelSig_DSM_CR6</name>
           <description>Delta Sigma Modulator Control Register 6</description>
           <addressOffset>0x40005886</addressOffset>
           <size>8</size>
@@ -2728,7 +2728,7 @@
           </fields>
         </register>
         <register>
-          <name>ADC_DelSig_1_DSM_CR7</name>
+          <name>ADC_DelSig_DSM_CR7</name>
           <description>Delta Sigma Modulator Control Register 7</description>
           <addressOffset>0x40005887</addressOffset>
           <size>8</size>
@@ -2829,7 +2829,7 @@
           </fields>
         </register>
         <register>
-          <name>ADC_DelSig_1_DSM_CR8</name>
+          <name>ADC_DelSig_DSM_CR8</name>
           <description>Delta Sigma Modulator Control Register 8</description>
           <addressOffset>0x40005888</addressOffset>
           <size>8</size>
@@ -2997,7 +2997,7 @@
           </fields>
         </register>
         <register>
-          <name>ADC_DelSig_1_DSM_CR9</name>
+          <name>ADC_DelSig_DSM_CR9</name>
           <description>Delta Sigma Modulator Control Register 9</description>
           <addressOffset>0x40005889</addressOffset>
           <size>8</size>
@@ -3165,7 +3165,7 @@
           </fields>
         </register>
         <register>
-          <name>ADC_DelSig_1_DSM_CR10</name>
+          <name>ADC_DelSig_DSM_CR10</name>
           <description>Delta Sigma Modulator Control Register 10</description>
           <addressOffset>0x4000588A</addressOffset>
           <size>8</size>
@@ -3312,7 +3312,7 @@
           </fields>
         </register>
         <register>
-          <name>ADC_DelSig_1_DSM_CR11</name>
+          <name>ADC_DelSig_DSM_CR11</name>
           <description>Delta Sigma Modulator Control Register 11</description>
           <addressOffset>0x4000588B</addressOffset>
           <size>8</size>
@@ -3480,7 +3480,7 @@
           </fields>
         </register>
         <register>
-          <name>ADC_DelSig_1_DSM_CR12</name>
+          <name>ADC_DelSig_DSM_CR12</name>
           <description>Delta Sigma Modulator Control Register 12</description>
           <addressOffset>0x4000588C</addressOffset>
           <size>8</size>
@@ -3698,7 +3698,7 @@
           </fields>
         </register>
         <register>
-          <name>ADC_DelSig_1_DSM_CR13</name>
+          <name>ADC_DelSig_DSM_CR13</name>
           <description>Delta Sigma Modulator Control Register 13</description>
           <addressOffset>0x4000588D</addressOffset>
           <size>8</size>
@@ -3707,7 +3707,7 @@
           <resetMask>0</resetMask>
         </register>
         <register>
-          <name>ADC_DelSig_1_DSM_CR14</name>
+          <name>ADC_DelSig_DSM_CR14</name>
           <description>Delta Sigma Modulator Control Register 14</description>
           <addressOffset>0x4000588E</addressOffset>
           <size>8</size>
@@ -3856,7 +3856,7 @@
           </fields>
         </register>
         <register>
-          <name>ADC_DelSig_1_DSM_CR15</name>
+          <name>ADC_DelSig_DSM_CR15</name>
           <description>Delta Sigma Modulator Control Register 15</description>
           <addressOffset>0x4000588F</addressOffset>
           <size>8</size>
@@ -3945,7 +3945,7 @@
           </fields>
         </register>
         <register>
-          <name>ADC_DelSig_1_DSM_CR16</name>
+          <name>ADC_DelSig_DSM_CR16</name>
           <description>Delta Sigma Modulator Control Register 16</description>
           <addressOffset>0x40005890</addressOffset>
           <size>8</size>
@@ -4073,7 +4073,7 @@
           </fields>
         </register>
         <register>
-          <name>ADC_DelSig_1_DSM_CR17</name>
+          <name>ADC_DelSig_DSM_CR17</name>
           <description>Delta Sigma Modulator Control Register 17</description>
           <addressOffset>0x40005891</addressOffset>
           <size>8</size>
@@ -4209,7 +4209,7 @@
           </fields>
         </register>
         <register>
-          <name>ADC_DelSig_1_DSM_REF0</name>
+          <name>ADC_DelSig_DSM_REF0</name>
           <description>Delta Sigma Modulator Reference Register 0</description>
           <addressOffset>0x40005892</addressOffset>
           <size>8</size>
@@ -4343,7 +4343,7 @@
           </fields>
         </register>
         <register>
-          <name>ADC_DelSig_1_DSM_REF1</name>
+          <name>ADC_DelSig_DSM_REF1</name>
           <description>Delta Sigma Modulator Reference Register 1</description>
           <addressOffset>0x40005893</addressOffset>
           <size>8</size>
@@ -4373,7 +4373,7 @@
           </fields>
         </register>
         <register>
-          <name>ADC_DelSig_1_DSM_REF2</name>
+          <name>ADC_DelSig_DSM_REF2</name>
           <description>Delta Sigma Modulator Reference Register 2</description>
           <addressOffset>0x40005894</addressOffset>
           <size>8</size>
@@ -4440,7 +4440,7 @@
           </fields>
         </register>
         <register>
-          <name>ADC_DelSig_1_DSM_REF3</name>
+          <name>ADC_DelSig_DSM_REF3</name>
           <description>Delta Sigma Modulator Reference Register 3</description>
           <addressOffset>0x40005895</addressOffset>
           <size>8</size>
@@ -4493,7 +4493,7 @@
           </fields>
         </register>
         <register>
-          <name>ADC_DelSig_1_DSM_DEM0</name>
+          <name>ADC_DelSig_DSM_DEM0</name>
           <description>Delta Sigma Modulator Dynamic Element Matching Register 0</description>
           <addressOffset>0x40005896</addressOffset>
           <size>8</size>
@@ -4599,7 +4599,7 @@
           </fields>
         </register>
         <register>
-          <name>ADC_DelSig_1_DSM_DEM1</name>
+          <name>ADC_DelSig_DSM_DEM1</name>
           <description>Delta Sigma Modulator Dynamic Element Matching Register 1</description>
           <addressOffset>0x40005897</addressOffset>
           <size>8</size>
@@ -4617,7 +4617,7 @@
           </fields>
         </register>
         <register>
-          <name>ADC_DelSig_1_DSM_TST0</name>
+          <name>ADC_DelSig_DSM_TST0</name>
           <description>Delta Sigma Modulator Test Register 0</description>
           <addressOffset>0x40005898</addressOffset>
           <size>8</size>
@@ -4766,7 +4766,7 @@
           </fields>
         </register>
         <register>
-          <name>ADC_DelSig_1_DSM_TST1</name>
+          <name>ADC_DelSig_DSM_TST1</name>
           <description>Delta Sigma Modulator Test Register 1</description>
           <addressOffset>0x40005899</addressOffset>
           <size>8</size>
@@ -4775,7 +4775,7 @@
           <resetMask>0</resetMask>
         </register>
         <register>
-          <name>ADC_DelSig_1_DSM_BUF0</name>
+          <name>ADC_DelSig_DSM_BUF0</name>
           <description>Delta Sigma Modulator Buffer Register 0</description>
           <addressOffset>0x4000589A</addressOffset>
           <size>8</size>
@@ -4843,7 +4843,7 @@
           </fields>
         </register>
         <register>
-          <name>ADC_DelSig_1_DSM_BUF1</name>
+          <name>ADC_DelSig_DSM_BUF1</name>
           <description>Delta Sigma Modulator Buffer Register 1</description>
           <addressOffset>0x4000589B</addressOffset>
           <size>8</size>
@@ -4921,7 +4921,7 @@
           </fields>
         </register>
         <register>
-          <name>ADC_DelSig_1_DSM_BUF2</name>
+          <name>ADC_DelSig_DSM_BUF2</name>
           <description>Delta Sigma Modulator Buffer Register 2</description>
           <addressOffset>0x4000589C</addressOffset>
           <size>8</size>
@@ -4958,7 +4958,7 @@
           </fields>
         </register>
         <register>
-          <name>ADC_DelSig_1_DSM_BUF3</name>
+          <name>ADC_DelSig_DSM_BUF3</name>
           <description>Delta Sigma Modulator Buffer Register 3</description>
           <addressOffset>0x4000589D</addressOffset>
           <size>8</size>
@@ -5037,7 +5037,7 @@
           </fields>
         </register>
         <register>
-          <name>ADC_DelSig_1_DSM_MISC</name>
+          <name>ADC_DelSig_DSM_MISC</name>
           <description>Delta Sigma Modulator Miscallaneous Register</description>
           <addressOffset>0x4000589E</addressOffset>
           <size>8</size>
@@ -5105,7 +5105,7 @@
           </fields>
         </register>
         <register>
-          <name>ADC_DelSig_1_DSM_CLK</name>
+          <name>ADC_DelSig_DSM_CLK</name>
           <description>Delta Sigma Modulator Clock Selection Register</description>
           <addressOffset>0x40005B07</addressOffset>
           <size>8</size>
@@ -5203,7 +5203,7 @@
           </fields>
         </register>
         <register>
-          <name>ADC_DelSig_1_DSM_OUT0</name>
+          <name>ADC_DelSig_DSM_OUT0</name>
           <description>Delta Sigma Modulator Output Register 0</description>
           <addressOffset>0x40005B88</addressOffset>
           <size>8</size>
@@ -5221,7 +5221,7 @@
           </fields>
         </register>
         <register>
-          <name>ADC_DelSig_1_DSM_OUT1</name>
+          <name>ADC_DelSig_DSM_OUT1</name>
           <description>Delta Sigma Modulator Output Register 1</description>
           <addressOffset>0x40005B89</addressOffset>
           <size>8</size>

@@ -25,7 +25,7 @@
       <Tool Name="postbuild" Command="" Options="" />
     </Toolchain>
   </Toolchains>
-  <Project Name="Final_Project" Path="C:\Users\Simone\Desktop\PSOC_final-project\Final_Project.cydsn" Version="5.90" Type="Normal">
+  <Project Name="Final_Project" Path="C:\Users\Riccardo\Desktop\Final Project\Final_Project\Final_Project.cydsn" Version="5.90" Type="Normal">
     <CMSIS_SVD_File>Final_Project.svd</CMSIS_SVD_File>
     <Datasheet />
     <LinkerFiles>
@@ -34,19 +34,21 @@
       <LinkerFile Toolchain="ARM IAR Generic">.\Generated_Source\PSoC5\Cm3Iar.icf</LinkerFile>
     </LinkerFiles>
     <Folders>
-      <Folder BuildType="STRICT" Path="C:\Users\Simone\Desktop\PSOC_final-project\Final_Project.cydsn">
-        <Files Root="C:\Users\Simone\Desktop\PSOC_final-project\Final_Project.cydsn">
+      <Folder BuildType="STRICT" Path="C:\Users\Riccardo\Desktop\Final Project\Final_Project\Final_Project.cydsn">
+        <Files Root="C:\Users\Riccardo\Desktop\Final Project\Final_Project\Final_Project.cydsn">
           <File BuildType="BUILD" Toolchain="">main.c</File>
           <File BuildType="BUILD" Toolchain="">I2C_interface.c</File>
+          <File BuildType="BUILD" Toolchain="">Ctrl_Reg_Functions.c</File>
           <File BuildType="BUILD" Toolchain="">cyapicallbacks.h</File>
           <File BuildType="BUILD" Toolchain="">I2C_Interface.h</File>
           <File BuildType="BUILD" Toolchain="">ErrorCodes.h</File>
           <File BuildType="BUILD" Toolchain="">LIS3DH_Registers.h</File>
           <File BuildType="BUILD" Toolchain="">LIS3DH_FIFO_Registers.h</File>
+          <File BuildType="BUILD" Toolchain="">Ctrl_Reg_Functions.h</File>
         </Files>
       </Folder>
-      <Folder BuildType="STRICT" Path="C:\Users\Simone\Desktop\PSOC_final-project\Final_Project.cydsn\Generated_Source\PSoC5">
-        <Files Root="C:\Users\Simone\Desktop\PSOC_final-project\Final_Project.cydsn">
+      <Folder BuildType="STRICT" Path="C:\Users\Riccardo\Desktop\Final Project\Final_Project\Final_Project.cydsn\Generated_Source\PSoC5">
+        <Files Root="C:\Users\Riccardo\Desktop\Final Project\Final_Project\Final_Project.cydsn">
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\cyfitter_cfg.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\cyfitter_cfg.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\cymetadata.c</File>
@@ -78,10 +80,6 @@
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\BLUE_Led_aliases.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\BLUE_Led.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\BLUE_Led.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ADC_DelSig_1.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ADC_DelSig_1.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ADC_DelSig_1_PM.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ADC_DelSig_1_INT.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\isr_LIS3DH.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\isr_LIS3DH.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Potentiometer_aliases.h</File>
@@ -136,14 +134,6 @@
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Timer_PM.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\isr_TIMER.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\isr_TIMER.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ADC_DelSig_1_AMux.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ADC_DelSig_1_AMux.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ADC_DelSig_1_Ext_CP_Clk.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ADC_DelSig_1_Ext_CP_Clk.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ADC_DelSig_1_IRQ.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ADC_DelSig_1_IRQ.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ADC_DelSig_1_theACLK.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ADC_DelSig_1_theACLK.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\SPIM_IntClock.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\SPIM_IntClock.h</File>
           <File BuildType="BUILD" Toolchain="ARM GCC Generic">Generated_Source\PSoC5\cm3gcc.ld</File>
@@ -194,52 +184,64 @@
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\UART_Debug_BOOT.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\UART_Debug_IntClock.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\UART_Debug_IntClock.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ADC_DelSig.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ADC_DelSig.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ADC_DelSig_PM.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ADC_DelSig_INT.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ADC_DelSig_AMux.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ADC_DelSig_AMux.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ADC_DelSig_Ext_CP_Clk.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ADC_DelSig_Ext_CP_Clk.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ADC_DelSig_IRQ.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ADC_DelSig_IRQ.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ADC_DelSig_theACLK.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ADC_DelSig_theACLK.h</File>
         </Files>
       </Folder>
-      <Folder BuildType="STRICT" Path="C:\Users\Simone\Desktop\PSOC_final-project\Final_Project.cydsn\Export\ARM_GCC_Generic">
-        <Files Root="C:\Users\Simone\Desktop\PSOC_final-project\Final_Project.cydsn">
+      <Folder BuildType="STRICT" Path="C:\Users\Riccardo\Desktop\Final Project\Final_Project\Final_Project.cydsn\Export\ARM_GCC_Generic">
+        <Files Root="C:\Users\Riccardo\Desktop\Final Project\Final_Project\Final_Project.cydsn">
           <File BuildType="BUILD" Toolchain="ARM GCC Generic">.\Export\ARM_GCC_Generic\CyComponentLibrary.a</File>
         </Files>
       </Folder>
-      <Folder BuildType="STRICT" Path="C:\Users\Simone\Desktop\PSOC_final-project\Final_Project.cydsn\Export\ARM_MDK_Generic">
-        <Files Root="C:\Users\Simone\Desktop\PSOC_final-project\Final_Project.cydsn">
+      <Folder BuildType="STRICT" Path="C:\Users\Riccardo\Desktop\Final Project\Final_Project\Final_Project.cydsn\Export\ARM_MDK_Generic">
+        <Files Root="C:\Users\Riccardo\Desktop\Final Project\Final_Project\Final_Project.cydsn">
           <File BuildType="BUILD" Toolchain="ARM MDK Generic">.\Export\ARM_MDK_Generic\CyComponentLibrary.a</File>
         </Files>
       </Folder>
-      <Folder BuildType="STRICT" Path="C:\Users\Simone\Desktop\PSOC_final-project\Final_Project.cydsn\Export\ARM_IAR_Generic">
-        <Files Root="C:\Users\Simone\Desktop\PSOC_final-project\Final_Project.cydsn">
+      <Folder BuildType="STRICT" Path="C:\Users\Riccardo\Desktop\Final Project\Final_Project\Final_Project.cydsn\Export\ARM_IAR_Generic">
+        <Files Root="C:\Users\Riccardo\Desktop\Final Project\Final_Project\Final_Project.cydsn">
           <File BuildType="BUILD" Toolchain="ARM IAR Generic">.\Export\ARM_IAR_Generic\CyComponentLibrary.a</File>
         </Files>
       </Folder>
       <Folder BuildType="EXCLUDE" Path=".\codegentemp">
-        <Files Root="C:\Users\Simone\Desktop\PSOC_final-project\Final_Project.cydsn" />
+        <Files Root="C:\Users\Riccardo\Desktop\Final Project\Final_Project\Final_Project.cydsn" />
       </Folder>
       <Folder BuildType="EXCLUDE" Path=".\ARM_GCC_441">
-        <Files Root="C:\Users\Simone\Desktop\PSOC_final-project\Final_Project.cydsn" />
+        <Files Root="C:\Users\Riccardo\Desktop\Final Project\Final_Project\Final_Project.cydsn" />
       </Folder>
       <Folder BuildType="EXCLUDE" Path=".\ARM_GCC_473">
-        <Files Root="C:\Users\Simone\Desktop\PSOC_final-project\Final_Project.cydsn" />
+        <Files Root="C:\Users\Riccardo\Desktop\Final Project\Final_Project\Final_Project.cydsn" />
       </Folder>
       <Folder BuildType="EXCLUDE" Path=".\DP8051_Keil_952">
-        <Files Root="C:\Users\Simone\Desktop\PSOC_final-project\Final_Project.cydsn" />
+        <Files Root="C:\Users\Riccardo\Desktop\Final Project\Final_Project\Final_Project.cydsn" />
       </Folder>
       <Folder BuildType="EXCLUDE" Path=".\DP8051">
-        <Files Root="C:\Users\Simone\Desktop\PSOC_final-project\Final_Project.cydsn" />
+        <Files Root="C:\Users\Riccardo\Desktop\Final Project\Final_Project\Final_Project.cydsn" />
       </Folder>
       <Folder BuildType="EXCLUDE" Path=".\CortexM0">
-        <Files Root="C:\Users\Simone\Desktop\PSOC_final-project\Final_Project.cydsn" />
+        <Files Root="C:\Users\Riccardo\Desktop\Final Project\Final_Project\Final_Project.cydsn" />
       </Folder>
       <Folder BuildType="EXCLUDE" Path=".\CortexM0p">
-        <Files Root="C:\Users\Simone\Desktop\PSOC_final-project\Final_Project.cydsn" />
+        <Files Root="C:\Users\Riccardo\Desktop\Final Project\Final_Project\Final_Project.cydsn" />
       </Folder>
       <Folder BuildType="EXCLUDE" Path=".\CortexM3">
-        <Files Root="C:\Users\Simone\Desktop\PSOC_final-project\Final_Project.cydsn" />
+        <Files Root="C:\Users\Riccardo\Desktop\Final Project\Final_Project\Final_Project.cydsn" />
       </Folder>
       <Folder BuildType="EXCLUDE" Path=".\CortexM4">
-        <Files Root="C:\Users\Simone\Desktop\PSOC_final-project\Final_Project.cydsn" />
+        <Files Root="C:\Users\Riccardo\Desktop\Final Project\Final_Project\Final_Project.cydsn" />
       </Folder>
       <Folder BuildType="EXCLUDE" Path=".\CortexM7">
-        <Files Root="C:\Users\Simone\Desktop\PSOC_final-project\Final_Project.cydsn" />
+        <Files Root="C:\Users\Riccardo\Desktop\Final Project\Final_Project\Final_Project.cydsn" />
       </Folder>
     </Folders>
   </Project>

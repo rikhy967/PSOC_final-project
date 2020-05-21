@@ -29,6 +29,6 @@
 
 //definition of fifo modes
 #define BYPASS_MODE 0x00
-#define FIFO_MODE 0X40
+#define FIFO_MODE 0x40
 #define STREAM_MODE 0x80
 #define STREAM_TO_FIFO_MODE 0xC0

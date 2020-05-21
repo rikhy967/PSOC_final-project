@@ -28,7 +28,7 @@
 #define LIS3DH_CTRL_REG4 0x23
 
 //output registers updated after MSB and LSB reading, FSR [-4g;+4g], high resolution mode
-#define LIS3DH_CTRL_REG4_BDU_ACTIVE 0x98 
+#define LIS3DH_CTRL_REG4_BDU_ACTIVE 0x90 
 
 //brief Address of the out_x_l register
 #define LIS3DH_OUT_X_L  0x28

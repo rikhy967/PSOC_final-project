@@ -3,6 +3,7 @@
 #include "stdio.h"
 #include "LIS3DH_Registers.h"
 #include "LIS3DH_FIFO_Registers.h"
+#include "Interrupt_Routines.h"
 
 
 int main(void)
@@ -13,6 +14,7 @@ int main(void)
     /* Place your initialization/startup code here (e.g. MyInst_Start()) */
     I2C_Peripheral_Start(); //I2C started
     UART_Debug_Start(); // UART enabled
+    isr_LIS3DH_StartEx(ISR_LIS3DH); //LIS3DH interrupt enable
     
     CyDelay(5); //"The boot procedure is complete about 5 milliseconds after device power-up."
     
@@ -205,7 +207,7 @@ int main(void)
     uint8_t    fifo_ctrl_reg = BYPASS_MODE;
     
         error = I2C_Peripheral_WriteRegister(LIS3DH_DEVICE_ADDRESS,
-                                             LIS3DH_CTRL_REG_5,
+                                             LIS3DH_FIFO_CTRL_REG,
                                              fifo_ctrl_reg);
     
         if (error == NO_ERROR)
@@ -220,7 +222,22 @@ int main(void)
     
     
     
+    //ENABLING FIFO INTERRUPT ON OVERRUN
+         uint8_t ctrl_reg_3 = INT_FIFO_OVERRUN;
     
+        error = I2C_Peripheral_WriteRegister(LIS3DH_DEVICE_ADDRESS,
+                                             LIS3DH_CTRL_REG_3,
+                                             ctrl_reg_3);
+    
+        if (error == NO_ERROR)
+        {
+            sprintf(message, "CONTROL REGISTER 3 OVERRUN INT ENABLE successfully written as: 0x%02X\r\n", ctrl_reg_3);
+            UART_Debug_PutString(message); 
+        }
+        else
+        {
+            UART_Debug_PutString("Error occurred during I2C comm to set control register 5\r\n");   
+        }
     
     
     
@@ -269,7 +286,7 @@ int main(void)
     uint8_t overrun_reg;
     uint8_t empty_reg;
     uint8_t flag_overrun = 0;
-    uint8_t counter = 0;
+    uint8_t counter=0;
     for(;;)
     {
         if (flag_mode ==1){
@@ -277,12 +294,14 @@ int main(void)
             error = I2C_Peripheral_WriteRegister(LIS3DH_DEVICE_ADDRESS,
                                              LIS3DH_FIFO_CTRL_REG,
                                              fifo_ctrl_reg);
-            sprintf(message, "Enter FIFO mode!!\r\n");
-            UART_Debug_PutString(message);
+            //sprintf(message, "Enter FIFO mode!!\r\n");
+            //UART_Debug_PutString(message);
             flag_mode=0;
         }
         
-        if (flag_mode ==0){
+        
+        
+       /*if (flag_mode ==0){
         error = I2C_Peripheral_ReadRegister(LIS3DH_DEVICE_ADDRESS,
                                         LIS3DH_FIFO_SRC_REG_3,
                                         &overrun_reg);
@@ -293,11 +312,12 @@ int main(void)
             flag_overrun = 1;   
             sprintf(message, "Overrun!!\r\n");
             UART_Debug_PutString(message);
-            counter=0;
-        }    
+            
+        }*/ 
         
-        while (flag_overrun){
-
+        while (OVR_FLAG){
+             //sprintf(message, "Enter while!!\r\n");
+            //UART_Debug_PutString(message);
             error = I2C_Peripheral_ReadRegisterMulti(LIS3DH_DEVICE_ADDRESS,
                                             LIS3DH_OUT_X_L,
                                             2,
@@ -344,9 +364,9 @@ int main(void)
                OutArray[10] = (uint8_t)(Out_Z_mms2>> 8);
                OutArray[11] = (uint8_t)(Out_Z_mms2>> 16);
                OutArray[12] = (uint8_t) (Out_Z_mms2 >> 24);
-               sprintf(message, "X: %d    Y: %d     Z:%d\r\n",Out_X,Out_Y,Out_Z);
-               UART_Debug_PutString(message);
-               //UART_Debug_PutArray(OutArray, 14);
+               //sprintf(message, "X: %d    Y: %d     Z:%d\r\n",Out_X,Out_Y,Out_Z);
+               //UART_Debug_PutString(message);
+               UART_Debug_PutArray(OutArray, 14);
             }
             
             counter++;
@@ -356,8 +376,9 @@ int main(void)
                                         &empty_reg);
             
             if ((empty_reg&FIFO_EMPTY)==FIFO_EMPTY) {
-                flag_overrun=0;
+                OVR_FLAG=0;
                 flag_mode=1;
+                
             }
                 
         }
@@ -367,10 +388,11 @@ int main(void)
             error = I2C_Peripheral_WriteRegister(LIS3DH_DEVICE_ADDRESS,
                                              LIS3DH_FIFO_CTRL_REG,
                                              fifo_ctrl_reg);
-            sprintf(message, "N cycles: %d\r\n",counter);
-            UART_Debug_PutString(message);
-            sprintf(message, "Bypass Mode!!\r\n");
-            UART_Debug_PutString(message);
+            //sprintf(message, "N cycles: %d\r\n",counter);
+            //UART_Debug_PutString(message);
+            //sprintf(message, "Bypass Mode!!\r\n");
+            //UART_Debug_PutString(message);
+            counter=0;
         }
     }
 }

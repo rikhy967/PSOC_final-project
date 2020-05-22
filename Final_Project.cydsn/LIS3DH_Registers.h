@@ -38,4 +38,6 @@
 
 //brief Address of the out_z_l register
 #define LIS3DH_OUT_Z_L  0x2C
+
+#define LIS3DH_INT1_SRC 0x31
 /* [] END OF FILE */

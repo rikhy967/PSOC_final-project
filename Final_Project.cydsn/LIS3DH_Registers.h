@@ -27,8 +27,8 @@
 //brief Address of the Control register 4
 #define LIS3DH_CTRL_REG4 0x23
 
-//output registers updated after MSB and LSB reading, FSR [-4g;+4g], high resolution mode
-#define LIS3DH_CTRL_REG4_BDU_ACTIVE 0x90 
+//output registers updated after MSB and LSB reading, FSR [-2g;+2g], high resolution mode
+#define LIS3DH_CTRL_REG4_BDU_ACTIVE 0x80 
 
 //brief Address of the out_x_l register
 #define LIS3DH_OUT_X_L  0x28

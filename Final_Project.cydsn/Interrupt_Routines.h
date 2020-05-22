@@ -16,7 +16,8 @@
     #include "cytypes.h"
     #include "ErrorCodes.h"
     
-    CY_ISR_PROTO(ISR_LIS3DH);
+    CY_ISR_PROTO(ISR_LIS3DH_FIFO_OVERRUN);
+    CY_ISR_PROTO(ISR_LIS3DH_FIFO_WATERMARK);
     volatile uint8_t OVR_FLAG;
     //volatile uint8_t counter = 0;
     

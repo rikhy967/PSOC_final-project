@@ -14,7 +14,7 @@
 #include "stdio.h"
 char mex[50];
 
-CY_ISR(ISR_LIS3DH)
+CY_ISR(ISR_LIS3DH_FIFO_OVERRUN)
 {
 OVR_FLAG=1;
 //counter= 0;
@@ -23,3 +23,10 @@ UART_Debug_PutString(mex);
 
 }
 
+ CY_ISR(ISR_LIS3DH_FIFO_WATERMARK)
+{
+OVR_FLAG=1;
+//counter= 0;
+sprintf(mex, "INTERRUPT OCCURED\r\n");
+UART_Debug_PutString(mex);
+}

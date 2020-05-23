@@ -11,10 +11,25 @@ int main(void)
     CyGlobalIntEnable; /* Enable global interrupts. */
     CS_LIS3DH_Write(1); //I2C enabled
     SDO_LIS3DH_Write(0);
+    
+    
+    
+    fq_red = 101;
+    fq_green = 101;
+    fq_blue = 101;
+    
+    
+    counter_red = fq_red;
+    counter_green = fq_green;
+    counter_blue = fq_blue;
+    
+    
+    Timer_Start();
     /* Place your initialization/startup code here (e.g. MyInst_Start()) */
     I2C_Peripheral_Start(); //I2C started
     UART_Debug_Start(); // UART enabled
     //isr_LIS3DH_StartEx(ISR_LIS3DH_FIFO_OVERRUN); //LIS3DH interrupt enable
+    isr_TIMER_StartEx(ISR_TIMER);
     isr_LIS3DH_StartEx(ISR_LIS3DH_FIFO_WATERMARK); //LIS3DH interrupt enable
     CyDelay(5); //"The boot procedure is complete about 5 milliseconds after device power-up."
     
@@ -278,6 +293,12 @@ int main(void)
     uint8_t Y_Data[2];
     uint8_t Z_Data[2];
     
+    // Variables that contains the mean of the acceleration in a single FIFO burst
+    
+    int16_t mean_X_mg=0; 
+    int16_t mean_Y_mg=0;
+    int16_t mean_Z_mg=0;
+    
     
     OutArray[0] = header;
     OutArray[13] = footer;
@@ -296,8 +317,8 @@ int main(void)
             error = I2C_Peripheral_WriteRegister(LIS3DH_DEVICE_ADDRESS,
                                              LIS3DH_FIFO_CTRL_REG,
                                              fifo_ctrl_reg);
-            sprintf(message, "Enter FIFO mode!!\r\n");
-            UART_Debug_PutString(message);
+            //sprintf(message, "Enter FIFO mode!!\r\n");
+            //UART_Debug_PutString(message);
             flag_mode=0;
         }
         
@@ -318,6 +339,8 @@ int main(void)
         }*/ 
         
         while (OVR_FLAG){
+            
+            
              //sprintf(message, "Enter while!!\r\n");
             //UART_Debug_PutString(message);
             error = I2C_Peripheral_ReadRegisterMulti(LIS3DH_DEVICE_ADDRESS,
@@ -347,6 +370,8 @@ int main(void)
                OutArray[2] = (uint8_t)(Out_X_mms2 >> 8);
                OutArray[3] = (uint8_t)(Out_X_mms2 >> 16);
                OutArray[4] = (uint8_t)(Out_X_mms2 >> 24);
+            
+               mean_X_mg = mean_X_mg+Out_X_mg;
              
                
                Out_Y = (int16)((Y_Data[0] | (Y_Data[1]<<8)))>>6;//out_y in digit (10bit)
@@ -358,6 +383,8 @@ int main(void)
                OutArray[7] = (uint8_t)(Out_Y_mms2 >> 16);
                OutArray[8] = (uint8_t)(Out_Y_mms2 >> 24);
             
+               mean_Y_mg = mean_Y_mg+Out_Y_mg;
+            
                Out_Z = (int16)((Z_Data[0] | (Z_Data[1]<<8)))>>6;//out_z in digit (10bit)
                Out_Z_mg= Out_Z*4;//out_z in mg (13 bits needed)
                Out_Z_ms2=Out_Z_mg*9.81/1000;
@@ -366,24 +393,58 @@ int main(void)
                OutArray[10] = (uint8_t)(Out_Z_mms2>> 8);
                OutArray[11] = (uint8_t)(Out_Z_mms2>> 16);
                OutArray[12] = (uint8_t) (Out_Z_mms2 >> 24);
-               //sprintf(message, "X: %d    Y: %d     Z:%d\r\n",Out_X,Out_Y,Out_Z);
-               //UART_Debug_PutString(message);
+            
+               mean_Z_mg = mean_Z_mg+Out_Z_mg;
+            
+            
+               sprintf(message, "X: %d    Y: %d     Z:%d\r\n",Out_X_mg,Out_Y_mg,Out_Z_mg);
+               UART_Debug_PutString(message);
                error = I2C_Peripheral_ReadRegister(LIS3DH_DEVICE_ADDRESS,
                                         LIS3DH_FIFO_SRC_REG_3,
                                         &fss);
                fss= fss & (0b00011111);
             //sprintf(message, "Unread samples: %d\r\n",fss);
                //UART_Debug_PutString(message);
-               UART_Debug_PutArray(OutArray, 14);
+               //UART_Debug_PutArray(OutArray, 14);
             }
             
             counter++;
             
-            error = I2C_Peripheral_ReadRegister(LIS3DH_DEVICE_ADDRESS,
+            /*error = I2C_Peripheral_ReadRegister(LIS3DH_DEVICE_ADDRESS,
                                         LIS3DH_FIFO_SRC_REG_3,
-                                        &wmk_reg);//&empty_reg);
+                                        &wmk_reg);//&empty_reg);*/
             
             if (fss==0) {
+                
+                mean_X_mg = mean_X_mg/counter;
+                mean_Y_mg = mean_Y_mg/counter;
+                mean_Z_mg = mean_Z_mg/counter;
+                
+                sprintf(message, "meanX: %d    meanY: %d     meanZ:%d\r\n",mean_X_mg,mean_Y_mg,mean_Z_mg);
+                UART_Debug_PutString(message);
+                
+                mean_X_mg = abs(mean_X_mg);
+                mean_Y_mg = abs(mean_Y_mg);
+                mean_Z_mg = abs(mean_Z_mg);
+                
+                sprintf(message, "abs meanX: %d    abs meanY: %d     abs meanZ:%d\r\n",mean_X_mg,mean_Y_mg,mean_Z_mg);
+                UART_Debug_PutString(message);
+                
+                fq_green = -49*mean_X_mg/960+1249/12;
+                fq_blue = -49*mean_Y_mg/960+1249/12;
+                fq_red =-49*mean_Z_mg/960+1249/12;
+                
+                sprintf(message, "fq_green: %d    fq_blue: %d     fq_red:%d\r\n",fq_green,fq_blue,fq_red);
+                UART_Debug_PutString(message);
+                
+                mean_X_mg=0;
+                mean_Y_mg=0;
+                mean_Z_mg=0;
+                
+                counter = 0;
+                
+                
+                
                 OVR_FLAG=0;
                 flag_mode=1;
                 

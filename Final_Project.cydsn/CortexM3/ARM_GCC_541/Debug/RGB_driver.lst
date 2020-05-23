@@ -1,0 +1,571 @@
+ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccrT6fuk.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"RGB_driver.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.RGB_Start,"ax",%progbits
+  20              		.align	2
+  21              		.global	RGB_Start
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	RGB_Start, %function
+  25              	RGB_Start:
+  26              	.LFB63:
+  27              		.file 1 "RGB_driver.c"
+   1:RGB_driver.c  **** /* ========================================
+   2:RGB_driver.c  ****  *
+   3:RGB_driver.c  ****  * Copyright YOUR COMPANY, THE YEAR
+   4:RGB_driver.c  ****  * All Rights Reserved
+   5:RGB_driver.c  ****  * UNPUBLISHED, LICENSED SOFTWARE.
+   6:RGB_driver.c  ****  *
+   7:RGB_driver.c  ****  * CONFIDENTIAL AND PROPRIETARY INFORMATION
+   8:RGB_driver.c  ****  * WHICH IS THE PROPERTY OF your company.
+   9:RGB_driver.c  ****  *
+  10:RGB_driver.c  ****  * ========================================
+  11:RGB_driver.c  **** */
+  12:RGB_driver.c  **** 
+  13:RGB_driver.c  **** #include "project.h"
+  14:RGB_driver.c  **** #include "RGB_driver.h"
+  15:RGB_driver.c  **** 
+  16:RGB_driver.c  **** void RGB_Start(){
+  28              		.loc 1 16 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32 0000 08B5     		push	{r3, lr}
+  33              		.cfi_def_cfa_offset 8
+  34              		.cfi_offset 3, -8
+  35              		.cfi_offset 14, -4
+  17:RGB_driver.c  ****  
+  18:RGB_driver.c  ****     PWM_RG_Start();
+  36              		.loc 1 18 0
+  37 0002 FFF7FEFF 		bl	PWM_RG_Start
+  38              	.LVL0:
+  19:RGB_driver.c  ****     PWM_B_INT_Start();
+ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccrT6fuk.s 			page 2
+
+
+  39              		.loc 1 19 0
+  40 0006 FFF7FEFF 		bl	PWM_B_INT_Start
+  41              	.LVL1:
+  42 000a 08BD     		pop	{r3, pc}
+  43              		.cfi_endproc
+  44              	.LFE63:
+  45              		.size	RGB_Start, .-RGB_Start
+  46              		.section	.text.RGB_Stop,"ax",%progbits
+  47              		.align	2
+  48              		.global	RGB_Stop
+  49              		.thumb
+  50              		.thumb_func
+  51              		.type	RGB_Stop, %function
+  52              	RGB_Stop:
+  53              	.LFB64:
+  20:RGB_driver.c  ****    
+  21:RGB_driver.c  **** }
+  22:RGB_driver.c  **** 
+  23:RGB_driver.c  **** void RGB_Stop(){
+  54              		.loc 1 23 0
+  55              		.cfi_startproc
+  56              		@ args = 0, pretend = 0, frame = 0
+  57              		@ frame_needed = 0, uses_anonymous_args = 0
+  58 0000 08B5     		push	{r3, lr}
+  59              		.cfi_def_cfa_offset 8
+  60              		.cfi_offset 3, -8
+  61              		.cfi_offset 14, -4
+  24:RGB_driver.c  ****     
+  25:RGB_driver.c  ****     PWM_RG_Stop();
+  62              		.loc 1 25 0
+  63 0002 FFF7FEFF 		bl	PWM_RG_Stop
+  64              	.LVL2:
+  26:RGB_driver.c  ****     PWM_B_INT_Stop();
+  65              		.loc 1 26 0
+  66 0006 FFF7FEFF 		bl	PWM_B_INT_Stop
+  67              	.LVL3:
+  68 000a 08BD     		pop	{r3, pc}
+  69              		.cfi_endproc
+  70              	.LFE64:
+  71              		.size	RGB_Stop, .-RGB_Stop
+  72              		.text
+  73              	.Letext0:
+  74              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.3\\psoc creator\\import\\gnu\\arm\\5.4.
+  75              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.3\\psoc creator\\import\\gnu\\arm\\5.4.
+  76              		.file 4 "Generated_Source\\PSoC5/PWM_RG.h"
+  77              		.file 5 "Generated_Source\\PSoC5/PWM_B_INT.h"
+  78              		.file 6 "Generated_Source\\PSoC5/core_cm3.h"
+  79              		.section	.debug_info,"",%progbits
+  80              	.Ldebug_info0:
+  81 0000 2E010000 		.4byte	0x12e
+  82 0004 0400     		.2byte	0x4
+  83 0006 00000000 		.4byte	.Ldebug_abbrev0
+  84 000a 04       		.byte	0x4
+  85 000b 01       		.uleb128 0x1
+  86 000c 45000000 		.4byte	.LASF22
+  87 0010 0C       		.byte	0xc
+  88 0011 AA010000 		.4byte	.LASF23
+ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccrT6fuk.s 			page 3
+
+
+  89 0015 0C010000 		.4byte	.LASF24
+  90 0019 00000000 		.4byte	.Ldebug_ranges0+0
+  91 001d 00000000 		.4byte	0
+  92 0021 00000000 		.4byte	.Ldebug_line0
+  93 0025 02       		.uleb128 0x2
+  94 0026 01       		.byte	0x1
+  95 0027 06       		.byte	0x6
+  96 0028 56010000 		.4byte	.LASF0
+  97 002c 02       		.uleb128 0x2
+  98 002d 01       		.byte	0x1
+  99 002e 08       		.byte	0x8
+ 100 002f 62010000 		.4byte	.LASF1
+ 101 0033 02       		.uleb128 0x2
+ 102 0034 02       		.byte	0x2
+ 103 0035 05       		.byte	0x5
+ 104 0036 D3010000 		.4byte	.LASF2
+ 105 003a 02       		.uleb128 0x2
+ 106 003b 02       		.byte	0x2
+ 107 003c 07       		.byte	0x7
+ 108 003d 0E000000 		.4byte	.LASF3
+ 109 0041 03       		.uleb128 0x3
+ 110 0042 C3010000 		.4byte	.LASF9
+ 111 0046 02       		.byte	0x2
+ 112 0047 3F       		.byte	0x3f
+ 113 0048 4C000000 		.4byte	0x4c
+ 114 004c 02       		.uleb128 0x2
+ 115 004d 04       		.byte	0x4
+ 116 004e 05       		.byte	0x5
+ 117 004f 75010000 		.4byte	.LASF4
+ 118 0053 02       		.uleb128 0x2
+ 119 0054 04       		.byte	0x4
+ 120 0055 07       		.byte	0x7
+ 121 0056 E3000000 		.4byte	.LASF5
+ 122 005a 02       		.uleb128 0x2
+ 123 005b 08       		.byte	0x8
+ 124 005c 05       		.byte	0x5
+ 125 005d 00000000 		.4byte	.LASF6
+ 126 0061 02       		.uleb128 0x2
+ 127 0062 08       		.byte	0x8
+ 128 0063 07       		.byte	0x7
+ 129 0064 F5000000 		.4byte	.LASF7
+ 130 0068 04       		.uleb128 0x4
+ 131 0069 04       		.byte	0x4
+ 132 006a 05       		.byte	0x5
+ 133 006b 696E7400 		.ascii	"int\000"
+ 134 006f 02       		.uleb128 0x2
+ 135 0070 04       		.byte	0x4
+ 136 0071 07       		.byte	0x7
+ 137 0072 21000000 		.4byte	.LASF8
+ 138 0076 03       		.uleb128 0x3
+ 139 0077 E9010000 		.4byte	.LASF10
+ 140 007b 03       		.byte	0x3
+ 141 007c 2C       		.byte	0x2c
+ 142 007d 41000000 		.4byte	0x41
+ 143 0081 02       		.uleb128 0x2
+ 144 0082 04       		.byte	0x4
+ 145 0083 04       		.byte	0x4
+ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccrT6fuk.s 			page 4
+
+
+ 146 0084 CD010000 		.4byte	.LASF11
+ 147 0088 02       		.uleb128 0x2
+ 148 0089 08       		.byte	0x8
+ 149 008a 04       		.byte	0x4
+ 150 008b 7E010000 		.4byte	.LASF12
+ 151 008f 02       		.uleb128 0x2
+ 152 0090 01       		.byte	0x1
+ 153 0091 08       		.byte	0x8
+ 154 0092 70010000 		.4byte	.LASF13
+ 155 0096 02       		.uleb128 0x2
+ 156 0097 08       		.byte	0x8
+ 157 0098 04       		.byte	0x4
+ 158 0099 B7010000 		.4byte	.LASF14
+ 159 009d 02       		.uleb128 0x2
+ 160 009e 04       		.byte	0x4
+ 161 009f 07       		.byte	0x7
+ 162 00a0 F1010000 		.4byte	.LASF15
+ 163 00a4 05       		.uleb128 0x5
+ 164 00a5 3B000000 		.4byte	.LASF16
+ 165 00a9 01       		.byte	0x1
+ 166 00aa 10       		.byte	0x10
+ 167 00ab 00000000 		.4byte	.LFB63
+ 168 00af 0C000000 		.4byte	.LFE63-.LFB63
+ 169 00b3 01       		.uleb128 0x1
+ 170 00b4 9C       		.byte	0x9c
+ 171 00b5 CC000000 		.4byte	0xcc
+ 172 00b9 06       		.uleb128 0x6
+ 173 00ba 06000000 		.4byte	.LVL0
+ 174 00be 05010000 		.4byte	0x105
+ 175 00c2 06       		.uleb128 0x6
+ 176 00c3 0A000000 		.4byte	.LVL1
+ 177 00c7 10010000 		.4byte	0x110
+ 178 00cb 00       		.byte	0
+ 179 00cc 05       		.uleb128 0x5
+ 180 00cd 85010000 		.4byte	.LASF17
+ 181 00d1 01       		.byte	0x1
+ 182 00d2 17       		.byte	0x17
+ 183 00d3 00000000 		.4byte	.LFB64
+ 184 00d7 0C000000 		.4byte	.LFE64-.LFB64
+ 185 00db 01       		.uleb128 0x1
+ 186 00dc 9C       		.byte	0x9c
+ 187 00dd F4000000 		.4byte	0xf4
+ 188 00e1 06       		.uleb128 0x6
+ 189 00e2 06000000 		.4byte	.LVL2
+ 190 00e6 1B010000 		.4byte	0x11b
+ 191 00ea 06       		.uleb128 0x6
+ 192 00eb 0A000000 		.4byte	.LVL3
+ 193 00ef 26010000 		.4byte	0x126
+ 194 00f3 00       		.byte	0
+ 195 00f4 07       		.uleb128 0x7
+ 196 00f5 9D010000 		.4byte	.LASF25
+ 197 00f9 06       		.byte	0x6
+ 198 00fa 1207     		.2byte	0x712
+ 199 00fc 00010000 		.4byte	0x100
+ 200 0100 08       		.uleb128 0x8
+ 201 0101 76000000 		.4byte	0x76
+ 202 0105 09       		.uleb128 0x9
+ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccrT6fuk.s 			page 5
+
+
+ 203 0106 2E000000 		.4byte	.LASF18
+ 204 010a 2E000000 		.4byte	.LASF18
+ 205 010e 04       		.byte	0x4
+ 206 010f 92       		.byte	0x92
+ 207 0110 09       		.uleb128 0x9
+ 208 0111 D3000000 		.4byte	.LASF19
+ 209 0115 D3000000 		.4byte	.LASF19
+ 210 0119 05       		.byte	0x5
+ 211 011a 92       		.byte	0x92
+ 212 011b 09       		.uleb128 0x9
+ 213 011c DD010000 		.4byte	.LASF20
+ 214 0120 DD010000 		.4byte	.LASF20
+ 215 0124 04       		.byte	0x4
+ 216 0125 93       		.byte	0x93
+ 217 0126 09       		.uleb128 0x9
+ 218 0127 8E010000 		.4byte	.LASF21
+ 219 012b 8E010000 		.4byte	.LASF21
+ 220 012f 05       		.byte	0x5
+ 221 0130 93       		.byte	0x93
+ 222 0131 00       		.byte	0
+ 223              		.section	.debug_abbrev,"",%progbits
+ 224              	.Ldebug_abbrev0:
+ 225 0000 01       		.uleb128 0x1
+ 226 0001 11       		.uleb128 0x11
+ 227 0002 01       		.byte	0x1
+ 228 0003 25       		.uleb128 0x25
+ 229 0004 0E       		.uleb128 0xe
+ 230 0005 13       		.uleb128 0x13
+ 231 0006 0B       		.uleb128 0xb
+ 232 0007 03       		.uleb128 0x3
+ 233 0008 0E       		.uleb128 0xe
+ 234 0009 1B       		.uleb128 0x1b
+ 235 000a 0E       		.uleb128 0xe
+ 236 000b 55       		.uleb128 0x55
+ 237 000c 17       		.uleb128 0x17
+ 238 000d 11       		.uleb128 0x11
+ 239 000e 01       		.uleb128 0x1
+ 240 000f 10       		.uleb128 0x10
+ 241 0010 17       		.uleb128 0x17
+ 242 0011 00       		.byte	0
+ 243 0012 00       		.byte	0
+ 244 0013 02       		.uleb128 0x2
+ 245 0014 24       		.uleb128 0x24
+ 246 0015 00       		.byte	0
+ 247 0016 0B       		.uleb128 0xb
+ 248 0017 0B       		.uleb128 0xb
+ 249 0018 3E       		.uleb128 0x3e
+ 250 0019 0B       		.uleb128 0xb
+ 251 001a 03       		.uleb128 0x3
+ 252 001b 0E       		.uleb128 0xe
+ 253 001c 00       		.byte	0
+ 254 001d 00       		.byte	0
+ 255 001e 03       		.uleb128 0x3
+ 256 001f 16       		.uleb128 0x16
+ 257 0020 00       		.byte	0
+ 258 0021 03       		.uleb128 0x3
+ 259 0022 0E       		.uleb128 0xe
+ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccrT6fuk.s 			page 6
+
+
+ 260 0023 3A       		.uleb128 0x3a
+ 261 0024 0B       		.uleb128 0xb
+ 262 0025 3B       		.uleb128 0x3b
+ 263 0026 0B       		.uleb128 0xb
+ 264 0027 49       		.uleb128 0x49
+ 265 0028 13       		.uleb128 0x13
+ 266 0029 00       		.byte	0
+ 267 002a 00       		.byte	0
+ 268 002b 04       		.uleb128 0x4
+ 269 002c 24       		.uleb128 0x24
+ 270 002d 00       		.byte	0
+ 271 002e 0B       		.uleb128 0xb
+ 272 002f 0B       		.uleb128 0xb
+ 273 0030 3E       		.uleb128 0x3e
+ 274 0031 0B       		.uleb128 0xb
+ 275 0032 03       		.uleb128 0x3
+ 276 0033 08       		.uleb128 0x8
+ 277 0034 00       		.byte	0
+ 278 0035 00       		.byte	0
+ 279 0036 05       		.uleb128 0x5
+ 280 0037 2E       		.uleb128 0x2e
+ 281 0038 01       		.byte	0x1
+ 282 0039 3F       		.uleb128 0x3f
+ 283 003a 19       		.uleb128 0x19
+ 284 003b 03       		.uleb128 0x3
+ 285 003c 0E       		.uleb128 0xe
+ 286 003d 3A       		.uleb128 0x3a
+ 287 003e 0B       		.uleb128 0xb
+ 288 003f 3B       		.uleb128 0x3b
+ 289 0040 0B       		.uleb128 0xb
+ 290 0041 11       		.uleb128 0x11
+ 291 0042 01       		.uleb128 0x1
+ 292 0043 12       		.uleb128 0x12
+ 293 0044 06       		.uleb128 0x6
+ 294 0045 40       		.uleb128 0x40
+ 295 0046 18       		.uleb128 0x18
+ 296 0047 9742     		.uleb128 0x2117
+ 297 0049 19       		.uleb128 0x19
+ 298 004a 01       		.uleb128 0x1
+ 299 004b 13       		.uleb128 0x13
+ 300 004c 00       		.byte	0
+ 301 004d 00       		.byte	0
+ 302 004e 06       		.uleb128 0x6
+ 303 004f 898201   		.uleb128 0x4109
+ 304 0052 00       		.byte	0
+ 305 0053 11       		.uleb128 0x11
+ 306 0054 01       		.uleb128 0x1
+ 307 0055 31       		.uleb128 0x31
+ 308 0056 13       		.uleb128 0x13
+ 309 0057 00       		.byte	0
+ 310 0058 00       		.byte	0
+ 311 0059 07       		.uleb128 0x7
+ 312 005a 34       		.uleb128 0x34
+ 313 005b 00       		.byte	0
+ 314 005c 03       		.uleb128 0x3
+ 315 005d 0E       		.uleb128 0xe
+ 316 005e 3A       		.uleb128 0x3a
+ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccrT6fuk.s 			page 7
+
+
+ 317 005f 0B       		.uleb128 0xb
+ 318 0060 3B       		.uleb128 0x3b
+ 319 0061 05       		.uleb128 0x5
+ 320 0062 49       		.uleb128 0x49
+ 321 0063 13       		.uleb128 0x13
+ 322 0064 3F       		.uleb128 0x3f
+ 323 0065 19       		.uleb128 0x19
+ 324 0066 3C       		.uleb128 0x3c
+ 325 0067 19       		.uleb128 0x19
+ 326 0068 00       		.byte	0
+ 327 0069 00       		.byte	0
+ 328 006a 08       		.uleb128 0x8
+ 329 006b 35       		.uleb128 0x35
+ 330 006c 00       		.byte	0
+ 331 006d 49       		.uleb128 0x49
+ 332 006e 13       		.uleb128 0x13
+ 333 006f 00       		.byte	0
+ 334 0070 00       		.byte	0
+ 335 0071 09       		.uleb128 0x9
+ 336 0072 2E       		.uleb128 0x2e
+ 337 0073 00       		.byte	0
+ 338 0074 3F       		.uleb128 0x3f
+ 339 0075 19       		.uleb128 0x19
+ 340 0076 3C       		.uleb128 0x3c
+ 341 0077 19       		.uleb128 0x19
+ 342 0078 6E       		.uleb128 0x6e
+ 343 0079 0E       		.uleb128 0xe
+ 344 007a 03       		.uleb128 0x3
+ 345 007b 0E       		.uleb128 0xe
+ 346 007c 3A       		.uleb128 0x3a
+ 347 007d 0B       		.uleb128 0xb
+ 348 007e 3B       		.uleb128 0x3b
+ 349 007f 0B       		.uleb128 0xb
+ 350 0080 00       		.byte	0
+ 351 0081 00       		.byte	0
+ 352 0082 00       		.byte	0
+ 353              		.section	.debug_aranges,"",%progbits
+ 354 0000 24000000 		.4byte	0x24
+ 355 0004 0200     		.2byte	0x2
+ 356 0006 00000000 		.4byte	.Ldebug_info0
+ 357 000a 04       		.byte	0x4
+ 358 000b 00       		.byte	0
+ 359 000c 0000     		.2byte	0
+ 360 000e 0000     		.2byte	0
+ 361 0010 00000000 		.4byte	.LFB63
+ 362 0014 0C000000 		.4byte	.LFE63-.LFB63
+ 363 0018 00000000 		.4byte	.LFB64
+ 364 001c 0C000000 		.4byte	.LFE64-.LFB64
+ 365 0020 00000000 		.4byte	0
+ 366 0024 00000000 		.4byte	0
+ 367              		.section	.debug_ranges,"",%progbits
+ 368              	.Ldebug_ranges0:
+ 369 0000 00000000 		.4byte	.LFB63
+ 370 0004 0C000000 		.4byte	.LFE63
+ 371 0008 00000000 		.4byte	.LFB64
+ 372 000c 0C000000 		.4byte	.LFE64
+ 373 0010 00000000 		.4byte	0
+ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccrT6fuk.s 			page 8
+
+
+ 374 0014 00000000 		.4byte	0
+ 375              		.section	.debug_line,"",%progbits
+ 376              	.Ldebug_line0:
+ 377 0000 88010000 		.section	.debug_str,"MS",%progbits,1
+ 377      02006001 
+ 377      00000201 
+ 377      FB0E0D00 
+ 377      01010101 
+ 378              	.LASF6:
+ 379 0000 6C6F6E67 		.ascii	"long long int\000"
+ 379      206C6F6E 
+ 379      6720696E 
+ 379      7400
+ 380              	.LASF3:
+ 381 000e 73686F72 		.ascii	"short unsigned int\000"
+ 381      7420756E 
+ 381      7369676E 
+ 381      65642069 
+ 381      6E7400
+ 382              	.LASF8:
+ 383 0021 756E7369 		.ascii	"unsigned int\000"
+ 383      676E6564 
+ 383      20696E74 
+ 383      00
+ 384              	.LASF18:
+ 385 002e 50574D5F 		.ascii	"PWM_RG_Start\000"
+ 385      52475F53 
+ 385      74617274 
+ 385      00
+ 386              	.LASF16:
+ 387 003b 5247425F 		.ascii	"RGB_Start\000"
+ 387      53746172 
+ 387      7400
+ 388              	.LASF22:
+ 389 0045 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 389      43313120 
+ 389      352E342E 
+ 389      31203230 
+ 389      31363036 
+ 390 0078 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 390      20726576 
+ 390      6973696F 
+ 390      6E203233 
+ 390      37373135 
+ 391 00ab 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 391      66756E63 
+ 391      74696F6E 
+ 391      2D736563 
+ 391      74696F6E 
+ 392              	.LASF19:
+ 393 00d3 50574D5F 		.ascii	"PWM_B_INT_Start\000"
+ 393      425F494E 
+ 393      545F5374 
+ 393      61727400 
+ 394              	.LASF5:
+ 395 00e3 6C6F6E67 		.ascii	"long unsigned int\000"
+ 395      20756E73 
+ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccrT6fuk.s 			page 9
+
+
+ 395      69676E65 
+ 395      6420696E 
+ 395      7400
+ 396              	.LASF7:
+ 397 00f5 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 397      206C6F6E 
+ 397      6720756E 
+ 397      7369676E 
+ 397      65642069 
+ 398              	.LASF24:
+ 399 010c 433A5C55 		.ascii	"C:\\Users\\Riccardo\\Desktop\\Final Project\\Final_"
+ 399      73657273 
+ 399      5C526963 
+ 399      63617264 
+ 399      6F5C4465 
+ 400 013a 50726F6A 		.ascii	"Project\\Final_Project.cydsn\000"
+ 400      6563745C 
+ 400      46696E61 
+ 400      6C5F5072 
+ 400      6F6A6563 
+ 401              	.LASF0:
+ 402 0156 7369676E 		.ascii	"signed char\000"
+ 402      65642063 
+ 402      68617200 
+ 403              	.LASF1:
+ 404 0162 756E7369 		.ascii	"unsigned char\000"
+ 404      676E6564 
+ 404      20636861 
+ 404      7200
+ 405              	.LASF13:
+ 406 0170 63686172 		.ascii	"char\000"
+ 406      00
+ 407              	.LASF4:
+ 408 0175 6C6F6E67 		.ascii	"long int\000"
+ 408      20696E74 
+ 408      00
+ 409              	.LASF12:
+ 410 017e 646F7562 		.ascii	"double\000"
+ 410      6C6500
+ 411              	.LASF17:
+ 412 0185 5247425F 		.ascii	"RGB_Stop\000"
+ 412      53746F70 
+ 412      00
+ 413              	.LASF21:
+ 414 018e 50574D5F 		.ascii	"PWM_B_INT_Stop\000"
+ 414      425F494E 
+ 414      545F5374 
+ 414      6F7000
+ 415              	.LASF25:
+ 416 019d 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 416      52784275 
+ 416      66666572 
+ 416      00
+ 417              	.LASF23:
+ 418 01aa 5247425F 		.ascii	"RGB_driver.c\000"
+ 418      64726976 
+ 418      65722E63 
+ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccrT6fuk.s 			page 10
+
+
+ 418      00
+ 419              	.LASF14:
+ 420 01b7 6C6F6E67 		.ascii	"long double\000"
+ 420      20646F75 
+ 420      626C6500 
+ 421              	.LASF9:
+ 422 01c3 5F5F696E 		.ascii	"__int32_t\000"
+ 422      7433325F 
+ 422      7400
+ 423              	.LASF11:
+ 424 01cd 666C6F61 		.ascii	"float\000"
+ 424      7400
+ 425              	.LASF2:
+ 426 01d3 73686F72 		.ascii	"short int\000"
+ 426      7420696E 
+ 426      7400
+ 427              	.LASF20:
+ 428 01dd 50574D5F 		.ascii	"PWM_RG_Stop\000"
+ 428      52475F53 
+ 428      746F7000 
+ 429              	.LASF10:
+ 430 01e9 696E7433 		.ascii	"int32_t\000"
+ 430      325F7400 
+ 431              	.LASF15:
+ 432 01f1 73697A65 		.ascii	"sizetype\000"
+ 432      74797065 
+ 432      00
+ 433              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

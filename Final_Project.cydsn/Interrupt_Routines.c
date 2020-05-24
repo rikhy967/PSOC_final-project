@@ -41,10 +41,10 @@ CY_ISR (ISR_TIMER)
     //////// BLUE LED ////////////////
     if (counter_blue==0)
     {
-        if (fq_blue<=100) BLUE_Led_Write(~BLUE_Led_Read());
-        counter_blue = fq_blue;
+        if (period_blue<=THR_OFF) BLUE_Led_Write(~BLUE_Led_Read());
+        counter_blue = period_blue;
     }
-    if (fq_blue>100)
+    if (period_blue>THR_OFF)
     {
         BLUE_Led_Write(1);
     }
@@ -53,10 +53,10 @@ CY_ISR (ISR_TIMER)
     //////////GREEN LED //////////////
     if (counter_green==0)
     {
-        if (fq_green<=100) GREEN_Led_Write(~GREEN_Led_Read());
-        counter_green = fq_green;
+        if (period_green<=THR_OFF) GREEN_Led_Write(~GREEN_Led_Read());
+        counter_green = period_green;
     }
-    if (fq_green>100)
+    if (period_green>THR_OFF)
     {
         GREEN_Led_Write(1);
     }
@@ -65,10 +65,10 @@ CY_ISR (ISR_TIMER)
     //////////////RED LED //////////////////
     if (counter_red==0 )
     {
-        if (fq_red<=100) RED_Led_Write(~RED_Led_Read());
-        counter_red = fq_red;
+        if (period_red<=THR_OFF) RED_Led_Write(~RED_Led_Read());
+        counter_red = period_red;
     }
-    if (fq_red>100)
+    if (period_red>THR_OFF)
     {
         RED_Led_Write(1);
     }

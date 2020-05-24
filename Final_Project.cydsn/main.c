@@ -1,6 +1,7 @@
 #include "I2C_Interface.h"
 #include "project.h"
 #include "stdio.h"
+#include "math.h"
 #include "LIS3DH_Registers.h"
 #include "LIS3DH_FIFO_Registers.h"
 #include "Interrupt_Routines.h"
@@ -14,14 +15,14 @@ int main(void)
     
     
     
-    fq_red = 101;
-    fq_green = 101;
-    fq_blue = 101;
+    period_red = 101;
+    period_green = 101;
+    period_blue = 101;
     
     
-    counter_red = fq_red;
-    counter_green = fq_green;
-    counter_blue = fq_blue;
+    counter_red = period_red;
+    counter_green = period_green;
+    counter_blue = period_blue;
     
     
     Timer_Start();
@@ -430,11 +431,16 @@ int main(void)
                 sprintf(message, "abs meanX: %d    abs meanY: %d     abs meanZ:%d\r\n",mean_X_mg,mean_Y_mg,mean_Z_mg);
                 UART_Debug_PutString(message);
                 
-                fq_green = -49*mean_X_mg/960+1249/12;
-                fq_blue = -49*mean_Y_mg/960+1249/12;
-                fq_red =-49*mean_Z_mg/960+1249/12;
+                //period_green = -49*mean_X_mg/960+1249/12;
+                //period_blue = -49*mean_Y_mg/960+1249/12;
+                //period_red =-49*mean_Z_mg/960+1249/12;
                 
-                sprintf(message, "fq_green: %d    fq_blue: %d     fq_red:%d\r\n",fq_green,fq_blue,fq_red);
+                period_green = 0.0001*mean_X_mg*mean_X_mg-0.4*mean_X_mg+402;
+                period_blue = 0.0001*mean_Y_mg*mean_Y_mg-0.4*mean_Y_mg+402;
+                period_red = 0.0001*mean_Z_mg*mean_Z_mg-0.4*mean_Z_mg+402;
+                
+                
+                sprintf(message, "fq_green: %d    fq_blue: %d     fq_red:%d\r\n",period_green,period_blue,period_red);
                 UART_Debug_PutString(message);
                 
                 mean_X_mg=0;

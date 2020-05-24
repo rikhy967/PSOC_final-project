@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccPuUMOu.s 			page 1
+ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\cc3DGxvN.s 			page 1
 
 
    1              		.syntax unified
@@ -42,25 +42,28 @@ ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccPuUMOu.s 			page 1
   12:Interrupt_Routines.c **** #include "project.h"
   13:Interrupt_Routines.c **** #include "Interrupt_Routines.h"
   14:Interrupt_Routines.c **** #include "stdio.h"
-  15:Interrupt_Routines.c **** char mex[50];
-  16:Interrupt_Routines.c **** 
-  17:Interrupt_Routines.c **** CY_ISR(ISR_LIS3DH_FIFO_OVERRUN)
-  18:Interrupt_Routines.c **** {
-  28              		.loc 1 18 0
+  15:Interrupt_Routines.c **** 
+  16:Interrupt_Routines.c **** /* Variable that contains the message for UART debug communication*/
+  17:Interrupt_Routines.c **** char mex[50];
+  18:Interrupt_Routines.c **** 
+  19:Interrupt_Routines.c **** /* Custom Interrupt on FIFO overrun */
+  20:Interrupt_Routines.c **** CY_ISR(ISR_LIS3DH_FIFO_OVERRUN)
+  21:Interrupt_Routines.c **** {
+  28              		.loc 1 21 0
   29              		.cfi_startproc
   30              		@ args = 0, pretend = 0, frame = 0
   31              		@ frame_needed = 0, uses_anonymous_args = 0
   32              		@ link register save eliminated.
-  19:Interrupt_Routines.c **** OVR_FLAG=1;
-  33              		.loc 1 19 0
+  22:Interrupt_Routines.c ****     OVR_FLAG=1;
+  33              		.loc 1 22 0
   34 0000 0122     		movs	r2, #1
   35 0002 014B     		ldr	r3, .L2
+ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\cc3DGxvN.s 			page 2
+
+
   36 0004 1A70     		strb	r2, [r3]
   37 0006 7047     		bx	lr
   38              	.L3:
-ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccPuUMOu.s 			page 2
-
-
   39              		.align	2
   40              	.L2:
   41 0008 00000000 		.word	OVR_FLAG
@@ -75,21 +78,22 @@ ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccPuUMOu.s 			page 1
   50              		.type	ISR_LIS3DH_FIFO_WATERMARK, %function
   51              	ISR_LIS3DH_FIFO_WATERMARK:
   52              	.LFB65:
-  20:Interrupt_Routines.c **** //counter= 0;
-  21:Interrupt_Routines.c **** //sprintf(mex, "INTERRUPT OCCURED\r\n");
-  22:Interrupt_Routines.c **** //UART_Debug_PutString(mex);
-  23:Interrupt_Routines.c **** 
-  24:Interrupt_Routines.c **** }
-  25:Interrupt_Routines.c **** 
-  26:Interrupt_Routines.c ****  CY_ISR(ISR_LIS3DH_FIFO_WATERMARK)
-  27:Interrupt_Routines.c **** {
-  53              		.loc 1 27 0
+  23:Interrupt_Routines.c **** //counter= 0;
+  24:Interrupt_Routines.c **** //sprintf(mex, "INTERRUPT OCCURED\r\n");
+  25:Interrupt_Routines.c **** //UART_Debug_PutString(mex);
+  26:Interrupt_Routines.c **** 
+  27:Interrupt_Routines.c **** }
+  28:Interrupt_Routines.c **** 
+  29:Interrupt_Routines.c **** /* Custom Interrupt on FIFO watermark */
+  30:Interrupt_Routines.c ****  CY_ISR(ISR_LIS3DH_FIFO_WATERMARK)
+  31:Interrupt_Routines.c **** {
+  53              		.loc 1 31 0
   54              		.cfi_startproc
   55              		@ args = 0, pretend = 0, frame = 0
   56              		@ frame_needed = 0, uses_anonymous_args = 0
   57              		@ link register save eliminated.
-  28:Interrupt_Routines.c **** OVR_FLAG=1;
-  58              		.loc 1 28 0
+  32:Interrupt_Routines.c ****     OVR_FLAG=1;
+  58              		.loc 1 32 0
   59 0000 0122     		movs	r2, #1
   60 0002 014B     		ldr	r3, .L5
   61 0004 1A70     		strb	r2, [r3]
@@ -109,68 +113,78 @@ ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccPuUMOu.s 			page 1
   75              		.type	ISR_TIMER, %function
   76              	ISR_TIMER:
   77              	.LFB66:
-  29:Interrupt_Routines.c **** //counter= 0;
-  30:Interrupt_Routines.c **** //sprintf(mex, "INTERRUPT OCCURED\r\n");
-  31:Interrupt_Routines.c **** //UART_Debug_PutString(mex);
-  32:Interrupt_Routines.c **** }
-  33:Interrupt_Routines.c **** 
-  34:Interrupt_Routines.c **** CY_ISR (ISR_TIMER)
-  35:Interrupt_Routines.c **** {
-  78              		.loc 1 35 0
+  33:Interrupt_Routines.c **** //counter= 0;
+  34:Interrupt_Routines.c **** //sprintf(mex, "INTERRUPT OCCURED\r\n");
+  35:Interrupt_Routines.c **** //UART_Debug_PutString(mex);
+  36:Interrupt_Routines.c **** }
+  37:Interrupt_Routines.c **** 
+ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\cc3DGxvN.s 			page 3
+
+
+  38:Interrupt_Routines.c **** /* Custom Interrupt on Timer counter */
+  39:Interrupt_Routines.c **** CY_ISR (ISR_TIMER)
+  40:Interrupt_Routines.c **** {
+  78              		.loc 1 40 0
   79              		.cfi_startproc
-ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccPuUMOu.s 			page 3
-
-
   80              		@ args = 0, pretend = 0, frame = 0
   81              		@ frame_needed = 0, uses_anonymous_args = 0
   82 0000 08B5     		push	{r3, lr}
   83              		.cfi_def_cfa_offset 8
   84              		.cfi_offset 3, -8
   85              		.cfi_offset 14, -4
-  36:Interrupt_Routines.c ****     
-  37:Interrupt_Routines.c ****     Timer_ReadStatusRegister();   
-  86              		.loc 1 37 0
+  41:Interrupt_Routines.c ****     
+  42:Interrupt_Routines.c ****     /* Read Timer Status Register to reset the counter */
+  43:Interrupt_Routines.c ****     Timer_ReadStatusRegister();
+  86              		.loc 1 43 0
   87 0002 FFF7FEFF 		bl	Timer_ReadStatusRegister
   88              	.LVL0:
-  38:Interrupt_Routines.c ****     counter_blue--;
-  89              		.loc 1 38 0
+  44:Interrupt_Routines.c ****     
+  45:Interrupt_Routines.c ****     /* Decrement the counter variable when Interrupt occurs */
+  46:Interrupt_Routines.c ****     counter_blue--;
+  89              		.loc 1 46 0
   90 0006 364A     		ldr	r2, .L18
   91 0008 1388     		ldrh	r3, [r2]
   92 000a 9BB2     		uxth	r3, r3
   93 000c 013B     		subs	r3, r3, #1
   94 000e 9BB2     		uxth	r3, r3
   95 0010 1380     		strh	r3, [r2]	@ movhi
-  39:Interrupt_Routines.c ****     counter_green--;
-  96              		.loc 1 39 0
+  47:Interrupt_Routines.c ****     counter_green--;
+  96              		.loc 1 47 0
   97 0012 3449     		ldr	r1, .L18+4
   98 0014 0B88     		ldrh	r3, [r1]
   99 0016 9BB2     		uxth	r3, r3
  100 0018 013B     		subs	r3, r3, #1
  101 001a 9BB2     		uxth	r3, r3
  102 001c 0B80     		strh	r3, [r1]	@ movhi
-  40:Interrupt_Routines.c ****     counter_red--;
- 103              		.loc 1 40 0
+  48:Interrupt_Routines.c ****     counter_red--;
+ 103              		.loc 1 48 0
  104 001e 3249     		ldr	r1, .L18+8
  105 0020 0B88     		ldrh	r3, [r1]
  106 0022 9BB2     		uxth	r3, r3
  107 0024 013B     		subs	r3, r3, #1
  108 0026 9BB2     		uxth	r3, r3
  109 0028 0B80     		strh	r3, [r1]	@ movhi
-  41:Interrupt_Routines.c ****     //////// BLUE LED ////////////////
-  42:Interrupt_Routines.c ****     if (counter_blue==0)
- 110              		.loc 1 42 0
+  49:Interrupt_Routines.c ****     
+  50:Interrupt_Routines.c ****     /********************* BLUE LED ******************/
+  51:Interrupt_Routines.c ****     /* If the counter variable goes to 0, the Blue channel must be toggled*/
+  52:Interrupt_Routines.c ****     if (counter_blue==0)
+ 110              		.loc 1 52 0
  111 002a 1388     		ldrh	r3, [r2]
  112 002c 9BB2     		uxth	r3, r3
  113 002e 83B9     		cbnz	r3, .L8
-  43:Interrupt_Routines.c ****     {
-  44:Interrupt_Routines.c ****         if (period_blue<=THR_OFF) BLUE_Led_Write(~BLUE_Led_Read());
- 114              		.loc 1 44 0
+  53:Interrupt_Routines.c ****     {
+  54:Interrupt_Routines.c ****         /* Toggle the Led only if the period set is lower than the THR_OFF */
+  55:Interrupt_Routines.c ****         if (period_blue<=THR_OFF) BLUE_Led_Write(~BLUE_Led_Read());
+ 114              		.loc 1 55 0
  115 0030 2E4B     		ldr	r3, .L18+12
  116 0032 1B88     		ldrh	r3, [r3]
+ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\cc3DGxvN.s 			page 4
+
+
  117 0034 9BB2     		uxth	r3, r3
  118 0036 B3F5B67F 		cmp	r3, #364
  119 003a 05D2     		bcs	.L9
- 120              		.loc 1 44 0 is_stmt 0 discriminator 1
+ 120              		.loc 1 55 0 is_stmt 0 discriminator 1
  121 003c FFF7FEFF 		bl	BLUE_Led_Read
  122              	.LVL1:
  123 0040 C043     		mvns	r0, r0
@@ -178,51 +192,56 @@ ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccPuUMOu.s 			page 1
  125 0044 FFF7FEFF 		bl	BLUE_Led_Write
  126              	.LVL2:
  127              	.L9:
-ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccPuUMOu.s 			page 4
-
-
-  45:Interrupt_Routines.c ****         counter_blue = period_blue;
- 128              		.loc 1 45 0 is_stmt 1
+  56:Interrupt_Routines.c ****         /* Reset the counter to the period value */
+  57:Interrupt_Routines.c ****         counter_blue = period_blue;
+ 128              		.loc 1 57 0 is_stmt 1
  129 0048 284B     		ldr	r3, .L18+12
  130 004a 1B88     		ldrh	r3, [r3]
  131 004c 9BB2     		uxth	r3, r3
  132 004e 244A     		ldr	r2, .L18
  133 0050 1380     		strh	r3, [r2]	@ movhi
  134              	.L8:
-  46:Interrupt_Routines.c ****     }
-  47:Interrupt_Routines.c ****     if (period_blue>THR_OFF)
- 135              		.loc 1 47 0
+  58:Interrupt_Routines.c ****     }
+  59:Interrupt_Routines.c ****     
+  60:Interrupt_Routines.c ****     /* In case the period is set more than THR_OFF, turn off the Led */
+  61:Interrupt_Routines.c ****     if (period_blue>THR_OFF)
+ 135              		.loc 1 61 0
  136 0052 264B     		ldr	r3, .L18+12
  137 0054 1B88     		ldrh	r3, [r3]
  138 0056 9BB2     		uxth	r3, r3
  139 0058 B3F5B67F 		cmp	r3, #364
  140 005c 02D3     		bcc	.L10
-  48:Interrupt_Routines.c ****     {
-  49:Interrupt_Routines.c ****         BLUE_Led_Write(1);
- 141              		.loc 1 49 0
+  62:Interrupt_Routines.c ****     {
+  63:Interrupt_Routines.c ****         BLUE_Led_Write(1);
+ 141              		.loc 1 63 0
  142 005e 0120     		movs	r0, #1
  143 0060 FFF7FEFF 		bl	BLUE_Led_Write
  144              	.LVL3:
  145              	.L10:
-  50:Interrupt_Routines.c ****     }
-  51:Interrupt_Routines.c ****      
-  52:Interrupt_Routines.c ****     
-  53:Interrupt_Routines.c ****     //////////GREEN LED //////////////
-  54:Interrupt_Routines.c ****     if (counter_green==0)
- 146              		.loc 1 54 0
+  64:Interrupt_Routines.c ****     }
+  65:Interrupt_Routines.c ****      
+  66:Interrupt_Routines.c ****     
+  67:Interrupt_Routines.c ****     /******************** GREEN LED *******************/
+  68:Interrupt_Routines.c ****     /* If the counter variable goes to 0, the Green channel must be toggled*/
+  69:Interrupt_Routines.c ****     if (counter_green==0)
+ 146              		.loc 1 69 0
  147 0064 1F4B     		ldr	r3, .L18+4
  148 0066 1B88     		ldrh	r3, [r3]
  149 0068 9BB2     		uxth	r3, r3
  150 006a 83B9     		cbnz	r3, .L11
-  55:Interrupt_Routines.c ****     {
-  56:Interrupt_Routines.c ****         if (period_green<=THR_OFF) GREEN_Led_Write(~GREEN_Led_Read());
- 151              		.loc 1 56 0
+  70:Interrupt_Routines.c ****     {
+  71:Interrupt_Routines.c ****         /* Toggle the Led only if the period set is lower than the THR_OFF */
+  72:Interrupt_Routines.c ****         if (period_green<=THR_OFF) GREEN_Led_Write(~GREEN_Led_Read());
+ 151              		.loc 1 72 0
  152 006c 204B     		ldr	r3, .L18+16
  153 006e 1B88     		ldrh	r3, [r3]
  154 0070 9BB2     		uxth	r3, r3
  155 0072 B3F5B67F 		cmp	r3, #364
  156 0076 05D2     		bcs	.L12
- 157              		.loc 1 56 0 is_stmt 0 discriminator 1
+ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\cc3DGxvN.s 			page 5
+
+
+ 157              		.loc 1 72 0 is_stmt 0 discriminator 1
  158 0078 FFF7FEFF 		bl	GREEN_Led_Read
  159              	.LVL4:
  160 007c C043     		mvns	r0, r0
@@ -230,80 +249,83 @@ ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccPuUMOu.s 			page 1
  162 0080 FFF7FEFF 		bl	GREEN_Led_Write
  163              	.LVL5:
  164              	.L12:
-  57:Interrupt_Routines.c ****         counter_green = period_green;
- 165              		.loc 1 57 0 is_stmt 1
+  73:Interrupt_Routines.c ****         /* Reset the counter to the period value */
+  74:Interrupt_Routines.c ****         counter_green = period_green;
+ 165              		.loc 1 74 0 is_stmt 1
  166 0084 1A4B     		ldr	r3, .L18+16
  167 0086 1B88     		ldrh	r3, [r3]
  168 0088 9BB2     		uxth	r3, r3
  169 008a 164A     		ldr	r2, .L18+4
  170 008c 1380     		strh	r3, [r2]	@ movhi
  171              	.L11:
-ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccPuUMOu.s 			page 5
-
-
-  58:Interrupt_Routines.c ****     }
-  59:Interrupt_Routines.c ****     if (period_green>THR_OFF)
- 172              		.loc 1 59 0
+  75:Interrupt_Routines.c ****     }
+  76:Interrupt_Routines.c ****     /* In case the period is set more than THR_OFF, turn off the Led */
+  77:Interrupt_Routines.c ****     if (period_green>THR_OFF)
+ 172              		.loc 1 77 0
  173 008e 184B     		ldr	r3, .L18+16
  174 0090 1B88     		ldrh	r3, [r3]
  175 0092 9BB2     		uxth	r3, r3
  176 0094 B3F5B67F 		cmp	r3, #364
  177 0098 02D3     		bcc	.L13
-  60:Interrupt_Routines.c ****     {
-  61:Interrupt_Routines.c ****         GREEN_Led_Write(1);
- 178              		.loc 1 61 0
+  78:Interrupt_Routines.c ****     {
+  79:Interrupt_Routines.c ****         GREEN_Led_Write(1);
+ 178              		.loc 1 79 0
  179 009a 0120     		movs	r0, #1
  180 009c FFF7FEFF 		bl	GREEN_Led_Write
  181              	.LVL6:
  182              	.L13:
-  62:Interrupt_Routines.c ****     }
-  63:Interrupt_Routines.c ****     
-  64:Interrupt_Routines.c ****     
-  65:Interrupt_Routines.c ****     //////////////RED LED //////////////////
-  66:Interrupt_Routines.c ****     if (counter_red==0 )
- 183              		.loc 1 66 0
+  80:Interrupt_Routines.c ****     }
+  81:Interrupt_Routines.c ****     
+  82:Interrupt_Routines.c ****     
+  83:Interrupt_Routines.c ****     /******************* RED LED **********************/
+  84:Interrupt_Routines.c ****     /* If the counter variable goes to 0, the Red channel must be toggled*/
+  85:Interrupt_Routines.c ****     if (counter_red==0 )
+ 183              		.loc 1 85 0
  184 00a0 114B     		ldr	r3, .L18+8
  185 00a2 1B88     		ldrh	r3, [r3]
  186 00a4 9BB2     		uxth	r3, r3
  187 00a6 83B9     		cbnz	r3, .L14
-  67:Interrupt_Routines.c ****     {
-  68:Interrupt_Routines.c ****         if (period_red<=THR_OFF) RED_Led_Write(~RED_Led_Read());
- 188              		.loc 1 68 0
+  86:Interrupt_Routines.c ****     {
+  87:Interrupt_Routines.c ****         /* Toggle the Led only if the period set is lower than the THR_OFF */
+  88:Interrupt_Routines.c ****         if (period_red<=THR_OFF) RED_Led_Write(~RED_Led_Read());
+ 188              		.loc 1 88 0
  189 00a8 124B     		ldr	r3, .L18+20
  190 00aa 1B88     		ldrh	r3, [r3]
  191 00ac 9BB2     		uxth	r3, r3
  192 00ae B3F5B67F 		cmp	r3, #364
  193 00b2 05D2     		bcs	.L15
- 194              		.loc 1 68 0 is_stmt 0 discriminator 1
+ 194              		.loc 1 88 0 is_stmt 0 discriminator 1
  195 00b4 FFF7FEFF 		bl	RED_Led_Read
  196              	.LVL7:
  197 00b8 C043     		mvns	r0, r0
+ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\cc3DGxvN.s 			page 6
+
+
  198 00ba C0B2     		uxtb	r0, r0
  199 00bc FFF7FEFF 		bl	RED_Led_Write
  200              	.LVL8:
  201              	.L15:
-  69:Interrupt_Routines.c ****         counter_red = period_red;
- 202              		.loc 1 69 0 is_stmt 1
+  89:Interrupt_Routines.c ****         /* Reset the counter to the period value */
+  90:Interrupt_Routines.c ****         counter_red = period_red;
+ 202              		.loc 1 90 0 is_stmt 1
  203 00c0 0C4B     		ldr	r3, .L18+20
  204 00c2 1B88     		ldrh	r3, [r3]
  205 00c4 9BB2     		uxth	r3, r3
  206 00c6 084A     		ldr	r2, .L18+8
  207 00c8 1380     		strh	r3, [r2]	@ movhi
  208              	.L14:
-  70:Interrupt_Routines.c ****     }
-  71:Interrupt_Routines.c ****     if (period_red>THR_OFF)
- 209              		.loc 1 71 0
+  91:Interrupt_Routines.c ****     }
+  92:Interrupt_Routines.c ****     /* In case the period is set more than THR_OFF, turn off the Led */
+  93:Interrupt_Routines.c ****     if (period_red>THR_OFF)
+ 209              		.loc 1 93 0
  210 00ca 0A4B     		ldr	r3, .L18+20
  211 00cc 1B88     		ldrh	r3, [r3]
  212 00ce 9BB2     		uxth	r3, r3
  213 00d0 B3F5B67F 		cmp	r3, #364
  214 00d4 02D3     		bcc	.L7
-ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccPuUMOu.s 			page 6
-
-
-  72:Interrupt_Routines.c ****     {
-  73:Interrupt_Routines.c ****         RED_Led_Write(1);
- 215              		.loc 1 73 0
+  94:Interrupt_Routines.c ****     {
+  95:Interrupt_Routines.c ****         RED_Led_Write(1);
+ 215              		.loc 1 95 0
  216 00d6 0120     		movs	r0, #1
  217 00d8 FFF7FEFF 		bl	RED_Led_Write
  218              	.LVL9:
@@ -322,13 +344,13 @@ ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccPuUMOu.s 			page 1
  231              	.LFE66:
  232              		.size	ISR_TIMER, .-ISR_TIMER
  233              		.comm	mex,50,4
- 234              		.comm	OVR_FLAG,1,1
- 235              		.comm	counter_blue,2,2
- 236              		.comm	counter_green,2,2
- 237              		.comm	counter_red,2,2
- 238              		.comm	period_blue,2,2
- 239              		.comm	period_green,2,2
- 240              		.comm	period_red,2,2
+ 234              		.comm	counter_blue,2,2
+ 235              		.comm	counter_green,2,2
+ 236              		.comm	counter_red,2,2
+ 237              		.comm	period_blue,2,2
+ 238              		.comm	period_green,2,2
+ 239              		.comm	period_red,2,2
+ 240              		.comm	OVR_FLAG,1,1
  241              		.text
  242              	.Letext0:
  243              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.3\\psoc creator\\import\\gnu\\arm\\5.4.
@@ -336,6 +358,9 @@ ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccPuUMOu.s 			page 1
  245              		.file 4 "Generated_Source\\PSoC5/core_cm3.h"
  246              		.file 5 "Interrupt_Routines.h"
  247              		.file 6 "Generated_Source\\PSoC5/Timer.h"
+ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\cc3DGxvN.s 			page 7
+
+
  248              		.file 7 "Generated_Source\\PSoC5/BLUE_Led.h"
  249              		.file 8 "Generated_Source\\PSoC5/GREEN_Led.h"
  250              		.file 9 "Generated_Source\\PSoC5/RED_Led.h"
@@ -358,9 +383,6 @@ ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccPuUMOu.s 			page 1
  267 0027 06       		.byte	0x6
  268 0028 AA020000 		.4byte	.LASF0
  269 002c 03       		.uleb128 0x3
-ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccPuUMOu.s 			page 7
-
-
  270 002d 23000000 		.4byte	.LASF3
  271 0031 02       		.byte	0x2
  272 0032 1D       		.byte	0x1d
@@ -396,6 +418,9 @@ ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccPuUMOu.s 			page 1
  302 006b 07       		.byte	0x7
  303 006c 86010000 		.4byte	.LASF8
  304 0070 02       		.uleb128 0x2
+ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\cc3DGxvN.s 			page 8
+
+
  305 0071 08       		.byte	0x8
  306 0072 05       		.byte	0x5
  307 0073 45020000 		.4byte	.LASF9
@@ -418,9 +443,6 @@ ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccPuUMOu.s 			page 1
  324 0093 2C000000 		.4byte	0x2c
  325 0097 03       		.uleb128 0x3
  326 0098 7C020000 		.4byte	.LASF13
-ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccPuUMOu.s 			page 8
-
-
  327 009c 03       		.byte	0x3
  328 009d 24       		.byte	0x24
  329 009e 45000000 		.4byte	0x45
@@ -456,7 +478,10 @@ ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccPuUMOu.s 			page 1
  359 00da 06       		.uleb128 0x6
  360 00db 0E020000 		.4byte	.LASF20
  361 00df 01       		.byte	0x1
- 362 00e0 11       		.byte	0x11
+ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\cc3DGxvN.s 			page 9
+
+
+ 362 00e0 14       		.byte	0x14
  363 00e1 00000000 		.4byte	.LFB64
  364 00e5 0C000000 		.4byte	.LFE64-.LFB64
  365 00e9 01       		.uleb128 0x1
@@ -464,7 +489,7 @@ ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccPuUMOu.s 			page 1
  367 00eb 06       		.uleb128 0x6
  368 00ec 58020000 		.4byte	.LASF21
  369 00f0 01       		.byte	0x1
- 370 00f1 1A       		.byte	0x1a
+ 370 00f1 1E       		.byte	0x1e
  371 00f2 00000000 		.4byte	.LFB65
  372 00f6 0C000000 		.4byte	.LFE65-.LFB65
  373 00fa 01       		.uleb128 0x1
@@ -472,15 +497,12 @@ ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccPuUMOu.s 			page 1
  375 00fc 07       		.uleb128 0x7
  376 00fd C5010000 		.4byte	.LASF40
  377 0101 01       		.byte	0x1
- 378 0102 22       		.byte	0x22
+ 378 0102 27       		.byte	0x27
  379 0103 00000000 		.4byte	.LFB66
  380 0107 F8000000 		.4byte	.LFE66-.LFB66
  381 010b 01       		.uleb128 0x1
  382 010c 9C       		.byte	0x9c
  383 010d 86010000 		.4byte	0x186
-ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccPuUMOu.s 			page 9
-
-
  384 0111 08       		.uleb128 0x8
  385 0112 06000000 		.4byte	.LVL0
  386 0116 2F020000 		.4byte	0x22f
@@ -516,6 +538,9 @@ ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccPuUMOu.s 			page 1
  416 0161 01       		.uleb128 0x1
  417 0162 31       		.byte	0x31
  418 0163 00       		.byte	0
+ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\cc3DGxvN.s 			page 10
+
+
  419 0164 08       		.uleb128 0x8
  420 0165 B8000000 		.4byte	.LVL7
  421 0169 66020000 		.4byte	0x266
@@ -538,69 +563,66 @@ ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccPuUMOu.s 			page 1
  438 018c 1207     		.2byte	0x712
  439 018e 92010000 		.4byte	0x192
  440 0192 05       		.uleb128 0x5
-ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccPuUMOu.s 			page 10
-
-
  441 0193 A2000000 		.4byte	0xa2
  442 0197 0D       		.uleb128 0xd
- 443 0198 B6020000 		.4byte	.LASF23
+ 443 0198 98010000 		.4byte	.LASF23
  444 019c 05       		.byte	0x5
- 445 019d 19       		.byte	0x19
- 446 019e D5000000 		.4byte	0xd5
+ 445 019d 1B       		.byte	0x1b
+ 446 019e D0000000 		.4byte	0xd0
  447 01a2 05       		.uleb128 0x5
  448 01a3 03       		.byte	0x3
- 449 01a4 00000000 		.4byte	period_red
+ 449 01a4 00000000 		.4byte	OVR_FLAG
  450 01a8 0D       		.uleb128 0xd
- 451 01a9 C1020000 		.4byte	.LASF24
+ 451 01a9 B6020000 		.4byte	.LASF24
  452 01ad 05       		.byte	0x5
- 453 01ae 1A       		.byte	0x1a
+ 453 01ae 22       		.byte	0x22
  454 01af D5000000 		.4byte	0xd5
  455 01b3 05       		.uleb128 0x5
  456 01b4 03       		.byte	0x3
- 457 01b5 00000000 		.4byte	period_green
+ 457 01b5 00000000 		.4byte	period_red
  458 01b9 0D       		.uleb128 0xd
- 459 01ba A1010000 		.4byte	.LASF25
+ 459 01ba C1020000 		.4byte	.LASF25
  460 01be 05       		.byte	0x5
- 461 01bf 1B       		.byte	0x1b
+ 461 01bf 23       		.byte	0x23
  462 01c0 D5000000 		.4byte	0xd5
  463 01c4 05       		.uleb128 0x5
  464 01c5 03       		.byte	0x3
- 465 01c6 00000000 		.4byte	period_blue
+ 465 01c6 00000000 		.4byte	period_green
  466 01ca 0D       		.uleb128 0xd
- 467 01cb 02020000 		.4byte	.LASF26
+ 467 01cb A1010000 		.4byte	.LASF26
  468 01cf 05       		.byte	0x5
- 469 01d0 1C       		.byte	0x1c
+ 469 01d0 24       		.byte	0x24
  470 01d1 D5000000 		.4byte	0xd5
  471 01d5 05       		.uleb128 0x5
  472 01d6 03       		.byte	0x3
- 473 01d7 00000000 		.4byte	counter_red
+ 473 01d7 00000000 		.4byte	period_blue
  474 01db 0D       		.uleb128 0xd
- 475 01dc 00000000 		.4byte	.LASF27
+ 475 01dc 02020000 		.4byte	.LASF27
+ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\cc3DGxvN.s 			page 11
+
+
  476 01e0 05       		.byte	0x5
- 477 01e1 1D       		.byte	0x1d
+ 477 01e1 26       		.byte	0x26
  478 01e2 D5000000 		.4byte	0xd5
  479 01e6 05       		.uleb128 0x5
  480 01e7 03       		.byte	0x3
- 481 01e8 00000000 		.4byte	counter_green
+ 481 01e8 00000000 		.4byte	counter_red
  482 01ec 0D       		.uleb128 0xd
- 483 01ed CA000000 		.4byte	.LASF28
+ 483 01ed 00000000 		.4byte	.LASF28
  484 01f1 05       		.byte	0x5
- 485 01f2 1E       		.byte	0x1e
+ 485 01f2 27       		.byte	0x27
  486 01f3 D5000000 		.4byte	0xd5
  487 01f7 05       		.uleb128 0x5
  488 01f8 03       		.byte	0x3
- 489 01f9 00000000 		.4byte	counter_blue
+ 489 01f9 00000000 		.4byte	counter_green
  490 01fd 0D       		.uleb128 0xd
- 491 01fe 98010000 		.4byte	.LASF29
+ 491 01fe CA000000 		.4byte	.LASF29
  492 0202 05       		.byte	0x5
- 493 0203 20       		.byte	0x20
- 494 0204 D0000000 		.4byte	0xd0
+ 493 0203 28       		.byte	0x28
+ 494 0204 D5000000 		.4byte	0xd5
  495 0208 05       		.uleb128 0x5
  496 0209 03       		.byte	0x3
- 497 020a 00000000 		.4byte	OVR_FLAG
-ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccPuUMOu.s 			page 11
-
-
+ 497 020a 00000000 		.4byte	counter_blue
  498 020e 0E       		.uleb128 0xe
  499 020f BB000000 		.4byte	0xbb
  500 0213 1E020000 		.4byte	0x21e
@@ -611,7 +633,7 @@ ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccPuUMOu.s 			page 1
  505 021e 10       		.uleb128 0x10
  506 021f 6D657800 		.ascii	"mex\000"
  507 0223 01       		.byte	0x1
- 508 0224 0F       		.byte	0xf
+ 508 0224 11       		.byte	0x11
  509 0225 0E020000 		.4byte	0x20e
  510 0229 05       		.uleb128 0x5
  511 022a 03       		.byte	0x3
@@ -636,6 +658,9 @@ ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccPuUMOu.s 			page 1
  530 0255 CF010000 		.4byte	.LASF33
  531 0259 08       		.byte	0x8
  532 025a 29       		.byte	0x29
+ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\cc3DGxvN.s 			page 12
+
+
  533 025b 11       		.uleb128 0x11
  534 025c 85020000 		.4byte	.LASF34
  535 0260 85020000 		.4byte	.LASF34
@@ -658,9 +683,6 @@ ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccPuUMOu.s 			page 1
  552 0001 11       		.uleb128 0x11
  553 0002 01       		.byte	0x1
  554 0003 25       		.uleb128 0x25
-ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccPuUMOu.s 			page 12
-
-
  555 0004 0E       		.uleb128 0xe
  556 0005 13       		.uleb128 0x13
  557 0006 0B       		.uleb128 0xb
@@ -696,6 +718,9 @@ ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccPuUMOu.s 			page 1
  587 0024 0B       		.uleb128 0xb
  588 0025 3B       		.uleb128 0x3b
  589 0026 0B       		.uleb128 0xb
+ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\cc3DGxvN.s 			page 13
+
+
  590 0027 49       		.uleb128 0x49
  591 0028 13       		.uleb128 0x13
  592 0029 00       		.byte	0
@@ -718,9 +743,6 @@ ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccPuUMOu.s 			page 1
  609 003a 13       		.uleb128 0x13
  610 003b 00       		.byte	0
  611 003c 00       		.byte	0
-ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccPuUMOu.s 			page 13
-
-
  612 003d 06       		.uleb128 0x6
  613 003e 2E       		.uleb128 0x2e
  614 003f 00       		.byte	0
@@ -756,6 +778,9 @@ ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccPuUMOu.s 			page 1
  644 005e 3B       		.uleb128 0x3b
  645 005f 0B       		.uleb128 0xb
  646 0060 27       		.uleb128 0x27
+ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\cc3DGxvN.s 			page 14
+
+
  647 0061 19       		.uleb128 0x19
  648 0062 11       		.uleb128 0x11
  649 0063 01       		.uleb128 0x1
@@ -778,9 +803,6 @@ ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccPuUMOu.s 			page 1
  666 0077 13       		.uleb128 0x13
  667 0078 00       		.byte	0
  668 0079 00       		.byte	0
-ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccPuUMOu.s 			page 14
-
-
  669 007a 09       		.uleb128 0x9
  670 007b 898201   		.uleb128 0x4109
  671 007e 01       		.byte	0x1
@@ -816,6 +838,9 @@ ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccPuUMOu.s 			page 1
  701 00a1 03       		.uleb128 0x3
  702 00a2 0E       		.uleb128 0xe
  703 00a3 3A       		.uleb128 0x3a
+ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\cc3DGxvN.s 			page 15
+
+
  704 00a4 0B       		.uleb128 0xb
  705 00a5 3B       		.uleb128 0x3b
  706 00a6 05       		.uleb128 0x5
@@ -838,9 +863,6 @@ ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccPuUMOu.s 			page 1
  723 00b7 0B       		.uleb128 0xb
  724 00b8 49       		.uleb128 0x49
  725 00b9 13       		.uleb128 0x13
-ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccPuUMOu.s 			page 15
-
-
  726 00ba 3F       		.uleb128 0x3f
  727 00bb 19       		.uleb128 0x19
  728 00bc 02       		.uleb128 0x2
@@ -876,6 +898,9 @@ ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccPuUMOu.s 			page 1
  758 00da 0B       		.uleb128 0xb
  759 00db 49       		.uleb128 0x49
  760 00dc 13       		.uleb128 0x13
+ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\cc3DGxvN.s 			page 16
+
+
  761 00dd 3F       		.uleb128 0x3f
  762 00de 19       		.uleb128 0x19
  763 00df 02       		.uleb128 0x2
@@ -898,9 +923,6 @@ ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccPuUMOu.s 			page 1
  780 00f0 3B       		.uleb128 0x3b
  781 00f1 0B       		.uleb128 0xb
  782 00f2 00       		.byte	0
-ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccPuUMOu.s 			page 16
-
-
  783 00f3 00       		.byte	0
  784 00f4 00       		.byte	0
  785              		.section	.debug_aranges,"",%progbits
@@ -936,7 +958,10 @@ ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccPuUMOu.s 			page 1
  813      00000201 
  813      FB0E0D00 
  813      01010101 
- 814              	.LASF27:
+ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\cc3DGxvN.s 			page 17
+
+
+ 814              	.LASF28:
  815 0000 636F756E 		.ascii	"counter_green\000"
  815      7465725F 
  815      67726565 
@@ -958,9 +983,6 @@ ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccPuUMOu.s 			page 1
  821      63617264 
  821      6F5C4465 
  822 005b 50726F6A 		.ascii	"Project\\Final_Project.cydsn\000"
-ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccPuUMOu.s 			page 17
-
-
  822      6563745C 
  822      46696E61 
  822      6C5F5072 
@@ -992,10 +1014,13 @@ ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccPuUMOu.s 			page 1
  833              	.LASF16:
  834 00c3 646F7562 		.ascii	"double\000"
  834      6C6500
- 835              	.LASF28:
+ 835              	.LASF29:
  836 00ca 636F756E 		.ascii	"counter_blue\000"
  836      7465725F 
  836      626C7565 
+ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\cc3DGxvN.s 			page 18
+
+
  836      00
  837              	.LASF35:
  838 00d7 5245445F 		.ascii	"RED_Led_Read\000"
@@ -1018,9 +1043,6 @@ ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccPuUMOu.s 			page 1
  844      31363036 
  845 012b 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
  845      20726576 
-ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccPuUMOu.s 			page 18
-
-
  845      6973696F 
  845      6E203233 
  845      37373135 
@@ -1035,11 +1057,11 @@ ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccPuUMOu.s 			page 1
  848      69676E65 
  848      6420696E 
  848      7400
- 849              	.LASF29:
+ 849              	.LASF23:
  850 0198 4F56525F 		.ascii	"OVR_FLAG\000"
  850      464C4147 
  850      00
- 851              	.LASF25:
+ 851              	.LASF26:
  852 01a1 70657269 		.ascii	"period_blue\000"
  852      6F645F62 
  852      6C756500 
@@ -1056,6 +1078,9 @@ ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccPuUMOu.s 			page 1
  858 01c5 4953525F 		.ascii	"ISR_TIMER\000"
  858      54494D45 
  858      5200
+ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\cc3DGxvN.s 			page 19
+
+
  859              	.LASF33:
  860 01cf 47524545 		.ascii	"GREEN_Led_Read\000"
  860      4E5F4C65 
@@ -1072,15 +1097,12 @@ ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccPuUMOu.s 			page 1
  864      6720756E 
  864      7369676E 
  864      65642069 
- 865              	.LASF26:
+ 865              	.LASF27:
  866 0202 636F756E 		.ascii	"counter_red\000"
  866      7465725F 
  866      72656400 
  867              	.LASF20:
  868 020e 4953525F 		.ascii	"ISR_LIS3DH_FIFO_OVERRUN\000"
-ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccPuUMOu.s 			page 19
-
-
  868      4C495333 
  868      44485F46 
  868      49464F5F 
@@ -1116,6 +1138,9 @@ ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccPuUMOu.s 			page 1
  882      7420696E 
  882      7400
  883              	.LASF13:
+ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\cc3DGxvN.s 			page 20
+
+
  884 027c 75696E74 		.ascii	"uint16_t\000"
  884      31365F74 
  884      00
@@ -1136,14 +1161,11 @@ ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccPuUMOu.s 			page 1
  892 02aa 7369676E 		.ascii	"signed char\000"
  892      65642063 
  892      68617200 
- 893              	.LASF23:
+ 893              	.LASF24:
  894 02b6 70657269 		.ascii	"period_red\000"
-ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccPuUMOu.s 			page 20
-
-
  894      6F645F72 
  894      656400
- 895              	.LASF24:
+ 895              	.LASF25:
  896 02c1 70657269 		.ascii	"period_green\000"
  896      6F645F67 
  896      7265656E 

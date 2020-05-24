@@ -10,32 +10,50 @@
 int main(void)
 {
     CyGlobalIntEnable; /* Enable global interrupts. */
-    CS_LIS3DH_Write(1); //I2C enabled
-    SDO_LIS3DH_Write(0);
     
     
     
-    period_red = 101;
-    period_green = 101;
-    period_blue = 101;
+    /***************** VARIABLES' INITIALIZATION *************/
     
+    /* Initialization of blinking period of the RGB led channels in order to be set OFF */
+    period_red = THR_OFF; 
+    period_green = THR_OFF;
+    period_blue = THR_OFF;
     
+    /* Initialization of the counter needed for toggle of RGB Led */
     counter_red = period_red;
     counter_green = period_green;
     counter_blue = period_blue;
     
+    /* String to print out messages on the UART */
+    char message[50];
     
-    Timer_Start();
-    /* Place your initialization/startup code here (e.g. MyInst_Start()) */
-    I2C_Peripheral_Start(); //I2C started
-    UART_Debug_Start(); // UART enabled
+    /**************** COMPONENTS' INITIALIZATION *******************/
+    
+    /* Timer */
+    Timer_Start(); 
+    
+    /* I2C communication */
+    CS_LIS3DH_Write(1); 
+    SDO_LIS3DH_Write(0);
+    I2C_Peripheral_Start();
+    
+    /* UART Debug communication*/
+    UART_Debug_Start();
+    
+    /***************** CUSTOM ISR INITIALIZATION ******************/
+    
     //isr_LIS3DH_StartEx(ISR_LIS3DH_FIFO_OVERRUN); //LIS3DH interrupt enable
+    
+    /* Timer */
     isr_TIMER_StartEx(ISR_TIMER);
-    isr_LIS3DH_StartEx(ISR_LIS3DH_FIFO_WATERMARK); //LIS3DH interrupt enable
+    
+    /* LIS3DH Watermark*/
+    isr_LIS3DH_StartEx(ISR_LIS3DH_FIFO_WATERMARK); 
+    
     CyDelay(5); //"The boot procedure is complete about 5 milliseconds after device power-up."
     
-    // String to print out messages on the UART
-    char message[50];
+    
 
     // Check which devices are present on the I2C bus
     for (int i = 0 ; i < 128; i++)
@@ -304,15 +322,18 @@ int main(void)
     OutArray[0] = header;
     OutArray[13] = footer;
     
-    uint8_t  fss;
-    uint8_t flag_mode = 1;
-    uint8_t overrun_reg;
-    uint8_t empty_reg;
-    uint8_t wmk_reg;
-    uint8_t flag_overrun = 0;
+    
+    uint8_t  fss; // Number of unread samples
+    
+    uint8_t flag_mode = 1; // 1= Stream Mode, 0= Read data
+    //uint8_t overrun_reg;
+    //uint8_t empty_reg;
+    //uint8_t wmk_reg;
+    //uint8_t flag_overrun = 0;
     uint8_t counter=0;
     for(;;)
     {
+        
         if (flag_mode ==1){
             fifo_ctrl_reg = STREAM_MODE_THR_WMK;
             error = I2C_Peripheral_WriteRegister(LIS3DH_DEVICE_ADDRESS,
@@ -398,15 +419,15 @@ int main(void)
                mean_Z_mg = mean_Z_mg+Out_Z_mg;
             
             
-               sprintf(message, "X: %d    Y: %d     Z:%d\r\n",Out_X_mg,Out_Y_mg,Out_Z_mg);
-               UART_Debug_PutString(message);
+               //sprintf(message, "X: %d    Y: %d     Z:%d\r\n",Out_X_mg,Out_Y_mg,Out_Z_mg);
+               //UART_Debug_PutString(message);
                error = I2C_Peripheral_ReadRegister(LIS3DH_DEVICE_ADDRESS,
                                         LIS3DH_FIFO_SRC_REG_3,
                                         &fss);
                fss= fss & (0b00011111);
             //sprintf(message, "Unread samples: %d\r\n",fss);
                //UART_Debug_PutString(message);
-               //UART_Debug_PutArray(OutArray, 14);
+               UART_Debug_PutArray(OutArray, 14);
             }
             
             counter++;
@@ -421,15 +442,15 @@ int main(void)
                 mean_Y_mg = mean_Y_mg/counter;
                 mean_Z_mg = mean_Z_mg/counter;
                 
-                sprintf(message, "meanX: %d    meanY: %d     meanZ:%d\r\n",mean_X_mg,mean_Y_mg,mean_Z_mg);
-                UART_Debug_PutString(message);
+                //sprintf(message, "meanX: %d    meanY: %d     meanZ:%d\r\n",mean_X_mg,mean_Y_mg,mean_Z_mg);
+                //UART_Debug_PutString(message);
                 
                 mean_X_mg = abs(mean_X_mg);
                 mean_Y_mg = abs(mean_Y_mg);
                 mean_Z_mg = abs(mean_Z_mg);
                 
-                sprintf(message, "abs meanX: %d    abs meanY: %d     abs meanZ:%d\r\n",mean_X_mg,mean_Y_mg,mean_Z_mg);
-                UART_Debug_PutString(message);
+                //sprintf(message, "abs meanX: %d    abs meanY: %d     abs meanZ:%d\r\n",mean_X_mg,mean_Y_mg,mean_Z_mg);
+                //UART_Debug_PutString(message);
                 
                 //period_green = -49*mean_X_mg/960+1249/12;
                 //period_blue = -49*mean_Y_mg/960+1249/12;
@@ -440,8 +461,8 @@ int main(void)
                 period_red = 0.0001*mean_Z_mg*mean_Z_mg-0.4*mean_Z_mg+402;
                 
                 
-                sprintf(message, "fq_green: %d    fq_blue: %d     fq_red:%d\r\n",period_green,period_blue,period_red);
-                UART_Debug_PutString(message);
+                //sprintf(message, "fq_green: %d    fq_blue: %d     fq_red:%d\r\n",period_green,period_blue,period_red);
+                //UART_Debug_PutString(message);
                 
                 mean_X_mg=0;
                 mean_Y_mg=0;

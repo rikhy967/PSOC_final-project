@@ -40,7 +40,6 @@
           <File BuildType="BUILD" Toolchain="">I2C_interface.c</File>
           <File BuildType="BUILD" Toolchain="">Ctrl_Reg_Functions.c</File>
           <File BuildType="BUILD" Toolchain="">Interrupt_Routines.c</File>
-          <File BuildType="BUILD" Toolchain="">RGB_driver.c</File>
           <File BuildType="BUILD" Toolchain="">cyapicallbacks.h</File>
           <File BuildType="BUILD" Toolchain="">I2C_Interface.h</File>
           <File BuildType="BUILD" Toolchain="">ErrorCodes.h</File>
@@ -48,7 +47,6 @@
           <File BuildType="BUILD" Toolchain="">LIS3DH_FIFO_Registers.h</File>
           <File BuildType="BUILD" Toolchain="">Ctrl_Reg_Functions.h</File>
           <File BuildType="BUILD" Toolchain="">Interrupt_Routines.h</File>
-          <File BuildType="BUILD" Toolchain="">RGB_driver.h</File>
         </Files>
       </Folder>
       <Folder BuildType="STRICT" Path="C:\Users\Riccardo\Desktop\Final Project\Final_Project\Final_Project.cydsn\Generated_Source\PSoC5">

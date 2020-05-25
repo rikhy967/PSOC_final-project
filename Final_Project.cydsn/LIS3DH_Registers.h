@@ -21,13 +21,13 @@
 //brief Address of the Control register 1
 #define LIS3DH_CTRL_REG1 0x20
 
-//brief Hex value to set high resolution mode 100Hz to the accelerator
+//brief Hex value to set Normal 100Hz to the accelerator
 #define LIS3DH_NORMAL_MODE_100_CTRL_REG1 0x57
 
 //brief Address of the Control register 4
 #define LIS3DH_CTRL_REG4 0x23
 
-//output registers updated after MSB and LSB reading, FSR [-2g;+2g], high resolution mode
+//output registers updated after MSB and LSB reading, FSR [-2g;+2g], normal resolution mode
 #define LIS3DH_CTRL_REG4_BDU_ACTIVE 0x80 
 
 //brief Address of the out_x_l register
@@ -39,5 +39,12 @@
 //brief Address of the out_z_l register
 #define LIS3DH_OUT_Z_L  0x2C
 
+//brief address of the int1 registers
+#define LIS3DH_INT1_CFG 0x30
+
 #define LIS3DH_INT1_SRC 0x31
+
+#define LIS3DH_INT1_THS 0x32
+
+#define LIS3DH_INT1_DURATION 0x33
 /* [] END OF FILE */

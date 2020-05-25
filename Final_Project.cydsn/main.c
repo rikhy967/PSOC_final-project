@@ -3,7 +3,7 @@
 #include "stdio.h"
 #include "math.h"
 #include "LIS3DH_Registers.h"
-#include "LIS3DH_FIFO_Registers.h"
+#include "LIS3DH_Registers_Settings.h"
 #include "Interrupt_Routines.h"
 
 
@@ -274,12 +274,60 @@ int main(void)
         }
     
     
+    /******************************************************/
+    // REGISTERS FOR OVER THRESHOLD EVENTS CONFIGURATION 
+    /******************************************************/
+    //INT1 CONFIGURATION REGISTER
+    uint8_t int1_cfg_reg = INT1_0R_6D;
     
+        error = I2C_Peripheral_WriteRegister(LIS3DH_DEVICE_ADDRESS,
+                                             LIS3DH_INT1_CFG,
+                                             int1_cfg_reg);
     
+        if (error == NO_ERROR)
+        {
+            sprintf(message, "INT1 CONF REGISTER 0R 6D successfully written as: 0x%02X\r\n", int1_cfg_reg);
+            UART_Debug_PutString(message); 
+        }
+        else
+        {
+            UART_Debug_PutString("Error occurred during I2C comm to set control register 5\r\n");   
+        }
     
+     //INT1 THRESHOLD REGISTER   
+        
+     uint8_t int1_ths_reg = INT1_THS;
     
+        error = I2C_Peripheral_WriteRegister(LIS3DH_DEVICE_ADDRESS,
+                                             LIS3DH_INT1_THS,
+                                             int1_ths_reg);
     
+        if (error == NO_ERROR)
+        {
+            sprintf(message, "INT1 THS REGISTER successfully written as: 0x%02X\r\n", int1_ths_reg);
+            UART_Debug_PutString(message); 
+        }
+        else
+        {
+            UART_Debug_PutString("Error occurred during I2C comm to set control register 5\r\n");   
+        }
     
+    //INT1 DURATION REGISTER
+         uint8_t int1_duration_reg = INT1_DURATION;
+    
+        error = I2C_Peripheral_WriteRegister(LIS3DH_DEVICE_ADDRESS,
+                                             LIS3DH_INT1_DURATION,
+                                             int1_duration_reg);
+    
+        if (error == NO_ERROR)
+        {
+            sprintf(message, "INT1 DURATION REGISTER successfully written as: 0x%02X\r\n", int1_duration_reg);
+            UART_Debug_PutString(message); 
+        }
+        else
+        {
+            UART_Debug_PutString("Error occurred during I2C comm to set control register 5\r\n");   
+        }
     /*******************************************************/
     
     
@@ -331,11 +379,12 @@ int main(void)
     //uint8_t wmk_reg;
     //uint8_t flag_overrun = 0;
     uint8_t counter=0;
+    uint8_t  int1_src_reg;
     for(;;)
     {
         
         if (flag_mode ==1){
-            fifo_ctrl_reg = STREAM_MODE_THR_WMK;
+            fifo_ctrl_reg = FIFO_MODE_THR_WMK;
             error = I2C_Peripheral_WriteRegister(LIS3DH_DEVICE_ADDRESS,
                                              LIS3DH_FIFO_CTRL_REG,
                                              fifo_ctrl_reg);
@@ -362,9 +411,7 @@ int main(void)
         
         while (OVR_FLAG){
             
-            
-             //sprintf(message, "Enter while!!\r\n");
-            //UART_Debug_PutString(message);
+             
             error = I2C_Peripheral_ReadRegisterMulti(LIS3DH_DEVICE_ADDRESS,
                                             LIS3DH_OUT_X_L,
                                             2,
@@ -419,15 +466,15 @@ int main(void)
                mean_Z_mg = mean_Z_mg+Out_Z_mg;
             
             
-               //sprintf(message, "X: %d    Y: %d     Z:%d\r\n",Out_X_mg,Out_Y_mg,Out_Z_mg);
-               //UART_Debug_PutString(message);
-               error = I2C_Peripheral_ReadRegister(LIS3DH_DEVICE_ADDRESS,
+               sprintf(message, "X: %d    Y: %d     Z:%d\r\n",Out_X_mg,Out_Y_mg,Out_Z_mg);
+               UART_Debug_PutString(message);
+               /*error = I2C_Peripheral_ReadRegister(LIS3DH_DEVICE_ADDRESS,
                                         LIS3DH_FIFO_SRC_REG_3,
                                         &fss);
-               fss= fss & (0b00011111);
-            //sprintf(message, "Unread samples: %d\r\n",fss);
-               //UART_Debug_PutString(message);
-               UART_Debug_PutArray(OutArray, 14);
+               fss= fss & (0b00011111);*/
+            
+            
+               //UART_Debug_PutArray(OutArray, 14);
             }
             
             counter++;
@@ -436,7 +483,7 @@ int main(void)
                                         LIS3DH_FIFO_SRC_REG_3,
                                         &wmk_reg);//&empty_reg);*/
             
-            if (fss==0) {
+            if (counter>=WMK_THRESHOLD) {
                 
                 mean_X_mg = mean_X_mg/counter;
                 mean_Y_mg = mean_Y_mg/counter;
@@ -460,6 +507,8 @@ int main(void)
                 period_blue = 0.0001*mean_Y_mg*mean_Y_mg-0.4*mean_Y_mg+402;
                 period_red = 0.0001*mean_Z_mg*mean_Z_mg-0.4*mean_Z_mg+402;
                 
+                sprintf(message, "counter: %d\r\n\n", counter);
+                UART_Debug_PutString(message);
                 
                 //sprintf(message, "fq_green: %d    fq_blue: %d     fq_red:%d\r\n",period_green,period_blue,period_red);
                 //UART_Debug_PutString(message);
@@ -469,12 +518,12 @@ int main(void)
                 mean_Z_mg=0;
                 
                 counter = 0;
-                
+              
                 
                 
                 OVR_FLAG=0;
                 flag_mode=1;
-                
+            
             }
                 
         }
@@ -484,10 +533,10 @@ int main(void)
             error = I2C_Peripheral_WriteRegister(LIS3DH_DEVICE_ADDRESS,
                                              LIS3DH_FIFO_CTRL_REG,
                                              fifo_ctrl_reg);
-            sprintf(message, "N cycles: %d\r\n",counter);
-            UART_Debug_PutString(message);
-            sprintf(message, "Bypass Mode!!\r\n");
-            UART_Debug_PutString(message);
+            //sprintf(message, "N cycles: %d\r\n",counter);
+            //UART_Debug_PutString(message);
+            //sprintf(message, "Bypass Mode!!\r\n");
+            //UART_Debug_PutString(message);
             counter=0;
         }*/
     }

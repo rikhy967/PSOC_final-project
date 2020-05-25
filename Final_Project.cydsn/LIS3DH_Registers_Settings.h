@@ -6,8 +6,9 @@
     /*********** LIS3DH CONTROL REGISTER 5 **********/
     /* Address of control register 5 */
     #define LIS3DH_CTRL_REG_5 0x24
-    /* Enable FIFO mode*/
-    #define FIFO_ENABLE 0x40
+    /* Enable FIFO mode and latch request on INT1*/
+    #define FIFO_ENABLE 0x60
+    
 
 
     /*********** LIS3DH CONTROL REGISTER 3 **********/
@@ -28,7 +29,8 @@
     #define BYPASS_MODE 0x00
     #define FIFO_MODE 0x40
     #define STREAM_MODE 0x80
-    #define STREAM_MODE_THR_WMK 0x87
+    #define STREAM_MODE_THR_WMK 0x86 //stream mode and 7 samples for watermark threshold
+    #define WMK_THRESHOLD 7
     #define STREAM_TO_FIFO_MODE 0xC0
 
     
@@ -42,6 +44,18 @@
     /* Mask for FIFO watermark*/
     #define FIFO_WMK 0x80
 
+    /*********** LIS3DH INT1 CONFIGURATION REGISTER **********/
+    /* */
+    #define INT1_0R_6D 0x2A //interrupt OR mode and enabling of interrupts on high events
+    
+    /*********** LIS3DH INT1 THS REGISTER **********/
+    /* */
+    #define INT1_THS 0x32 
+    
+    /*********** LIS3DH INT1 DURATION REGISTER **********/
+    /* */
+    #define INT1_DURATION 0x01 //50 ms over threshold 
+    
     
     
 #endif

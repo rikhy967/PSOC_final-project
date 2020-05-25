@@ -16,8 +16,7 @@
     #include "cytypes.h"
     #include "ErrorCodes.h"
     
-    /* Interrupt on FIFO overrun */
-    CY_ISR_PROTO(ISR_LIS3DH_FIFO_OVERRUN);
+  
     /* Interrupt on FIFO watermark */
     CY_ISR_PROTO(ISR_LIS3DH_FIFO_WATERMARK);
     /* Interrupt on Timer counter */

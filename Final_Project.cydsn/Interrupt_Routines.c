@@ -12,27 +12,32 @@
 #include "project.h"
 #include "Interrupt_Routines.h"
 #include "stdio.h"
+#include "ErrorCodes.h"
+#include "I2C_Interface.h"
+#include "LIS3DH_Registers.h"
+#include "LIS3DH_Registers_Settings.h"
+uint8_t error;
+uint8_t watermark;
+uint8_t int1_src_reg;
 
 /* Variable that contains the message for UART debug communication*/
 char mex[50];
 
-/* Custom Interrupt on FIFO overrun */
-CY_ISR(ISR_LIS3DH_FIFO_OVERRUN)
-{
-    OVR_FLAG=1;
-//counter= 0;
-//sprintf(mex, "INTERRUPT OCCURED\r\n");
-//UART_Debug_PutString(mex);
-
-}
 
 /* Custom Interrupt on FIFO watermark */
  CY_ISR(ISR_LIS3DH_FIFO_WATERMARK)
-{
-    OVR_FLAG=1;
-//counter= 0;
-//sprintf(mex, "INTERRUPT OCCURED\r\n");
-//UART_Debug_PutString(mex);
+{/*error = I2C_Peripheral_ReadRegister(LIS3DH_DEVICE_ADDRESS,
+                                        LIS3DH_CTRL_REG4,
+                                        &watermark);
+if((watermark & 0b10000000)==0b10000000)  OVR_FLAG=1;*/
+error = I2C_Peripheral_ReadRegister(LIS3DH_DEVICE_ADDRESS,
+                                     LIS3DH_INT1_SRC,
+                                     &int1_src_reg);
+if(int1_src_reg & 0x40) //read if 1 or more interrupts have been generated on INT1_SRC_REG
+{sprintf(mex, "Overthreshold event \r\n");
+UART_Debug_PutString(mex);}
+
+OVR_FLAG=1;
 }
 
 /* Custom Interrupt on Timer counter */

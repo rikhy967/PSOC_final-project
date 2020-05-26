@@ -337,6 +337,7 @@ int main(void)
     try[0]=10;
     try[1]=20;
     EEPROM_writePage(EEPROM_REG_THR,try,2);
+    EEPROM_waitForWriteComplete();
     EEPROM_readPage(EEPROM_REG_THR,read_try,2);    
     sprintf(message, " Try values on 0x0002: %d %d\r\n", read_try[0],read_try[1]);
     UART_Debug_PutString(message); 
@@ -504,7 +505,8 @@ int main(void)
                         data_EEPROM_THR[45]=(uint8_t)(timestamp >> 24);
                         sprintf(message, "Timestamp: %d \r\n",timestamp);
                         UART_Debug_PutString(message);
-                        EEPROM_writePage( EEPROM_REG_THR,data_EEPROM_THR,46);    
+                        EEPROM_writePage( EEPROM_REG_THR,data_EEPROM_THR,46); 
+                        EEPROM_waitForWriteComplete();
                         sprintf(message, "End Write on EEPROM\r\n");
                         UART_Debug_PutString(message);
                         flag_eeprom=0;

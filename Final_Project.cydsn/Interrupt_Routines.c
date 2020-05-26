@@ -34,8 +34,11 @@ error = I2C_Peripheral_ReadRegister(LIS3DH_DEVICE_ADDRESS,
                                      LIS3DH_INT1_SRC,
                                      &int1_src_reg);
 if(int1_src_reg & 0x40) //read if 1 or more interrupts have been generated on INT1_SRC_REG
-{sprintf(mex, "Overthreshold event \r\n");
-UART_Debug_PutString(mex);}
+{
+    sprintf(mex, "Overthreshold event \r\n");
+    UART_Debug_PutString(mex);
+    flag_eeprom=1;
+}
 
 OVR_FLAG=1;
 }
@@ -99,5 +102,9 @@ CY_ISR (ISR_TIMER)
     {
         RED_Led_Write(1);
     }
+    
+    /******************* TIMESTAMP ********************/
+    
+    timestamp++;
     
 }

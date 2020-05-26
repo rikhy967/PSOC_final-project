@@ -46,6 +46,9 @@ extern uint8_t eeprom_Status;
 #define SPI_EEPROM_PAGE_SIZE   64
 #define SPI_EEPROM_SIZE_BYTE   0x7FFF
 
+/* Address of memory register*/
+#define EEPROM_REG_THR 0x0002
+
 /*** ========= FUNCTION DECLARATIONS ========= ***/
 
 /** ====== Helper Functions ====== **/

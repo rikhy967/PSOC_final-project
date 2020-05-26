@@ -37,6 +37,9 @@
     volatile uint16_t counter_red;
     volatile uint16_t counter_green;
     volatile uint16_t counter_blue;
+    /* Global variable flag to send data to EEPROM during threshold interrupt*/
+    volatile uint8_t flag_eeprom;
+    volatile uint32_t timestamp;
     
     
 #endif

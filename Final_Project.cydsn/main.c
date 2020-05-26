@@ -5,6 +5,7 @@
 #include "LIS3DH_Registers.h"
 #include "LIS3DH_Registers_Settings.h"
 #include "Interrupt_Routines.h"
+#include "EEPROM_Interface.h"
 
 
 int main(void)
@@ -37,6 +38,7 @@ int main(void)
     CS_LIS3DH_Write(1); 
     SDO_LIS3DH_Write(0);
     I2C_Peripheral_Start();
+    SPIM_1_Start();
     
     /* UART Debug communication*/
     UART_Debug_Start();
@@ -53,7 +55,7 @@ int main(void)
     
     CyDelay(5); //"The boot procedure is complete about 5 milliseconds after device power-up."
     
-    
+    timestamp=0;
 
     // Check which devices are present on the I2C bus
     for (int i = 0 ; i < 128; i++)
@@ -330,7 +332,18 @@ int main(void)
         }
     /*******************************************************/
     
-    
+    uint8_t try[2];
+    uint8_t read_try[2];
+    try[0]=10;
+    try[1]=20;
+    EEPROM_writePage(EEPROM_REG_THR,try,2);
+    EEPROM_readPage(EEPROM_REG_THR,read_try,2);    
+    sprintf(message, " Try values on 0x0002: %d %d\r\n", read_try[0],read_try[1]);
+    UART_Debug_PutString(message); 
+        
+        
+        
+        
     
     //variables to save the registers output value in digit
     int16_t Out_X; 
@@ -355,7 +368,7 @@ int main(void)
     
     uint8_t header = 0xA0;
     uint8_t footer = 0xC0;
-    uint8_t OutArray[14]; 
+    uint8_t OutArray[8]; 
     uint8_t X_Data[2];
     uint8_t Y_Data[2];
     uint8_t Z_Data[2];
@@ -368,7 +381,7 @@ int main(void)
     
     
     OutArray[0] = header;
-    OutArray[13] = footer;
+    OutArray[7] = footer;
     
     
     uint8_t  fss; // Number of unread samples
@@ -380,6 +393,10 @@ int main(void)
     //uint8_t flag_overrun = 0;
     uint8_t counter=0;
     uint8_t  int1_src_reg;
+    uint8_t data_EEPROM_THR[46];
+    uint8_t read_data_EEPROM_THR[46];
+    int16 data_write;
+    int16 data_read;
     for(;;)
     {
         
@@ -435,10 +452,9 @@ int main(void)
 
      //cast of the float variable to int that mantains the first 3 decimals. now the value is in mm/s^2
                Out_X_mms2 = (int32)((Out_X_ms2*1000));//int32 needed since this value can exceed the ones covered by an int16
-               OutArray[1] = (uint8_t)(Out_X_mms2 & 0xFF);
-               OutArray[2] = (uint8_t)(Out_X_mms2 >> 8);
-               OutArray[3] = (uint8_t)(Out_X_mms2 >> 16);
-               OutArray[4] = (uint8_t)(Out_X_mms2 >> 24);
+               OutArray[1] = (uint8_t)(Out_X_mg & 0xFF);
+               OutArray[2] = (uint8_t)(Out_X_mg >> 8);
+               
             
                mean_X_mg = mean_X_mg+Out_X_mg;
              
@@ -447,10 +463,9 @@ int main(void)
                Out_Y_mg = Out_Y*4;//out_y in mg (13 bits needed)
                Out_Y_ms2 = Out_Y_mg*9.81/1000;
                Out_Y_mms2 = (int32)((Out_Y_ms2*1000));
-               OutArray[5] = (uint8_t)(Out_Y_mms2 & 0xFF);
-               OutArray[6] = (uint8_t)(Out_Y_mms2 >> 8);
-               OutArray[7] = (uint8_t)(Out_Y_mms2 >> 16);
-               OutArray[8] = (uint8_t)(Out_Y_mms2 >> 24);
+               OutArray[3] = (uint8_t)(Out_Y_mg & 0xFF);
+               OutArray[4] = (uint8_t)(Out_Y_mg >> 8);
+               
             
                mean_Y_mg = mean_Y_mg+Out_Y_mg;
             
@@ -458,16 +473,57 @@ int main(void)
                Out_Z_mg= Out_Z*4;//out_z in mg (13 bits needed)
                Out_Z_ms2=Out_Z_mg*9.81/1000;
                Out_Z_mms2= (int32)((Out_Z_ms2*1000));
-               OutArray[9] = (uint8_t)(Out_X_mms2 & 0xFF);
-               OutArray[10] = (uint8_t)(Out_Z_mms2>> 8);
-               OutArray[11] = (uint8_t)(Out_Z_mms2>> 16);
-               OutArray[12] = (uint8_t) (Out_Z_mms2 >> 24);
+               OutArray[5] = (uint8_t)(Out_Z_mg & 0xFF);
+               OutArray[6] = (uint8_t)(Out_Z_mg>> 8);
+               
             
                mean_Z_mg = mean_Z_mg+Out_Z_mg;
             
             
-               sprintf(message, "X: %d    Y: %d     Z:%d\r\n",Out_X_mg,Out_Y_mg,Out_Z_mg);
-               UART_Debug_PutString(message);
+                //sprintf(message, "X: %d    Y: %d     Z:%d\r\n",Out_X_mg,Out_Y_mg,Out_Z_mg);
+                //UART_Debug_PutString(message);
+            
+                if (flag_eeprom==1){
+                    int i;
+                    for (i=0;i<6;i=i+2){
+                    
+                        data_EEPROM_THR[i+counter]=OutArray[i+1];
+                        data_EEPROM_THR[i+counter+1]=OutArray[i+1+1];
+                        data_write = (data_EEPROM_THR[i+counter] | (data_EEPROM_THR[i+counter+1]<<8));
+                        sprintf(message, "Data write: %d \r\n",data_write);
+                        UART_Debug_PutString(message);
+                        sprintf(message, "N cycle: %d\r\n\n", counter);
+                        UART_Debug_PutString(message);
+                
+                    }
+                    if (counter==6)
+                    {
+                        data_EEPROM_THR[42]=(uint8_t)(timestamp & 0xFF);
+                        data_EEPROM_THR[43]=(uint8_t)(timestamp >> 8);
+                        data_EEPROM_THR[44]=(uint8_t)(timestamp >> 16);
+                        data_EEPROM_THR[45]=(uint8_t)(timestamp >> 24);
+                        sprintf(message, "Timestamp: %d \r\n",timestamp);
+                        UART_Debug_PutString(message);
+                        EEPROM_writePage( EEPROM_REG_THR,data_EEPROM_THR,46);    
+                        sprintf(message, "End Write on EEPROM\r\n");
+                        UART_Debug_PutString(message);
+                        flag_eeprom=0;
+                        
+                        EEPROM_readPage( EEPROM_REG_THR,read_data_EEPROM_THR,46);
+                        sprintf(message,"End Read on EEPROM\r\n");
+                        UART_Debug_PutString(message);
+                        
+                        for (i=0;i<42;i=i+2)
+                        {
+                            data_read = (read_data_EEPROM_THR[i] | (read_data_EEPROM_THR[i+1]<<8));
+                            sprintf(message, "Data read: %d \r\n",data_read);
+                            UART_Debug_PutString(message);
+                        }
+                        data_read = (read_data_EEPROM_THR[42] | (read_data_EEPROM_THR[43]<<8) | (read_data_EEPROM_THR[43]<<16)|(read_data_EEPROM_THR[43]<<24));
+                        sprintf(message, "Data read: %d \r\n",data_read);
+                        UART_Debug_PutString(message);
+                    }    
+                }
                /*error = I2C_Peripheral_ReadRegister(LIS3DH_DEVICE_ADDRESS,
                                         LIS3DH_FIFO_SRC_REG_3,
                                         &fss);
@@ -540,5 +596,7 @@ int main(void)
             counter=0;
         }*/
     }
+        
+    
 }
 

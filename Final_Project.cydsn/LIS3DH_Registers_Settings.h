@@ -6,9 +6,10 @@
     /*********** LIS3DH CONTROL REGISTER 5 **********/
     /* Address of control register 5 */
     #define LIS3DH_CTRL_REG_5 0x24
-    /* Enable FIFO mode and latch request on INT1*/
-    #define FIFO_ENABLE 0x60
-    
+    /* Enable FIFO mode */
+    #define FIFO_ENABLE 0x40
+     /* Enable FIFO mode and latch request for INT1_SRC_REG */
+    #define FIFO_ENABLE_LATCH 0x48
 
 
     /*********** LIS3DH CONTROL REGISTER 3 **********/
@@ -16,6 +17,8 @@
     #define LIS3DH_CTRL_REG_3 0x22
     /* Enable interrupt on FIFO watermark */
     #define INT_FIFO_WMK 0x04
+     /* Enable interrupt on FIFO watermark + IA1 interrupt on INT1 */
+    #define INT_FIFO_WMK_IA1 0x44
     /* Enable interrupt on FIFO overrun */
     #define INT_FIFO_OVERRUN 0x02
 
@@ -50,7 +53,7 @@
     
     /*********** LIS3DH INT1 THS REGISTER **********/
     /* */
-    #define INT1_THS 0x32 
+    #define INT1_THS 0x46 
     
     /*********** LIS3DH INT1 DURATION REGISTER **********/
     /* */

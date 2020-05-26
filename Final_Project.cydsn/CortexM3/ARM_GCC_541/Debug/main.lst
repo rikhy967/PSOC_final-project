@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 1
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\cchSPHFZ.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 1
   44              		.cfi_offset 9, -12
   45              		.cfi_offset 10, -8
   46              		.cfi_offset 14, -4
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 2
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\cchSPHFZ.s 			page 2
 
 
   47 0004 94B0     		sub	sp, sp, #80
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 1
   32:main.c        ****     
   33:main.c        ****     /* Timer */
   34:main.c        ****     Timer_Start(); 
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 3
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\cchSPHFZ.s 			page 3
 
 
   81              		.loc 1 34 0
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 1
   59:main.c        ****     for (int i = 0 ; i < 128; i++)
  111              		.loc 1 59 0
  112 005a 0024     		movs	r4, #0
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 4
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\cchSPHFZ.s 			page 4
 
 
  113 005c 0CE0     		b	.L2
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 1
   79:main.c        ****     if (error == NO_ERROR)
  146              		.loc 1 79 0
  147 0088 48B9     		cbnz	r0, .L5
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 5
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\cchSPHFZ.s 			page 5
 
 
   80:main.c        ****     {
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 1
   99:main.c        ****         UART_Debug_PutString(message); 
  183              		.loc 1 99 0
  184 00be 07A8     		add	r0, sp, #28
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 6
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\cchSPHFZ.s 			page 6
 
 
  185 00c0 FFF7FEFF 		bl	UART_Debug_PutString
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 1
  121:main.c        ****         UART_Debug_PutString("Error occurred during I2C comm to read control register 1\r\n");   
  218              		.loc 1 121 0
  219 00ee 7C48     		ldr	r0, .L38+56
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 7
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\cchSPHFZ.s 			page 7
 
 
  220              	.LVL32:
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 1
  253 0124 02E0     		b	.L11
  254              	.LVL39:
  255              	.L12:
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 8
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\cchSPHFZ.s 			page 8
 
 
  143:main.c        ****         }
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 1
  287 0150 FFF7FEFF 		bl	UART_Debug_PutString
  288              	.LVL48:
  289              	.L14:
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 9
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\cchSPHFZ.s 			page 9
 
 
  166:main.c        ****     }
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 1
  318              		.loc 1 191 0
  319 017a 8022     		movs	r2, #128
  320 017c 14AC     		add	r4, sp, #80
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 10
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\cchSPHFZ.s 			page 10
 
 
  321              	.LVL56:
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 1
  211:main.c        ****     
  212:main.c        ****     /******************************************************/
  213:main.c        ****     // FIFO CONFIGURATION 
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 11
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\cchSPHFZ.s 			page 11
 
 
  214:main.c        ****     /******************************************************/
@@ -606,11 +606,11 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 1
  216:main.c        ****      
  217:main.c        ****     
  218:main.c        ****    
- 219:main.c        ****     uint8_t ctrl_reg_5 = FIFO_ENABLE;
+ 219:main.c        ****     uint8_t ctrl_reg_5 = FIFO_ENABLE_LATCH;
  220:main.c        ****     
  221:main.c        ****         error = I2C_Peripheral_WriteRegister(LIS3DH_DEVICE_ADDRESS,
  356              		.loc 1 221 0
- 357 01b0 6022     		movs	r2, #96
+ 357 01b0 4822     		movs	r2, #72
  358 01b2 2421     		movs	r1, #36
  359 01b4 1820     		movs	r0, #24
  360 01b6 FFF7FEFF 		bl	I2C_Peripheral_WriteRegister
@@ -624,7 +624,7 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 1
  226:main.c        ****         {
  227:main.c        ****             sprintf(message, "CONTROL REGISTER 5 FIFO ENABLE successfully written as: 0x%02X\r\n", 
  364              		.loc 1 227 0
- 365 01bc 6022     		movs	r2, #96
+ 365 01bc 4822     		movs	r2, #72
  366 01be 5049     		ldr	r1, .L38+88
  367 01c0 07A8     		add	r0, sp, #28
  368              	.LVL66:
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 1
  240:main.c        ****    
  241:main.c        ****     uint8_t    fifo_ctrl_reg = BYPASS_MODE;
  242:main.c        ****     
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 12
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\cchSPHFZ.s 			page 12
 
 
  243:main.c        ****         error = I2C_Peripheral_WriteRegister(LIS3DH_DEVICE_ADDRESS,
@@ -706,11 +706,11 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 1
  257:main.c        ****     
  258:main.c        ****     
  259:main.c        ****     //ENABLING FIFO INTERRUPT ON OVERRUN
- 260:main.c        ****          uint8_t ctrl_reg_3 = INT_FIFO_WMK;
+ 260:main.c        ****          uint8_t ctrl_reg_3 = INT_FIFO_WMK_IA1;
  261:main.c        ****     
  262:main.c        ****         error = I2C_Peripheral_WriteRegister(LIS3DH_DEVICE_ADDRESS,
  412              		.loc 1 262 0
- 413 01f8 0422     		movs	r2, #4
+ 413 01f8 4422     		movs	r2, #68
  414 01fa 2221     		movs	r1, #34
  415 01fc 1820     		movs	r0, #24
  416 01fe FFF7FEFF 		bl	I2C_Peripheral_WriteRegister
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 1
  263:main.c        ****                                              LIS3DH_CTRL_REG_3,
  264:main.c        ****                                              ctrl_reg_3);
  265:main.c        ****     
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 13
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\cchSPHFZ.s 			page 13
 
 
  266:main.c        ****         if (error == NO_ERROR)
@@ -727,7 +727,7 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 1
  267:main.c        ****         {
  268:main.c        ****             sprintf(message, "CONTROL REGISTER 3 OVERRUN INT ENABLE successfully written as: 0x%02X
  420              		.loc 1 268 0
- 421 0204 0422     		movs	r2, #4
+ 421 0204 4422     		movs	r2, #68
  422 0206 4149     		ldr	r1, .L38+100
  423 0208 07A8     		add	r0, sp, #28
  424              	.LVL80:
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 1
  448              		.loc 1 289 0
  449 0228 2A22     		movs	r2, #42
  450 022a 3949     		ldr	r1, .L38+104
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 14
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\cchSPHFZ.s 			page 14
 
 
  451 022c 07A8     		add	r0, sp, #28
@@ -811,8 +811,8 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 1
  300:main.c        ****     
  301:main.c        ****         error = I2C_Peripheral_WriteRegister(LIS3DH_DEVICE_ADDRESS,
  468              		.loc 1 301 0
- 469 0240 3222     		movs	r2, #50
- 470 0242 1146     		mov	r1, r2
+ 469 0240 4622     		movs	r2, #70
+ 470 0242 3221     		movs	r1, #50
  471 0244 1820     		movs	r0, #24
  472 0246 FFF7FEFF 		bl	I2C_Peripheral_WriteRegister
  473              	.LVL93:
@@ -825,7 +825,7 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 1
  306:main.c        ****         {
  307:main.c        ****             sprintf(message, "INT1 THS REGISTER successfully written as: 0x%02X\r\n", int1_ths_reg)
  476              		.loc 1 307 0
- 477 024c 3222     		movs	r2, #50
+ 477 024c 4622     		movs	r2, #70
  478 024e 3149     		ldr	r1, .L38+108
  479 0250 07A8     		add	r0, sp, #28
  480              	.LVL94:
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 1
  486              	.LVL96:
  487 025c 02E0     		b	.L28
  488              	.LVL97:
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 15
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\cchSPHFZ.s 			page 15
 
 
  489              	.L27:
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 1
  522              	.LVL106:
  523              	.L30:
  330:main.c        ****         }
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 16
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\cchSPHFZ.s 			page 16
 
 
  331:main.c        ****     /*******************************************************/
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 1
  526              		.loc 1 376 0
  527 028a 0127     		movs	r7, #1
  367:main.c        ****     
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 17
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\cchSPHFZ.s 			page 17
 
 
  528              		.loc 1 367 0
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 1
  568 02e8 3C010000 		.word	.LC8
  569 02ec 74010000 		.word	.LC9
  570 02f0 B0010000 		.word	.LC10
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 18
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\cchSPHFZ.s 			page 18
 
 
  571 02f4 E8010000 		.word	.LC11
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 1
  422:main.c        ****                                             2,
  423:main.c        ****                                             &Y_Data[0]);
  424:main.c        ****             
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 19
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\cchSPHFZ.s 			page 19
 
 
  425:main.c        ****             error = I2C_Peripheral_ReadRegisterMulti(LIS3DH_DEVICE_ADDRESS,
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 1
  447:main.c        ****                Out_Y_mg = Out_Y*4;//out_y in mg (13 bits needed)
  629              		.loc 1 447 0
  630 036a 9B00     		lsls	r3, r3, #2
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 20
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\cchSPHFZ.s 			page 20
 
 
  631              	.LVL121:
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 1
  663              	.LVL131:
  664 0398 FFF7FEFF 		bl	sprintf
  665              	.LVL132:
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 21
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\cchSPHFZ.s 			page 21
 
 
  470:main.c        ****                UART_Debug_PutString(message);
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 1
  496:main.c        ****                 mean_Y_mg = abs(mean_Y_mg);
  694              		.loc 1 496 0
  695 03be BAF1000F 		cmp	r10, #0
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 22
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\cchSPHFZ.s 			page 22
 
 
  696 03c2 B8BF     		it	lt
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 1
  740 041a FFF7FEFF 		bl	__aeabi_dadd
  741              	.LVL150:
  742 041e FFF7FEFF 		bl	__aeabi_d2uiz
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 23
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\cchSPHFZ.s 			page 23
 
 
  743              	.LVL151:
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 1
  795              	.LVL160:
  796 048e 0246     		mov	r2, r0
  797 0490 0B46     		mov	r3, r1
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 24
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\cchSPHFZ.s 			page 24
 
 
  798 0492 3046     		mov	r0, r6
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 1
  836 04dc 0024     		movs	r4, #0
  837 04de 114B     		ldr	r3, .L40+44
  838 04e0 1C70     		strb	r4, [r3]
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 25
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\cchSPHFZ.s 			page 25
 
 
  839              	.LVL168:
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 1
  885      58206973 
  885      20636F6E 
  886 001d 000000   		.space	3
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 26
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\cchSPHFZ.s 			page 26
 
 
  887              	.LC1:
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 1
  909      524F4C20 
  909      52454749 
  909      53544552 
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 27
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\cchSPHFZ.s 			page 27
 
 
  909      20312073 
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 1
  934 02b9 000000   		.space	3
  935              	.LC15:
  936 02bc 4572726F 		.ascii	"Error occurred during I2C comm to set control regis"
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 28
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\cchSPHFZ.s 			page 28
 
 
  936      72206F63 
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 1
  957              	.LC21:
  958 0430 583A2025 		.ascii	"X: %d    Y: %d     Z:%d\015\012\000"
  958      64202020 
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 29
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\cchSPHFZ.s 			page 29
 
 
  958      20593A20 
@@ -1710,7 +1710,7 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 1
  979              		.file 17 "<built-in>"
  980              		.section	.debug_info,"",%progbits
  981              	.Ldebug_info0:
- 982 0000 510C0000 		.4byte	0xc51
+ 982 0000 530C0000 		.4byte	0xc53
  983 0004 0400     		.2byte	0x4
  984 0006 00000000 		.4byte	.Ldebug_abbrev0
  985 000a 04       		.byte	0x4
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 1
  1007 003b 04       		.byte	0x4
  1008 003c 05       		.byte	0x5
  1009 003d 696E7400 		.ascii	"int\000"
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 30
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\cchSPHFZ.s 			page 30
 
 
  1010 0041 02       		.uleb128 0x2
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 1
  1064 00aa 03       		.byte	0x3
  1065 00ab 18       		.byte	0x18
  1066 00ac 48000000 		.4byte	0x48
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 31
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\cchSPHFZ.s 			page 31
 
 
  1067 00b0 04       		.uleb128 0x4
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 1
  1121 0122 04       		.byte	0x4
  1122 0123 F4010000 		.4byte	.LASF26
  1123 0127 02       		.uleb128 0x2
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 32
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\cchSPHFZ.s 			page 32
 
 
  1124 0128 04       		.byte	0x4
@@ -1877,12 +1877,12 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 1
  1137 0147 28050000 		.4byte	.LFE64-.LFB64
  1138 014b 01       		.uleb128 0x1
  1139 014c 9C       		.byte	0x9c
- 1140 014d 020B0000 		.4byte	0xb02
+ 1140 014d 040B0000 		.4byte	0xb04
  1141 0151 0A       		.uleb128 0xa
  1142 0152 8C030000 		.4byte	.LASF28
  1143 0156 01       		.byte	0x1
  1144 0157 1D       		.byte	0x1d
- 1145 0158 020B0000 		.4byte	0xb02
+ 1145 0158 040B0000 		.4byte	0xb04
  1146 015c 03       		.uleb128 0x3
  1147 015d 91       		.byte	0x91
  1148 015e AC7F     		.sleb128 -84
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 1
  1178 019a A97F     		.sleb128 -87
  1179 019c 0A       		.uleb128 0xa
  1180 019d 1F000000 		.4byte	.LASF33
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 33
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\cchSPHFZ.s 			page 33
 
 
  1181 01a1 01       		.byte	0x1
@@ -1932,7 +1932,7 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 1
  1189 01b0 01       		.byte	0x1
  1190 01b1 DB       		.byte	0xdb
  1191 01b2 A5000000 		.4byte	0xa5
- 1192 01b6 60       		.byte	0x60
+ 1192 01b6 48       		.byte	0x48
  1193 01b7 0B       		.uleb128 0xb
  1194 01b8 E6010000 		.4byte	.LASF35
  1195 01bc 01       		.byte	0x1
@@ -1944,7 +1944,7 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 1
  1201 01cb 01       		.byte	0x1
  1202 01cc 0401     		.2byte	0x104
  1203 01ce A5000000 		.4byte	0xa5
- 1204 01d2 04       		.byte	0x4
+ 1204 01d2 44       		.byte	0x44
  1205 01d3 0D       		.uleb128 0xd
  1206 01d4 E7000000 		.4byte	.LASF37
  1207 01d8 01       		.byte	0x1
@@ -1956,7 +1956,7 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 1
  1213 01e5 01       		.byte	0x1
  1214 01e6 2B01     		.2byte	0x12b
  1215 01e8 A5000000 		.4byte	0xa5
- 1216 01ec 32       		.byte	0x32
+ 1216 01ec 46       		.byte	0x46
  1217 01ed 0D       		.uleb128 0xd
  1218 01ee A8030000 		.4byte	.LASF39
  1219 01f2 01       		.byte	0x1
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 1
  1235 021a 0E       		.uleb128 0xe
  1236 021b 98010000 		.4byte	.LASF42
  1237 021f 01       		.byte	0x1
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 34
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\cchSPHFZ.s 			page 34
 
 
  1238 0220 5201     		.2byte	0x152
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 1
  1292 02b0 6201     		.2byte	0x162
  1293 02b2 C6000000 		.4byte	0xc6
  1294 02b6 DA030000 		.4byte	.LLST13
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 35
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\cchSPHFZ.s 			page 35
 
 
  1295 02ba 0F       		.uleb128 0xf
@@ -2057,12 +2057,12 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 1
  1308 02d6 29000000 		.4byte	.LASF60
  1309 02da 01       		.byte	0x1
  1310 02db 6601     		.2byte	0x166
- 1311 02dd 120B0000 		.4byte	0xb12
+ 1311 02dd 140B0000 		.4byte	0xb14
  1312 02e1 11       		.uleb128 0x11
  1313 02e2 51010000 		.4byte	.LASF54
  1314 02e6 01       		.byte	0x1
  1315 02e7 6701     		.2byte	0x167
- 1316 02e9 220B0000 		.4byte	0xb22
+ 1316 02e9 240B0000 		.4byte	0xb24
  1317 02ed 03       		.uleb128 0x3
  1318 02ee 91       		.byte	0x91
  1319 02ef A47F     		.sleb128 -92
@@ -2070,7 +2070,7 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 1
  1321 02f2 A1030000 		.4byte	.LASF55
  1322 02f6 01       		.byte	0x1
  1323 02f7 6801     		.2byte	0x168
- 1324 02f9 220B0000 		.4byte	0xb22
+ 1324 02f9 240B0000 		.4byte	0xb24
  1325 02fd 03       		.uleb128 0x3
  1326 02fe 91       		.byte	0x91
  1327 02ff A07F     		.sleb128 -96
@@ -2078,7 +2078,7 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 1
  1329 0302 4A010000 		.4byte	.LASF56
  1330 0306 01       		.byte	0x1
  1331 0307 6901     		.2byte	0x169
- 1332 0309 220B0000 		.4byte	0xb22
+ 1332 0309 240B0000 		.4byte	0xb24
  1333 030d 03       		.uleb128 0x3
  1334 030e 91       		.byte	0x91
  1335 030f 9C7F     		.sleb128 -100
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 1
  1349 0332 82010000 		.4byte	.LASF59
  1350 0336 01       		.byte	0x1
  1351 0337 6F01     		.2byte	0x16f
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 36
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\cchSPHFZ.s 			page 36
 
 
  1352 0339 B0000000 		.4byte	0xb0
@@ -2137,7 +2137,7 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 1
  1385 038f 01060000 		.4byte	.LLST19
  1386 0393 15       		.uleb128 0x15
  1387 0394 64000000 		.4byte	.LVL9
- 1388 0398 BA0B0000 		.4byte	0xbba
+ 1388 0398 BC0B0000 		.4byte	0xbbc
  1389 039c A7030000 		.4byte	0x3a7
  1390 03a0 16       		.uleb128 0x16
  1391 03a1 01       		.uleb128 0x1
@@ -2148,7 +2148,7 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 1
  1396 03a6 00       		.byte	0
  1397 03a7 15       		.uleb128 0x15
  1398 03a8 70000000 		.4byte	.LVL10
- 1399 03ac C50B0000 		.4byte	0xbc5
+ 1399 03ac C70B0000 		.4byte	0xbc7
  1400 03b0 CB030000 		.4byte	0x3cb
  1401 03b4 16       		.uleb128 0x16
  1402 03b5 01       		.uleb128 0x1
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 1
  1406 03b9 AC7F     		.sleb128 -84
  1407 03bb 16       		.uleb128 0x16
  1408 03bc 01       		.uleb128 0x1
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 37
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\cchSPHFZ.s 			page 37
 
 
  1409 03bd 51       		.byte	0x51
@@ -2174,7 +2174,7 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 1
  1419 03ca 00       		.byte	0
  1420 03cb 17       		.uleb128 0x17
  1421 03cc 76000000 		.4byte	.LVL11
- 1422 03d0 D00B0000 		.4byte	0xbd0
+ 1422 03d0 D20B0000 		.4byte	0xbd2
  1423 03d4 16       		.uleb128 0x16
  1424 03d5 01       		.uleb128 0x1
  1425 03d6 50       		.byte	0x50
@@ -2197,7 +2197,7 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 1
  1442 03fa 00       		.byte	0
  1443 03fb 15       		.uleb128 0x15
  1444 03fc D6040000 		.4byte	.LVL166
- 1445 0400 C50B0000 		.4byte	0xbc5
+ 1445 0400 C70B0000 		.4byte	0xbc7
  1446 0404 1F040000 		.4byte	0x41f
  1447 0408 16       		.uleb128 0x16
  1448 0409 01       		.uleb128 0x1
@@ -2218,12 +2218,12 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 1
  1463 041c 74       		.byte	0x74
  1464 041d 00       		.sleb128 0
  1465 041e 00       		.byte	0
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 38
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\cchSPHFZ.s 			page 38
 
 
  1466 041f 17       		.uleb128 0x17
  1467 0420 DC040000 		.4byte	.LVL167
- 1468 0424 D00B0000 		.4byte	0xbd0
+ 1468 0424 D20B0000 		.4byte	0xbd2
  1469 0428 16       		.uleb128 0x16
  1470 0429 01       		.uleb128 0x1
  1471 042a 50       		.byte	0x50
@@ -2234,10 +2234,10 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 1
  1476 0430 00       		.byte	0
  1477 0431 1A       		.uleb128 0x1a
  1478 0432 34000000 		.4byte	.LVL0
- 1479 0436 DB0B0000 		.4byte	0xbdb
+ 1479 0436 DD0B0000 		.4byte	0xbdd
  1480 043a 15       		.uleb128 0x15
  1481 043b 3A000000 		.4byte	.LVL1
- 1482 043f E60B0000 		.4byte	0xbe6
+ 1482 043f E80B0000 		.4byte	0xbe8
  1483 0443 4D040000 		.4byte	0x44d
  1484 0447 16       		.uleb128 0x16
  1485 0448 01       		.uleb128 0x1
@@ -2247,7 +2247,7 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 1
  1489 044c 00       		.byte	0
  1490 044d 15       		.uleb128 0x15
  1491 044e 40000000 		.4byte	.LVL2
- 1492 0452 F10B0000 		.4byte	0xbf1
+ 1492 0452 F30B0000 		.4byte	0xbf3
  1493 0456 60040000 		.4byte	0x460
  1494 045a 16       		.uleb128 0x16
  1495 045b 01       		.uleb128 0x1
@@ -2257,19 +2257,19 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 1
  1499 045f 00       		.byte	0
  1500 0460 1A       		.uleb128 0x1a
  1501 0461 44000000 		.4byte	.LVL3
- 1502 0465 FC0B0000 		.4byte	0xbfc
+ 1502 0465 FE0B0000 		.4byte	0xbfe
  1503 0469 1A       		.uleb128 0x1a
  1504 046a 48000000 		.4byte	.LVL4
- 1505 046e 070C0000 		.4byte	0xc07
+ 1505 046e 090C0000 		.4byte	0xc09
  1506 0472 1A       		.uleb128 0x1a
  1507 0473 4E000000 		.4byte	.LVL5
- 1508 0477 120C0000 		.4byte	0xc12
+ 1508 0477 140C0000 		.4byte	0xc14
  1509 047b 1A       		.uleb128 0x1a
  1510 047c 54000000 		.4byte	.LVL6
- 1511 0480 1D0C0000 		.4byte	0xc1d
+ 1511 0480 1F0C0000 		.4byte	0xc1f
  1512 0484 15       		.uleb128 0x15
  1513 0485 5A000000 		.4byte	.LVL7
- 1514 0489 280C0000 		.4byte	0xc28
+ 1514 0489 2A0C0000 		.4byte	0xc2a
  1515 048d 97040000 		.4byte	0x497
  1516 0491 16       		.uleb128 0x16
  1517 0492 01       		.uleb128 0x1
@@ -2278,11 +2278,11 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 1
  1520 0495 35       		.byte	0x35
  1521 0496 00       		.byte	0
  1522 0497 15       		.uleb128 0x15
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 39
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\cchSPHFZ.s 			page 39
 
 
  1523 0498 88000000 		.4byte	.LVL13
- 1524 049c 330C0000 		.4byte	0xc33
+ 1524 049c 350C0000 		.4byte	0xc35
  1525 04a0 B6040000 		.4byte	0x4b6
  1526 04a4 16       		.uleb128 0x16
  1527 04a5 01       		.uleb128 0x1
@@ -2303,7 +2303,7 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 1
  1542 04b5 00       		.byte	0
  1543 04b6 15       		.uleb128 0x15
  1544 04b7 96000000 		.4byte	.LVL15
- 1545 04bb C50B0000 		.4byte	0xbc5
+ 1545 04bb C70B0000 		.4byte	0xbc7
  1546 04bf D4040000 		.4byte	0x4d4
  1547 04c3 16       		.uleb128 0x16
  1548 04c4 01       		.uleb128 0x1
@@ -2320,7 +2320,7 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 1
  1559 04d3 00       		.byte	0
  1560 04d4 15       		.uleb128 0x15
  1561 04d5 9C000000 		.4byte	.LVL16
- 1562 04d9 D00B0000 		.4byte	0xbd0
+ 1562 04d9 D20B0000 		.4byte	0xbd2
  1563 04dd E9040000 		.4byte	0x4e9
  1564 04e1 16       		.uleb128 0x16
  1565 04e2 01       		.uleb128 0x1
@@ -2331,21 +2331,21 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 1
  1570 04e8 00       		.byte	0
  1571 04e9 15       		.uleb128 0x15
  1572 04ea A4000000 		.4byte	.LVL19
- 1573 04ee D00B0000 		.4byte	0xbd0
+ 1573 04ee D20B0000 		.4byte	0xbd2
  1574 04f2 00050000 		.4byte	0x500
  1575 04f6 16       		.uleb128 0x16
  1576 04f7 01       		.uleb128 0x1
  1577 04f8 50       		.byte	0x50
  1578 04f9 05       		.uleb128 0x5
  1579 04fa 03       		.byte	0x3
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 40
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\cchSPHFZ.s 			page 40
 
 
  1580 04fb 48000000 		.4byte	.LC2
  1581 04ff 00       		.byte	0
  1582 0500 15       		.uleb128 0x15
  1583 0501 B0000000 		.4byte	.LVL20
- 1584 0505 330C0000 		.4byte	0xc33
+ 1584 0505 350C0000 		.4byte	0xc35
  1585 0509 20050000 		.4byte	0x520
  1586 050d 16       		.uleb128 0x16
  1587 050e 01       		.uleb128 0x1
@@ -2367,7 +2367,7 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 1
  1603 051f 00       		.byte	0
  1604 0520 15       		.uleb128 0x15
  1605 0521 BE000000 		.4byte	.LVL22
- 1606 0525 C50B0000 		.4byte	0xbc5
+ 1606 0525 C70B0000 		.4byte	0xbc7
  1607 0529 3E050000 		.4byte	0x53e
  1608 052d 16       		.uleb128 0x16
  1609 052e 01       		.uleb128 0x1
@@ -2384,7 +2384,7 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 1
  1620 053d 00       		.byte	0
  1621 053e 15       		.uleb128 0x15
  1622 053f C4000000 		.4byte	.LVL23
- 1623 0543 D00B0000 		.4byte	0xbd0
+ 1623 0543 D20B0000 		.4byte	0xbd2
  1624 0547 53050000 		.4byte	0x553
  1625 054b 16       		.uleb128 0x16
  1626 054c 01       		.uleb128 0x1
@@ -2395,10 +2395,10 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 1
  1631 0552 00       		.byte	0
  1632 0553 15       		.uleb128 0x15
  1633 0554 CC000000 		.4byte	.LVL26
- 1634 0558 D00B0000 		.4byte	0xbd0
+ 1634 0558 D20B0000 		.4byte	0xbd2
  1635 055c 6A050000 		.4byte	0x56a
  1636 0560 16       		.uleb128 0x16
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 41
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\cchSPHFZ.s 			page 41
 
 
  1637 0561 01       		.uleb128 0x1
@@ -2409,7 +2409,7 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 1
  1642 0569 00       		.byte	0
  1643 056a 15       		.uleb128 0x15
  1644 056b D8000000 		.4byte	.LVL27
- 1645 056f 330C0000 		.4byte	0xc33
+ 1645 056f 350C0000 		.4byte	0xc35
  1646 0573 8A050000 		.4byte	0x58a
  1647 0577 16       		.uleb128 0x16
  1648 0578 01       		.uleb128 0x1
@@ -2431,7 +2431,7 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 1
  1664 0589 00       		.byte	0
  1665 058a 15       		.uleb128 0x15
  1666 058b E6000000 		.4byte	.LVL29
- 1667 058f C50B0000 		.4byte	0xbc5
+ 1667 058f C70B0000 		.4byte	0xbc7
  1668 0593 A8050000 		.4byte	0x5a8
  1669 0597 16       		.uleb128 0x16
  1670 0598 01       		.uleb128 0x1
@@ -2448,7 +2448,7 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 1
  1681 05a7 00       		.byte	0
  1682 05a8 15       		.uleb128 0x15
  1683 05a9 EC000000 		.4byte	.LVL30
- 1684 05ad D00B0000 		.4byte	0xbd0
+ 1684 05ad D20B0000 		.4byte	0xbd2
  1685 05b1 BD050000 		.4byte	0x5bd
  1686 05b5 16       		.uleb128 0x16
  1687 05b6 01       		.uleb128 0x1
@@ -2458,11 +2458,11 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 1
  1691 05ba AC7F     		.sleb128 -84
  1692 05bc 00       		.byte	0
  1693 05bd 15       		.uleb128 0x15
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 42
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\cchSPHFZ.s 			page 42
 
 
  1694 05be F4000000 		.4byte	.LVL33
- 1695 05c2 D00B0000 		.4byte	0xbd0
+ 1695 05c2 D20B0000 		.4byte	0xbd2
  1696 05c6 D4050000 		.4byte	0x5d4
  1697 05ca 16       		.uleb128 0x16
  1698 05cb 01       		.uleb128 0x1
@@ -2473,7 +2473,7 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 1
  1703 05d3 00       		.byte	0
  1704 05d4 15       		.uleb128 0x15
  1705 05d5 FA000000 		.4byte	.LVL34
- 1706 05d9 D00B0000 		.4byte	0xbd0
+ 1706 05d9 D20B0000 		.4byte	0xbd2
  1707 05dd EB050000 		.4byte	0x5eb
  1708 05e1 16       		.uleb128 0x16
  1709 05e2 01       		.uleb128 0x1
@@ -2484,7 +2484,7 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 1
  1714 05ea 00       		.byte	0
  1715 05eb 15       		.uleb128 0x15
  1716 05ec 10010000 		.4byte	.LVL35
- 1717 05f0 3E0C0000 		.4byte	0xc3e
+ 1717 05f0 400C0000 		.4byte	0xc40
  1718 05f4 0A060000 		.4byte	0x60a
  1719 05f8 16       		.uleb128 0x16
  1720 05f9 01       		.uleb128 0x1
@@ -2506,7 +2506,7 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 1
  1736 0609 00       		.byte	0
  1737 060a 15       		.uleb128 0x15
  1738 060b 1E010000 		.4byte	.LVL37
- 1739 060f C50B0000 		.4byte	0xbc5
+ 1739 060f C70B0000 		.4byte	0xbc7
  1740 0613 28060000 		.4byte	0x628
  1741 0617 16       		.uleb128 0x16
  1742 0618 01       		.uleb128 0x1
@@ -2518,7 +2518,7 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 1
  1748 061f 01       		.uleb128 0x1
  1749 0620 51       		.byte	0x51
  1750 0621 05       		.uleb128 0x5
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 43
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\cchSPHFZ.s 			page 43
 
 
  1751 0622 03       		.byte	0x3
@@ -2526,7 +2526,7 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 1
  1753 0627 00       		.byte	0
  1754 0628 15       		.uleb128 0x15
  1755 0629 24010000 		.4byte	.LVL38
- 1756 062d D00B0000 		.4byte	0xbd0
+ 1756 062d D20B0000 		.4byte	0xbd2
  1757 0631 3D060000 		.4byte	0x63d
  1758 0635 16       		.uleb128 0x16
  1759 0636 01       		.uleb128 0x1
@@ -2537,7 +2537,7 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 1
  1764 063c 00       		.byte	0
  1765 063d 15       		.uleb128 0x15
  1766 063e 2C010000 		.4byte	.LVL41
- 1767 0642 D00B0000 		.4byte	0xbd0
+ 1767 0642 D20B0000 		.4byte	0xbd2
  1768 0646 54060000 		.4byte	0x654
  1769 064a 16       		.uleb128 0x16
  1770 064b 01       		.uleb128 0x1
@@ -2548,7 +2548,7 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 1
  1775 0653 00       		.byte	0
  1776 0654 15       		.uleb128 0x15
  1777 0655 38010000 		.4byte	.LVL42
- 1778 0659 330C0000 		.4byte	0xc33
+ 1778 0659 350C0000 		.4byte	0xc35
  1779 065d 74060000 		.4byte	0x674
  1780 0661 16       		.uleb128 0x16
  1781 0662 01       		.uleb128 0x1
@@ -2570,7 +2570,7 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 1
  1797 0673 00       		.byte	0
  1798 0674 15       		.uleb128 0x15
  1799 0675 46010000 		.4byte	.LVL44
- 1800 0679 C50B0000 		.4byte	0xbc5
+ 1800 0679 C70B0000 		.4byte	0xbc7
  1801 067d 92060000 		.4byte	0x692
  1802 0681 16       		.uleb128 0x16
  1803 0682 01       		.uleb128 0x1
@@ -2578,7 +2578,7 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 1
  1805 0684 03       		.uleb128 0x3
  1806 0685 91       		.byte	0x91
  1807 0686 AC7F     		.sleb128 -84
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 44
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\cchSPHFZ.s 			page 44
 
 
  1808 0688 16       		.uleb128 0x16
@@ -2590,7 +2590,7 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 1
  1814 0691 00       		.byte	0
  1815 0692 15       		.uleb128 0x15
  1816 0693 4C010000 		.4byte	.LVL45
- 1817 0697 D00B0000 		.4byte	0xbd0
+ 1817 0697 D20B0000 		.4byte	0xbd2
  1818 069b A7060000 		.4byte	0x6a7
  1819 069f 16       		.uleb128 0x16
  1820 06a0 01       		.uleb128 0x1
@@ -2601,7 +2601,7 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 1
  1825 06a6 00       		.byte	0
  1826 06a7 15       		.uleb128 0x15
  1827 06a8 54010000 		.4byte	.LVL48
- 1828 06ac D00B0000 		.4byte	0xbd0
+ 1828 06ac D20B0000 		.4byte	0xbd2
  1829 06b0 BE060000 		.4byte	0x6be
  1830 06b4 16       		.uleb128 0x16
  1831 06b5 01       		.uleb128 0x1
@@ -2612,7 +2612,7 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 1
  1836 06bd 00       		.byte	0
  1837 06be 15       		.uleb128 0x15
  1838 06bf 5E010000 		.4byte	.LVL49
- 1839 06c3 330C0000 		.4byte	0xc33
+ 1839 06c3 350C0000 		.4byte	0xc35
  1840 06c7 DE060000 		.4byte	0x6de
  1841 06cb 16       		.uleb128 0x16
  1842 06cc 01       		.uleb128 0x1
@@ -2634,11 +2634,11 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 1
  1858 06dd 00       		.byte	0
  1859 06de 15       		.uleb128 0x15
  1860 06df 6C010000 		.4byte	.LVL51
- 1861 06e3 C50B0000 		.4byte	0xbc5
+ 1861 06e3 C70B0000 		.4byte	0xbc7
  1862 06e7 FC060000 		.4byte	0x6fc
  1863 06eb 16       		.uleb128 0x16
  1864 06ec 01       		.uleb128 0x1
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 45
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\cchSPHFZ.s 			page 45
 
 
  1865 06ed 50       		.byte	0x50
@@ -2654,7 +2654,7 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 1
  1875 06fb 00       		.byte	0
  1876 06fc 15       		.uleb128 0x15
  1877 06fd 72010000 		.4byte	.LVL52
- 1878 0701 D00B0000 		.4byte	0xbd0
+ 1878 0701 D20B0000 		.4byte	0xbd2
  1879 0705 11070000 		.4byte	0x711
  1880 0709 16       		.uleb128 0x16
  1881 070a 01       		.uleb128 0x1
@@ -2665,7 +2665,7 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 1
  1886 0710 00       		.byte	0
  1887 0711 15       		.uleb128 0x15
  1888 0712 7A010000 		.4byte	.LVL55
- 1889 0716 D00B0000 		.4byte	0xbd0
+ 1889 0716 D20B0000 		.4byte	0xbd2
  1890 071a 28070000 		.4byte	0x728
  1891 071e 16       		.uleb128 0x16
  1892 071f 01       		.uleb128 0x1
@@ -2676,7 +2676,7 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 1
  1897 0727 00       		.byte	0
  1898 0728 15       		.uleb128 0x15
  1899 0729 8A010000 		.4byte	.LVL57
- 1900 072d 3E0C0000 		.4byte	0xc3e
+ 1900 072d 400C0000 		.4byte	0xc40
  1901 0731 47070000 		.4byte	0x747
  1902 0735 16       		.uleb128 0x16
  1903 0736 01       		.uleb128 0x1
@@ -2698,10 +2698,10 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 1
  1919 0746 00       		.byte	0
  1920 0747 15       		.uleb128 0x15
  1921 0748 94010000 		.4byte	.LVL58
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 46
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\cchSPHFZ.s 			page 46
 
 
- 1922 074c 330C0000 		.4byte	0xc33
+ 1922 074c 350C0000 		.4byte	0xc35
  1923 0750 66070000 		.4byte	0x766
  1924 0754 16       		.uleb128 0x16
  1925 0755 01       		.uleb128 0x1
@@ -2723,7 +2723,7 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 1
  1941 0765 00       		.byte	0
  1942 0766 15       		.uleb128 0x15
  1943 0767 A2010000 		.4byte	.LVL60
- 1944 076b C50B0000 		.4byte	0xbc5
+ 1944 076b C70B0000 		.4byte	0xbc7
  1945 076f 84070000 		.4byte	0x784
  1946 0773 16       		.uleb128 0x16
  1947 0774 01       		.uleb128 0x1
@@ -2740,7 +2740,7 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 1
  1958 0783 00       		.byte	0
  1959 0784 15       		.uleb128 0x15
  1960 0785 A8010000 		.4byte	.LVL61
- 1961 0789 D00B0000 		.4byte	0xbd0
+ 1961 0789 D20B0000 		.4byte	0xbd2
  1962 078d 99070000 		.4byte	0x799
  1963 0791 16       		.uleb128 0x16
  1964 0792 01       		.uleb128 0x1
@@ -2751,21 +2751,21 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 1
  1969 0798 00       		.byte	0
  1970 0799 15       		.uleb128 0x15
  1971 079a B0010000 		.4byte	.LVL64
- 1972 079e D00B0000 		.4byte	0xbd0
+ 1972 079e D20B0000 		.4byte	0xbd2
  1973 07a2 B0070000 		.4byte	0x7b0
  1974 07a6 16       		.uleb128 0x16
  1975 07a7 01       		.uleb128 0x1
  1976 07a8 50       		.byte	0x50
  1977 07a9 05       		.uleb128 0x5
  1978 07aa 03       		.byte	0x3
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 47
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\cchSPHFZ.s 			page 47
 
 
  1979 07ab 08020000 		.4byte	.LC12
  1980 07af 00       		.byte	0
  1981 07b0 15       		.uleb128 0x15
  1982 07b1 BA010000 		.4byte	.LVL65
- 1983 07b5 3E0C0000 		.4byte	0xc3e
+ 1983 07b5 400C0000 		.4byte	0xc40
  1984 07b9 CF070000 		.4byte	0x7cf
  1985 07bd 16       		.uleb128 0x16
  1986 07be 01       		.uleb128 0x1
@@ -2783,11 +2783,11 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 1
  1998 07ca 52       		.byte	0x52
  1999 07cb 02       		.uleb128 0x2
  2000 07cc 08       		.byte	0x8
- 2001 07cd 60       		.byte	0x60
+ 2001 07cd 48       		.byte	0x48
  2002 07ce 00       		.byte	0
  2003 07cf 15       		.uleb128 0x15
  2004 07d0 C6010000 		.4byte	.LVL67
- 2005 07d4 C50B0000 		.4byte	0xbc5
+ 2005 07d4 C70B0000 		.4byte	0xbc7
  2006 07d8 F3070000 		.4byte	0x7f3
  2007 07dc 16       		.uleb128 0x16
  2008 07dd 01       		.uleb128 0x1
@@ -2806,11 +2806,11 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 1
  2021 07ee 52       		.byte	0x52
  2022 07ef 02       		.uleb128 0x2
  2023 07f0 08       		.byte	0x8
- 2024 07f1 60       		.byte	0x60
+ 2024 07f1 48       		.byte	0x48
  2025 07f2 00       		.byte	0
  2026 07f3 15       		.uleb128 0x15
  2027 07f4 CC010000 		.4byte	.LVL68
- 2028 07f8 D00B0000 		.4byte	0xbd0
+ 2028 07f8 D20B0000 		.4byte	0xbd2
  2029 07fc 08080000 		.4byte	0x808
  2030 0800 16       		.uleb128 0x16
  2031 0801 01       		.uleb128 0x1
@@ -2818,13 +2818,13 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 1
  2033 0803 03       		.uleb128 0x3
  2034 0804 91       		.byte	0x91
  2035 0805 AC7F     		.sleb128 -84
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 48
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\cchSPHFZ.s 			page 48
 
 
  2036 0807 00       		.byte	0
  2037 0808 15       		.uleb128 0x15
  2038 0809 D4010000 		.4byte	.LVL71
- 2039 080d D00B0000 		.4byte	0xbd0
+ 2039 080d D20B0000 		.4byte	0xbd2
  2040 0811 1F080000 		.4byte	0x81f
  2041 0815 16       		.uleb128 0x16
  2042 0816 01       		.uleb128 0x1
@@ -2835,7 +2835,7 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 1
  2047 081e 00       		.byte	0
  2048 081f 15       		.uleb128 0x15
  2049 0820 DE010000 		.4byte	.LVL72
- 2050 0824 3E0C0000 		.4byte	0xc3e
+ 2050 0824 400C0000 		.4byte	0xc40
  2051 0828 3D080000 		.4byte	0x83d
  2052 082c 16       		.uleb128 0x16
  2053 082d 01       		.uleb128 0x1
@@ -2856,7 +2856,7 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 1
  2068 083c 00       		.byte	0
  2069 083d 15       		.uleb128 0x15
  2070 083e EA010000 		.4byte	.LVL74
- 2071 0842 C50B0000 		.4byte	0xbc5
+ 2071 0842 C70B0000 		.4byte	0xbc7
  2072 0846 60080000 		.4byte	0x860
  2073 084a 16       		.uleb128 0x16
  2074 084b 01       		.uleb128 0x1
@@ -2878,10 +2878,10 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 1
  2090 085f 00       		.byte	0
  2091 0860 15       		.uleb128 0x15
  2092 0861 F0010000 		.4byte	.LVL75
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 49
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\cchSPHFZ.s 			page 49
 
 
- 2093 0865 D00B0000 		.4byte	0xbd0
+ 2093 0865 D20B0000 		.4byte	0xbd2
  2094 0869 75080000 		.4byte	0x875
  2095 086d 16       		.uleb128 0x16
  2096 086e 01       		.uleb128 0x1
@@ -2892,7 +2892,7 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 1
  2101 0874 00       		.byte	0
  2102 0875 15       		.uleb128 0x15
  2103 0876 F8010000 		.4byte	.LVL78
- 2104 087a D00B0000 		.4byte	0xbd0
+ 2104 087a D20B0000 		.4byte	0xbd2
  2105 087e 8C080000 		.4byte	0x88c
  2106 0882 16       		.uleb128 0x16
  2107 0883 01       		.uleb128 0x1
@@ -2903,8 +2903,8 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 1
  2112 088b 00       		.byte	0
  2113 088c 15       		.uleb128 0x15
  2114 088d 02020000 		.4byte	.LVL79
- 2115 0891 3E0C0000 		.4byte	0xc3e
- 2116 0895 AA080000 		.4byte	0x8aa
+ 2115 0891 400C0000 		.4byte	0xc40
+ 2116 0895 AB080000 		.4byte	0x8ab
  2117 0899 16       		.uleb128 0x16
  2118 089a 01       		.uleb128 0x1
  2119 089b 50       		.byte	0x50
@@ -2919,2253 +2919,2255 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 1
  2128 08a4 16       		.uleb128 0x16
  2129 08a5 01       		.uleb128 0x1
  2130 08a6 52       		.byte	0x52
- 2131 08a7 01       		.uleb128 0x1
- 2132 08a8 34       		.byte	0x34
- 2133 08a9 00       		.byte	0
- 2134 08aa 15       		.uleb128 0x15
- 2135 08ab 0E020000 		.4byte	.LVL81
- 2136 08af C50B0000 		.4byte	0xbc5
- 2137 08b3 CD080000 		.4byte	0x8cd
- 2138 08b7 16       		.uleb128 0x16
- 2139 08b8 01       		.uleb128 0x1
- 2140 08b9 50       		.byte	0x50
- 2141 08ba 03       		.uleb128 0x3
- 2142 08bb 91       		.byte	0x91
- 2143 08bc AC7F     		.sleb128 -84
- 2144 08be 16       		.uleb128 0x16
- 2145 08bf 01       		.uleb128 0x1
- 2146 08c0 51       		.byte	0x51
- 2147 08c1 05       		.uleb128 0x5
- 2148 08c2 03       		.byte	0x3
- 2149 08c3 3C030000 		.4byte	.LC17
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 50
+ 2131 08a7 02       		.uleb128 0x2
+ 2132 08a8 08       		.byte	0x8
+ 2133 08a9 44       		.byte	0x44
+ 2134 08aa 00       		.byte	0
+ 2135 08ab 15       		.uleb128 0x15
+ 2136 08ac 0E020000 		.4byte	.LVL81
+ 2137 08b0 C70B0000 		.4byte	0xbc7
+ 2138 08b4 CF080000 		.4byte	0x8cf
+ 2139 08b8 16       		.uleb128 0x16
+ 2140 08b9 01       		.uleb128 0x1
+ 2141 08ba 50       		.byte	0x50
+ 2142 08bb 03       		.uleb128 0x3
+ 2143 08bc 91       		.byte	0x91
+ 2144 08bd AC7F     		.sleb128 -84
+ 2145 08bf 16       		.uleb128 0x16
+ 2146 08c0 01       		.uleb128 0x1
+ 2147 08c1 51       		.byte	0x51
+ 2148 08c2 05       		.uleb128 0x5
+ 2149 08c3 03       		.byte	0x3
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\cchSPHFZ.s 			page 50
 
 
- 2150 08c7 16       		.uleb128 0x16
- 2151 08c8 01       		.uleb128 0x1
- 2152 08c9 52       		.byte	0x52
- 2153 08ca 01       		.uleb128 0x1
- 2154 08cb 34       		.byte	0x34
- 2155 08cc 00       		.byte	0
- 2156 08cd 15       		.uleb128 0x15
- 2157 08ce 14020000 		.4byte	.LVL82
- 2158 08d2 D00B0000 		.4byte	0xbd0
- 2159 08d6 E2080000 		.4byte	0x8e2
- 2160 08da 16       		.uleb128 0x16
- 2161 08db 01       		.uleb128 0x1
- 2162 08dc 50       		.byte	0x50
- 2163 08dd 03       		.uleb128 0x3
- 2164 08de 91       		.byte	0x91
- 2165 08df AC7F     		.sleb128 -84
- 2166 08e1 00       		.byte	0
- 2167 08e2 15       		.uleb128 0x15
- 2168 08e3 1C020000 		.4byte	.LVL85
- 2169 08e7 D00B0000 		.4byte	0xbd0
- 2170 08eb F9080000 		.4byte	0x8f9
- 2171 08ef 16       		.uleb128 0x16
- 2172 08f0 01       		.uleb128 0x1
- 2173 08f1 50       		.byte	0x50
- 2174 08f2 05       		.uleb128 0x5
- 2175 08f3 03       		.byte	0x3
- 2176 08f4 BC020000 		.4byte	.LC15
- 2177 08f8 00       		.byte	0
- 2178 08f9 15       		.uleb128 0x15
- 2179 08fa 26020000 		.4byte	.LVL86
- 2180 08fe 3E0C0000 		.4byte	0xc3e
- 2181 0902 18090000 		.4byte	0x918
- 2182 0906 16       		.uleb128 0x16
- 2183 0907 01       		.uleb128 0x1
- 2184 0908 50       		.byte	0x50
+ 2150 08c4 3C030000 		.4byte	.LC17
+ 2151 08c8 16       		.uleb128 0x16
+ 2152 08c9 01       		.uleb128 0x1
+ 2153 08ca 52       		.byte	0x52
+ 2154 08cb 02       		.uleb128 0x2
+ 2155 08cc 08       		.byte	0x8
+ 2156 08cd 44       		.byte	0x44
+ 2157 08ce 00       		.byte	0
+ 2158 08cf 15       		.uleb128 0x15
+ 2159 08d0 14020000 		.4byte	.LVL82
+ 2160 08d4 D20B0000 		.4byte	0xbd2
+ 2161 08d8 E4080000 		.4byte	0x8e4
+ 2162 08dc 16       		.uleb128 0x16
+ 2163 08dd 01       		.uleb128 0x1
+ 2164 08de 50       		.byte	0x50
+ 2165 08df 03       		.uleb128 0x3
+ 2166 08e0 91       		.byte	0x91
+ 2167 08e1 AC7F     		.sleb128 -84
+ 2168 08e3 00       		.byte	0
+ 2169 08e4 15       		.uleb128 0x15
+ 2170 08e5 1C020000 		.4byte	.LVL85
+ 2171 08e9 D20B0000 		.4byte	0xbd2
+ 2172 08ed FB080000 		.4byte	0x8fb
+ 2173 08f1 16       		.uleb128 0x16
+ 2174 08f2 01       		.uleb128 0x1
+ 2175 08f3 50       		.byte	0x50
+ 2176 08f4 05       		.uleb128 0x5
+ 2177 08f5 03       		.byte	0x3
+ 2178 08f6 BC020000 		.4byte	.LC15
+ 2179 08fa 00       		.byte	0
+ 2180 08fb 15       		.uleb128 0x15
+ 2181 08fc 26020000 		.4byte	.LVL86
+ 2182 0900 400C0000 		.4byte	0xc40
+ 2183 0904 1A090000 		.4byte	0x91a
+ 2184 0908 16       		.uleb128 0x16
  2185 0909 01       		.uleb128 0x1
- 2186 090a 48       		.byte	0x48
- 2187 090b 16       		.uleb128 0x16
- 2188 090c 01       		.uleb128 0x1
- 2189 090d 51       		.byte	0x51
- 2190 090e 02       		.uleb128 0x2
- 2191 090f 08       		.byte	0x8
- 2192 0910 30       		.byte	0x30
- 2193 0911 16       		.uleb128 0x16
- 2194 0912 01       		.uleb128 0x1
- 2195 0913 52       		.byte	0x52
- 2196 0914 02       		.uleb128 0x2
- 2197 0915 08       		.byte	0x8
- 2198 0916 2A       		.byte	0x2a
- 2199 0917 00       		.byte	0
- 2200 0918 15       		.uleb128 0x15
- 2201 0919 32020000 		.4byte	.LVL88
- 2202 091d C50B0000 		.4byte	0xbc5
- 2203 0921 3C090000 		.4byte	0x93c
- 2204 0925 16       		.uleb128 0x16
- 2205 0926 01       		.uleb128 0x1
- 2206 0927 50       		.byte	0x50
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 51
+ 2186 090a 50       		.byte	0x50
+ 2187 090b 01       		.uleb128 0x1
+ 2188 090c 48       		.byte	0x48
+ 2189 090d 16       		.uleb128 0x16
+ 2190 090e 01       		.uleb128 0x1
+ 2191 090f 51       		.byte	0x51
+ 2192 0910 02       		.uleb128 0x2
+ 2193 0911 08       		.byte	0x8
+ 2194 0912 30       		.byte	0x30
+ 2195 0913 16       		.uleb128 0x16
+ 2196 0914 01       		.uleb128 0x1
+ 2197 0915 52       		.byte	0x52
+ 2198 0916 02       		.uleb128 0x2
+ 2199 0917 08       		.byte	0x8
+ 2200 0918 2A       		.byte	0x2a
+ 2201 0919 00       		.byte	0
+ 2202 091a 15       		.uleb128 0x15
+ 2203 091b 32020000 		.4byte	.LVL88
+ 2204 091f C70B0000 		.4byte	0xbc7
+ 2205 0923 3E090000 		.4byte	0x93e
+ 2206 0927 16       		.uleb128 0x16
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\cchSPHFZ.s 			page 51
 
 
- 2207 0928 03       		.uleb128 0x3
- 2208 0929 91       		.byte	0x91
- 2209 092a AC7F     		.sleb128 -84
- 2210 092c 16       		.uleb128 0x16
- 2211 092d 01       		.uleb128 0x1
- 2212 092e 51       		.byte	0x51
- 2213 092f 05       		.uleb128 0x5
- 2214 0930 03       		.byte	0x3
- 2215 0931 84030000 		.4byte	.LC18
- 2216 0935 16       		.uleb128 0x16
- 2217 0936 01       		.uleb128 0x1
- 2218 0937 52       		.byte	0x52
- 2219 0938 02       		.uleb128 0x2
- 2220 0939 08       		.byte	0x8
- 2221 093a 2A       		.byte	0x2a
- 2222 093b 00       		.byte	0
- 2223 093c 15       		.uleb128 0x15
- 2224 093d 38020000 		.4byte	.LVL89
- 2225 0941 D00B0000 		.4byte	0xbd0
- 2226 0945 51090000 		.4byte	0x951
- 2227 0949 16       		.uleb128 0x16
- 2228 094a 01       		.uleb128 0x1
- 2229 094b 50       		.byte	0x50
- 2230 094c 03       		.uleb128 0x3
- 2231 094d 91       		.byte	0x91
- 2232 094e AC7F     		.sleb128 -84
- 2233 0950 00       		.byte	0
- 2234 0951 15       		.uleb128 0x15
- 2235 0952 40020000 		.4byte	.LVL92
- 2236 0956 D00B0000 		.4byte	0xbd0
- 2237 095a 68090000 		.4byte	0x968
- 2238 095e 16       		.uleb128 0x16
- 2239 095f 01       		.uleb128 0x1
- 2240 0960 50       		.byte	0x50
- 2241 0961 05       		.uleb128 0x5
- 2242 0962 03       		.byte	0x3
- 2243 0963 BC020000 		.4byte	.LC15
- 2244 0967 00       		.byte	0
- 2245 0968 15       		.uleb128 0x15
- 2246 0969 4A020000 		.4byte	.LVL93
- 2247 096d 3E0C0000 		.4byte	0xc3e
- 2248 0971 87090000 		.4byte	0x987
- 2249 0975 16       		.uleb128 0x16
- 2250 0976 01       		.uleb128 0x1
- 2251 0977 50       		.byte	0x50
+ 2207 0928 01       		.uleb128 0x1
+ 2208 0929 50       		.byte	0x50
+ 2209 092a 03       		.uleb128 0x3
+ 2210 092b 91       		.byte	0x91
+ 2211 092c AC7F     		.sleb128 -84
+ 2212 092e 16       		.uleb128 0x16
+ 2213 092f 01       		.uleb128 0x1
+ 2214 0930 51       		.byte	0x51
+ 2215 0931 05       		.uleb128 0x5
+ 2216 0932 03       		.byte	0x3
+ 2217 0933 84030000 		.4byte	.LC18
+ 2218 0937 16       		.uleb128 0x16
+ 2219 0938 01       		.uleb128 0x1
+ 2220 0939 52       		.byte	0x52
+ 2221 093a 02       		.uleb128 0x2
+ 2222 093b 08       		.byte	0x8
+ 2223 093c 2A       		.byte	0x2a
+ 2224 093d 00       		.byte	0
+ 2225 093e 15       		.uleb128 0x15
+ 2226 093f 38020000 		.4byte	.LVL89
+ 2227 0943 D20B0000 		.4byte	0xbd2
+ 2228 0947 53090000 		.4byte	0x953
+ 2229 094b 16       		.uleb128 0x16
+ 2230 094c 01       		.uleb128 0x1
+ 2231 094d 50       		.byte	0x50
+ 2232 094e 03       		.uleb128 0x3
+ 2233 094f 91       		.byte	0x91
+ 2234 0950 AC7F     		.sleb128 -84
+ 2235 0952 00       		.byte	0
+ 2236 0953 15       		.uleb128 0x15
+ 2237 0954 40020000 		.4byte	.LVL92
+ 2238 0958 D20B0000 		.4byte	0xbd2
+ 2239 095c 6A090000 		.4byte	0x96a
+ 2240 0960 16       		.uleb128 0x16
+ 2241 0961 01       		.uleb128 0x1
+ 2242 0962 50       		.byte	0x50
+ 2243 0963 05       		.uleb128 0x5
+ 2244 0964 03       		.byte	0x3
+ 2245 0965 BC020000 		.4byte	.LC15
+ 2246 0969 00       		.byte	0
+ 2247 096a 15       		.uleb128 0x15
+ 2248 096b 4A020000 		.4byte	.LVL93
+ 2249 096f 400C0000 		.4byte	0xc40
+ 2250 0973 89090000 		.4byte	0x989
+ 2251 0977 16       		.uleb128 0x16
  2252 0978 01       		.uleb128 0x1
- 2253 0979 48       		.byte	0x48
- 2254 097a 16       		.uleb128 0x16
- 2255 097b 01       		.uleb128 0x1
- 2256 097c 51       		.byte	0x51
- 2257 097d 02       		.uleb128 0x2
- 2258 097e 08       		.byte	0x8
- 2259 097f 32       		.byte	0x32
- 2260 0980 16       		.uleb128 0x16
- 2261 0981 01       		.uleb128 0x1
- 2262 0982 52       		.byte	0x52
- 2263 0983 02       		.uleb128 0x2
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 52
+ 2253 0979 50       		.byte	0x50
+ 2254 097a 01       		.uleb128 0x1
+ 2255 097b 48       		.byte	0x48
+ 2256 097c 16       		.uleb128 0x16
+ 2257 097d 01       		.uleb128 0x1
+ 2258 097e 51       		.byte	0x51
+ 2259 097f 02       		.uleb128 0x2
+ 2260 0980 08       		.byte	0x8
+ 2261 0981 32       		.byte	0x32
+ 2262 0982 16       		.uleb128 0x16
+ 2263 0983 01       		.uleb128 0x1
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\cchSPHFZ.s 			page 52
 
 
- 2264 0984 08       		.byte	0x8
- 2265 0985 32       		.byte	0x32
- 2266 0986 00       		.byte	0
- 2267 0987 15       		.uleb128 0x15
- 2268 0988 56020000 		.4byte	.LVL95
- 2269 098c C50B0000 		.4byte	0xbc5
- 2270 0990 AB090000 		.4byte	0x9ab
- 2271 0994 16       		.uleb128 0x16
- 2272 0995 01       		.uleb128 0x1
- 2273 0996 50       		.byte	0x50
- 2274 0997 03       		.uleb128 0x3
- 2275 0998 91       		.byte	0x91
- 2276 0999 AC7F     		.sleb128 -84
- 2277 099b 16       		.uleb128 0x16
- 2278 099c 01       		.uleb128 0x1
- 2279 099d 51       		.byte	0x51
- 2280 099e 05       		.uleb128 0x5
- 2281 099f 03       		.byte	0x3
- 2282 09a0 C0030000 		.4byte	.LC19
- 2283 09a4 16       		.uleb128 0x16
- 2284 09a5 01       		.uleb128 0x1
- 2285 09a6 52       		.byte	0x52
- 2286 09a7 02       		.uleb128 0x2
- 2287 09a8 08       		.byte	0x8
- 2288 09a9 32       		.byte	0x32
- 2289 09aa 00       		.byte	0
- 2290 09ab 15       		.uleb128 0x15
- 2291 09ac 5C020000 		.4byte	.LVL96
- 2292 09b0 D00B0000 		.4byte	0xbd0
- 2293 09b4 C0090000 		.4byte	0x9c0
- 2294 09b8 16       		.uleb128 0x16
- 2295 09b9 01       		.uleb128 0x1
- 2296 09ba 50       		.byte	0x50
- 2297 09bb 03       		.uleb128 0x3
- 2298 09bc 91       		.byte	0x91
- 2299 09bd AC7F     		.sleb128 -84
- 2300 09bf 00       		.byte	0
- 2301 09c0 15       		.uleb128 0x15
- 2302 09c1 64020000 		.4byte	.LVL99
- 2303 09c5 D00B0000 		.4byte	0xbd0
- 2304 09c9 D7090000 		.4byte	0x9d7
- 2305 09cd 16       		.uleb128 0x16
- 2306 09ce 01       		.uleb128 0x1
- 2307 09cf 50       		.byte	0x50
- 2308 09d0 05       		.uleb128 0x5
- 2309 09d1 03       		.byte	0x3
- 2310 09d2 BC020000 		.4byte	.LC15
- 2311 09d6 00       		.byte	0
- 2312 09d7 15       		.uleb128 0x15
- 2313 09d8 6E020000 		.4byte	.LVL100
- 2314 09dc 3E0C0000 		.4byte	0xc3e
- 2315 09e0 F5090000 		.4byte	0x9f5
- 2316 09e4 16       		.uleb128 0x16
- 2317 09e5 01       		.uleb128 0x1
- 2318 09e6 50       		.byte	0x50
+ 2264 0984 52       		.byte	0x52
+ 2265 0985 02       		.uleb128 0x2
+ 2266 0986 08       		.byte	0x8
+ 2267 0987 46       		.byte	0x46
+ 2268 0988 00       		.byte	0
+ 2269 0989 15       		.uleb128 0x15
+ 2270 098a 56020000 		.4byte	.LVL95
+ 2271 098e C70B0000 		.4byte	0xbc7
+ 2272 0992 AD090000 		.4byte	0x9ad
+ 2273 0996 16       		.uleb128 0x16
+ 2274 0997 01       		.uleb128 0x1
+ 2275 0998 50       		.byte	0x50
+ 2276 0999 03       		.uleb128 0x3
+ 2277 099a 91       		.byte	0x91
+ 2278 099b AC7F     		.sleb128 -84
+ 2279 099d 16       		.uleb128 0x16
+ 2280 099e 01       		.uleb128 0x1
+ 2281 099f 51       		.byte	0x51
+ 2282 09a0 05       		.uleb128 0x5
+ 2283 09a1 03       		.byte	0x3
+ 2284 09a2 C0030000 		.4byte	.LC19
+ 2285 09a6 16       		.uleb128 0x16
+ 2286 09a7 01       		.uleb128 0x1
+ 2287 09a8 52       		.byte	0x52
+ 2288 09a9 02       		.uleb128 0x2
+ 2289 09aa 08       		.byte	0x8
+ 2290 09ab 46       		.byte	0x46
+ 2291 09ac 00       		.byte	0
+ 2292 09ad 15       		.uleb128 0x15
+ 2293 09ae 5C020000 		.4byte	.LVL96
+ 2294 09b2 D20B0000 		.4byte	0xbd2
+ 2295 09b6 C2090000 		.4byte	0x9c2
+ 2296 09ba 16       		.uleb128 0x16
+ 2297 09bb 01       		.uleb128 0x1
+ 2298 09bc 50       		.byte	0x50
+ 2299 09bd 03       		.uleb128 0x3
+ 2300 09be 91       		.byte	0x91
+ 2301 09bf AC7F     		.sleb128 -84
+ 2302 09c1 00       		.byte	0
+ 2303 09c2 15       		.uleb128 0x15
+ 2304 09c3 64020000 		.4byte	.LVL99
+ 2305 09c7 D20B0000 		.4byte	0xbd2
+ 2306 09cb D9090000 		.4byte	0x9d9
+ 2307 09cf 16       		.uleb128 0x16
+ 2308 09d0 01       		.uleb128 0x1
+ 2309 09d1 50       		.byte	0x50
+ 2310 09d2 05       		.uleb128 0x5
+ 2311 09d3 03       		.byte	0x3
+ 2312 09d4 BC020000 		.4byte	.LC15
+ 2313 09d8 00       		.byte	0
+ 2314 09d9 15       		.uleb128 0x15
+ 2315 09da 6E020000 		.4byte	.LVL100
+ 2316 09de 400C0000 		.4byte	0xc40
+ 2317 09e2 F7090000 		.4byte	0x9f7
+ 2318 09e6 16       		.uleb128 0x16
  2319 09e7 01       		.uleb128 0x1
- 2320 09e8 48       		.byte	0x48
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 53
+ 2320 09e8 50       		.byte	0x50
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\cchSPHFZ.s 			page 53
 
 
- 2321 09e9 16       		.uleb128 0x16
- 2322 09ea 01       		.uleb128 0x1
- 2323 09eb 51       		.byte	0x51
- 2324 09ec 02       		.uleb128 0x2
- 2325 09ed 08       		.byte	0x8
- 2326 09ee 33       		.byte	0x33
- 2327 09ef 16       		.uleb128 0x16
- 2328 09f0 01       		.uleb128 0x1
- 2329 09f1 52       		.byte	0x52
+ 2321 09e9 01       		.uleb128 0x1
+ 2322 09ea 48       		.byte	0x48
+ 2323 09eb 16       		.uleb128 0x16
+ 2324 09ec 01       		.uleb128 0x1
+ 2325 09ed 51       		.byte	0x51
+ 2326 09ee 02       		.uleb128 0x2
+ 2327 09ef 08       		.byte	0x8
+ 2328 09f0 33       		.byte	0x33
+ 2329 09f1 16       		.uleb128 0x16
  2330 09f2 01       		.uleb128 0x1
- 2331 09f3 31       		.byte	0x31
- 2332 09f4 00       		.byte	0
- 2333 09f5 15       		.uleb128 0x15
- 2334 09f6 7A020000 		.4byte	.LVL102
- 2335 09fa C50B0000 		.4byte	0xbc5
- 2336 09fe 180A0000 		.4byte	0xa18
- 2337 0a02 16       		.uleb128 0x16
- 2338 0a03 01       		.uleb128 0x1
- 2339 0a04 50       		.byte	0x50
- 2340 0a05 03       		.uleb128 0x3
- 2341 0a06 91       		.byte	0x91
- 2342 0a07 AC7F     		.sleb128 -84
- 2343 0a09 16       		.uleb128 0x16
- 2344 0a0a 01       		.uleb128 0x1
- 2345 0a0b 51       		.byte	0x51
- 2346 0a0c 05       		.uleb128 0x5
- 2347 0a0d 03       		.byte	0x3
- 2348 0a0e F4030000 		.4byte	.LC20
- 2349 0a12 16       		.uleb128 0x16
- 2350 0a13 01       		.uleb128 0x1
- 2351 0a14 52       		.byte	0x52
+ 2331 09f3 52       		.byte	0x52
+ 2332 09f4 01       		.uleb128 0x1
+ 2333 09f5 31       		.byte	0x31
+ 2334 09f6 00       		.byte	0
+ 2335 09f7 15       		.uleb128 0x15
+ 2336 09f8 7A020000 		.4byte	.LVL102
+ 2337 09fc C70B0000 		.4byte	0xbc7
+ 2338 0a00 1A0A0000 		.4byte	0xa1a
+ 2339 0a04 16       		.uleb128 0x16
+ 2340 0a05 01       		.uleb128 0x1
+ 2341 0a06 50       		.byte	0x50
+ 2342 0a07 03       		.uleb128 0x3
+ 2343 0a08 91       		.byte	0x91
+ 2344 0a09 AC7F     		.sleb128 -84
+ 2345 0a0b 16       		.uleb128 0x16
+ 2346 0a0c 01       		.uleb128 0x1
+ 2347 0a0d 51       		.byte	0x51
+ 2348 0a0e 05       		.uleb128 0x5
+ 2349 0a0f 03       		.byte	0x3
+ 2350 0a10 F4030000 		.4byte	.LC20
+ 2351 0a14 16       		.uleb128 0x16
  2352 0a15 01       		.uleb128 0x1
- 2353 0a16 31       		.byte	0x31
- 2354 0a17 00       		.byte	0
- 2355 0a18 15       		.uleb128 0x15
- 2356 0a19 80020000 		.4byte	.LVL103
- 2357 0a1d D00B0000 		.4byte	0xbd0
- 2358 0a21 2D0A0000 		.4byte	0xa2d
- 2359 0a25 16       		.uleb128 0x16
- 2360 0a26 01       		.uleb128 0x1
- 2361 0a27 50       		.byte	0x50
- 2362 0a28 03       		.uleb128 0x3
- 2363 0a29 91       		.byte	0x91
- 2364 0a2a AC7F     		.sleb128 -84
- 2365 0a2c 00       		.byte	0
- 2366 0a2d 15       		.uleb128 0x15
- 2367 0a2e 88020000 		.4byte	.LVL106
- 2368 0a32 D00B0000 		.4byte	0xbd0
- 2369 0a36 440A0000 		.4byte	0xa44
- 2370 0a3a 16       		.uleb128 0x16
- 2371 0a3b 01       		.uleb128 0x1
- 2372 0a3c 50       		.byte	0x50
- 2373 0a3d 05       		.uleb128 0x5
- 2374 0a3e 03       		.byte	0x3
- 2375 0a3f BC020000 		.4byte	.LC15
- 2376 0a43 00       		.byte	0
- 2377 0a44 15       		.uleb128 0x15
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 54
+ 2353 0a16 52       		.byte	0x52
+ 2354 0a17 01       		.uleb128 0x1
+ 2355 0a18 31       		.byte	0x31
+ 2356 0a19 00       		.byte	0
+ 2357 0a1a 15       		.uleb128 0x15
+ 2358 0a1b 80020000 		.4byte	.LVL103
+ 2359 0a1f D20B0000 		.4byte	0xbd2
+ 2360 0a23 2F0A0000 		.4byte	0xa2f
+ 2361 0a27 16       		.uleb128 0x16
+ 2362 0a28 01       		.uleb128 0x1
+ 2363 0a29 50       		.byte	0x50
+ 2364 0a2a 03       		.uleb128 0x3
+ 2365 0a2b 91       		.byte	0x91
+ 2366 0a2c AC7F     		.sleb128 -84
+ 2367 0a2e 00       		.byte	0
+ 2368 0a2f 15       		.uleb128 0x15
+ 2369 0a30 88020000 		.4byte	.LVL106
+ 2370 0a34 D20B0000 		.4byte	0xbd2
+ 2371 0a38 460A0000 		.4byte	0xa46
+ 2372 0a3c 16       		.uleb128 0x16
+ 2373 0a3d 01       		.uleb128 0x1
+ 2374 0a3e 50       		.byte	0x50
+ 2375 0a3f 05       		.uleb128 0x5
+ 2376 0a40 03       		.byte	0x3
+ 2377 0a41 BC020000 		.4byte	.LC15
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\cchSPHFZ.s 			page 54
 
 
- 2378 0a45 A2020000 		.4byte	.LVL109
- 2379 0a49 3E0C0000 		.4byte	0xc3e
- 2380 0a4d 630A0000 		.4byte	0xa63
- 2381 0a51 16       		.uleb128 0x16
- 2382 0a52 01       		.uleb128 0x1
- 2383 0a53 50       		.byte	0x50
+ 2378 0a45 00       		.byte	0
+ 2379 0a46 15       		.uleb128 0x15
+ 2380 0a47 A2020000 		.4byte	.LVL109
+ 2381 0a4b 400C0000 		.4byte	0xc40
+ 2382 0a4f 650A0000 		.4byte	0xa65
+ 2383 0a53 16       		.uleb128 0x16
  2384 0a54 01       		.uleb128 0x1
- 2385 0a55 48       		.byte	0x48
- 2386 0a56 16       		.uleb128 0x16
- 2387 0a57 01       		.uleb128 0x1
- 2388 0a58 51       		.byte	0x51
- 2389 0a59 02       		.uleb128 0x2
- 2390 0a5a 08       		.byte	0x8
- 2391 0a5b 2E       		.byte	0x2e
- 2392 0a5c 16       		.uleb128 0x16
- 2393 0a5d 01       		.uleb128 0x1
- 2394 0a5e 52       		.byte	0x52
- 2395 0a5f 02       		.uleb128 0x2
- 2396 0a60 08       		.byte	0x8
- 2397 0a61 47       		.byte	0x47
- 2398 0a62 00       		.byte	0
- 2399 0a63 15       		.uleb128 0x15
- 2400 0a64 28030000 		.4byte	.LVL111
- 2401 0a68 490C0000 		.4byte	0xc49
- 2402 0a6c 880A0000 		.4byte	0xa88
- 2403 0a70 16       		.uleb128 0x16
- 2404 0a71 01       		.uleb128 0x1
- 2405 0a72 50       		.byte	0x50
+ 2385 0a55 50       		.byte	0x50
+ 2386 0a56 01       		.uleb128 0x1
+ 2387 0a57 48       		.byte	0x48
+ 2388 0a58 16       		.uleb128 0x16
+ 2389 0a59 01       		.uleb128 0x1
+ 2390 0a5a 51       		.byte	0x51
+ 2391 0a5b 02       		.uleb128 0x2
+ 2392 0a5c 08       		.byte	0x8
+ 2393 0a5d 2E       		.byte	0x2e
+ 2394 0a5e 16       		.uleb128 0x16
+ 2395 0a5f 01       		.uleb128 0x1
+ 2396 0a60 52       		.byte	0x52
+ 2397 0a61 02       		.uleb128 0x2
+ 2398 0a62 08       		.byte	0x8
+ 2399 0a63 47       		.byte	0x47
+ 2400 0a64 00       		.byte	0
+ 2401 0a65 15       		.uleb128 0x15
+ 2402 0a66 28030000 		.4byte	.LVL111
+ 2403 0a6a 4B0C0000 		.4byte	0xc4b
+ 2404 0a6e 8A0A0000 		.4byte	0xa8a
+ 2405 0a72 16       		.uleb128 0x16
  2406 0a73 01       		.uleb128 0x1
- 2407 0a74 48       		.byte	0x48
- 2408 0a75 16       		.uleb128 0x16
- 2409 0a76 01       		.uleb128 0x1
- 2410 0a77 51       		.byte	0x51
- 2411 0a78 02       		.uleb128 0x2
- 2412 0a79 08       		.byte	0x8
- 2413 0a7a 28       		.byte	0x28
- 2414 0a7b 16       		.uleb128 0x16
- 2415 0a7c 01       		.uleb128 0x1
- 2416 0a7d 52       		.byte	0x52
+ 2407 0a74 50       		.byte	0x50
+ 2408 0a75 01       		.uleb128 0x1
+ 2409 0a76 48       		.byte	0x48
+ 2410 0a77 16       		.uleb128 0x16
+ 2411 0a78 01       		.uleb128 0x1
+ 2412 0a79 51       		.byte	0x51
+ 2413 0a7a 02       		.uleb128 0x2
+ 2414 0a7b 08       		.byte	0x8
+ 2415 0a7c 28       		.byte	0x28
+ 2416 0a7d 16       		.uleb128 0x16
  2417 0a7e 01       		.uleb128 0x1
- 2418 0a7f 32       		.byte	0x32
- 2419 0a80 16       		.uleb128 0x16
- 2420 0a81 01       		.uleb128 0x1
- 2421 0a82 53       		.byte	0x53
- 2422 0a83 03       		.uleb128 0x3
- 2423 0a84 91       		.byte	0x91
- 2424 0a85 A47F     		.sleb128 -92
- 2425 0a87 00       		.byte	0
- 2426 0a88 15       		.uleb128 0x15
- 2427 0a89 34030000 		.4byte	.LVL112
- 2428 0a8d 490C0000 		.4byte	0xc49
- 2429 0a91 AD0A0000 		.4byte	0xaad
- 2430 0a95 16       		.uleb128 0x16
- 2431 0a96 01       		.uleb128 0x1
- 2432 0a97 50       		.byte	0x50
+ 2418 0a7f 52       		.byte	0x52
+ 2419 0a80 01       		.uleb128 0x1
+ 2420 0a81 32       		.byte	0x32
+ 2421 0a82 16       		.uleb128 0x16
+ 2422 0a83 01       		.uleb128 0x1
+ 2423 0a84 53       		.byte	0x53
+ 2424 0a85 03       		.uleb128 0x3
+ 2425 0a86 91       		.byte	0x91
+ 2426 0a87 A47F     		.sleb128 -92
+ 2427 0a89 00       		.byte	0
+ 2428 0a8a 15       		.uleb128 0x15
+ 2429 0a8b 34030000 		.4byte	.LVL112
+ 2430 0a8f 4B0C0000 		.4byte	0xc4b
+ 2431 0a93 AF0A0000 		.4byte	0xaaf
+ 2432 0a97 16       		.uleb128 0x16
  2433 0a98 01       		.uleb128 0x1
- 2434 0a99 48       		.byte	0x48
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 55
+ 2434 0a99 50       		.byte	0x50
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\cchSPHFZ.s 			page 55
 
 
- 2435 0a9a 16       		.uleb128 0x16
- 2436 0a9b 01       		.uleb128 0x1
- 2437 0a9c 51       		.byte	0x51
- 2438 0a9d 02       		.uleb128 0x2
- 2439 0a9e 08       		.byte	0x8
- 2440 0a9f 2A       		.byte	0x2a
- 2441 0aa0 16       		.uleb128 0x16
- 2442 0aa1 01       		.uleb128 0x1
- 2443 0aa2 52       		.byte	0x52
+ 2435 0a9a 01       		.uleb128 0x1
+ 2436 0a9b 48       		.byte	0x48
+ 2437 0a9c 16       		.uleb128 0x16
+ 2438 0a9d 01       		.uleb128 0x1
+ 2439 0a9e 51       		.byte	0x51
+ 2440 0a9f 02       		.uleb128 0x2
+ 2441 0aa0 08       		.byte	0x8
+ 2442 0aa1 2A       		.byte	0x2a
+ 2443 0aa2 16       		.uleb128 0x16
  2444 0aa3 01       		.uleb128 0x1
- 2445 0aa4 32       		.byte	0x32
- 2446 0aa5 16       		.uleb128 0x16
- 2447 0aa6 01       		.uleb128 0x1
- 2448 0aa7 53       		.byte	0x53
- 2449 0aa8 03       		.uleb128 0x3
- 2450 0aa9 91       		.byte	0x91
- 2451 0aaa A07F     		.sleb128 -96
- 2452 0aac 00       		.byte	0
- 2453 0aad 15       		.uleb128 0x15
- 2454 0aae 40030000 		.4byte	.LVL113
- 2455 0ab2 490C0000 		.4byte	0xc49
- 2456 0ab6 D20A0000 		.4byte	0xad2
- 2457 0aba 16       		.uleb128 0x16
- 2458 0abb 01       		.uleb128 0x1
- 2459 0abc 50       		.byte	0x50
+ 2445 0aa4 52       		.byte	0x52
+ 2446 0aa5 01       		.uleb128 0x1
+ 2447 0aa6 32       		.byte	0x32
+ 2448 0aa7 16       		.uleb128 0x16
+ 2449 0aa8 01       		.uleb128 0x1
+ 2450 0aa9 53       		.byte	0x53
+ 2451 0aaa 03       		.uleb128 0x3
+ 2452 0aab 91       		.byte	0x91
+ 2453 0aac A07F     		.sleb128 -96
+ 2454 0aae 00       		.byte	0
+ 2455 0aaf 15       		.uleb128 0x15
+ 2456 0ab0 40030000 		.4byte	.LVL113
+ 2457 0ab4 4B0C0000 		.4byte	0xc4b
+ 2458 0ab8 D40A0000 		.4byte	0xad4
+ 2459 0abc 16       		.uleb128 0x16
  2460 0abd 01       		.uleb128 0x1
- 2461 0abe 48       		.byte	0x48
- 2462 0abf 16       		.uleb128 0x16
- 2463 0ac0 01       		.uleb128 0x1
- 2464 0ac1 51       		.byte	0x51
- 2465 0ac2 02       		.uleb128 0x2
- 2466 0ac3 08       		.byte	0x8
- 2467 0ac4 2C       		.byte	0x2c
- 2468 0ac5 16       		.uleb128 0x16
- 2469 0ac6 01       		.uleb128 0x1
- 2470 0ac7 52       		.byte	0x52
+ 2461 0abe 50       		.byte	0x50
+ 2462 0abf 01       		.uleb128 0x1
+ 2463 0ac0 48       		.byte	0x48
+ 2464 0ac1 16       		.uleb128 0x16
+ 2465 0ac2 01       		.uleb128 0x1
+ 2466 0ac3 51       		.byte	0x51
+ 2467 0ac4 02       		.uleb128 0x2
+ 2468 0ac5 08       		.byte	0x8
+ 2469 0ac6 2C       		.byte	0x2c
+ 2470 0ac7 16       		.uleb128 0x16
  2471 0ac8 01       		.uleb128 0x1
- 2472 0ac9 32       		.byte	0x32
- 2473 0aca 16       		.uleb128 0x16
- 2474 0acb 01       		.uleb128 0x1
- 2475 0acc 53       		.byte	0x53
- 2476 0acd 03       		.uleb128 0x3
- 2477 0ace 91       		.byte	0x91
- 2478 0acf 9C7F     		.sleb128 -100
- 2479 0ad1 00       		.byte	0
- 2480 0ad2 15       		.uleb128 0x15
- 2481 0ad3 9C030000 		.4byte	.LVL132
- 2482 0ad7 C50B0000 		.4byte	0xbc5
- 2483 0adb F00A0000 		.4byte	0xaf0
- 2484 0adf 16       		.uleb128 0x16
- 2485 0ae0 01       		.uleb128 0x1
- 2486 0ae1 50       		.byte	0x50
- 2487 0ae2 03       		.uleb128 0x3
- 2488 0ae3 91       		.byte	0x91
- 2489 0ae4 AC7F     		.sleb128 -84
- 2490 0ae6 16       		.uleb128 0x16
- 2491 0ae7 01       		.uleb128 0x1
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 56
+ 2472 0ac9 52       		.byte	0x52
+ 2473 0aca 01       		.uleb128 0x1
+ 2474 0acb 32       		.byte	0x32
+ 2475 0acc 16       		.uleb128 0x16
+ 2476 0acd 01       		.uleb128 0x1
+ 2477 0ace 53       		.byte	0x53
+ 2478 0acf 03       		.uleb128 0x3
+ 2479 0ad0 91       		.byte	0x91
+ 2480 0ad1 9C7F     		.sleb128 -100
+ 2481 0ad3 00       		.byte	0
+ 2482 0ad4 15       		.uleb128 0x15
+ 2483 0ad5 9C030000 		.4byte	.LVL132
+ 2484 0ad9 C70B0000 		.4byte	0xbc7
+ 2485 0add F20A0000 		.4byte	0xaf2
+ 2486 0ae1 16       		.uleb128 0x16
+ 2487 0ae2 01       		.uleb128 0x1
+ 2488 0ae3 50       		.byte	0x50
+ 2489 0ae4 03       		.uleb128 0x3
+ 2490 0ae5 91       		.byte	0x91
+ 2491 0ae6 AC7F     		.sleb128 -84
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\cchSPHFZ.s 			page 56
 
 
- 2492 0ae8 51       		.byte	0x51
- 2493 0ae9 05       		.uleb128 0x5
- 2494 0aea 03       		.byte	0x3
- 2495 0aeb 30040000 		.4byte	.LC21
- 2496 0aef 00       		.byte	0
- 2497 0af0 17       		.uleb128 0x17
- 2498 0af1 A2030000 		.4byte	.LVL133
- 2499 0af5 D00B0000 		.4byte	0xbd0
- 2500 0af9 16       		.uleb128 0x16
- 2501 0afa 01       		.uleb128 0x1
- 2502 0afb 50       		.byte	0x50
- 2503 0afc 03       		.uleb128 0x3
- 2504 0afd 91       		.byte	0x91
- 2505 0afe AC7F     		.sleb128 -84
- 2506 0b00 00       		.byte	0
- 2507 0b01 00       		.byte	0
- 2508 0b02 1B       		.uleb128 0x1b
- 2509 0b03 F5000000 		.4byte	0xf5
- 2510 0b07 120B0000 		.4byte	0xb12
- 2511 0b0b 1C       		.uleb128 0x1c
- 2512 0b0c 27010000 		.4byte	0x127
- 2513 0b10 31       		.byte	0x31
- 2514 0b11 00       		.byte	0
- 2515 0b12 1B       		.uleb128 0x1b
- 2516 0b13 A5000000 		.4byte	0xa5
- 2517 0b17 220B0000 		.4byte	0xb22
- 2518 0b1b 1C       		.uleb128 0x1c
- 2519 0b1c 27010000 		.4byte	0x127
- 2520 0b20 0D       		.byte	0xd
- 2521 0b21 00       		.byte	0
- 2522 0b22 1B       		.uleb128 0x1b
- 2523 0b23 A5000000 		.4byte	0xa5
- 2524 0b27 320B0000 		.4byte	0xb32
- 2525 0b2b 1C       		.uleb128 0x1c
- 2526 0b2c 27010000 		.4byte	0x127
- 2527 0b30 01       		.byte	0x1
- 2528 0b31 00       		.byte	0
- 2529 0b32 1D       		.uleb128 0x1d
- 2530 0b33 15040000 		.4byte	.LASF64
- 2531 0b37 06       		.byte	0x6
- 2532 0b38 1207     		.2byte	0x712
- 2533 0b3a 3E0B0000 		.4byte	0xb3e
- 2534 0b3e 08       		.uleb128 0x8
- 2535 0b3f C6000000 		.4byte	0xc6
- 2536 0b43 1E       		.uleb128 0x1e
- 2537 0b44 FE000000 		.4byte	.LASF65
- 2538 0b48 07       		.byte	0x7
- 2539 0b49 1A       		.byte	0x1a
- 2540 0b4a 2E010000 		.4byte	0x12e
- 2541 0b4e 05       		.uleb128 0x5
- 2542 0b4f 03       		.byte	0x3
- 2543 0b50 00000000 		.4byte	OVR_FLAG
- 2544 0b54 1E       		.uleb128 0x1e
- 2545 0b55 07010000 		.4byte	.LASF66
- 2546 0b59 07       		.byte	0x7
- 2547 0b5a 21       		.byte	0x21
- 2548 0b5b 33010000 		.4byte	0x133
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 57
+ 2492 0ae8 16       		.uleb128 0x16
+ 2493 0ae9 01       		.uleb128 0x1
+ 2494 0aea 51       		.byte	0x51
+ 2495 0aeb 05       		.uleb128 0x5
+ 2496 0aec 03       		.byte	0x3
+ 2497 0aed 30040000 		.4byte	.LC21
+ 2498 0af1 00       		.byte	0
+ 2499 0af2 17       		.uleb128 0x17
+ 2500 0af3 A2030000 		.4byte	.LVL133
+ 2501 0af7 D20B0000 		.4byte	0xbd2
+ 2502 0afb 16       		.uleb128 0x16
+ 2503 0afc 01       		.uleb128 0x1
+ 2504 0afd 50       		.byte	0x50
+ 2505 0afe 03       		.uleb128 0x3
+ 2506 0aff 91       		.byte	0x91
+ 2507 0b00 AC7F     		.sleb128 -84
+ 2508 0b02 00       		.byte	0
+ 2509 0b03 00       		.byte	0
+ 2510 0b04 1B       		.uleb128 0x1b
+ 2511 0b05 F5000000 		.4byte	0xf5
+ 2512 0b09 140B0000 		.4byte	0xb14
+ 2513 0b0d 1C       		.uleb128 0x1c
+ 2514 0b0e 27010000 		.4byte	0x127
+ 2515 0b12 31       		.byte	0x31
+ 2516 0b13 00       		.byte	0
+ 2517 0b14 1B       		.uleb128 0x1b
+ 2518 0b15 A5000000 		.4byte	0xa5
+ 2519 0b19 240B0000 		.4byte	0xb24
+ 2520 0b1d 1C       		.uleb128 0x1c
+ 2521 0b1e 27010000 		.4byte	0x127
+ 2522 0b22 0D       		.byte	0xd
+ 2523 0b23 00       		.byte	0
+ 2524 0b24 1B       		.uleb128 0x1b
+ 2525 0b25 A5000000 		.4byte	0xa5
+ 2526 0b29 340B0000 		.4byte	0xb34
+ 2527 0b2d 1C       		.uleb128 0x1c
+ 2528 0b2e 27010000 		.4byte	0x127
+ 2529 0b32 01       		.byte	0x1
+ 2530 0b33 00       		.byte	0
+ 2531 0b34 1D       		.uleb128 0x1d
+ 2532 0b35 15040000 		.4byte	.LASF64
+ 2533 0b39 06       		.byte	0x6
+ 2534 0b3a 1207     		.2byte	0x712
+ 2535 0b3c 400B0000 		.4byte	0xb40
+ 2536 0b40 08       		.uleb128 0x8
+ 2537 0b41 C6000000 		.4byte	0xc6
+ 2538 0b45 1E       		.uleb128 0x1e
+ 2539 0b46 FE000000 		.4byte	.LASF65
+ 2540 0b4a 07       		.byte	0x7
+ 2541 0b4b 1A       		.byte	0x1a
+ 2542 0b4c 2E010000 		.4byte	0x12e
+ 2543 0b50 05       		.uleb128 0x5
+ 2544 0b51 03       		.byte	0x3
+ 2545 0b52 00000000 		.4byte	OVR_FLAG
+ 2546 0b56 1E       		.uleb128 0x1e
+ 2547 0b57 07010000 		.4byte	.LASF66
+ 2548 0b5b 07       		.byte	0x7
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\cchSPHFZ.s 			page 57
 
 
- 2549 0b5f 05       		.uleb128 0x5
- 2550 0b60 03       		.byte	0x3
- 2551 0b61 00000000 		.4byte	period_red
- 2552 0b65 1E       		.uleb128 0x1e
- 2553 0b66 3C000000 		.4byte	.LASF67
- 2554 0b6a 07       		.byte	0x7
- 2555 0b6b 22       		.byte	0x22
- 2556 0b6c 33010000 		.4byte	0x133
- 2557 0b70 05       		.uleb128 0x5
- 2558 0b71 03       		.byte	0x3
- 2559 0b72 00000000 		.4byte	period_green
- 2560 0b76 1E       		.uleb128 0x1e
- 2561 0b77 C2040000 		.4byte	.LASF68
- 2562 0b7b 07       		.byte	0x7
- 2563 0b7c 23       		.byte	0x23
- 2564 0b7d 33010000 		.4byte	0x133
- 2565 0b81 05       		.uleb128 0x5
- 2566 0b82 03       		.byte	0x3
- 2567 0b83 00000000 		.4byte	period_blue
- 2568 0b87 1E       		.uleb128 0x1e
- 2569 0b88 90000000 		.4byte	.LASF69
- 2570 0b8c 07       		.byte	0x7
- 2571 0b8d 25       		.byte	0x25
- 2572 0b8e 33010000 		.4byte	0x133
- 2573 0b92 05       		.uleb128 0x5
- 2574 0b93 03       		.byte	0x3
- 2575 0b94 00000000 		.4byte	counter_red
- 2576 0b98 1E       		.uleb128 0x1e
- 2577 0b99 30030000 		.4byte	.LASF70
- 2578 0b9d 07       		.byte	0x7
- 2579 0b9e 26       		.byte	0x26
- 2580 0b9f 33010000 		.4byte	0x133
- 2581 0ba3 05       		.uleb128 0x5
- 2582 0ba4 03       		.byte	0x3
- 2583 0ba5 00000000 		.4byte	counter_green
- 2584 0ba9 1E       		.uleb128 0x1e
- 2585 0baa 12010000 		.4byte	.LASF71
- 2586 0bae 07       		.byte	0x7
- 2587 0baf 27       		.byte	0x27
- 2588 0bb0 33010000 		.4byte	0x133
- 2589 0bb4 05       		.uleb128 0x5
- 2590 0bb5 03       		.byte	0x3
- 2591 0bb6 00000000 		.4byte	counter_blue
- 2592 0bba 1F       		.uleb128 0x1f
- 2593 0bbb 9C000000 		.4byte	.LASF72
- 2594 0bbf 9C000000 		.4byte	.LASF72
- 2595 0bc3 08       		.byte	0x8
- 2596 0bc4 53       		.byte	0x53
- 2597 0bc5 1F       		.uleb128 0x1f
- 2598 0bc6 16020000 		.4byte	.LASF73
- 2599 0bca 16020000 		.4byte	.LASF73
- 2600 0bce 09       		.byte	0x9
- 2601 0bcf E7       		.byte	0xe7
- 2602 0bd0 1F       		.uleb128 0x1f
- 2603 0bd1 0A000000 		.4byte	.LASF74
- 2604 0bd5 0A000000 		.4byte	.LASF74
- 2605 0bd9 0A       		.byte	0xa
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 58
+ 2549 0b5c 21       		.byte	0x21
+ 2550 0b5d 33010000 		.4byte	0x133
+ 2551 0b61 05       		.uleb128 0x5
+ 2552 0b62 03       		.byte	0x3
+ 2553 0b63 00000000 		.4byte	period_red
+ 2554 0b67 1E       		.uleb128 0x1e
+ 2555 0b68 3C000000 		.4byte	.LASF67
+ 2556 0b6c 07       		.byte	0x7
+ 2557 0b6d 22       		.byte	0x22
+ 2558 0b6e 33010000 		.4byte	0x133
+ 2559 0b72 05       		.uleb128 0x5
+ 2560 0b73 03       		.byte	0x3
+ 2561 0b74 00000000 		.4byte	period_green
+ 2562 0b78 1E       		.uleb128 0x1e
+ 2563 0b79 C2040000 		.4byte	.LASF68
+ 2564 0b7d 07       		.byte	0x7
+ 2565 0b7e 23       		.byte	0x23
+ 2566 0b7f 33010000 		.4byte	0x133
+ 2567 0b83 05       		.uleb128 0x5
+ 2568 0b84 03       		.byte	0x3
+ 2569 0b85 00000000 		.4byte	period_blue
+ 2570 0b89 1E       		.uleb128 0x1e
+ 2571 0b8a 90000000 		.4byte	.LASF69
+ 2572 0b8e 07       		.byte	0x7
+ 2573 0b8f 25       		.byte	0x25
+ 2574 0b90 33010000 		.4byte	0x133
+ 2575 0b94 05       		.uleb128 0x5
+ 2576 0b95 03       		.byte	0x3
+ 2577 0b96 00000000 		.4byte	counter_red
+ 2578 0b9a 1E       		.uleb128 0x1e
+ 2579 0b9b 30030000 		.4byte	.LASF70
+ 2580 0b9f 07       		.byte	0x7
+ 2581 0ba0 26       		.byte	0x26
+ 2582 0ba1 33010000 		.4byte	0x133
+ 2583 0ba5 05       		.uleb128 0x5
+ 2584 0ba6 03       		.byte	0x3
+ 2585 0ba7 00000000 		.4byte	counter_green
+ 2586 0bab 1E       		.uleb128 0x1e
+ 2587 0bac 12010000 		.4byte	.LASF71
+ 2588 0bb0 07       		.byte	0x7
+ 2589 0bb1 27       		.byte	0x27
+ 2590 0bb2 33010000 		.4byte	0x133
+ 2591 0bb6 05       		.uleb128 0x5
+ 2592 0bb7 03       		.byte	0x3
+ 2593 0bb8 00000000 		.4byte	counter_blue
+ 2594 0bbc 1F       		.uleb128 0x1f
+ 2595 0bbd 9C000000 		.4byte	.LASF72
+ 2596 0bc1 9C000000 		.4byte	.LASF72
+ 2597 0bc5 08       		.byte	0x8
+ 2598 0bc6 53       		.byte	0x53
+ 2599 0bc7 1F       		.uleb128 0x1f
+ 2600 0bc8 16020000 		.4byte	.LASF73
+ 2601 0bcc 16020000 		.4byte	.LASF73
+ 2602 0bd0 09       		.byte	0x9
+ 2603 0bd1 E7       		.byte	0xe7
+ 2604 0bd2 1F       		.uleb128 0x1f
+ 2605 0bd3 0A000000 		.4byte	.LASF74
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\cchSPHFZ.s 			page 58
 
 
- 2606 0bda 8B       		.byte	0x8b
- 2607 0bdb 1F       		.uleb128 0x1f
- 2608 0bdc BA030000 		.4byte	.LASF75
- 2609 0be0 BA030000 		.4byte	.LASF75
- 2610 0be4 0B       		.byte	0xb
- 2611 0be5 5A       		.byte	0x5a
- 2612 0be6 1F       		.uleb128 0x1f
- 2613 0be7 B4010000 		.4byte	.LASF76
- 2614 0beb B4010000 		.4byte	.LASF76
- 2615 0bef 0C       		.byte	0xc
- 2616 0bf0 26       		.byte	0x26
- 2617 0bf1 1F       		.uleb128 0x1f
- 2618 0bf2 0D030000 		.4byte	.LASF77
- 2619 0bf6 0D030000 		.4byte	.LASF77
- 2620 0bfa 0D       		.byte	0xd
- 2621 0bfb 26       		.byte	0x26
- 2622 0bfc 1F       		.uleb128 0x1f
- 2623 0bfd D7020000 		.4byte	.LASF78
- 2624 0c01 D7020000 		.4byte	.LASF78
- 2625 0c05 08       		.byte	0x8
- 2626 0c06 0D       		.byte	0xd
- 2627 0c07 1F       		.uleb128 0x1f
- 2628 0c08 D7030000 		.4byte	.LASF79
- 2629 0c0c D7030000 		.4byte	.LASF79
- 2630 0c10 0A       		.byte	0xa
- 2631 0c11 54       		.byte	0x54
- 2632 0c12 1F       		.uleb128 0x1f
- 2633 0c13 CE010000 		.4byte	.LASF80
- 2634 0c17 CE010000 		.4byte	.LASF80
- 2635 0c1b 0E       		.byte	0xe
- 2636 0c1c 18       		.byte	0x18
- 2637 0c1d 1F       		.uleb128 0x1f
- 2638 0c1e F7030000 		.4byte	.LASF81
- 2639 0c22 F7030000 		.4byte	.LASF81
- 2640 0c26 0F       		.byte	0xf
- 2641 0c27 18       		.byte	0x18
- 2642 0c28 1F       		.uleb128 0x1f
- 2643 0c29 B0040000 		.4byte	.LASF82
- 2644 0c2d B0040000 		.4byte	.LASF82
- 2645 0c31 10       		.byte	0x10
- 2646 0c32 76       		.byte	0x76
- 2647 0c33 1F       		.uleb128 0x1f
- 2648 0c34 1E020000 		.4byte	.LASF83
- 2649 0c38 1E020000 		.4byte	.LASF83
- 2650 0c3c 08       		.byte	0x8
- 2651 0c3d 1E       		.byte	0x1e
- 2652 0c3e 1F       		.uleb128 0x1f
- 2653 0c3f 88020000 		.4byte	.LASF84
- 2654 0c43 88020000 		.4byte	.LASF84
- 2655 0c47 08       		.byte	0x8
- 2656 0c48 39       		.byte	0x39
- 2657 0c49 1F       		.uleb128 0x1f
- 2658 0c4a 50020000 		.4byte	.LASF85
- 2659 0c4e 50020000 		.4byte	.LASF85
- 2660 0c52 08       		.byte	0x8
- 2661 0c53 2C       		.byte	0x2c
- 2662 0c54 00       		.byte	0
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 59
+ 2606 0bd7 0A000000 		.4byte	.LASF74
+ 2607 0bdb 0A       		.byte	0xa
+ 2608 0bdc 8B       		.byte	0x8b
+ 2609 0bdd 1F       		.uleb128 0x1f
+ 2610 0bde BA030000 		.4byte	.LASF75
+ 2611 0be2 BA030000 		.4byte	.LASF75
+ 2612 0be6 0B       		.byte	0xb
+ 2613 0be7 5A       		.byte	0x5a
+ 2614 0be8 1F       		.uleb128 0x1f
+ 2615 0be9 B4010000 		.4byte	.LASF76
+ 2616 0bed B4010000 		.4byte	.LASF76
+ 2617 0bf1 0C       		.byte	0xc
+ 2618 0bf2 26       		.byte	0x26
+ 2619 0bf3 1F       		.uleb128 0x1f
+ 2620 0bf4 0D030000 		.4byte	.LASF77
+ 2621 0bf8 0D030000 		.4byte	.LASF77
+ 2622 0bfc 0D       		.byte	0xd
+ 2623 0bfd 26       		.byte	0x26
+ 2624 0bfe 1F       		.uleb128 0x1f
+ 2625 0bff D7020000 		.4byte	.LASF78
+ 2626 0c03 D7020000 		.4byte	.LASF78
+ 2627 0c07 08       		.byte	0x8
+ 2628 0c08 0D       		.byte	0xd
+ 2629 0c09 1F       		.uleb128 0x1f
+ 2630 0c0a D7030000 		.4byte	.LASF79
+ 2631 0c0e D7030000 		.4byte	.LASF79
+ 2632 0c12 0A       		.byte	0xa
+ 2633 0c13 54       		.byte	0x54
+ 2634 0c14 1F       		.uleb128 0x1f
+ 2635 0c15 CE010000 		.4byte	.LASF80
+ 2636 0c19 CE010000 		.4byte	.LASF80
+ 2637 0c1d 0E       		.byte	0xe
+ 2638 0c1e 18       		.byte	0x18
+ 2639 0c1f 1F       		.uleb128 0x1f
+ 2640 0c20 F7030000 		.4byte	.LASF81
+ 2641 0c24 F7030000 		.4byte	.LASF81
+ 2642 0c28 0F       		.byte	0xf
+ 2643 0c29 18       		.byte	0x18
+ 2644 0c2a 1F       		.uleb128 0x1f
+ 2645 0c2b B0040000 		.4byte	.LASF82
+ 2646 0c2f B0040000 		.4byte	.LASF82
+ 2647 0c33 10       		.byte	0x10
+ 2648 0c34 76       		.byte	0x76
+ 2649 0c35 1F       		.uleb128 0x1f
+ 2650 0c36 1E020000 		.4byte	.LASF83
+ 2651 0c3a 1E020000 		.4byte	.LASF83
+ 2652 0c3e 08       		.byte	0x8
+ 2653 0c3f 1E       		.byte	0x1e
+ 2654 0c40 1F       		.uleb128 0x1f
+ 2655 0c41 88020000 		.4byte	.LASF84
+ 2656 0c45 88020000 		.4byte	.LASF84
+ 2657 0c49 08       		.byte	0x8
+ 2658 0c4a 39       		.byte	0x39
+ 2659 0c4b 1F       		.uleb128 0x1f
+ 2660 0c4c 50020000 		.4byte	.LASF85
+ 2661 0c50 50020000 		.4byte	.LASF85
+ 2662 0c54 08       		.byte	0x8
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\cchSPHFZ.s 			page 59
 
 
- 2663              		.section	.debug_abbrev,"",%progbits
- 2664              	.Ldebug_abbrev0:
- 2665 0000 01       		.uleb128 0x1
- 2666 0001 11       		.uleb128 0x11
- 2667 0002 01       		.byte	0x1
- 2668 0003 25       		.uleb128 0x25
- 2669 0004 0E       		.uleb128 0xe
- 2670 0005 13       		.uleb128 0x13
- 2671 0006 0B       		.uleb128 0xb
- 2672 0007 03       		.uleb128 0x3
- 2673 0008 0E       		.uleb128 0xe
- 2674 0009 1B       		.uleb128 0x1b
- 2675 000a 0E       		.uleb128 0xe
- 2676 000b 55       		.uleb128 0x55
- 2677 000c 17       		.uleb128 0x17
- 2678 000d 11       		.uleb128 0x11
- 2679 000e 01       		.uleb128 0x1
- 2680 000f 10       		.uleb128 0x10
- 2681 0010 17       		.uleb128 0x17
- 2682 0011 00       		.byte	0
- 2683 0012 00       		.byte	0
- 2684 0013 02       		.uleb128 0x2
- 2685 0014 24       		.uleb128 0x24
- 2686 0015 00       		.byte	0
- 2687 0016 0B       		.uleb128 0xb
- 2688 0017 0B       		.uleb128 0xb
- 2689 0018 3E       		.uleb128 0x3e
- 2690 0019 0B       		.uleb128 0xb
- 2691 001a 03       		.uleb128 0x3
- 2692 001b 0E       		.uleb128 0xe
- 2693 001c 00       		.byte	0
- 2694 001d 00       		.byte	0
- 2695 001e 03       		.uleb128 0x3
- 2696 001f 24       		.uleb128 0x24
- 2697 0020 00       		.byte	0
- 2698 0021 0B       		.uleb128 0xb
- 2699 0022 0B       		.uleb128 0xb
- 2700 0023 3E       		.uleb128 0x3e
- 2701 0024 0B       		.uleb128 0xb
- 2702 0025 03       		.uleb128 0x3
- 2703 0026 08       		.uleb128 0x8
- 2704 0027 00       		.byte	0
- 2705 0028 00       		.byte	0
- 2706 0029 04       		.uleb128 0x4
- 2707 002a 16       		.uleb128 0x16
- 2708 002b 00       		.byte	0
- 2709 002c 03       		.uleb128 0x3
- 2710 002d 0E       		.uleb128 0xe
- 2711 002e 3A       		.uleb128 0x3a
- 2712 002f 0B       		.uleb128 0xb
- 2713 0030 3B       		.uleb128 0x3b
- 2714 0031 0B       		.uleb128 0xb
- 2715 0032 49       		.uleb128 0x49
- 2716 0033 13       		.uleb128 0x13
- 2717 0034 00       		.byte	0
- 2718 0035 00       		.byte	0
- 2719 0036 05       		.uleb128 0x5
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 60
+ 2663 0c55 2C       		.byte	0x2c
+ 2664 0c56 00       		.byte	0
+ 2665              		.section	.debug_abbrev,"",%progbits
+ 2666              	.Ldebug_abbrev0:
+ 2667 0000 01       		.uleb128 0x1
+ 2668 0001 11       		.uleb128 0x11
+ 2669 0002 01       		.byte	0x1
+ 2670 0003 25       		.uleb128 0x25
+ 2671 0004 0E       		.uleb128 0xe
+ 2672 0005 13       		.uleb128 0x13
+ 2673 0006 0B       		.uleb128 0xb
+ 2674 0007 03       		.uleb128 0x3
+ 2675 0008 0E       		.uleb128 0xe
+ 2676 0009 1B       		.uleb128 0x1b
+ 2677 000a 0E       		.uleb128 0xe
+ 2678 000b 55       		.uleb128 0x55
+ 2679 000c 17       		.uleb128 0x17
+ 2680 000d 11       		.uleb128 0x11
+ 2681 000e 01       		.uleb128 0x1
+ 2682 000f 10       		.uleb128 0x10
+ 2683 0010 17       		.uleb128 0x17
+ 2684 0011 00       		.byte	0
+ 2685 0012 00       		.byte	0
+ 2686 0013 02       		.uleb128 0x2
+ 2687 0014 24       		.uleb128 0x24
+ 2688 0015 00       		.byte	0
+ 2689 0016 0B       		.uleb128 0xb
+ 2690 0017 0B       		.uleb128 0xb
+ 2691 0018 3E       		.uleb128 0x3e
+ 2692 0019 0B       		.uleb128 0xb
+ 2693 001a 03       		.uleb128 0x3
+ 2694 001b 0E       		.uleb128 0xe
+ 2695 001c 00       		.byte	0
+ 2696 001d 00       		.byte	0
+ 2697 001e 03       		.uleb128 0x3
+ 2698 001f 24       		.uleb128 0x24
+ 2699 0020 00       		.byte	0
+ 2700 0021 0B       		.uleb128 0xb
+ 2701 0022 0B       		.uleb128 0xb
+ 2702 0023 3E       		.uleb128 0x3e
+ 2703 0024 0B       		.uleb128 0xb
+ 2704 0025 03       		.uleb128 0x3
+ 2705 0026 08       		.uleb128 0x8
+ 2706 0027 00       		.byte	0
+ 2707 0028 00       		.byte	0
+ 2708 0029 04       		.uleb128 0x4
+ 2709 002a 16       		.uleb128 0x16
+ 2710 002b 00       		.byte	0
+ 2711 002c 03       		.uleb128 0x3
+ 2712 002d 0E       		.uleb128 0xe
+ 2713 002e 3A       		.uleb128 0x3a
+ 2714 002f 0B       		.uleb128 0xb
+ 2715 0030 3B       		.uleb128 0x3b
+ 2716 0031 0B       		.uleb128 0xb
+ 2717 0032 49       		.uleb128 0x49
+ 2718 0033 13       		.uleb128 0x13
+ 2719 0034 00       		.byte	0
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\cchSPHFZ.s 			page 60
 
 
- 2720 0037 16       		.uleb128 0x16
- 2721 0038 00       		.byte	0
- 2722 0039 03       		.uleb128 0x3
- 2723 003a 0E       		.uleb128 0xe
- 2724 003b 3A       		.uleb128 0x3a
- 2725 003c 0B       		.uleb128 0xb
- 2726 003d 3B       		.uleb128 0x3b
- 2727 003e 05       		.uleb128 0x5
- 2728 003f 49       		.uleb128 0x49
- 2729 0040 13       		.uleb128 0x13
- 2730 0041 00       		.byte	0
- 2731 0042 00       		.byte	0
- 2732 0043 06       		.uleb128 0x6
- 2733 0044 04       		.uleb128 0x4
- 2734 0045 01       		.byte	0x1
- 2735 0046 0B       		.uleb128 0xb
- 2736 0047 0B       		.uleb128 0xb
- 2737 0048 49       		.uleb128 0x49
- 2738 0049 13       		.uleb128 0x13
- 2739 004a 3A       		.uleb128 0x3a
- 2740 004b 0B       		.uleb128 0xb
- 2741 004c 3B       		.uleb128 0x3b
- 2742 004d 0B       		.uleb128 0xb
- 2743 004e 01       		.uleb128 0x1
- 2744 004f 13       		.uleb128 0x13
- 2745 0050 00       		.byte	0
- 2746 0051 00       		.byte	0
- 2747 0052 07       		.uleb128 0x7
- 2748 0053 28       		.uleb128 0x28
- 2749 0054 00       		.byte	0
- 2750 0055 03       		.uleb128 0x3
- 2751 0056 0E       		.uleb128 0xe
- 2752 0057 1C       		.uleb128 0x1c
- 2753 0058 0B       		.uleb128 0xb
- 2754 0059 00       		.byte	0
- 2755 005a 00       		.byte	0
- 2756 005b 08       		.uleb128 0x8
- 2757 005c 35       		.uleb128 0x35
- 2758 005d 00       		.byte	0
- 2759 005e 49       		.uleb128 0x49
- 2760 005f 13       		.uleb128 0x13
- 2761 0060 00       		.byte	0
- 2762 0061 00       		.byte	0
- 2763 0062 09       		.uleb128 0x9
- 2764 0063 2E       		.uleb128 0x2e
- 2765 0064 01       		.byte	0x1
- 2766 0065 3F       		.uleb128 0x3f
- 2767 0066 19       		.uleb128 0x19
- 2768 0067 03       		.uleb128 0x3
- 2769 0068 0E       		.uleb128 0xe
- 2770 0069 3A       		.uleb128 0x3a
- 2771 006a 0B       		.uleb128 0xb
- 2772 006b 3B       		.uleb128 0x3b
- 2773 006c 0B       		.uleb128 0xb
- 2774 006d 27       		.uleb128 0x27
- 2775 006e 19       		.uleb128 0x19
- 2776 006f 49       		.uleb128 0x49
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 61
+ 2720 0035 00       		.byte	0
+ 2721 0036 05       		.uleb128 0x5
+ 2722 0037 16       		.uleb128 0x16
+ 2723 0038 00       		.byte	0
+ 2724 0039 03       		.uleb128 0x3
+ 2725 003a 0E       		.uleb128 0xe
+ 2726 003b 3A       		.uleb128 0x3a
+ 2727 003c 0B       		.uleb128 0xb
+ 2728 003d 3B       		.uleb128 0x3b
+ 2729 003e 05       		.uleb128 0x5
+ 2730 003f 49       		.uleb128 0x49
+ 2731 0040 13       		.uleb128 0x13
+ 2732 0041 00       		.byte	0
+ 2733 0042 00       		.byte	0
+ 2734 0043 06       		.uleb128 0x6
+ 2735 0044 04       		.uleb128 0x4
+ 2736 0045 01       		.byte	0x1
+ 2737 0046 0B       		.uleb128 0xb
+ 2738 0047 0B       		.uleb128 0xb
+ 2739 0048 49       		.uleb128 0x49
+ 2740 0049 13       		.uleb128 0x13
+ 2741 004a 3A       		.uleb128 0x3a
+ 2742 004b 0B       		.uleb128 0xb
+ 2743 004c 3B       		.uleb128 0x3b
+ 2744 004d 0B       		.uleb128 0xb
+ 2745 004e 01       		.uleb128 0x1
+ 2746 004f 13       		.uleb128 0x13
+ 2747 0050 00       		.byte	0
+ 2748 0051 00       		.byte	0
+ 2749 0052 07       		.uleb128 0x7
+ 2750 0053 28       		.uleb128 0x28
+ 2751 0054 00       		.byte	0
+ 2752 0055 03       		.uleb128 0x3
+ 2753 0056 0E       		.uleb128 0xe
+ 2754 0057 1C       		.uleb128 0x1c
+ 2755 0058 0B       		.uleb128 0xb
+ 2756 0059 00       		.byte	0
+ 2757 005a 00       		.byte	0
+ 2758 005b 08       		.uleb128 0x8
+ 2759 005c 35       		.uleb128 0x35
+ 2760 005d 00       		.byte	0
+ 2761 005e 49       		.uleb128 0x49
+ 2762 005f 13       		.uleb128 0x13
+ 2763 0060 00       		.byte	0
+ 2764 0061 00       		.byte	0
+ 2765 0062 09       		.uleb128 0x9
+ 2766 0063 2E       		.uleb128 0x2e
+ 2767 0064 01       		.byte	0x1
+ 2768 0065 3F       		.uleb128 0x3f
+ 2769 0066 19       		.uleb128 0x19
+ 2770 0067 03       		.uleb128 0x3
+ 2771 0068 0E       		.uleb128 0xe
+ 2772 0069 3A       		.uleb128 0x3a
+ 2773 006a 0B       		.uleb128 0xb
+ 2774 006b 3B       		.uleb128 0x3b
+ 2775 006c 0B       		.uleb128 0xb
+ 2776 006d 27       		.uleb128 0x27
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\cchSPHFZ.s 			page 61
 
 
- 2777 0070 13       		.uleb128 0x13
- 2778 0071 8701     		.uleb128 0x87
- 2779 0073 19       		.uleb128 0x19
- 2780 0074 11       		.uleb128 0x11
- 2781 0075 01       		.uleb128 0x1
- 2782 0076 12       		.uleb128 0x12
- 2783 0077 06       		.uleb128 0x6
- 2784 0078 40       		.uleb128 0x40
- 2785 0079 18       		.uleb128 0x18
- 2786 007a 9642     		.uleb128 0x2116
- 2787 007c 19       		.uleb128 0x19
- 2788 007d 01       		.uleb128 0x1
- 2789 007e 13       		.uleb128 0x13
- 2790 007f 00       		.byte	0
- 2791 0080 00       		.byte	0
- 2792 0081 0A       		.uleb128 0xa
- 2793 0082 34       		.uleb128 0x34
- 2794 0083 00       		.byte	0
- 2795 0084 03       		.uleb128 0x3
- 2796 0085 0E       		.uleb128 0xe
- 2797 0086 3A       		.uleb128 0x3a
- 2798 0087 0B       		.uleb128 0xb
- 2799 0088 3B       		.uleb128 0x3b
- 2800 0089 0B       		.uleb128 0xb
- 2801 008a 49       		.uleb128 0x49
- 2802 008b 13       		.uleb128 0x13
- 2803 008c 02       		.uleb128 0x2
- 2804 008d 18       		.uleb128 0x18
- 2805 008e 00       		.byte	0
- 2806 008f 00       		.byte	0
- 2807 0090 0B       		.uleb128 0xb
- 2808 0091 34       		.uleb128 0x34
- 2809 0092 00       		.byte	0
- 2810 0093 03       		.uleb128 0x3
- 2811 0094 0E       		.uleb128 0xe
- 2812 0095 3A       		.uleb128 0x3a
- 2813 0096 0B       		.uleb128 0xb
- 2814 0097 3B       		.uleb128 0x3b
- 2815 0098 0B       		.uleb128 0xb
- 2816 0099 49       		.uleb128 0x49
- 2817 009a 13       		.uleb128 0x13
- 2818 009b 02       		.uleb128 0x2
- 2819 009c 17       		.uleb128 0x17
- 2820 009d 00       		.byte	0
- 2821 009e 00       		.byte	0
- 2822 009f 0C       		.uleb128 0xc
- 2823 00a0 34       		.uleb128 0x34
- 2824 00a1 00       		.byte	0
- 2825 00a2 03       		.uleb128 0x3
- 2826 00a3 0E       		.uleb128 0xe
- 2827 00a4 3A       		.uleb128 0x3a
- 2828 00a5 0B       		.uleb128 0xb
- 2829 00a6 3B       		.uleb128 0x3b
- 2830 00a7 0B       		.uleb128 0xb
- 2831 00a8 49       		.uleb128 0x49
- 2832 00a9 13       		.uleb128 0x13
- 2833 00aa 1C       		.uleb128 0x1c
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 62
+ 2777 006e 19       		.uleb128 0x19
+ 2778 006f 49       		.uleb128 0x49
+ 2779 0070 13       		.uleb128 0x13
+ 2780 0071 8701     		.uleb128 0x87
+ 2781 0073 19       		.uleb128 0x19
+ 2782 0074 11       		.uleb128 0x11
+ 2783 0075 01       		.uleb128 0x1
+ 2784 0076 12       		.uleb128 0x12
+ 2785 0077 06       		.uleb128 0x6
+ 2786 0078 40       		.uleb128 0x40
+ 2787 0079 18       		.uleb128 0x18
+ 2788 007a 9642     		.uleb128 0x2116
+ 2789 007c 19       		.uleb128 0x19
+ 2790 007d 01       		.uleb128 0x1
+ 2791 007e 13       		.uleb128 0x13
+ 2792 007f 00       		.byte	0
+ 2793 0080 00       		.byte	0
+ 2794 0081 0A       		.uleb128 0xa
+ 2795 0082 34       		.uleb128 0x34
+ 2796 0083 00       		.byte	0
+ 2797 0084 03       		.uleb128 0x3
+ 2798 0085 0E       		.uleb128 0xe
+ 2799 0086 3A       		.uleb128 0x3a
+ 2800 0087 0B       		.uleb128 0xb
+ 2801 0088 3B       		.uleb128 0x3b
+ 2802 0089 0B       		.uleb128 0xb
+ 2803 008a 49       		.uleb128 0x49
+ 2804 008b 13       		.uleb128 0x13
+ 2805 008c 02       		.uleb128 0x2
+ 2806 008d 18       		.uleb128 0x18
+ 2807 008e 00       		.byte	0
+ 2808 008f 00       		.byte	0
+ 2809 0090 0B       		.uleb128 0xb
+ 2810 0091 34       		.uleb128 0x34
+ 2811 0092 00       		.byte	0
+ 2812 0093 03       		.uleb128 0x3
+ 2813 0094 0E       		.uleb128 0xe
+ 2814 0095 3A       		.uleb128 0x3a
+ 2815 0096 0B       		.uleb128 0xb
+ 2816 0097 3B       		.uleb128 0x3b
+ 2817 0098 0B       		.uleb128 0xb
+ 2818 0099 49       		.uleb128 0x49
+ 2819 009a 13       		.uleb128 0x13
+ 2820 009b 02       		.uleb128 0x2
+ 2821 009c 17       		.uleb128 0x17
+ 2822 009d 00       		.byte	0
+ 2823 009e 00       		.byte	0
+ 2824 009f 0C       		.uleb128 0xc
+ 2825 00a0 34       		.uleb128 0x34
+ 2826 00a1 00       		.byte	0
+ 2827 00a2 03       		.uleb128 0x3
+ 2828 00a3 0E       		.uleb128 0xe
+ 2829 00a4 3A       		.uleb128 0x3a
+ 2830 00a5 0B       		.uleb128 0xb
+ 2831 00a6 3B       		.uleb128 0x3b
+ 2832 00a7 0B       		.uleb128 0xb
+ 2833 00a8 49       		.uleb128 0x49
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\cchSPHFZ.s 			page 62
 
 
- 2834 00ab 0B       		.uleb128 0xb
- 2835 00ac 00       		.byte	0
- 2836 00ad 00       		.byte	0
- 2837 00ae 0D       		.uleb128 0xd
- 2838 00af 34       		.uleb128 0x34
- 2839 00b0 00       		.byte	0
- 2840 00b1 03       		.uleb128 0x3
- 2841 00b2 0E       		.uleb128 0xe
- 2842 00b3 3A       		.uleb128 0x3a
- 2843 00b4 0B       		.uleb128 0xb
- 2844 00b5 3B       		.uleb128 0x3b
- 2845 00b6 05       		.uleb128 0x5
- 2846 00b7 49       		.uleb128 0x49
- 2847 00b8 13       		.uleb128 0x13
- 2848 00b9 1C       		.uleb128 0x1c
- 2849 00ba 0B       		.uleb128 0xb
- 2850 00bb 00       		.byte	0
- 2851 00bc 00       		.byte	0
- 2852 00bd 0E       		.uleb128 0xe
- 2853 00be 34       		.uleb128 0x34
- 2854 00bf 00       		.byte	0
- 2855 00c0 03       		.uleb128 0x3
- 2856 00c1 0E       		.uleb128 0xe
- 2857 00c2 3A       		.uleb128 0x3a
- 2858 00c3 0B       		.uleb128 0xb
- 2859 00c4 3B       		.uleb128 0x3b
- 2860 00c5 05       		.uleb128 0x5
- 2861 00c6 49       		.uleb128 0x49
- 2862 00c7 13       		.uleb128 0x13
- 2863 00c8 02       		.uleb128 0x2
- 2864 00c9 17       		.uleb128 0x17
- 2865 00ca 00       		.byte	0
- 2866 00cb 00       		.byte	0
- 2867 00cc 0F       		.uleb128 0xf
- 2868 00cd 34       		.uleb128 0x34
- 2869 00ce 00       		.byte	0
- 2870 00cf 03       		.uleb128 0x3
- 2871 00d0 0E       		.uleb128 0xe
- 2872 00d1 3A       		.uleb128 0x3a
- 2873 00d2 0B       		.uleb128 0xb
- 2874 00d3 3B       		.uleb128 0x3b
- 2875 00d4 05       		.uleb128 0x5
- 2876 00d5 49       		.uleb128 0x49
- 2877 00d6 13       		.uleb128 0x13
- 2878 00d7 1C       		.uleb128 0x1c
- 2879 00d8 0D       		.uleb128 0xd
- 2880 00d9 00       		.byte	0
- 2881 00da 00       		.byte	0
- 2882 00db 10       		.uleb128 0x10
- 2883 00dc 34       		.uleb128 0x34
- 2884 00dd 00       		.byte	0
- 2885 00de 03       		.uleb128 0x3
- 2886 00df 0E       		.uleb128 0xe
- 2887 00e0 3A       		.uleb128 0x3a
- 2888 00e1 0B       		.uleb128 0xb
- 2889 00e2 3B       		.uleb128 0x3b
- 2890 00e3 05       		.uleb128 0x5
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 63
+ 2834 00a9 13       		.uleb128 0x13
+ 2835 00aa 1C       		.uleb128 0x1c
+ 2836 00ab 0B       		.uleb128 0xb
+ 2837 00ac 00       		.byte	0
+ 2838 00ad 00       		.byte	0
+ 2839 00ae 0D       		.uleb128 0xd
+ 2840 00af 34       		.uleb128 0x34
+ 2841 00b0 00       		.byte	0
+ 2842 00b1 03       		.uleb128 0x3
+ 2843 00b2 0E       		.uleb128 0xe
+ 2844 00b3 3A       		.uleb128 0x3a
+ 2845 00b4 0B       		.uleb128 0xb
+ 2846 00b5 3B       		.uleb128 0x3b
+ 2847 00b6 05       		.uleb128 0x5
+ 2848 00b7 49       		.uleb128 0x49
+ 2849 00b8 13       		.uleb128 0x13
+ 2850 00b9 1C       		.uleb128 0x1c
+ 2851 00ba 0B       		.uleb128 0xb
+ 2852 00bb 00       		.byte	0
+ 2853 00bc 00       		.byte	0
+ 2854 00bd 0E       		.uleb128 0xe
+ 2855 00be 34       		.uleb128 0x34
+ 2856 00bf 00       		.byte	0
+ 2857 00c0 03       		.uleb128 0x3
+ 2858 00c1 0E       		.uleb128 0xe
+ 2859 00c2 3A       		.uleb128 0x3a
+ 2860 00c3 0B       		.uleb128 0xb
+ 2861 00c4 3B       		.uleb128 0x3b
+ 2862 00c5 05       		.uleb128 0x5
+ 2863 00c6 49       		.uleb128 0x49
+ 2864 00c7 13       		.uleb128 0x13
+ 2865 00c8 02       		.uleb128 0x2
+ 2866 00c9 17       		.uleb128 0x17
+ 2867 00ca 00       		.byte	0
+ 2868 00cb 00       		.byte	0
+ 2869 00cc 0F       		.uleb128 0xf
+ 2870 00cd 34       		.uleb128 0x34
+ 2871 00ce 00       		.byte	0
+ 2872 00cf 03       		.uleb128 0x3
+ 2873 00d0 0E       		.uleb128 0xe
+ 2874 00d1 3A       		.uleb128 0x3a
+ 2875 00d2 0B       		.uleb128 0xb
+ 2876 00d3 3B       		.uleb128 0x3b
+ 2877 00d4 05       		.uleb128 0x5
+ 2878 00d5 49       		.uleb128 0x49
+ 2879 00d6 13       		.uleb128 0x13
+ 2880 00d7 1C       		.uleb128 0x1c
+ 2881 00d8 0D       		.uleb128 0xd
+ 2882 00d9 00       		.byte	0
+ 2883 00da 00       		.byte	0
+ 2884 00db 10       		.uleb128 0x10
+ 2885 00dc 34       		.uleb128 0x34
+ 2886 00dd 00       		.byte	0
+ 2887 00de 03       		.uleb128 0x3
+ 2888 00df 0E       		.uleb128 0xe
+ 2889 00e0 3A       		.uleb128 0x3a
+ 2890 00e1 0B       		.uleb128 0xb
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\cchSPHFZ.s 			page 63
 
 
- 2891 00e4 49       		.uleb128 0x49
- 2892 00e5 13       		.uleb128 0x13
- 2893 00e6 00       		.byte	0
- 2894 00e7 00       		.byte	0
- 2895 00e8 11       		.uleb128 0x11
- 2896 00e9 34       		.uleb128 0x34
- 2897 00ea 00       		.byte	0
- 2898 00eb 03       		.uleb128 0x3
- 2899 00ec 0E       		.uleb128 0xe
- 2900 00ed 3A       		.uleb128 0x3a
- 2901 00ee 0B       		.uleb128 0xb
- 2902 00ef 3B       		.uleb128 0x3b
- 2903 00f0 05       		.uleb128 0x5
- 2904 00f1 49       		.uleb128 0x49
- 2905 00f2 13       		.uleb128 0x13
- 2906 00f3 02       		.uleb128 0x2
- 2907 00f4 18       		.uleb128 0x18
- 2908 00f5 00       		.byte	0
- 2909 00f6 00       		.byte	0
- 2910 00f7 12       		.uleb128 0x12
- 2911 00f8 34       		.uleb128 0x34
- 2912 00f9 00       		.byte	0
- 2913 00fa 03       		.uleb128 0x3
- 2914 00fb 08       		.uleb128 0x8
- 2915 00fc 3A       		.uleb128 0x3a
- 2916 00fd 0B       		.uleb128 0xb
- 2917 00fe 3B       		.uleb128 0x3b
- 2918 00ff 05       		.uleb128 0x5
- 2919 0100 49       		.uleb128 0x49
- 2920 0101 13       		.uleb128 0x13
- 2921 0102 00       		.byte	0
- 2922 0103 00       		.byte	0
- 2923 0104 13       		.uleb128 0x13
- 2924 0105 0B       		.uleb128 0xb
- 2925 0106 01       		.byte	0x1
- 2926 0107 11       		.uleb128 0x11
- 2927 0108 01       		.uleb128 0x1
- 2928 0109 12       		.uleb128 0x12
- 2929 010a 06       		.uleb128 0x6
- 2930 010b 01       		.uleb128 0x1
- 2931 010c 13       		.uleb128 0x13
- 2932 010d 00       		.byte	0
- 2933 010e 00       		.byte	0
- 2934 010f 14       		.uleb128 0x14
- 2935 0110 34       		.uleb128 0x34
- 2936 0111 00       		.byte	0
- 2937 0112 03       		.uleb128 0x3
- 2938 0113 08       		.uleb128 0x8
- 2939 0114 3A       		.uleb128 0x3a
- 2940 0115 0B       		.uleb128 0xb
- 2941 0116 3B       		.uleb128 0x3b
- 2942 0117 0B       		.uleb128 0xb
- 2943 0118 49       		.uleb128 0x49
- 2944 0119 13       		.uleb128 0x13
- 2945 011a 02       		.uleb128 0x2
- 2946 011b 17       		.uleb128 0x17
- 2947 011c 00       		.byte	0
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 64
+ 2891 00e2 3B       		.uleb128 0x3b
+ 2892 00e3 05       		.uleb128 0x5
+ 2893 00e4 49       		.uleb128 0x49
+ 2894 00e5 13       		.uleb128 0x13
+ 2895 00e6 00       		.byte	0
+ 2896 00e7 00       		.byte	0
+ 2897 00e8 11       		.uleb128 0x11
+ 2898 00e9 34       		.uleb128 0x34
+ 2899 00ea 00       		.byte	0
+ 2900 00eb 03       		.uleb128 0x3
+ 2901 00ec 0E       		.uleb128 0xe
+ 2902 00ed 3A       		.uleb128 0x3a
+ 2903 00ee 0B       		.uleb128 0xb
+ 2904 00ef 3B       		.uleb128 0x3b
+ 2905 00f0 05       		.uleb128 0x5
+ 2906 00f1 49       		.uleb128 0x49
+ 2907 00f2 13       		.uleb128 0x13
+ 2908 00f3 02       		.uleb128 0x2
+ 2909 00f4 18       		.uleb128 0x18
+ 2910 00f5 00       		.byte	0
+ 2911 00f6 00       		.byte	0
+ 2912 00f7 12       		.uleb128 0x12
+ 2913 00f8 34       		.uleb128 0x34
+ 2914 00f9 00       		.byte	0
+ 2915 00fa 03       		.uleb128 0x3
+ 2916 00fb 08       		.uleb128 0x8
+ 2917 00fc 3A       		.uleb128 0x3a
+ 2918 00fd 0B       		.uleb128 0xb
+ 2919 00fe 3B       		.uleb128 0x3b
+ 2920 00ff 05       		.uleb128 0x5
+ 2921 0100 49       		.uleb128 0x49
+ 2922 0101 13       		.uleb128 0x13
+ 2923 0102 00       		.byte	0
+ 2924 0103 00       		.byte	0
+ 2925 0104 13       		.uleb128 0x13
+ 2926 0105 0B       		.uleb128 0xb
+ 2927 0106 01       		.byte	0x1
+ 2928 0107 11       		.uleb128 0x11
+ 2929 0108 01       		.uleb128 0x1
+ 2930 0109 12       		.uleb128 0x12
+ 2931 010a 06       		.uleb128 0x6
+ 2932 010b 01       		.uleb128 0x1
+ 2933 010c 13       		.uleb128 0x13
+ 2934 010d 00       		.byte	0
+ 2935 010e 00       		.byte	0
+ 2936 010f 14       		.uleb128 0x14
+ 2937 0110 34       		.uleb128 0x34
+ 2938 0111 00       		.byte	0
+ 2939 0112 03       		.uleb128 0x3
+ 2940 0113 08       		.uleb128 0x8
+ 2941 0114 3A       		.uleb128 0x3a
+ 2942 0115 0B       		.uleb128 0xb
+ 2943 0116 3B       		.uleb128 0x3b
+ 2944 0117 0B       		.uleb128 0xb
+ 2945 0118 49       		.uleb128 0x49
+ 2946 0119 13       		.uleb128 0x13
+ 2947 011a 02       		.uleb128 0x2
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\cchSPHFZ.s 			page 64
 
 
- 2948 011d 00       		.byte	0
- 2949 011e 15       		.uleb128 0x15
- 2950 011f 898201   		.uleb128 0x4109
- 2951 0122 01       		.byte	0x1
- 2952 0123 11       		.uleb128 0x11
- 2953 0124 01       		.uleb128 0x1
- 2954 0125 31       		.uleb128 0x31
- 2955 0126 13       		.uleb128 0x13
- 2956 0127 01       		.uleb128 0x1
- 2957 0128 13       		.uleb128 0x13
- 2958 0129 00       		.byte	0
- 2959 012a 00       		.byte	0
- 2960 012b 16       		.uleb128 0x16
- 2961 012c 8A8201   		.uleb128 0x410a
- 2962 012f 00       		.byte	0
- 2963 0130 02       		.uleb128 0x2
- 2964 0131 18       		.uleb128 0x18
- 2965 0132 9142     		.uleb128 0x2111
- 2966 0134 18       		.uleb128 0x18
- 2967 0135 00       		.byte	0
- 2968 0136 00       		.byte	0
- 2969 0137 17       		.uleb128 0x17
- 2970 0138 898201   		.uleb128 0x4109
- 2971 013b 01       		.byte	0x1
- 2972 013c 11       		.uleb128 0x11
- 2973 013d 01       		.uleb128 0x1
- 2974 013e 31       		.uleb128 0x31
- 2975 013f 13       		.uleb128 0x13
- 2976 0140 00       		.byte	0
- 2977 0141 00       		.byte	0
- 2978 0142 18       		.uleb128 0x18
- 2979 0143 2E       		.uleb128 0x2e
- 2980 0144 01       		.byte	0x1
- 2981 0145 3F       		.uleb128 0x3f
- 2982 0146 19       		.uleb128 0x19
- 2983 0147 03       		.uleb128 0x3
- 2984 0148 08       		.uleb128 0x8
- 2985 0149 3A       		.uleb128 0x3a
- 2986 014a 0B       		.uleb128 0xb
- 2987 014b 3B       		.uleb128 0x3b
- 2988 014c 0B       		.uleb128 0xb
- 2989 014d 49       		.uleb128 0x49
- 2990 014e 13       		.uleb128 0x13
- 2991 014f 3C       		.uleb128 0x3c
- 2992 0150 19       		.uleb128 0x19
- 2993 0151 01       		.uleb128 0x1
- 2994 0152 13       		.uleb128 0x13
- 2995 0153 00       		.byte	0
- 2996 0154 00       		.byte	0
- 2997 0155 19       		.uleb128 0x19
- 2998 0156 18       		.uleb128 0x18
- 2999 0157 00       		.byte	0
- 3000 0158 00       		.byte	0
- 3001 0159 00       		.byte	0
- 3002 015a 1A       		.uleb128 0x1a
- 3003 015b 898201   		.uleb128 0x4109
- 3004 015e 00       		.byte	0
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 65
+ 2948 011b 17       		.uleb128 0x17
+ 2949 011c 00       		.byte	0
+ 2950 011d 00       		.byte	0
+ 2951 011e 15       		.uleb128 0x15
+ 2952 011f 898201   		.uleb128 0x4109
+ 2953 0122 01       		.byte	0x1
+ 2954 0123 11       		.uleb128 0x11
+ 2955 0124 01       		.uleb128 0x1
+ 2956 0125 31       		.uleb128 0x31
+ 2957 0126 13       		.uleb128 0x13
+ 2958 0127 01       		.uleb128 0x1
+ 2959 0128 13       		.uleb128 0x13
+ 2960 0129 00       		.byte	0
+ 2961 012a 00       		.byte	0
+ 2962 012b 16       		.uleb128 0x16
+ 2963 012c 8A8201   		.uleb128 0x410a
+ 2964 012f 00       		.byte	0
+ 2965 0130 02       		.uleb128 0x2
+ 2966 0131 18       		.uleb128 0x18
+ 2967 0132 9142     		.uleb128 0x2111
+ 2968 0134 18       		.uleb128 0x18
+ 2969 0135 00       		.byte	0
+ 2970 0136 00       		.byte	0
+ 2971 0137 17       		.uleb128 0x17
+ 2972 0138 898201   		.uleb128 0x4109
+ 2973 013b 01       		.byte	0x1
+ 2974 013c 11       		.uleb128 0x11
+ 2975 013d 01       		.uleb128 0x1
+ 2976 013e 31       		.uleb128 0x31
+ 2977 013f 13       		.uleb128 0x13
+ 2978 0140 00       		.byte	0
+ 2979 0141 00       		.byte	0
+ 2980 0142 18       		.uleb128 0x18
+ 2981 0143 2E       		.uleb128 0x2e
+ 2982 0144 01       		.byte	0x1
+ 2983 0145 3F       		.uleb128 0x3f
+ 2984 0146 19       		.uleb128 0x19
+ 2985 0147 03       		.uleb128 0x3
+ 2986 0148 08       		.uleb128 0x8
+ 2987 0149 3A       		.uleb128 0x3a
+ 2988 014a 0B       		.uleb128 0xb
+ 2989 014b 3B       		.uleb128 0x3b
+ 2990 014c 0B       		.uleb128 0xb
+ 2991 014d 49       		.uleb128 0x49
+ 2992 014e 13       		.uleb128 0x13
+ 2993 014f 3C       		.uleb128 0x3c
+ 2994 0150 19       		.uleb128 0x19
+ 2995 0151 01       		.uleb128 0x1
+ 2996 0152 13       		.uleb128 0x13
+ 2997 0153 00       		.byte	0
+ 2998 0154 00       		.byte	0
+ 2999 0155 19       		.uleb128 0x19
+ 3000 0156 18       		.uleb128 0x18
+ 3001 0157 00       		.byte	0
+ 3002 0158 00       		.byte	0
+ 3003 0159 00       		.byte	0
+ 3004 015a 1A       		.uleb128 0x1a
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\cchSPHFZ.s 			page 65
 
 
- 3005 015f 11       		.uleb128 0x11
- 3006 0160 01       		.uleb128 0x1
- 3007 0161 31       		.uleb128 0x31
- 3008 0162 13       		.uleb128 0x13
- 3009 0163 00       		.byte	0
- 3010 0164 00       		.byte	0
- 3011 0165 1B       		.uleb128 0x1b
- 3012 0166 01       		.uleb128 0x1
- 3013 0167 01       		.byte	0x1
- 3014 0168 49       		.uleb128 0x49
- 3015 0169 13       		.uleb128 0x13
- 3016 016a 01       		.uleb128 0x1
- 3017 016b 13       		.uleb128 0x13
- 3018 016c 00       		.byte	0
- 3019 016d 00       		.byte	0
- 3020 016e 1C       		.uleb128 0x1c
- 3021 016f 21       		.uleb128 0x21
- 3022 0170 00       		.byte	0
- 3023 0171 49       		.uleb128 0x49
- 3024 0172 13       		.uleb128 0x13
- 3025 0173 2F       		.uleb128 0x2f
- 3026 0174 0B       		.uleb128 0xb
- 3027 0175 00       		.byte	0
- 3028 0176 00       		.byte	0
- 3029 0177 1D       		.uleb128 0x1d
- 3030 0178 34       		.uleb128 0x34
- 3031 0179 00       		.byte	0
- 3032 017a 03       		.uleb128 0x3
- 3033 017b 0E       		.uleb128 0xe
- 3034 017c 3A       		.uleb128 0x3a
- 3035 017d 0B       		.uleb128 0xb
- 3036 017e 3B       		.uleb128 0x3b
- 3037 017f 05       		.uleb128 0x5
- 3038 0180 49       		.uleb128 0x49
- 3039 0181 13       		.uleb128 0x13
- 3040 0182 3F       		.uleb128 0x3f
- 3041 0183 19       		.uleb128 0x19
- 3042 0184 3C       		.uleb128 0x3c
- 3043 0185 19       		.uleb128 0x19
- 3044 0186 00       		.byte	0
- 3045 0187 00       		.byte	0
- 3046 0188 1E       		.uleb128 0x1e
- 3047 0189 34       		.uleb128 0x34
- 3048 018a 00       		.byte	0
- 3049 018b 03       		.uleb128 0x3
- 3050 018c 0E       		.uleb128 0xe
- 3051 018d 3A       		.uleb128 0x3a
- 3052 018e 0B       		.uleb128 0xb
- 3053 018f 3B       		.uleb128 0x3b
- 3054 0190 0B       		.uleb128 0xb
- 3055 0191 49       		.uleb128 0x49
- 3056 0192 13       		.uleb128 0x13
- 3057 0193 3F       		.uleb128 0x3f
- 3058 0194 19       		.uleb128 0x19
- 3059 0195 02       		.uleb128 0x2
- 3060 0196 18       		.uleb128 0x18
- 3061 0197 00       		.byte	0
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 66
+ 3005 015b 898201   		.uleb128 0x4109
+ 3006 015e 00       		.byte	0
+ 3007 015f 11       		.uleb128 0x11
+ 3008 0160 01       		.uleb128 0x1
+ 3009 0161 31       		.uleb128 0x31
+ 3010 0162 13       		.uleb128 0x13
+ 3011 0163 00       		.byte	0
+ 3012 0164 00       		.byte	0
+ 3013 0165 1B       		.uleb128 0x1b
+ 3014 0166 01       		.uleb128 0x1
+ 3015 0167 01       		.byte	0x1
+ 3016 0168 49       		.uleb128 0x49
+ 3017 0169 13       		.uleb128 0x13
+ 3018 016a 01       		.uleb128 0x1
+ 3019 016b 13       		.uleb128 0x13
+ 3020 016c 00       		.byte	0
+ 3021 016d 00       		.byte	0
+ 3022 016e 1C       		.uleb128 0x1c
+ 3023 016f 21       		.uleb128 0x21
+ 3024 0170 00       		.byte	0
+ 3025 0171 49       		.uleb128 0x49
+ 3026 0172 13       		.uleb128 0x13
+ 3027 0173 2F       		.uleb128 0x2f
+ 3028 0174 0B       		.uleb128 0xb
+ 3029 0175 00       		.byte	0
+ 3030 0176 00       		.byte	0
+ 3031 0177 1D       		.uleb128 0x1d
+ 3032 0178 34       		.uleb128 0x34
+ 3033 0179 00       		.byte	0
+ 3034 017a 03       		.uleb128 0x3
+ 3035 017b 0E       		.uleb128 0xe
+ 3036 017c 3A       		.uleb128 0x3a
+ 3037 017d 0B       		.uleb128 0xb
+ 3038 017e 3B       		.uleb128 0x3b
+ 3039 017f 05       		.uleb128 0x5
+ 3040 0180 49       		.uleb128 0x49
+ 3041 0181 13       		.uleb128 0x13
+ 3042 0182 3F       		.uleb128 0x3f
+ 3043 0183 19       		.uleb128 0x19
+ 3044 0184 3C       		.uleb128 0x3c
+ 3045 0185 19       		.uleb128 0x19
+ 3046 0186 00       		.byte	0
+ 3047 0187 00       		.byte	0
+ 3048 0188 1E       		.uleb128 0x1e
+ 3049 0189 34       		.uleb128 0x34
+ 3050 018a 00       		.byte	0
+ 3051 018b 03       		.uleb128 0x3
+ 3052 018c 0E       		.uleb128 0xe
+ 3053 018d 3A       		.uleb128 0x3a
+ 3054 018e 0B       		.uleb128 0xb
+ 3055 018f 3B       		.uleb128 0x3b
+ 3056 0190 0B       		.uleb128 0xb
+ 3057 0191 49       		.uleb128 0x49
+ 3058 0192 13       		.uleb128 0x13
+ 3059 0193 3F       		.uleb128 0x3f
+ 3060 0194 19       		.uleb128 0x19
+ 3061 0195 02       		.uleb128 0x2
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\cchSPHFZ.s 			page 66
 
 
- 3062 0198 00       		.byte	0
- 3063 0199 1F       		.uleb128 0x1f
- 3064 019a 2E       		.uleb128 0x2e
- 3065 019b 00       		.byte	0
- 3066 019c 3F       		.uleb128 0x3f
- 3067 019d 19       		.uleb128 0x19
- 3068 019e 3C       		.uleb128 0x3c
- 3069 019f 19       		.uleb128 0x19
- 3070 01a0 6E       		.uleb128 0x6e
- 3071 01a1 0E       		.uleb128 0xe
- 3072 01a2 03       		.uleb128 0x3
- 3073 01a3 0E       		.uleb128 0xe
- 3074 01a4 3A       		.uleb128 0x3a
- 3075 01a5 0B       		.uleb128 0xb
- 3076 01a6 3B       		.uleb128 0x3b
- 3077 01a7 0B       		.uleb128 0xb
- 3078 01a8 00       		.byte	0
- 3079 01a9 00       		.byte	0
- 3080 01aa 00       		.byte	0
- 3081              		.section	.debug_loc,"",%progbits
- 3082              	.Ldebug_loc0:
- 3083              	.LLST0:
- 3084 0000 88000000 		.4byte	.LVL13
- 3085 0004 92000000 		.4byte	.LVL14
- 3086 0008 0100     		.2byte	0x1
- 3087 000a 50       		.byte	0x50
- 3088 000b 9E000000 		.4byte	.LVL17
- 3089 000f A0000000 		.4byte	.LVL18
- 3090 0013 0100     		.2byte	0x1
- 3091 0015 50       		.byte	0x50
- 3092 0016 B0000000 		.4byte	.LVL20
- 3093 001a BA000000 		.4byte	.LVL21
- 3094 001e 0100     		.2byte	0x1
- 3095 0020 50       		.byte	0x50
- 3096 0021 C6000000 		.4byte	.LVL24
- 3097 0025 C8000000 		.4byte	.LVL25
- 3098 0029 0100     		.2byte	0x1
- 3099 002b 50       		.byte	0x50
- 3100 002c D8000000 		.4byte	.LVL27
- 3101 0030 E2000000 		.4byte	.LVL28
- 3102 0034 0100     		.2byte	0x1
- 3103 0036 50       		.byte	0x50
- 3104 0037 EE000000 		.4byte	.LVL31
- 3105 003b F0000000 		.4byte	.LVL32
- 3106 003f 0100     		.2byte	0x1
- 3107 0041 50       		.byte	0x50
- 3108 0042 10010000 		.4byte	.LVL35
- 3109 0046 1A010000 		.4byte	.LVL36
- 3110 004a 0100     		.2byte	0x1
- 3111 004c 50       		.byte	0x50
- 3112 004d 26010000 		.4byte	.LVL39
- 3113 0051 28010000 		.4byte	.LVL40
- 3114 0055 0100     		.2byte	0x1
- 3115 0057 50       		.byte	0x50
- 3116 0058 38010000 		.4byte	.LVL42
- 3117 005c 42010000 		.4byte	.LVL43
- 3118 0060 0100     		.2byte	0x1
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 67
+ 3062 0196 18       		.uleb128 0x18
+ 3063 0197 00       		.byte	0
+ 3064 0198 00       		.byte	0
+ 3065 0199 1F       		.uleb128 0x1f
+ 3066 019a 2E       		.uleb128 0x2e
+ 3067 019b 00       		.byte	0
+ 3068 019c 3F       		.uleb128 0x3f
+ 3069 019d 19       		.uleb128 0x19
+ 3070 019e 3C       		.uleb128 0x3c
+ 3071 019f 19       		.uleb128 0x19
+ 3072 01a0 6E       		.uleb128 0x6e
+ 3073 01a1 0E       		.uleb128 0xe
+ 3074 01a2 03       		.uleb128 0x3
+ 3075 01a3 0E       		.uleb128 0xe
+ 3076 01a4 3A       		.uleb128 0x3a
+ 3077 01a5 0B       		.uleb128 0xb
+ 3078 01a6 3B       		.uleb128 0x3b
+ 3079 01a7 0B       		.uleb128 0xb
+ 3080 01a8 00       		.byte	0
+ 3081 01a9 00       		.byte	0
+ 3082 01aa 00       		.byte	0
+ 3083              		.section	.debug_loc,"",%progbits
+ 3084              	.Ldebug_loc0:
+ 3085              	.LLST0:
+ 3086 0000 88000000 		.4byte	.LVL13
+ 3087 0004 92000000 		.4byte	.LVL14
+ 3088 0008 0100     		.2byte	0x1
+ 3089 000a 50       		.byte	0x50
+ 3090 000b 9E000000 		.4byte	.LVL17
+ 3091 000f A0000000 		.4byte	.LVL18
+ 3092 0013 0100     		.2byte	0x1
+ 3093 0015 50       		.byte	0x50
+ 3094 0016 B0000000 		.4byte	.LVL20
+ 3095 001a BA000000 		.4byte	.LVL21
+ 3096 001e 0100     		.2byte	0x1
+ 3097 0020 50       		.byte	0x50
+ 3098 0021 C6000000 		.4byte	.LVL24
+ 3099 0025 C8000000 		.4byte	.LVL25
+ 3100 0029 0100     		.2byte	0x1
+ 3101 002b 50       		.byte	0x50
+ 3102 002c D8000000 		.4byte	.LVL27
+ 3103 0030 E2000000 		.4byte	.LVL28
+ 3104 0034 0100     		.2byte	0x1
+ 3105 0036 50       		.byte	0x50
+ 3106 0037 EE000000 		.4byte	.LVL31
+ 3107 003b F0000000 		.4byte	.LVL32
+ 3108 003f 0100     		.2byte	0x1
+ 3109 0041 50       		.byte	0x50
+ 3110 0042 10010000 		.4byte	.LVL35
+ 3111 0046 1A010000 		.4byte	.LVL36
+ 3112 004a 0100     		.2byte	0x1
+ 3113 004c 50       		.byte	0x50
+ 3114 004d 26010000 		.4byte	.LVL39
+ 3115 0051 28010000 		.4byte	.LVL40
+ 3116 0055 0100     		.2byte	0x1
+ 3117 0057 50       		.byte	0x50
+ 3118 0058 38010000 		.4byte	.LVL42
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\cchSPHFZ.s 			page 67
 
 
- 3119 0062 50       		.byte	0x50
- 3120 0063 4E010000 		.4byte	.LVL46
- 3121 0067 50010000 		.4byte	.LVL47
- 3122 006b 0100     		.2byte	0x1
- 3123 006d 50       		.byte	0x50
- 3124 006e 5E010000 		.4byte	.LVL49
- 3125 0072 68010000 		.4byte	.LVL50
- 3126 0076 0100     		.2byte	0x1
- 3127 0078 50       		.byte	0x50
- 3128 0079 74010000 		.4byte	.LVL53
- 3129 007d 76010000 		.4byte	.LVL54
- 3130 0081 0100     		.2byte	0x1
- 3131 0083 50       		.byte	0x50
- 3132 0084 94010000 		.4byte	.LVL58
- 3133 0088 9E010000 		.4byte	.LVL59
- 3134 008c 0100     		.2byte	0x1
- 3135 008e 50       		.byte	0x50
- 3136 008f AA010000 		.4byte	.LVL62
- 3137 0093 AC010000 		.4byte	.LVL63
- 3138 0097 0100     		.2byte	0x1
- 3139 0099 50       		.byte	0x50
- 3140 009a BA010000 		.4byte	.LVL65
- 3141 009e C2010000 		.4byte	.LVL66
- 3142 00a2 0100     		.2byte	0x1
- 3143 00a4 50       		.byte	0x50
- 3144 00a5 CE010000 		.4byte	.LVL69
- 3145 00a9 D0010000 		.4byte	.LVL70
- 3146 00ad 0100     		.2byte	0x1
- 3147 00af 50       		.byte	0x50
- 3148 00b0 DE010000 		.4byte	.LVL72
- 3149 00b4 E6010000 		.4byte	.LVL73
- 3150 00b8 0100     		.2byte	0x1
- 3151 00ba 50       		.byte	0x50
- 3152 00bb F2010000 		.4byte	.LVL76
- 3153 00bf F4010000 		.4byte	.LVL77
- 3154 00c3 0100     		.2byte	0x1
- 3155 00c5 50       		.byte	0x50
- 3156 00c6 02020000 		.4byte	.LVL79
- 3157 00ca 0A020000 		.4byte	.LVL80
- 3158 00ce 0100     		.2byte	0x1
- 3159 00d0 50       		.byte	0x50
- 3160 00d1 16020000 		.4byte	.LVL83
- 3161 00d5 18020000 		.4byte	.LVL84
- 3162 00d9 0100     		.2byte	0x1
- 3163 00db 50       		.byte	0x50
- 3164 00dc 26020000 		.4byte	.LVL86
- 3165 00e0 2E020000 		.4byte	.LVL87
- 3166 00e4 0100     		.2byte	0x1
- 3167 00e6 50       		.byte	0x50
- 3168 00e7 3A020000 		.4byte	.LVL90
- 3169 00eb 3C020000 		.4byte	.LVL91
- 3170 00ef 0100     		.2byte	0x1
- 3171 00f1 50       		.byte	0x50
- 3172 00f2 4A020000 		.4byte	.LVL93
- 3173 00f6 52020000 		.4byte	.LVL94
- 3174 00fa 0100     		.2byte	0x1
- 3175 00fc 50       		.byte	0x50
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 68
+ 3119 005c 42010000 		.4byte	.LVL43
+ 3120 0060 0100     		.2byte	0x1
+ 3121 0062 50       		.byte	0x50
+ 3122 0063 4E010000 		.4byte	.LVL46
+ 3123 0067 50010000 		.4byte	.LVL47
+ 3124 006b 0100     		.2byte	0x1
+ 3125 006d 50       		.byte	0x50
+ 3126 006e 5E010000 		.4byte	.LVL49
+ 3127 0072 68010000 		.4byte	.LVL50
+ 3128 0076 0100     		.2byte	0x1
+ 3129 0078 50       		.byte	0x50
+ 3130 0079 74010000 		.4byte	.LVL53
+ 3131 007d 76010000 		.4byte	.LVL54
+ 3132 0081 0100     		.2byte	0x1
+ 3133 0083 50       		.byte	0x50
+ 3134 0084 94010000 		.4byte	.LVL58
+ 3135 0088 9E010000 		.4byte	.LVL59
+ 3136 008c 0100     		.2byte	0x1
+ 3137 008e 50       		.byte	0x50
+ 3138 008f AA010000 		.4byte	.LVL62
+ 3139 0093 AC010000 		.4byte	.LVL63
+ 3140 0097 0100     		.2byte	0x1
+ 3141 0099 50       		.byte	0x50
+ 3142 009a BA010000 		.4byte	.LVL65
+ 3143 009e C2010000 		.4byte	.LVL66
+ 3144 00a2 0100     		.2byte	0x1
+ 3145 00a4 50       		.byte	0x50
+ 3146 00a5 CE010000 		.4byte	.LVL69
+ 3147 00a9 D0010000 		.4byte	.LVL70
+ 3148 00ad 0100     		.2byte	0x1
+ 3149 00af 50       		.byte	0x50
+ 3150 00b0 DE010000 		.4byte	.LVL72
+ 3151 00b4 E6010000 		.4byte	.LVL73
+ 3152 00b8 0100     		.2byte	0x1
+ 3153 00ba 50       		.byte	0x50
+ 3154 00bb F2010000 		.4byte	.LVL76
+ 3155 00bf F4010000 		.4byte	.LVL77
+ 3156 00c3 0100     		.2byte	0x1
+ 3157 00c5 50       		.byte	0x50
+ 3158 00c6 02020000 		.4byte	.LVL79
+ 3159 00ca 0A020000 		.4byte	.LVL80
+ 3160 00ce 0100     		.2byte	0x1
+ 3161 00d0 50       		.byte	0x50
+ 3162 00d1 16020000 		.4byte	.LVL83
+ 3163 00d5 18020000 		.4byte	.LVL84
+ 3164 00d9 0100     		.2byte	0x1
+ 3165 00db 50       		.byte	0x50
+ 3166 00dc 26020000 		.4byte	.LVL86
+ 3167 00e0 2E020000 		.4byte	.LVL87
+ 3168 00e4 0100     		.2byte	0x1
+ 3169 00e6 50       		.byte	0x50
+ 3170 00e7 3A020000 		.4byte	.LVL90
+ 3171 00eb 3C020000 		.4byte	.LVL91
+ 3172 00ef 0100     		.2byte	0x1
+ 3173 00f1 50       		.byte	0x50
+ 3174 00f2 4A020000 		.4byte	.LVL93
+ 3175 00f6 52020000 		.4byte	.LVL94
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\cchSPHFZ.s 			page 68
 
 
- 3176 00fd 5E020000 		.4byte	.LVL97
- 3177 0101 60020000 		.4byte	.LVL98
- 3178 0105 0100     		.2byte	0x1
- 3179 0107 50       		.byte	0x50
- 3180 0108 6E020000 		.4byte	.LVL100
- 3181 010c 76020000 		.4byte	.LVL101
- 3182 0110 0100     		.2byte	0x1
- 3183 0112 50       		.byte	0x50
- 3184 0113 82020000 		.4byte	.LVL104
- 3185 0117 84020000 		.4byte	.LVL105
- 3186 011b 0100     		.2byte	0x1
- 3187 011d 50       		.byte	0x50
- 3188 011e 40030000 		.4byte	.LVL113
- 3189 0122 7A030000 		.4byte	.LVL126
- 3190 0126 0100     		.2byte	0x1
- 3191 0128 50       		.byte	0x50
- 3192 0129 00000000 		.4byte	0
- 3193 012d 00000000 		.4byte	0
- 3194              	.LLST1:
- 3195 0131 D4010000 		.4byte	.LVL71
- 3196 0135 92020000 		.4byte	.LVL107
- 3197 0139 0200     		.2byte	0x2
- 3198 013b 30       		.byte	0x30
- 3199 013c 9F       		.byte	0x9f
- 3200 013d 98020000 		.4byte	.LVL108
- 3201 0141 1C030000 		.4byte	.LVL110
- 3202 0145 0300     		.2byte	0x3
- 3203 0147 08       		.byte	0x8
- 3204 0148 47       		.byte	0x47
- 3205 0149 9F       		.byte	0x9f
- 3206 014a 00000000 		.4byte	0
- 3207 014e 00000000 		.4byte	0
- 3208              	.LLST2:
- 3209 0152 52030000 		.4byte	.LVL114
- 3210 0156 54030000 		.4byte	.LVL115
- 3211 015a 0100     		.2byte	0x1
- 3212 015c 52       		.byte	0x52
- 3213 015d 54030000 		.4byte	.LVL115
- 3214 0161 5E030000 		.4byte	.LVL119
- 3215 0165 1400     		.2byte	0x14
- 3216 0167 91       		.byte	0x91
- 3217 0168 A57F     		.sleb128 -91
- 3218 016a 94       		.byte	0x94
- 3219 016b 01       		.byte	0x1
- 3220 016c 08       		.byte	0x8
- 3221 016d FF       		.byte	0xff
- 3222 016e 1A       		.byte	0x1a
- 3223 016f 38       		.byte	0x38
- 3224 0170 24       		.byte	0x24
- 3225 0171 73       		.byte	0x73
- 3226 0172 00       		.sleb128 0
- 3227 0173 21       		.byte	0x21
- 3228 0174 09       		.byte	0x9
- 3229 0175 F4       		.byte	0xf4
- 3230 0176 24       		.byte	0x24
- 3231 0177 09       		.byte	0x9
- 3232 0178 FA       		.byte	0xfa
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 69
+ 3176 00fa 0100     		.2byte	0x1
+ 3177 00fc 50       		.byte	0x50
+ 3178 00fd 5E020000 		.4byte	.LVL97
+ 3179 0101 60020000 		.4byte	.LVL98
+ 3180 0105 0100     		.2byte	0x1
+ 3181 0107 50       		.byte	0x50
+ 3182 0108 6E020000 		.4byte	.LVL100
+ 3183 010c 76020000 		.4byte	.LVL101
+ 3184 0110 0100     		.2byte	0x1
+ 3185 0112 50       		.byte	0x50
+ 3186 0113 82020000 		.4byte	.LVL104
+ 3187 0117 84020000 		.4byte	.LVL105
+ 3188 011b 0100     		.2byte	0x1
+ 3189 011d 50       		.byte	0x50
+ 3190 011e 40030000 		.4byte	.LVL113
+ 3191 0122 7A030000 		.4byte	.LVL126
+ 3192 0126 0100     		.2byte	0x1
+ 3193 0128 50       		.byte	0x50
+ 3194 0129 00000000 		.4byte	0
+ 3195 012d 00000000 		.4byte	0
+ 3196              	.LLST1:
+ 3197 0131 D4010000 		.4byte	.LVL71
+ 3198 0135 92020000 		.4byte	.LVL107
+ 3199 0139 0200     		.2byte	0x2
+ 3200 013b 30       		.byte	0x30
+ 3201 013c 9F       		.byte	0x9f
+ 3202 013d 98020000 		.4byte	.LVL108
+ 3203 0141 1C030000 		.4byte	.LVL110
+ 3204 0145 0300     		.2byte	0x3
+ 3205 0147 08       		.byte	0x8
+ 3206 0148 47       		.byte	0x47
+ 3207 0149 9F       		.byte	0x9f
+ 3208 014a 00000000 		.4byte	0
+ 3209 014e 00000000 		.4byte	0
+ 3210              	.LLST2:
+ 3211 0152 52030000 		.4byte	.LVL114
+ 3212 0156 54030000 		.4byte	.LVL115
+ 3213 015a 0100     		.2byte	0x1
+ 3214 015c 52       		.byte	0x52
+ 3215 015d 54030000 		.4byte	.LVL115
+ 3216 0161 5E030000 		.4byte	.LVL119
+ 3217 0165 1400     		.2byte	0x14
+ 3218 0167 91       		.byte	0x91
+ 3219 0168 A57F     		.sleb128 -91
+ 3220 016a 94       		.byte	0x94
+ 3221 016b 01       		.byte	0x1
+ 3222 016c 08       		.byte	0x8
+ 3223 016d FF       		.byte	0xff
+ 3224 016e 1A       		.byte	0x1a
+ 3225 016f 38       		.byte	0x38
+ 3226 0170 24       		.byte	0x24
+ 3227 0171 73       		.byte	0x73
+ 3228 0172 00       		.sleb128 0
+ 3229 0173 21       		.byte	0x21
+ 3230 0174 09       		.byte	0x9
+ 3231 0175 F4       		.byte	0xf4
+ 3232 0176 24       		.byte	0x24
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\cchSPHFZ.s 			page 69
 
 
- 3233 0179 26       		.byte	0x26
- 3234 017a 9F       		.byte	0x9f
- 3235 017b 5E030000 		.4byte	.LVL119
- 3236 017f 9B030000 		.4byte	.LVL132-1
- 3237 0183 1A00     		.2byte	0x1a
- 3238 0185 91       		.byte	0x91
- 3239 0186 A57F     		.sleb128 -91
- 3240 0188 94       		.byte	0x94
- 3241 0189 01       		.byte	0x1
- 3242 018a 08       		.byte	0x8
- 3243 018b FF       		.byte	0xff
- 3244 018c 1A       		.byte	0x1a
- 3245 018d 38       		.byte	0x38
- 3246 018e 24       		.byte	0x24
- 3247 018f 91       		.byte	0x91
- 3248 0190 A47F     		.sleb128 -92
- 3249 0192 94       		.byte	0x94
- 3250 0193 01       		.byte	0x1
- 3251 0194 08       		.byte	0x8
- 3252 0195 FF       		.byte	0xff
- 3253 0196 1A       		.byte	0x1a
- 3254 0197 21       		.byte	0x21
- 3255 0198 09       		.byte	0x9
- 3256 0199 F4       		.byte	0xf4
- 3257 019a 24       		.byte	0x24
- 3258 019b 09       		.byte	0x9
- 3259 019c FA       		.byte	0xfa
- 3260 019d 26       		.byte	0x26
- 3261 019e 9F       		.byte	0x9f
- 3262 019f 00000000 		.4byte	0
- 3263 01a3 00000000 		.4byte	0
- 3264              	.LLST3:
- 3265 01a7 6A030000 		.4byte	.LVL120
- 3266 01ab 6C030000 		.4byte	.LVL121
- 3267 01af 0100     		.2byte	0x1
- 3268 01b1 53       		.byte	0x53
- 3269 01b2 6C030000 		.4byte	.LVL121
- 3270 01b6 76030000 		.4byte	.LVL125
- 3271 01ba 1400     		.2byte	0x14
- 3272 01bc 71       		.byte	0x71
- 3273 01bd 00       		.sleb128 0
- 3274 01be 38       		.byte	0x38
- 3275 01bf 24       		.byte	0x24
- 3276 01c0 91       		.byte	0x91
- 3277 01c1 A07F     		.sleb128 -96
- 3278 01c3 94       		.byte	0x94
- 3279 01c4 01       		.byte	0x1
- 3280 01c5 08       		.byte	0x8
- 3281 01c6 FF       		.byte	0xff
- 3282 01c7 1A       		.byte	0x1a
- 3283 01c8 21       		.byte	0x21
- 3284 01c9 09       		.byte	0x9
- 3285 01ca F4       		.byte	0xf4
- 3286 01cb 24       		.byte	0x24
- 3287 01cc 09       		.byte	0x9
- 3288 01cd FA       		.byte	0xfa
- 3289 01ce 26       		.byte	0x26
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 70
+ 3233 0177 09       		.byte	0x9
+ 3234 0178 FA       		.byte	0xfa
+ 3235 0179 26       		.byte	0x26
+ 3236 017a 9F       		.byte	0x9f
+ 3237 017b 5E030000 		.4byte	.LVL119
+ 3238 017f 9B030000 		.4byte	.LVL132-1
+ 3239 0183 1A00     		.2byte	0x1a
+ 3240 0185 91       		.byte	0x91
+ 3241 0186 A57F     		.sleb128 -91
+ 3242 0188 94       		.byte	0x94
+ 3243 0189 01       		.byte	0x1
+ 3244 018a 08       		.byte	0x8
+ 3245 018b FF       		.byte	0xff
+ 3246 018c 1A       		.byte	0x1a
+ 3247 018d 38       		.byte	0x38
+ 3248 018e 24       		.byte	0x24
+ 3249 018f 91       		.byte	0x91
+ 3250 0190 A47F     		.sleb128 -92
+ 3251 0192 94       		.byte	0x94
+ 3252 0193 01       		.byte	0x1
+ 3253 0194 08       		.byte	0x8
+ 3254 0195 FF       		.byte	0xff
+ 3255 0196 1A       		.byte	0x1a
+ 3256 0197 21       		.byte	0x21
+ 3257 0198 09       		.byte	0x9
+ 3258 0199 F4       		.byte	0xf4
+ 3259 019a 24       		.byte	0x24
+ 3260 019b 09       		.byte	0x9
+ 3261 019c FA       		.byte	0xfa
+ 3262 019d 26       		.byte	0x26
+ 3263 019e 9F       		.byte	0x9f
+ 3264 019f 00000000 		.4byte	0
+ 3265 01a3 00000000 		.4byte	0
+ 3266              	.LLST3:
+ 3267 01a7 6A030000 		.4byte	.LVL120
+ 3268 01ab 6C030000 		.4byte	.LVL121
+ 3269 01af 0100     		.2byte	0x1
+ 3270 01b1 53       		.byte	0x53
+ 3271 01b2 6C030000 		.4byte	.LVL121
+ 3272 01b6 76030000 		.4byte	.LVL125
+ 3273 01ba 1400     		.2byte	0x14
+ 3274 01bc 71       		.byte	0x71
+ 3275 01bd 00       		.sleb128 0
+ 3276 01be 38       		.byte	0x38
+ 3277 01bf 24       		.byte	0x24
+ 3278 01c0 91       		.byte	0x91
+ 3279 01c1 A07F     		.sleb128 -96
+ 3280 01c3 94       		.byte	0x94
+ 3281 01c4 01       		.byte	0x1
+ 3282 01c5 08       		.byte	0x8
+ 3283 01c6 FF       		.byte	0xff
+ 3284 01c7 1A       		.byte	0x1a
+ 3285 01c8 21       		.byte	0x21
+ 3286 01c9 09       		.byte	0x9
+ 3287 01ca F4       		.byte	0xf4
+ 3288 01cb 24       		.byte	0x24
+ 3289 01cc 09       		.byte	0x9
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\cchSPHFZ.s 			page 70
 
 
- 3290 01cf 9F       		.byte	0x9f
- 3291 01d0 76030000 		.4byte	.LVL125
- 3292 01d4 9B030000 		.4byte	.LVL132-1
- 3293 01d8 1A00     		.2byte	0x1a
- 3294 01da 91       		.byte	0x91
- 3295 01db A17F     		.sleb128 -95
- 3296 01dd 94       		.byte	0x94
- 3297 01de 01       		.byte	0x1
- 3298 01df 08       		.byte	0x8
- 3299 01e0 FF       		.byte	0xff
- 3300 01e1 1A       		.byte	0x1a
- 3301 01e2 38       		.byte	0x38
- 3302 01e3 24       		.byte	0x24
- 3303 01e4 91       		.byte	0x91
- 3304 01e5 A07F     		.sleb128 -96
- 3305 01e7 94       		.byte	0x94
- 3306 01e8 01       		.byte	0x1
- 3307 01e9 08       		.byte	0x8
- 3308 01ea FF       		.byte	0xff
- 3309 01eb 1A       		.byte	0x1a
- 3310 01ec 21       		.byte	0x21
- 3311 01ed 09       		.byte	0x9
- 3312 01ee F4       		.byte	0xf4
- 3313 01ef 24       		.byte	0x24
- 3314 01f0 09       		.byte	0x9
- 3315 01f1 FA       		.byte	0xfa
- 3316 01f2 26       		.byte	0x26
- 3317 01f3 9F       		.byte	0x9f
- 3318 01f4 00000000 		.4byte	0
- 3319 01f8 00000000 		.4byte	0
- 3320              	.LLST4:
- 3321 01fc 82030000 		.4byte	.LVL127
- 3322 0200 84030000 		.4byte	.LVL128
- 3323 0204 0100     		.2byte	0x1
- 3324 0206 51       		.byte	0x51
- 3325 0207 84030000 		.4byte	.LVL128
- 3326 020b 88030000 		.4byte	.LVL129
- 3327 020f 1400     		.2byte	0x14
- 3328 0211 70       		.byte	0x70
- 3329 0212 00       		.sleb128 0
- 3330 0213 38       		.byte	0x38
- 3331 0214 24       		.byte	0x24
- 3332 0215 91       		.byte	0x91
- 3333 0216 9C7F     		.sleb128 -100
- 3334 0218 94       		.byte	0x94
- 3335 0219 01       		.byte	0x1
- 3336 021a 08       		.byte	0x8
- 3337 021b FF       		.byte	0xff
- 3338 021c 1A       		.byte	0x1a
- 3339 021d 21       		.byte	0x21
- 3340 021e 09       		.byte	0x9
- 3341 021f F4       		.byte	0xf4
- 3342 0220 24       		.byte	0x24
- 3343 0221 09       		.byte	0x9
- 3344 0222 FA       		.byte	0xfa
- 3345 0223 26       		.byte	0x26
- 3346 0224 9F       		.byte	0x9f
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 71
+ 3290 01cd FA       		.byte	0xfa
+ 3291 01ce 26       		.byte	0x26
+ 3292 01cf 9F       		.byte	0x9f
+ 3293 01d0 76030000 		.4byte	.LVL125
+ 3294 01d4 9B030000 		.4byte	.LVL132-1
+ 3295 01d8 1A00     		.2byte	0x1a
+ 3296 01da 91       		.byte	0x91
+ 3297 01db A17F     		.sleb128 -95
+ 3298 01dd 94       		.byte	0x94
+ 3299 01de 01       		.byte	0x1
+ 3300 01df 08       		.byte	0x8
+ 3301 01e0 FF       		.byte	0xff
+ 3302 01e1 1A       		.byte	0x1a
+ 3303 01e2 38       		.byte	0x38
+ 3304 01e3 24       		.byte	0x24
+ 3305 01e4 91       		.byte	0x91
+ 3306 01e5 A07F     		.sleb128 -96
+ 3307 01e7 94       		.byte	0x94
+ 3308 01e8 01       		.byte	0x1
+ 3309 01e9 08       		.byte	0x8
+ 3310 01ea FF       		.byte	0xff
+ 3311 01eb 1A       		.byte	0x1a
+ 3312 01ec 21       		.byte	0x21
+ 3313 01ed 09       		.byte	0x9
+ 3314 01ee F4       		.byte	0xf4
+ 3315 01ef 24       		.byte	0x24
+ 3316 01f0 09       		.byte	0x9
+ 3317 01f1 FA       		.byte	0xfa
+ 3318 01f2 26       		.byte	0x26
+ 3319 01f3 9F       		.byte	0x9f
+ 3320 01f4 00000000 		.4byte	0
+ 3321 01f8 00000000 		.4byte	0
+ 3322              	.LLST4:
+ 3323 01fc 82030000 		.4byte	.LVL127
+ 3324 0200 84030000 		.4byte	.LVL128
+ 3325 0204 0100     		.2byte	0x1
+ 3326 0206 51       		.byte	0x51
+ 3327 0207 84030000 		.4byte	.LVL128
+ 3328 020b 88030000 		.4byte	.LVL129
+ 3329 020f 1400     		.2byte	0x14
+ 3330 0211 70       		.byte	0x70
+ 3331 0212 00       		.sleb128 0
+ 3332 0213 38       		.byte	0x38
+ 3333 0214 24       		.byte	0x24
+ 3334 0215 91       		.byte	0x91
+ 3335 0216 9C7F     		.sleb128 -100
+ 3336 0218 94       		.byte	0x94
+ 3337 0219 01       		.byte	0x1
+ 3338 021a 08       		.byte	0x8
+ 3339 021b FF       		.byte	0xff
+ 3340 021c 1A       		.byte	0x1a
+ 3341 021d 21       		.byte	0x21
+ 3342 021e 09       		.byte	0x9
+ 3343 021f F4       		.byte	0xf4
+ 3344 0220 24       		.byte	0x24
+ 3345 0221 09       		.byte	0x9
+ 3346 0222 FA       		.byte	0xfa
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\cchSPHFZ.s 			page 71
 
 
- 3347 0225 88030000 		.4byte	.LVL129
- 3348 0229 9B030000 		.4byte	.LVL132-1
- 3349 022d 1A00     		.2byte	0x1a
- 3350 022f 91       		.byte	0x91
- 3351 0230 9D7F     		.sleb128 -99
- 3352 0232 94       		.byte	0x94
- 3353 0233 01       		.byte	0x1
- 3354 0234 08       		.byte	0x8
- 3355 0235 FF       		.byte	0xff
- 3356 0236 1A       		.byte	0x1a
- 3357 0237 38       		.byte	0x38
- 3358 0238 24       		.byte	0x24
- 3359 0239 91       		.byte	0x91
- 3360 023a 9C7F     		.sleb128 -100
- 3361 023c 94       		.byte	0x94
- 3362 023d 01       		.byte	0x1
- 3363 023e 08       		.byte	0x8
- 3364 023f FF       		.byte	0xff
- 3365 0240 1A       		.byte	0x1a
- 3366 0241 21       		.byte	0x21
- 3367 0242 09       		.byte	0x9
- 3368 0243 F4       		.byte	0xf4
- 3369 0244 24       		.byte	0x24
- 3370 0245 09       		.byte	0x9
- 3371 0246 FA       		.byte	0xfa
- 3372 0247 26       		.byte	0x26
- 3373 0248 9F       		.byte	0x9f
- 3374 0249 00000000 		.4byte	0
- 3375 024d 00000000 		.4byte	0
- 3376              	.LLST5:
- 3377 0251 56030000 		.4byte	.LVL116
- 3378 0255 9B030000 		.4byte	.LVL132-1
- 3379 0259 0100     		.2byte	0x1
- 3380 025b 52       		.byte	0x52
- 3381 025c 00000000 		.4byte	0
- 3382 0260 00000000 		.4byte	0
- 3383              	.LLST6:
- 3384 0264 6E030000 		.4byte	.LVL122
- 3385 0268 9B030000 		.4byte	.LVL132-1
- 3386 026c 0100     		.2byte	0x1
- 3387 026e 53       		.byte	0x53
- 3388 026f 00000000 		.4byte	0
- 3389 0273 00000000 		.4byte	0
- 3390              	.LLST7:
- 3391 0277 88030000 		.4byte	.LVL129
- 3392 027b 98030000 		.4byte	.LVL131
- 3393 027f 0100     		.2byte	0x1
- 3394 0281 50       		.byte	0x50
- 3395 0282 98030000 		.4byte	.LVL131
- 3396 0286 9B030000 		.4byte	.LVL132-1
- 3397 028a 0200     		.2byte	0x2
- 3398 028c 7D       		.byte	0x7d
- 3399 028d 00       		.sleb128 0
- 3400 028e 00000000 		.4byte	0
- 3401 0292 00000000 		.4byte	0
- 3402              	.LLST8:
- 3403 0296 56030000 		.4byte	.LVL116
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 72
+ 3347 0223 26       		.byte	0x26
+ 3348 0224 9F       		.byte	0x9f
+ 3349 0225 88030000 		.4byte	.LVL129
+ 3350 0229 9B030000 		.4byte	.LVL132-1
+ 3351 022d 1A00     		.2byte	0x1a
+ 3352 022f 91       		.byte	0x91
+ 3353 0230 9D7F     		.sleb128 -99
+ 3354 0232 94       		.byte	0x94
+ 3355 0233 01       		.byte	0x1
+ 3356 0234 08       		.byte	0x8
+ 3357 0235 FF       		.byte	0xff
+ 3358 0236 1A       		.byte	0x1a
+ 3359 0237 38       		.byte	0x38
+ 3360 0238 24       		.byte	0x24
+ 3361 0239 91       		.byte	0x91
+ 3362 023a 9C7F     		.sleb128 -100
+ 3363 023c 94       		.byte	0x94
+ 3364 023d 01       		.byte	0x1
+ 3365 023e 08       		.byte	0x8
+ 3366 023f FF       		.byte	0xff
+ 3367 0240 1A       		.byte	0x1a
+ 3368 0241 21       		.byte	0x21
+ 3369 0242 09       		.byte	0x9
+ 3370 0243 F4       		.byte	0xf4
+ 3371 0244 24       		.byte	0x24
+ 3372 0245 09       		.byte	0x9
+ 3373 0246 FA       		.byte	0xfa
+ 3374 0247 26       		.byte	0x26
+ 3375 0248 9F       		.byte	0x9f
+ 3376 0249 00000000 		.4byte	0
+ 3377 024d 00000000 		.4byte	0
+ 3378              	.LLST5:
+ 3379 0251 56030000 		.4byte	.LVL116
+ 3380 0255 9B030000 		.4byte	.LVL132-1
+ 3381 0259 0100     		.2byte	0x1
+ 3382 025b 52       		.byte	0x52
+ 3383 025c 00000000 		.4byte	0
+ 3384 0260 00000000 		.4byte	0
+ 3385              	.LLST6:
+ 3386 0264 6E030000 		.4byte	.LVL122
+ 3387 0268 9B030000 		.4byte	.LVL132-1
+ 3388 026c 0100     		.2byte	0x1
+ 3389 026e 53       		.byte	0x53
+ 3390 026f 00000000 		.4byte	0
+ 3391 0273 00000000 		.4byte	0
+ 3392              	.LLST7:
+ 3393 0277 88030000 		.4byte	.LVL129
+ 3394 027b 98030000 		.4byte	.LVL131
+ 3395 027f 0100     		.2byte	0x1
+ 3396 0281 50       		.byte	0x50
+ 3397 0282 98030000 		.4byte	.LVL131
+ 3398 0286 9B030000 		.4byte	.LVL132-1
+ 3399 028a 0200     		.2byte	0x2
+ 3400 028c 7D       		.byte	0x7d
+ 3401 028d 00       		.sleb128 0
+ 3402 028e 00000000 		.4byte	0
+ 3403 0292 00000000 		.4byte	0
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\cchSPHFZ.s 			page 72
 
 
- 3404 029a 9B030000 		.4byte	.LVL132-1
- 3405 029e 2100     		.2byte	0x21
- 3406 02a0 72       		.byte	0x72
- 3407 02a1 00       		.sleb128 0
- 3408 02a2 F7       		.byte	0xf7
- 3409 02a3 33       		.uleb128 0x33
- 3410 02a4 F7       		.byte	0xf7
- 3411 02a5 25       		.uleb128 0x25
- 3412 02a6 F4       		.byte	0xf4
- 3413 02a7 25       		.uleb128 0x25
- 3414 02a8 08       		.byte	0x8
- 3415 02a9 1F85EB51 		.4byte	0x51eb851f
- 3416 02ad B89E2340 		.4byte	0x40239eb8
- 3417 02b1 1E       		.byte	0x1e
- 3418 02b2 F4       		.byte	0xf4
- 3419 02b3 25       		.uleb128 0x25
- 3420 02b4 08       		.byte	0x8
- 3421 02b5 00000000 		.4byte	0
- 3422 02b9 00408F40 		.4byte	0x408f4000
- 3423 02bd 1B       		.byte	0x1b
- 3424 02be F7       		.byte	0xf7
- 3425 02bf 2C       		.uleb128 0x2c
- 3426 02c0 9F       		.byte	0x9f
- 3427 02c1 00000000 		.4byte	0
- 3428 02c5 00000000 		.4byte	0
- 3429              	.LLST9:
- 3430 02c9 6E030000 		.4byte	.LVL122
- 3431 02cd 9B030000 		.4byte	.LVL132-1
- 3432 02d1 2100     		.2byte	0x21
- 3433 02d3 73       		.byte	0x73
- 3434 02d4 00       		.sleb128 0
- 3435 02d5 F7       		.byte	0xf7
- 3436 02d6 33       		.uleb128 0x33
- 3437 02d7 F7       		.byte	0xf7
- 3438 02d8 25       		.uleb128 0x25
- 3439 02d9 F4       		.byte	0xf4
- 3440 02da 25       		.uleb128 0x25
- 3441 02db 08       		.byte	0x8
- 3442 02dc 1F85EB51 		.4byte	0x51eb851f
- 3443 02e0 B89E2340 		.4byte	0x40239eb8
- 3444 02e4 1E       		.byte	0x1e
- 3445 02e5 F4       		.byte	0xf4
- 3446 02e6 25       		.uleb128 0x25
- 3447 02e7 08       		.byte	0x8
- 3448 02e8 00000000 		.4byte	0
- 3449 02ec 00408F40 		.4byte	0x408f4000
- 3450 02f0 1B       		.byte	0x1b
- 3451 02f1 F7       		.byte	0xf7
- 3452 02f2 2C       		.uleb128 0x2c
- 3453 02f3 9F       		.byte	0x9f
- 3454 02f4 00000000 		.4byte	0
- 3455 02f8 00000000 		.4byte	0
- 3456              	.LLST10:
- 3457 02fc 88030000 		.4byte	.LVL129
- 3458 0300 98030000 		.4byte	.LVL131
- 3459 0304 2100     		.2byte	0x21
- 3460 0306 70       		.byte	0x70
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 73
+ 3404              	.LLST8:
+ 3405 0296 56030000 		.4byte	.LVL116
+ 3406 029a 9B030000 		.4byte	.LVL132-1
+ 3407 029e 2100     		.2byte	0x21
+ 3408 02a0 72       		.byte	0x72
+ 3409 02a1 00       		.sleb128 0
+ 3410 02a2 F7       		.byte	0xf7
+ 3411 02a3 33       		.uleb128 0x33
+ 3412 02a4 F7       		.byte	0xf7
+ 3413 02a5 25       		.uleb128 0x25
+ 3414 02a6 F4       		.byte	0xf4
+ 3415 02a7 25       		.uleb128 0x25
+ 3416 02a8 08       		.byte	0x8
+ 3417 02a9 1F85EB51 		.4byte	0x51eb851f
+ 3418 02ad B89E2340 		.4byte	0x40239eb8
+ 3419 02b1 1E       		.byte	0x1e
+ 3420 02b2 F4       		.byte	0xf4
+ 3421 02b3 25       		.uleb128 0x25
+ 3422 02b4 08       		.byte	0x8
+ 3423 02b5 00000000 		.4byte	0
+ 3424 02b9 00408F40 		.4byte	0x408f4000
+ 3425 02bd 1B       		.byte	0x1b
+ 3426 02be F7       		.byte	0xf7
+ 3427 02bf 2C       		.uleb128 0x2c
+ 3428 02c0 9F       		.byte	0x9f
+ 3429 02c1 00000000 		.4byte	0
+ 3430 02c5 00000000 		.4byte	0
+ 3431              	.LLST9:
+ 3432 02c9 6E030000 		.4byte	.LVL122
+ 3433 02cd 9B030000 		.4byte	.LVL132-1
+ 3434 02d1 2100     		.2byte	0x21
+ 3435 02d3 73       		.byte	0x73
+ 3436 02d4 00       		.sleb128 0
+ 3437 02d5 F7       		.byte	0xf7
+ 3438 02d6 33       		.uleb128 0x33
+ 3439 02d7 F7       		.byte	0xf7
+ 3440 02d8 25       		.uleb128 0x25
+ 3441 02d9 F4       		.byte	0xf4
+ 3442 02da 25       		.uleb128 0x25
+ 3443 02db 08       		.byte	0x8
+ 3444 02dc 1F85EB51 		.4byte	0x51eb851f
+ 3445 02e0 B89E2340 		.4byte	0x40239eb8
+ 3446 02e4 1E       		.byte	0x1e
+ 3447 02e5 F4       		.byte	0xf4
+ 3448 02e6 25       		.uleb128 0x25
+ 3449 02e7 08       		.byte	0x8
+ 3450 02e8 00000000 		.4byte	0
+ 3451 02ec 00408F40 		.4byte	0x408f4000
+ 3452 02f0 1B       		.byte	0x1b
+ 3453 02f1 F7       		.byte	0xf7
+ 3454 02f2 2C       		.uleb128 0x2c
+ 3455 02f3 9F       		.byte	0x9f
+ 3456 02f4 00000000 		.4byte	0
+ 3457 02f8 00000000 		.4byte	0
+ 3458              	.LLST10:
+ 3459 02fc 88030000 		.4byte	.LVL129
+ 3460 0300 98030000 		.4byte	.LVL131
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\cchSPHFZ.s 			page 73
 
 
- 3461 0307 00       		.sleb128 0
- 3462 0308 F7       		.byte	0xf7
- 3463 0309 33       		.uleb128 0x33
- 3464 030a F7       		.byte	0xf7
- 3465 030b 25       		.uleb128 0x25
- 3466 030c F4       		.byte	0xf4
- 3467 030d 25       		.uleb128 0x25
- 3468 030e 08       		.byte	0x8
- 3469 030f 1F85EB51 		.4byte	0x51eb851f
- 3470 0313 B89E2340 		.4byte	0x40239eb8
- 3471 0317 1E       		.byte	0x1e
- 3472 0318 F4       		.byte	0xf4
- 3473 0319 25       		.uleb128 0x25
- 3474 031a 08       		.byte	0x8
- 3475 031b 00000000 		.4byte	0
- 3476 031f 00408F40 		.4byte	0x408f4000
- 3477 0323 1B       		.byte	0x1b
- 3478 0324 F7       		.byte	0xf7
- 3479 0325 2C       		.uleb128 0x2c
- 3480 0326 9F       		.byte	0x9f
- 3481 0327 98030000 		.4byte	.LVL131
- 3482 032b 9B030000 		.4byte	.LVL132-1
- 3483 032f 2300     		.2byte	0x23
- 3484 0331 7D       		.byte	0x7d
- 3485 0332 00       		.sleb128 0
- 3486 0333 94       		.byte	0x94
- 3487 0334 02       		.byte	0x2
- 3488 0335 F7       		.byte	0xf7
- 3489 0336 33       		.uleb128 0x33
- 3490 0337 F7       		.byte	0xf7
- 3491 0338 25       		.uleb128 0x25
- 3492 0339 F4       		.byte	0xf4
- 3493 033a 25       		.uleb128 0x25
- 3494 033b 08       		.byte	0x8
- 3495 033c 1F85EB51 		.4byte	0x51eb851f
- 3496 0340 B89E2340 		.4byte	0x40239eb8
- 3497 0344 1E       		.byte	0x1e
- 3498 0345 F4       		.byte	0xf4
- 3499 0346 25       		.uleb128 0x25
- 3500 0347 08       		.byte	0x8
- 3501 0348 00000000 		.4byte	0
- 3502 034c 00408F40 		.4byte	0x408f4000
- 3503 0350 1B       		.byte	0x1b
- 3504 0351 F7       		.byte	0xf7
- 3505 0352 2C       		.uleb128 0x2c
- 3506 0353 9F       		.byte	0x9f
- 3507 0354 00000000 		.4byte	0
- 3508 0358 00000000 		.4byte	0
- 3509              	.LLST11:
- 3510 035c 56030000 		.4byte	.LVL116
- 3511 0360 9B030000 		.4byte	.LVL132-1
- 3512 0364 2D00     		.2byte	0x2d
- 3513 0366 72       		.byte	0x72
- 3514 0367 00       		.sleb128 0
- 3515 0368 F7       		.byte	0xf7
- 3516 0369 33       		.uleb128 0x33
- 3517 036a F7       		.byte	0xf7
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 74
+ 3461 0304 2100     		.2byte	0x21
+ 3462 0306 70       		.byte	0x70
+ 3463 0307 00       		.sleb128 0
+ 3464 0308 F7       		.byte	0xf7
+ 3465 0309 33       		.uleb128 0x33
+ 3466 030a F7       		.byte	0xf7
+ 3467 030b 25       		.uleb128 0x25
+ 3468 030c F4       		.byte	0xf4
+ 3469 030d 25       		.uleb128 0x25
+ 3470 030e 08       		.byte	0x8
+ 3471 030f 1F85EB51 		.4byte	0x51eb851f
+ 3472 0313 B89E2340 		.4byte	0x40239eb8
+ 3473 0317 1E       		.byte	0x1e
+ 3474 0318 F4       		.byte	0xf4
+ 3475 0319 25       		.uleb128 0x25
+ 3476 031a 08       		.byte	0x8
+ 3477 031b 00000000 		.4byte	0
+ 3478 031f 00408F40 		.4byte	0x408f4000
+ 3479 0323 1B       		.byte	0x1b
+ 3480 0324 F7       		.byte	0xf7
+ 3481 0325 2C       		.uleb128 0x2c
+ 3482 0326 9F       		.byte	0x9f
+ 3483 0327 98030000 		.4byte	.LVL131
+ 3484 032b 9B030000 		.4byte	.LVL132-1
+ 3485 032f 2300     		.2byte	0x23
+ 3486 0331 7D       		.byte	0x7d
+ 3487 0332 00       		.sleb128 0
+ 3488 0333 94       		.byte	0x94
+ 3489 0334 02       		.byte	0x2
+ 3490 0335 F7       		.byte	0xf7
+ 3491 0336 33       		.uleb128 0x33
+ 3492 0337 F7       		.byte	0xf7
+ 3493 0338 25       		.uleb128 0x25
+ 3494 0339 F4       		.byte	0xf4
+ 3495 033a 25       		.uleb128 0x25
+ 3496 033b 08       		.byte	0x8
+ 3497 033c 1F85EB51 		.4byte	0x51eb851f
+ 3498 0340 B89E2340 		.4byte	0x40239eb8
+ 3499 0344 1E       		.byte	0x1e
+ 3500 0345 F4       		.byte	0xf4
+ 3501 0346 25       		.uleb128 0x25
+ 3502 0347 08       		.byte	0x8
+ 3503 0348 00000000 		.4byte	0
+ 3504 034c 00408F40 		.4byte	0x408f4000
+ 3505 0350 1B       		.byte	0x1b
+ 3506 0351 F7       		.byte	0xf7
+ 3507 0352 2C       		.uleb128 0x2c
+ 3508 0353 9F       		.byte	0x9f
+ 3509 0354 00000000 		.4byte	0
+ 3510 0358 00000000 		.4byte	0
+ 3511              	.LLST11:
+ 3512 035c 56030000 		.4byte	.LVL116
+ 3513 0360 9B030000 		.4byte	.LVL132-1
+ 3514 0364 2D00     		.2byte	0x2d
+ 3515 0366 72       		.byte	0x72
+ 3516 0367 00       		.sleb128 0
+ 3517 0368 F7       		.byte	0xf7
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\cchSPHFZ.s 			page 74
 
 
- 3518 036b 25       		.uleb128 0x25
- 3519 036c F4       		.byte	0xf4
- 3520 036d 25       		.uleb128 0x25
- 3521 036e 08       		.byte	0x8
- 3522 036f 1F85EB51 		.4byte	0x51eb851f
- 3523 0373 B89E2340 		.4byte	0x40239eb8
- 3524 0377 1E       		.byte	0x1e
- 3525 0378 F4       		.byte	0xf4
- 3526 0379 25       		.uleb128 0x25
- 3527 037a 08       		.byte	0x8
- 3528 037b 00000000 		.4byte	0
- 3529 037f 00408F40 		.4byte	0x408f4000
- 3530 0383 1B       		.byte	0x1b
- 3531 0384 F7       		.byte	0xf7
- 3532 0385 2C       		.uleb128 0x2c
- 3533 0386 F4       		.byte	0xf4
- 3534 0387 2C       		.uleb128 0x2c
- 3535 0388 04       		.byte	0x4
- 3536 0389 00007A44 		.4byte	0x447a0000
- 3537 038d 1E       		.byte	0x1e
- 3538 038e F7       		.byte	0xf7
- 3539 038f 3A       		.uleb128 0x3a
- 3540 0390 F7       		.byte	0xf7
- 3541 0391 00       		.uleb128 0
- 3542 0392 9F       		.byte	0x9f
- 3543 0393 00000000 		.4byte	0
- 3544 0397 00000000 		.4byte	0
- 3545              	.LLST12:
- 3546 039b 6E030000 		.4byte	.LVL122
- 3547 039f 9B030000 		.4byte	.LVL132-1
- 3548 03a3 2D00     		.2byte	0x2d
- 3549 03a5 73       		.byte	0x73
- 3550 03a6 00       		.sleb128 0
- 3551 03a7 F7       		.byte	0xf7
- 3552 03a8 33       		.uleb128 0x33
- 3553 03a9 F7       		.byte	0xf7
- 3554 03aa 25       		.uleb128 0x25
- 3555 03ab F4       		.byte	0xf4
- 3556 03ac 25       		.uleb128 0x25
- 3557 03ad 08       		.byte	0x8
- 3558 03ae 1F85EB51 		.4byte	0x51eb851f
- 3559 03b2 B89E2340 		.4byte	0x40239eb8
- 3560 03b6 1E       		.byte	0x1e
- 3561 03b7 F4       		.byte	0xf4
- 3562 03b8 25       		.uleb128 0x25
- 3563 03b9 08       		.byte	0x8
- 3564 03ba 00000000 		.4byte	0
- 3565 03be 00408F40 		.4byte	0x408f4000
- 3566 03c2 1B       		.byte	0x1b
- 3567 03c3 F7       		.byte	0xf7
- 3568 03c4 2C       		.uleb128 0x2c
- 3569 03c5 F4       		.byte	0xf4
- 3570 03c6 2C       		.uleb128 0x2c
- 3571 03c7 04       		.byte	0x4
- 3572 03c8 00007A44 		.4byte	0x447a0000
- 3573 03cc 1E       		.byte	0x1e
- 3574 03cd F7       		.byte	0xf7
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 75
+ 3518 0369 33       		.uleb128 0x33
+ 3519 036a F7       		.byte	0xf7
+ 3520 036b 25       		.uleb128 0x25
+ 3521 036c F4       		.byte	0xf4
+ 3522 036d 25       		.uleb128 0x25
+ 3523 036e 08       		.byte	0x8
+ 3524 036f 1F85EB51 		.4byte	0x51eb851f
+ 3525 0373 B89E2340 		.4byte	0x40239eb8
+ 3526 0377 1E       		.byte	0x1e
+ 3527 0378 F4       		.byte	0xf4
+ 3528 0379 25       		.uleb128 0x25
+ 3529 037a 08       		.byte	0x8
+ 3530 037b 00000000 		.4byte	0
+ 3531 037f 00408F40 		.4byte	0x408f4000
+ 3532 0383 1B       		.byte	0x1b
+ 3533 0384 F7       		.byte	0xf7
+ 3534 0385 2C       		.uleb128 0x2c
+ 3535 0386 F4       		.byte	0xf4
+ 3536 0387 2C       		.uleb128 0x2c
+ 3537 0388 04       		.byte	0x4
+ 3538 0389 00007A44 		.4byte	0x447a0000
+ 3539 038d 1E       		.byte	0x1e
+ 3540 038e F7       		.byte	0xf7
+ 3541 038f 3A       		.uleb128 0x3a
+ 3542 0390 F7       		.byte	0xf7
+ 3543 0391 00       		.uleb128 0
+ 3544 0392 9F       		.byte	0x9f
+ 3545 0393 00000000 		.4byte	0
+ 3546 0397 00000000 		.4byte	0
+ 3547              	.LLST12:
+ 3548 039b 6E030000 		.4byte	.LVL122
+ 3549 039f 9B030000 		.4byte	.LVL132-1
+ 3550 03a3 2D00     		.2byte	0x2d
+ 3551 03a5 73       		.byte	0x73
+ 3552 03a6 00       		.sleb128 0
+ 3553 03a7 F7       		.byte	0xf7
+ 3554 03a8 33       		.uleb128 0x33
+ 3555 03a9 F7       		.byte	0xf7
+ 3556 03aa 25       		.uleb128 0x25
+ 3557 03ab F4       		.byte	0xf4
+ 3558 03ac 25       		.uleb128 0x25
+ 3559 03ad 08       		.byte	0x8
+ 3560 03ae 1F85EB51 		.4byte	0x51eb851f
+ 3561 03b2 B89E2340 		.4byte	0x40239eb8
+ 3562 03b6 1E       		.byte	0x1e
+ 3563 03b7 F4       		.byte	0xf4
+ 3564 03b8 25       		.uleb128 0x25
+ 3565 03b9 08       		.byte	0x8
+ 3566 03ba 00000000 		.4byte	0
+ 3567 03be 00408F40 		.4byte	0x408f4000
+ 3568 03c2 1B       		.byte	0x1b
+ 3569 03c3 F7       		.byte	0xf7
+ 3570 03c4 2C       		.uleb128 0x2c
+ 3571 03c5 F4       		.byte	0xf4
+ 3572 03c6 2C       		.uleb128 0x2c
+ 3573 03c7 04       		.byte	0x4
+ 3574 03c8 00007A44 		.4byte	0x447a0000
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\cchSPHFZ.s 			page 75
 
 
- 3575 03ce 3A       		.uleb128 0x3a
- 3576 03cf F7       		.byte	0xf7
- 3577 03d0 00       		.uleb128 0
- 3578 03d1 9F       		.byte	0x9f
- 3579 03d2 00000000 		.4byte	0
- 3580 03d6 00000000 		.4byte	0
- 3581              	.LLST13:
- 3582 03da 88030000 		.4byte	.LVL129
- 3583 03de 98030000 		.4byte	.LVL131
- 3584 03e2 2D00     		.2byte	0x2d
- 3585 03e4 70       		.byte	0x70
- 3586 03e5 00       		.sleb128 0
- 3587 03e6 F7       		.byte	0xf7
- 3588 03e7 33       		.uleb128 0x33
- 3589 03e8 F7       		.byte	0xf7
- 3590 03e9 25       		.uleb128 0x25
- 3591 03ea F4       		.byte	0xf4
- 3592 03eb 25       		.uleb128 0x25
- 3593 03ec 08       		.byte	0x8
- 3594 03ed 1F85EB51 		.4byte	0x51eb851f
- 3595 03f1 B89E2340 		.4byte	0x40239eb8
- 3596 03f5 1E       		.byte	0x1e
- 3597 03f6 F4       		.byte	0xf4
- 3598 03f7 25       		.uleb128 0x25
- 3599 03f8 08       		.byte	0x8
- 3600 03f9 00000000 		.4byte	0
- 3601 03fd 00408F40 		.4byte	0x408f4000
- 3602 0401 1B       		.byte	0x1b
- 3603 0402 F7       		.byte	0xf7
- 3604 0403 2C       		.uleb128 0x2c
- 3605 0404 F4       		.byte	0xf4
- 3606 0405 2C       		.uleb128 0x2c
- 3607 0406 04       		.byte	0x4
- 3608 0407 00007A44 		.4byte	0x447a0000
- 3609 040b 1E       		.byte	0x1e
- 3610 040c F7       		.byte	0xf7
- 3611 040d 3A       		.uleb128 0x3a
- 3612 040e F7       		.byte	0xf7
- 3613 040f 00       		.uleb128 0
- 3614 0410 9F       		.byte	0x9f
- 3615 0411 98030000 		.4byte	.LVL131
- 3616 0415 9B030000 		.4byte	.LVL132-1
- 3617 0419 2F00     		.2byte	0x2f
- 3618 041b 7D       		.byte	0x7d
- 3619 041c 00       		.sleb128 0
- 3620 041d 94       		.byte	0x94
- 3621 041e 02       		.byte	0x2
- 3622 041f F7       		.byte	0xf7
- 3623 0420 33       		.uleb128 0x33
- 3624 0421 F7       		.byte	0xf7
- 3625 0422 25       		.uleb128 0x25
- 3626 0423 F4       		.byte	0xf4
- 3627 0424 25       		.uleb128 0x25
- 3628 0425 08       		.byte	0x8
- 3629 0426 1F85EB51 		.4byte	0x51eb851f
- 3630 042a B89E2340 		.4byte	0x40239eb8
- 3631 042e 1E       		.byte	0x1e
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 76
+ 3575 03cc 1E       		.byte	0x1e
+ 3576 03cd F7       		.byte	0xf7
+ 3577 03ce 3A       		.uleb128 0x3a
+ 3578 03cf F7       		.byte	0xf7
+ 3579 03d0 00       		.uleb128 0
+ 3580 03d1 9F       		.byte	0x9f
+ 3581 03d2 00000000 		.4byte	0
+ 3582 03d6 00000000 		.4byte	0
+ 3583              	.LLST13:
+ 3584 03da 88030000 		.4byte	.LVL129
+ 3585 03de 98030000 		.4byte	.LVL131
+ 3586 03e2 2D00     		.2byte	0x2d
+ 3587 03e4 70       		.byte	0x70
+ 3588 03e5 00       		.sleb128 0
+ 3589 03e6 F7       		.byte	0xf7
+ 3590 03e7 33       		.uleb128 0x33
+ 3591 03e8 F7       		.byte	0xf7
+ 3592 03e9 25       		.uleb128 0x25
+ 3593 03ea F4       		.byte	0xf4
+ 3594 03eb 25       		.uleb128 0x25
+ 3595 03ec 08       		.byte	0x8
+ 3596 03ed 1F85EB51 		.4byte	0x51eb851f
+ 3597 03f1 B89E2340 		.4byte	0x40239eb8
+ 3598 03f5 1E       		.byte	0x1e
+ 3599 03f6 F4       		.byte	0xf4
+ 3600 03f7 25       		.uleb128 0x25
+ 3601 03f8 08       		.byte	0x8
+ 3602 03f9 00000000 		.4byte	0
+ 3603 03fd 00408F40 		.4byte	0x408f4000
+ 3604 0401 1B       		.byte	0x1b
+ 3605 0402 F7       		.byte	0xf7
+ 3606 0403 2C       		.uleb128 0x2c
+ 3607 0404 F4       		.byte	0xf4
+ 3608 0405 2C       		.uleb128 0x2c
+ 3609 0406 04       		.byte	0x4
+ 3610 0407 00007A44 		.4byte	0x447a0000
+ 3611 040b 1E       		.byte	0x1e
+ 3612 040c F7       		.byte	0xf7
+ 3613 040d 3A       		.uleb128 0x3a
+ 3614 040e F7       		.byte	0xf7
+ 3615 040f 00       		.uleb128 0
+ 3616 0410 9F       		.byte	0x9f
+ 3617 0411 98030000 		.4byte	.LVL131
+ 3618 0415 9B030000 		.4byte	.LVL132-1
+ 3619 0419 2F00     		.2byte	0x2f
+ 3620 041b 7D       		.byte	0x7d
+ 3621 041c 00       		.sleb128 0
+ 3622 041d 94       		.byte	0x94
+ 3623 041e 02       		.byte	0x2
+ 3624 041f F7       		.byte	0xf7
+ 3625 0420 33       		.uleb128 0x33
+ 3626 0421 F7       		.byte	0xf7
+ 3627 0422 25       		.uleb128 0x25
+ 3628 0423 F4       		.byte	0xf4
+ 3629 0424 25       		.uleb128 0x25
+ 3630 0425 08       		.byte	0x8
+ 3631 0426 1F85EB51 		.4byte	0x51eb851f
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\cchSPHFZ.s 			page 76
 
 
- 3632 042f F4       		.byte	0xf4
- 3633 0430 25       		.uleb128 0x25
- 3634 0431 08       		.byte	0x8
- 3635 0432 00000000 		.4byte	0
- 3636 0436 00408F40 		.4byte	0x408f4000
- 3637 043a 1B       		.byte	0x1b
- 3638 043b F7       		.byte	0xf7
- 3639 043c 2C       		.uleb128 0x2c
- 3640 043d F4       		.byte	0xf4
- 3641 043e 2C       		.uleb128 0x2c
- 3642 043f 04       		.byte	0x4
- 3643 0440 00007A44 		.4byte	0x447a0000
- 3644 0444 1E       		.byte	0x1e
- 3645 0445 F7       		.byte	0xf7
- 3646 0446 3A       		.uleb128 0x3a
- 3647 0447 F7       		.byte	0xf7
- 3648 0448 00       		.uleb128 0
- 3649 0449 9F       		.byte	0x9f
- 3650 044a 00000000 		.4byte	0
- 3651 044e 00000000 		.4byte	0
- 3652              	.LLST14:
- 3653 0452 88020000 		.4byte	.LVL106
- 3654 0456 92020000 		.4byte	.LVL107
- 3655 045a 0200     		.2byte	0x2
- 3656 045c 30       		.byte	0x30
- 3657 045d 9F       		.byte	0x9f
- 3658 045e 92020000 		.4byte	.LVL107
- 3659 0462 58030000 		.4byte	.LVL117
- 3660 0466 0100     		.2byte	0x1
- 3661 0468 56       		.byte	0x56
- 3662 0469 5A030000 		.4byte	.LVL118
- 3663 046d B0030000 		.4byte	.LVL136
- 3664 0471 0100     		.2byte	0x1
- 3665 0473 56       		.byte	0x56
- 3666 0474 B0030000 		.4byte	.LVL136
- 3667 0478 DB030000 		.4byte	.LVL143-1
- 3668 047c 0100     		.2byte	0x1
- 3669 047e 50       		.byte	0x50
- 3670 047f DB030000 		.4byte	.LVL143-1
- 3671 0483 DE030000 		.4byte	.LVL144
- 3672 0487 1800     		.2byte	0x18
- 3673 0489 76       		.byte	0x76
- 3674 048a 00       		.sleb128 0
- 3675 048b 74       		.byte	0x74
- 3676 048c 00       		.sleb128 0
- 3677 048d 1B       		.byte	0x1b
- 3678 048e 1F       		.byte	0x1f
- 3679 048f 76       		.byte	0x76
- 3680 0490 00       		.sleb128 0
- 3681 0491 74       		.byte	0x74
- 3682 0492 00       		.sleb128 0
- 3683 0493 1B       		.byte	0x1b
- 3684 0494 76       		.byte	0x76
- 3685 0495 00       		.sleb128 0
- 3686 0496 74       		.byte	0x74
- 3687 0497 00       		.sleb128 0
- 3688 0498 1B       		.byte	0x1b
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 77
+ 3632 042a B89E2340 		.4byte	0x40239eb8
+ 3633 042e 1E       		.byte	0x1e
+ 3634 042f F4       		.byte	0xf4
+ 3635 0430 25       		.uleb128 0x25
+ 3636 0431 08       		.byte	0x8
+ 3637 0432 00000000 		.4byte	0
+ 3638 0436 00408F40 		.4byte	0x408f4000
+ 3639 043a 1B       		.byte	0x1b
+ 3640 043b F7       		.byte	0xf7
+ 3641 043c 2C       		.uleb128 0x2c
+ 3642 043d F4       		.byte	0xf4
+ 3643 043e 2C       		.uleb128 0x2c
+ 3644 043f 04       		.byte	0x4
+ 3645 0440 00007A44 		.4byte	0x447a0000
+ 3646 0444 1E       		.byte	0x1e
+ 3647 0445 F7       		.byte	0xf7
+ 3648 0446 3A       		.uleb128 0x3a
+ 3649 0447 F7       		.byte	0xf7
+ 3650 0448 00       		.uleb128 0
+ 3651 0449 9F       		.byte	0x9f
+ 3652 044a 00000000 		.4byte	0
+ 3653 044e 00000000 		.4byte	0
+ 3654              	.LLST14:
+ 3655 0452 88020000 		.4byte	.LVL106
+ 3656 0456 92020000 		.4byte	.LVL107
+ 3657 045a 0200     		.2byte	0x2
+ 3658 045c 30       		.byte	0x30
+ 3659 045d 9F       		.byte	0x9f
+ 3660 045e 92020000 		.4byte	.LVL107
+ 3661 0462 58030000 		.4byte	.LVL117
+ 3662 0466 0100     		.2byte	0x1
+ 3663 0468 56       		.byte	0x56
+ 3664 0469 5A030000 		.4byte	.LVL118
+ 3665 046d B0030000 		.4byte	.LVL136
+ 3666 0471 0100     		.2byte	0x1
+ 3667 0473 56       		.byte	0x56
+ 3668 0474 B0030000 		.4byte	.LVL136
+ 3669 0478 DB030000 		.4byte	.LVL143-1
+ 3670 047c 0100     		.2byte	0x1
+ 3671 047e 50       		.byte	0x50
+ 3672 047f DB030000 		.4byte	.LVL143-1
+ 3673 0483 DE030000 		.4byte	.LVL144
+ 3674 0487 1800     		.2byte	0x18
+ 3675 0489 76       		.byte	0x76
+ 3676 048a 00       		.sleb128 0
+ 3677 048b 74       		.byte	0x74
+ 3678 048c 00       		.sleb128 0
+ 3679 048d 1B       		.byte	0x1b
+ 3680 048e 1F       		.byte	0x1f
+ 3681 048f 76       		.byte	0x76
+ 3682 0490 00       		.sleb128 0
+ 3683 0491 74       		.byte	0x74
+ 3684 0492 00       		.sleb128 0
+ 3685 0493 1B       		.byte	0x1b
+ 3686 0494 76       		.byte	0x76
+ 3687 0495 00       		.sleb128 0
+ 3688 0496 74       		.byte	0x74
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\cchSPHFZ.s 			page 77
 
 
- 3689 0499 30       		.byte	0x30
- 3690 049a 2D       		.byte	0x2d
- 3691 049b 28       		.byte	0x28
- 3692 049c 0100     		.2byte	0x1
- 3693 049e 16       		.byte	0x16
- 3694 049f 13       		.byte	0x13
- 3695 04a0 9F       		.byte	0x9f
- 3696 04a1 DC040000 		.4byte	.LVL167
- 3697 04a5 EA040000 		.4byte	.LVL169
- 3698 04a9 0200     		.2byte	0x2
- 3699 04ab 30       		.byte	0x30
- 3700 04ac 9F       		.byte	0x9f
- 3701 04ad EA040000 		.4byte	.LVL169
- 3702 04b1 28050000 		.4byte	.LFE64
- 3703 04b5 0100     		.2byte	0x1
- 3704 04b7 56       		.byte	0x56
- 3705 04b8 00000000 		.4byte	0
- 3706 04bc 00000000 		.4byte	0
- 3707              	.LLST15:
- 3708 04c0 88020000 		.4byte	.LVL106
- 3709 04c4 92020000 		.4byte	.LVL107
- 3710 04c8 0200     		.2byte	0x2
- 3711 04ca 30       		.byte	0x30
- 3712 04cb 9F       		.byte	0x9f
- 3713 04cc 92020000 		.4byte	.LVL107
- 3714 04d0 70030000 		.4byte	.LVL123
- 3715 04d4 0100     		.2byte	0x1
- 3716 04d6 55       		.byte	0x55
- 3717 04d7 72030000 		.4byte	.LVL124
- 3718 04db B4030000 		.4byte	.LVL137
- 3719 04df 0100     		.2byte	0x1
- 3720 04e1 55       		.byte	0x55
- 3721 04e2 B4030000 		.4byte	.LVL137
- 3722 04e6 C8030000 		.4byte	.LVL140
- 3723 04ea 0100     		.2byte	0x1
- 3724 04ec 5A       		.byte	0x5a
- 3725 04ed C8030000 		.4byte	.LVL140
- 3726 04f1 CC030000 		.4byte	.LVL141
- 3727 04f5 0600     		.2byte	0x6
- 3728 04f7 75       		.byte	0x75
- 3729 04f8 00       		.sleb128 0
- 3730 04f9 74       		.byte	0x74
- 3731 04fa 00       		.sleb128 0
- 3732 04fb 1B       		.byte	0x1b
- 3733 04fc 9F       		.byte	0x9f
- 3734 04fd CC030000 		.4byte	.LVL141
- 3735 0501 DC040000 		.4byte	.LVL167
- 3736 0505 0100     		.2byte	0x1
- 3737 0507 5A       		.byte	0x5a
- 3738 0508 DC040000 		.4byte	.LVL167
- 3739 050c EA040000 		.4byte	.LVL169
- 3740 0510 0200     		.2byte	0x2
- 3741 0512 30       		.byte	0x30
- 3742 0513 9F       		.byte	0x9f
- 3743 0514 EA040000 		.4byte	.LVL169
- 3744 0518 28050000 		.4byte	.LFE64
- 3745 051c 0100     		.2byte	0x1
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 78
+ 3689 0497 00       		.sleb128 0
+ 3690 0498 1B       		.byte	0x1b
+ 3691 0499 30       		.byte	0x30
+ 3692 049a 2D       		.byte	0x2d
+ 3693 049b 28       		.byte	0x28
+ 3694 049c 0100     		.2byte	0x1
+ 3695 049e 16       		.byte	0x16
+ 3696 049f 13       		.byte	0x13
+ 3697 04a0 9F       		.byte	0x9f
+ 3698 04a1 DC040000 		.4byte	.LVL167
+ 3699 04a5 EA040000 		.4byte	.LVL169
+ 3700 04a9 0200     		.2byte	0x2
+ 3701 04ab 30       		.byte	0x30
+ 3702 04ac 9F       		.byte	0x9f
+ 3703 04ad EA040000 		.4byte	.LVL169
+ 3704 04b1 28050000 		.4byte	.LFE64
+ 3705 04b5 0100     		.2byte	0x1
+ 3706 04b7 56       		.byte	0x56
+ 3707 04b8 00000000 		.4byte	0
+ 3708 04bc 00000000 		.4byte	0
+ 3709              	.LLST15:
+ 3710 04c0 88020000 		.4byte	.LVL106
+ 3711 04c4 92020000 		.4byte	.LVL107
+ 3712 04c8 0200     		.2byte	0x2
+ 3713 04ca 30       		.byte	0x30
+ 3714 04cb 9F       		.byte	0x9f
+ 3715 04cc 92020000 		.4byte	.LVL107
+ 3716 04d0 70030000 		.4byte	.LVL123
+ 3717 04d4 0100     		.2byte	0x1
+ 3718 04d6 55       		.byte	0x55
+ 3719 04d7 72030000 		.4byte	.LVL124
+ 3720 04db B4030000 		.4byte	.LVL137
+ 3721 04df 0100     		.2byte	0x1
+ 3722 04e1 55       		.byte	0x55
+ 3723 04e2 B4030000 		.4byte	.LVL137
+ 3724 04e6 C8030000 		.4byte	.LVL140
+ 3725 04ea 0100     		.2byte	0x1
+ 3726 04ec 5A       		.byte	0x5a
+ 3727 04ed C8030000 		.4byte	.LVL140
+ 3728 04f1 CC030000 		.4byte	.LVL141
+ 3729 04f5 0600     		.2byte	0x6
+ 3730 04f7 75       		.byte	0x75
+ 3731 04f8 00       		.sleb128 0
+ 3732 04f9 74       		.byte	0x74
+ 3733 04fa 00       		.sleb128 0
+ 3734 04fb 1B       		.byte	0x1b
+ 3735 04fc 9F       		.byte	0x9f
+ 3736 04fd CC030000 		.4byte	.LVL141
+ 3737 0501 DC040000 		.4byte	.LVL167
+ 3738 0505 0100     		.2byte	0x1
+ 3739 0507 5A       		.byte	0x5a
+ 3740 0508 DC040000 		.4byte	.LVL167
+ 3741 050c EA040000 		.4byte	.LVL169
+ 3742 0510 0200     		.2byte	0x2
+ 3743 0512 30       		.byte	0x30
+ 3744 0513 9F       		.byte	0x9f
+ 3745 0514 EA040000 		.4byte	.LVL169
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\cchSPHFZ.s 			page 78
 
 
- 3746 051e 55       		.byte	0x55
- 3747 051f 00000000 		.4byte	0
- 3748 0523 00000000 		.4byte	0
- 3749              	.LLST16:
- 3750 0527 88020000 		.4byte	.LVL106
- 3751 052b 92020000 		.4byte	.LVL107
- 3752 052f 0200     		.2byte	0x2
- 3753 0531 30       		.byte	0x30
- 3754 0532 9F       		.byte	0x9f
- 3755 0533 92020000 		.4byte	.LVL107
- 3756 0537 B8030000 		.4byte	.LVL138
- 3757 053b 0100     		.2byte	0x1
- 3758 053d 58       		.byte	0x58
- 3759 053e B8030000 		.4byte	.LVL138
- 3760 0542 D6030000 		.4byte	.LVL142
- 3761 0546 0100     		.2byte	0x1
- 3762 0548 51       		.byte	0x51
- 3763 0549 D6030000 		.4byte	.LVL142
- 3764 054d DC040000 		.4byte	.LVL167
- 3765 0551 0100     		.2byte	0x1
- 3766 0553 55       		.byte	0x55
- 3767 0554 DC040000 		.4byte	.LVL167
- 3768 0558 EA040000 		.4byte	.LVL169
- 3769 055c 0200     		.2byte	0x2
- 3770 055e 30       		.byte	0x30
- 3771 055f 9F       		.byte	0x9f
- 3772 0560 EA040000 		.4byte	.LVL169
- 3773 0564 28050000 		.4byte	.LFE64
- 3774 0568 0100     		.2byte	0x1
- 3775 056a 58       		.byte	0x58
- 3776 056b 00000000 		.4byte	0
- 3777 056f 00000000 		.4byte	0
- 3778              	.LLST17:
- 3779 0573 88020000 		.4byte	.LVL106
- 3780 0577 92020000 		.4byte	.LVL107
- 3781 057b 0200     		.2byte	0x2
- 3782 057d 31       		.byte	0x31
- 3783 057e 9F       		.byte	0x9f
- 3784 057f 92020000 		.4byte	.LVL107
- 3785 0583 A2020000 		.4byte	.LVL109
- 3786 0587 0100     		.2byte	0x1
- 3787 0589 57       		.byte	0x57
- 3788 058a A2020000 		.4byte	.LVL109
- 3789 058e 1C030000 		.4byte	.LVL110
- 3790 0592 0200     		.2byte	0x2
- 3791 0594 30       		.byte	0x30
- 3792 0595 9F       		.byte	0x9f
- 3793 0596 1C030000 		.4byte	.LVL110
- 3794 059a E0030000 		.4byte	.LVL145
- 3795 059e 0100     		.2byte	0x1
- 3796 05a0 57       		.byte	0x57
- 3797 05a1 E2040000 		.4byte	.LVL168
- 3798 05a5 EA040000 		.4byte	.LVL169
- 3799 05a9 0200     		.2byte	0x2
- 3800 05ab 31       		.byte	0x31
- 3801 05ac 9F       		.byte	0x9f
- 3802 05ad EA040000 		.4byte	.LVL169
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 79
+ 3746 0518 28050000 		.4byte	.LFE64
+ 3747 051c 0100     		.2byte	0x1
+ 3748 051e 55       		.byte	0x55
+ 3749 051f 00000000 		.4byte	0
+ 3750 0523 00000000 		.4byte	0
+ 3751              	.LLST16:
+ 3752 0527 88020000 		.4byte	.LVL106
+ 3753 052b 92020000 		.4byte	.LVL107
+ 3754 052f 0200     		.2byte	0x2
+ 3755 0531 30       		.byte	0x30
+ 3756 0532 9F       		.byte	0x9f
+ 3757 0533 92020000 		.4byte	.LVL107
+ 3758 0537 B8030000 		.4byte	.LVL138
+ 3759 053b 0100     		.2byte	0x1
+ 3760 053d 58       		.byte	0x58
+ 3761 053e B8030000 		.4byte	.LVL138
+ 3762 0542 D6030000 		.4byte	.LVL142
+ 3763 0546 0100     		.2byte	0x1
+ 3764 0548 51       		.byte	0x51
+ 3765 0549 D6030000 		.4byte	.LVL142
+ 3766 054d DC040000 		.4byte	.LVL167
+ 3767 0551 0100     		.2byte	0x1
+ 3768 0553 55       		.byte	0x55
+ 3769 0554 DC040000 		.4byte	.LVL167
+ 3770 0558 EA040000 		.4byte	.LVL169
+ 3771 055c 0200     		.2byte	0x2
+ 3772 055e 30       		.byte	0x30
+ 3773 055f 9F       		.byte	0x9f
+ 3774 0560 EA040000 		.4byte	.LVL169
+ 3775 0564 28050000 		.4byte	.LFE64
+ 3776 0568 0100     		.2byte	0x1
+ 3777 056a 58       		.byte	0x58
+ 3778 056b 00000000 		.4byte	0
+ 3779 056f 00000000 		.4byte	0
+ 3780              	.LLST17:
+ 3781 0573 88020000 		.4byte	.LVL106
+ 3782 0577 92020000 		.4byte	.LVL107
+ 3783 057b 0200     		.2byte	0x2
+ 3784 057d 31       		.byte	0x31
+ 3785 057e 9F       		.byte	0x9f
+ 3786 057f 92020000 		.4byte	.LVL107
+ 3787 0583 A2020000 		.4byte	.LVL109
+ 3788 0587 0100     		.2byte	0x1
+ 3789 0589 57       		.byte	0x57
+ 3790 058a A2020000 		.4byte	.LVL109
+ 3791 058e 1C030000 		.4byte	.LVL110
+ 3792 0592 0200     		.2byte	0x2
+ 3793 0594 30       		.byte	0x30
+ 3794 0595 9F       		.byte	0x9f
+ 3795 0596 1C030000 		.4byte	.LVL110
+ 3796 059a E0030000 		.4byte	.LVL145
+ 3797 059e 0100     		.2byte	0x1
+ 3798 05a0 57       		.byte	0x57
+ 3799 05a1 E2040000 		.4byte	.LVL168
+ 3800 05a5 EA040000 		.4byte	.LVL169
+ 3801 05a9 0200     		.2byte	0x2
+ 3802 05ab 31       		.byte	0x31
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\cchSPHFZ.s 			page 79
 
 
- 3803 05b1 28050000 		.4byte	.LFE64
- 3804 05b5 0100     		.2byte	0x1
- 3805 05b7 57       		.byte	0x57
- 3806 05b8 00000000 		.4byte	0
- 3807 05bc 00000000 		.4byte	0
- 3808              	.LLST18:
- 3809 05c0 88020000 		.4byte	.LVL106
- 3810 05c4 92020000 		.4byte	.LVL107
- 3811 05c8 0200     		.2byte	0x2
- 3812 05ca 30       		.byte	0x30
- 3813 05cb 9F       		.byte	0x9f
- 3814 05cc 92020000 		.4byte	.LVL107
- 3815 05d0 A4030000 		.4byte	.LVL134
- 3816 05d4 0100     		.2byte	0x1
- 3817 05d6 54       		.byte	0x54
- 3818 05d7 A6030000 		.4byte	.LVL135
- 3819 05db DC040000 		.4byte	.LVL167
- 3820 05df 0100     		.2byte	0x1
- 3821 05e1 54       		.byte	0x54
- 3822 05e2 DC040000 		.4byte	.LVL167
- 3823 05e6 EA040000 		.4byte	.LVL169
- 3824 05ea 0200     		.2byte	0x2
- 3825 05ec 30       		.byte	0x30
- 3826 05ed 9F       		.byte	0x9f
- 3827 05ee EA040000 		.4byte	.LVL169
- 3828 05f2 28050000 		.4byte	.LFE64
- 3829 05f6 0100     		.2byte	0x1
- 3830 05f8 54       		.byte	0x54
- 3831 05f9 00000000 		.4byte	0
- 3832 05fd 00000000 		.4byte	0
- 3833              	.LLST19:
- 3834 0601 5A000000 		.4byte	.LVL7
- 3835 0605 5E000000 		.4byte	.LVL8
- 3836 0609 0200     		.2byte	0x2
- 3837 060b 30       		.byte	0x30
- 3838 060c 9F       		.byte	0x9f
- 3839 060d 5E000000 		.4byte	.LVL8
- 3840 0611 7E010000 		.4byte	.LVL56
- 3841 0615 0100     		.2byte	0x1
- 3842 0617 54       		.byte	0x54
- 3843 0618 00000000 		.4byte	0
- 3844 061c 00000000 		.4byte	0
- 3845              		.section	.debug_aranges,"",%progbits
- 3846 0000 1C000000 		.4byte	0x1c
- 3847 0004 0200     		.2byte	0x2
- 3848 0006 00000000 		.4byte	.Ldebug_info0
- 3849 000a 04       		.byte	0x4
- 3850 000b 00       		.byte	0
- 3851 000c 0000     		.2byte	0
- 3852 000e 0000     		.2byte	0
- 3853 0010 00000000 		.4byte	.LFB64
- 3854 0014 28050000 		.4byte	.LFE64-.LFB64
- 3855 0018 00000000 		.4byte	0
- 3856 001c 00000000 		.4byte	0
- 3857              		.section	.debug_ranges,"",%progbits
- 3858              	.Ldebug_ranges0:
- 3859 0000 00000000 		.4byte	.LFB64
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 80
+ 3803 05ac 9F       		.byte	0x9f
+ 3804 05ad EA040000 		.4byte	.LVL169
+ 3805 05b1 28050000 		.4byte	.LFE64
+ 3806 05b5 0100     		.2byte	0x1
+ 3807 05b7 57       		.byte	0x57
+ 3808 05b8 00000000 		.4byte	0
+ 3809 05bc 00000000 		.4byte	0
+ 3810              	.LLST18:
+ 3811 05c0 88020000 		.4byte	.LVL106
+ 3812 05c4 92020000 		.4byte	.LVL107
+ 3813 05c8 0200     		.2byte	0x2
+ 3814 05ca 30       		.byte	0x30
+ 3815 05cb 9F       		.byte	0x9f
+ 3816 05cc 92020000 		.4byte	.LVL107
+ 3817 05d0 A4030000 		.4byte	.LVL134
+ 3818 05d4 0100     		.2byte	0x1
+ 3819 05d6 54       		.byte	0x54
+ 3820 05d7 A6030000 		.4byte	.LVL135
+ 3821 05db DC040000 		.4byte	.LVL167
+ 3822 05df 0100     		.2byte	0x1
+ 3823 05e1 54       		.byte	0x54
+ 3824 05e2 DC040000 		.4byte	.LVL167
+ 3825 05e6 EA040000 		.4byte	.LVL169
+ 3826 05ea 0200     		.2byte	0x2
+ 3827 05ec 30       		.byte	0x30
+ 3828 05ed 9F       		.byte	0x9f
+ 3829 05ee EA040000 		.4byte	.LVL169
+ 3830 05f2 28050000 		.4byte	.LFE64
+ 3831 05f6 0100     		.2byte	0x1
+ 3832 05f8 54       		.byte	0x54
+ 3833 05f9 00000000 		.4byte	0
+ 3834 05fd 00000000 		.4byte	0
+ 3835              	.LLST19:
+ 3836 0601 5A000000 		.4byte	.LVL7
+ 3837 0605 5E000000 		.4byte	.LVL8
+ 3838 0609 0200     		.2byte	0x2
+ 3839 060b 30       		.byte	0x30
+ 3840 060c 9F       		.byte	0x9f
+ 3841 060d 5E000000 		.4byte	.LVL8
+ 3842 0611 7E010000 		.4byte	.LVL56
+ 3843 0615 0100     		.2byte	0x1
+ 3844 0617 54       		.byte	0x54
+ 3845 0618 00000000 		.4byte	0
+ 3846 061c 00000000 		.4byte	0
+ 3847              		.section	.debug_aranges,"",%progbits
+ 3848 0000 1C000000 		.4byte	0x1c
+ 3849 0004 0200     		.2byte	0x2
+ 3850 0006 00000000 		.4byte	.Ldebug_info0
+ 3851 000a 04       		.byte	0x4
+ 3852 000b 00       		.byte	0
+ 3853 000c 0000     		.2byte	0
+ 3854 000e 0000     		.2byte	0
+ 3855 0010 00000000 		.4byte	.LFB64
+ 3856 0014 28050000 		.4byte	.LFE64-.LFB64
+ 3857 0018 00000000 		.4byte	0
+ 3858 001c 00000000 		.4byte	0
+ 3859              		.section	.debug_ranges,"",%progbits
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\cchSPHFZ.s 			page 80
 
 
- 3860 0004 28050000 		.4byte	.LFE64
- 3861 0008 00000000 		.4byte	0
- 3862 000c 00000000 		.4byte	0
- 3863              		.section	.debug_line,"",%progbits
- 3864              	.Ldebug_line0:
- 3865 0000 39030000 		.section	.debug_str,"MS",%progbits,1
- 3865      02006C02 
- 3865      00000201 
- 3865      FB0E0D00 
- 3865      01010101 
- 3866              	.LASF32:
- 3867 0000 6374726C 		.ascii	"ctrl_reg1\000"
- 3867      5F726567 
- 3867      3100
- 3868              	.LASF74:
- 3869 000a 55415254 		.ascii	"UART_Debug_PutString\000"
- 3869      5F446562 
- 3869      75675F50 
- 3869      75745374 
- 3869      72696E67 
- 3870              	.LASF33:
- 3871 001f 6374726C 		.ascii	"ctrl_reg4\000"
- 3871      5F726567 
- 3871      3400
- 3872              	.LASF60:
- 3873 0029 4F757441 		.ascii	"OutArray\000"
- 3873      72726179 
- 3873      00
- 3874              	.LASF6:
- 3875 0032 5F5F696E 		.ascii	"__int16_t\000"
- 3875      7431365F 
- 3875      7400
- 3876              	.LASF67:
- 3877 003c 70657269 		.ascii	"period_green\000"
- 3877      6F645F67 
- 3877      7265656E 
- 3877      00
- 3878              	.LASF23:
- 3879 0049 4E4F5F45 		.ascii	"NO_ERROR\000"
- 3879      52524F52 
+ 3860              	.Ldebug_ranges0:
+ 3861 0000 00000000 		.4byte	.LFB64
+ 3862 0004 28050000 		.4byte	.LFE64
+ 3863 0008 00000000 		.4byte	0
+ 3864 000c 00000000 		.4byte	0
+ 3865              		.section	.debug_line,"",%progbits
+ 3866              	.Ldebug_line0:
+ 3867 0000 39030000 		.section	.debug_str,"MS",%progbits,1
+ 3867      02006C02 
+ 3867      00000201 
+ 3867      FB0E0D00 
+ 3867      01010101 
+ 3868              	.LASF32:
+ 3869 0000 6374726C 		.ascii	"ctrl_reg1\000"
+ 3869      5F726567 
+ 3869      3100
+ 3870              	.LASF74:
+ 3871 000a 55415254 		.ascii	"UART_Debug_PutString\000"
+ 3871      5F446562 
+ 3871      75675F50 
+ 3871      75745374 
+ 3871      72696E67 
+ 3872              	.LASF33:
+ 3873 001f 6374726C 		.ascii	"ctrl_reg4\000"
+ 3873      5F726567 
+ 3873      3400
+ 3874              	.LASF60:
+ 3875 0029 4F757441 		.ascii	"OutArray\000"
+ 3875      72726179 
+ 3875      00
+ 3876              	.LASF6:
+ 3877 0032 5F5F696E 		.ascii	"__int16_t\000"
+ 3877      7431365F 
+ 3877      7400
+ 3878              	.LASF67:
+ 3879 003c 70657269 		.ascii	"period_green\000"
+ 3879      6F645F67 
+ 3879      7265656E 
  3879      00
- 3880              	.LASF21:
- 3881 0052 666C6F61 		.ascii	"float32\000"
- 3881      74333200 
- 3882              	.LASF36:
- 3883 005a 6374726C 		.ascii	"ctrl_reg_3\000"
- 3883      5F726567 
- 3883      5F3300
- 3884              	.LASF34:
- 3885 0065 6374726C 		.ascii	"ctrl_reg_5\000"
+ 3880              	.LASF23:
+ 3881 0049 4E4F5F45 		.ascii	"NO_ERROR\000"
+ 3881      52524F52 
+ 3881      00
+ 3882              	.LASF21:
+ 3883 0052 666C6F61 		.ascii	"float32\000"
+ 3883      74333200 
+ 3884              	.LASF36:
+ 3885 005a 6374726C 		.ascii	"ctrl_reg_3\000"
  3885      5F726567 
- 3885      5F3500
- 3886              	.LASF2:
- 3887 0070 73686F72 		.ascii	"short int\000"
- 3887      7420696E 
- 3887      7400
- 3888              	.LASF38:
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 81
+ 3885      5F3300
+ 3886              	.LASF34:
+ 3887 0065 6374726C 		.ascii	"ctrl_reg_5\000"
+ 3887      5F726567 
+ 3887      5F3500
+ 3888              	.LASF2:
+ 3889 0070 73686F72 		.ascii	"short int\000"
+ 3889      7420696E 
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\cchSPHFZ.s 			page 81
 
 
- 3889 007a 696E7431 		.ascii	"int1_ths_reg\000"
- 3889      5F746873 
- 3889      5F726567 
- 3889      00
- 3890              	.LASF27:
- 3891 0087 73697A65 		.ascii	"sizetype\000"
- 3891      74797065 
+ 3889      7400
+ 3890              	.LASF38:
+ 3891 007a 696E7431 		.ascii	"int1_ths_reg\000"
+ 3891      5F746873 
+ 3891      5F726567 
  3891      00
- 3892              	.LASF69:
- 3893 0090 636F756E 		.ascii	"counter_red\000"
- 3893      7465725F 
- 3893      72656400 
- 3894              	.LASF72:
- 3895 009c 4932435F 		.ascii	"I2C_Peripheral_IsDeviceConnected\000"
- 3895      50657269 
- 3895      70686572 
- 3895      616C5F49 
- 3895      73446576 
- 3896              	.LASF61:
- 3897 00bd 666C6167 		.ascii	"flag_mode\000"
- 3897      5F6D6F64 
- 3897      6500
- 3898              	.LASF89:
- 3899 00c7 6D61696E 		.ascii	"main\000"
- 3899      00
- 3900              	.LASF45:
- 3901 00cc 4F75745F 		.ascii	"Out_Z_mg\000"
- 3901      5A5F6D67 
+ 3892              	.LASF27:
+ 3893 0087 73697A65 		.ascii	"sizetype\000"
+ 3893      74797065 
+ 3893      00
+ 3894              	.LASF69:
+ 3895 0090 636F756E 		.ascii	"counter_red\000"
+ 3895      7465725F 
+ 3895      72656400 
+ 3896              	.LASF72:
+ 3897 009c 4932435F 		.ascii	"I2C_Peripheral_IsDeviceConnected\000"
+ 3897      50657269 
+ 3897      70686572 
+ 3897      616C5F49 
+ 3897      73446576 
+ 3898              	.LASF61:
+ 3899 00bd 666C6167 		.ascii	"flag_mode\000"
+ 3899      5F6D6F64 
+ 3899      6500
+ 3900              	.LASF89:
+ 3901 00c7 6D61696E 		.ascii	"main\000"
  3901      00
- 3902              	.LASF7:
- 3903 00d5 5F5F7569 		.ascii	"__uint16_t\000"
- 3903      6E743136 
- 3903      5F7400
- 3904              	.LASF52:
- 3905 00e0 68656164 		.ascii	"header\000"
- 3905      657200
- 3906              	.LASF37:
- 3907 00e7 696E7431 		.ascii	"int1_cfg_reg\000"
- 3907      5F636667 
- 3907      5F726567 
- 3907      00
- 3908              	.LASF46:
- 3909 00f4 4F75745F 		.ascii	"Out_X_ms2\000"
- 3909      585F6D73 
- 3909      3200
- 3910              	.LASF65:
- 3911 00fe 4F56525F 		.ascii	"OVR_FLAG\000"
- 3911      464C4147 
- 3911      00
- 3912              	.LASF66:
- 3913 0107 70657269 		.ascii	"period_red\000"
- 3913      6F645F72 
- 3913      656400
- 3914              	.LASF71:
- 3915 0112 636F756E 		.ascii	"counter_blue\000"
- 3915      7465725F 
- 3915      626C7565 
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 82
+ 3902              	.LASF45:
+ 3903 00cc 4F75745F 		.ascii	"Out_Z_mg\000"
+ 3903      5A5F6D67 
+ 3903      00
+ 3904              	.LASF7:
+ 3905 00d5 5F5F7569 		.ascii	"__uint16_t\000"
+ 3905      6E743136 
+ 3905      5F7400
+ 3906              	.LASF52:
+ 3907 00e0 68656164 		.ascii	"header\000"
+ 3907      657200
+ 3908              	.LASF37:
+ 3909 00e7 696E7431 		.ascii	"int1_cfg_reg\000"
+ 3909      5F636667 
+ 3909      5F726567 
+ 3909      00
+ 3910              	.LASF46:
+ 3911 00f4 4F75745F 		.ascii	"Out_X_ms2\000"
+ 3911      585F6D73 
+ 3911      3200
+ 3912              	.LASF65:
+ 3913 00fe 4F56525F 		.ascii	"OVR_FLAG\000"
+ 3913      464C4147 
+ 3913      00
+ 3914              	.LASF66:
+ 3915 0107 70657269 		.ascii	"period_red\000"
+ 3915      6F645F72 
+ 3915      656400
+ 3916              	.LASF71:
+ 3917 0112 636F756E 		.ascii	"counter_blue\000"
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\cchSPHFZ.s 			page 82
 
 
- 3915      00
- 3916              	.LASF15:
- 3917 011f 75696E74 		.ascii	"uint8_t\000"
- 3917      385F7400 
- 3918              	.LASF19:
- 3919 0127 696E7431 		.ascii	"int16\000"
- 3919      3600
- 3920              	.LASF29:
- 3921 012d 77686F5F 		.ascii	"who_am_i_reg\000"
- 3921      616D5F69 
- 3921      5F726567 
- 3921      00
- 3922              	.LASF31:
- 3923 013a 73746174 		.ascii	"status_register\000"
- 3923      75735F72 
- 3923      65676973 
- 3923      74657200 
- 3924              	.LASF56:
- 3925 014a 5A5F4461 		.ascii	"Z_Data\000"
- 3925      746100
- 3926              	.LASF54:
- 3927 0151 585F4461 		.ascii	"X_Data\000"
+ 3917      7465725F 
+ 3917      626C7565 
+ 3917      00
+ 3918              	.LASF15:
+ 3919 011f 75696E74 		.ascii	"uint8_t\000"
+ 3919      385F7400 
+ 3920              	.LASF19:
+ 3921 0127 696E7431 		.ascii	"int16\000"
+ 3921      3600
+ 3922              	.LASF29:
+ 3923 012d 77686F5F 		.ascii	"who_am_i_reg\000"
+ 3923      616D5F69 
+ 3923      5F726567 
+ 3923      00
+ 3924              	.LASF31:
+ 3925 013a 73746174 		.ascii	"status_register\000"
+ 3925      75735F72 
+ 3925      65676973 
+ 3925      74657200 
+ 3926              	.LASF56:
+ 3927 014a 5A5F4461 		.ascii	"Z_Data\000"
  3927      746100
- 3928              	.LASF49:
- 3929 0158 4F75745F 		.ascii	"Out_X_mms2\000"
- 3929      585F6D6D 
- 3929      733200
- 3930              	.LASF1:
- 3931 0163 666C6F61 		.ascii	"float\000"
- 3931      7400
- 3932              	.LASF50:
- 3933 0169 4F75745F 		.ascii	"Out_Y_mms2\000"
- 3933      595F6D6D 
- 3933      733200
- 3934              	.LASF12:
- 3935 0174 6C6F6E67 		.ascii	"long long int\000"
- 3935      206C6F6E 
- 3935      6720696E 
- 3935      7400
- 3936              	.LASF59:
- 3937 0182 6D65616E 		.ascii	"mean_Z_mg\000"
- 3937      5F5A5F6D 
- 3937      6700
- 3938              	.LASF40:
- 3939 018c 4F75745F 		.ascii	"Out_X\000"
- 3939      5800
- 3940              	.LASF41:
- 3941 0192 4F75745F 		.ascii	"Out_Y\000"
- 3941      5900
- 3942              	.LASF42:
- 3943 0198 4F75745F 		.ascii	"Out_Z\000"
- 3943      5A00
- 3944              	.LASF10:
- 3945 019e 6C6F6E67 		.ascii	"long int\000"
- 3945      20696E74 
- 3945      00
- 3946              	.LASF63:
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 83
+ 3928              	.LASF54:
+ 3929 0151 585F4461 		.ascii	"X_Data\000"
+ 3929      746100
+ 3930              	.LASF49:
+ 3931 0158 4F75745F 		.ascii	"Out_X_mms2\000"
+ 3931      585F6D6D 
+ 3931      733200
+ 3932              	.LASF1:
+ 3933 0163 666C6F61 		.ascii	"float\000"
+ 3933      7400
+ 3934              	.LASF50:
+ 3935 0169 4F75745F 		.ascii	"Out_Y_mms2\000"
+ 3935      595F6D6D 
+ 3935      733200
+ 3936              	.LASF12:
+ 3937 0174 6C6F6E67 		.ascii	"long long int\000"
+ 3937      206C6F6E 
+ 3937      6720696E 
+ 3937      7400
+ 3938              	.LASF59:
+ 3939 0182 6D65616E 		.ascii	"mean_Z_mg\000"
+ 3939      5F5A5F6D 
+ 3939      6700
+ 3940              	.LASF40:
+ 3941 018c 4F75745F 		.ascii	"Out_X\000"
+ 3941      5800
+ 3942              	.LASF41:
+ 3943 0192 4F75745F 		.ascii	"Out_Y\000"
+ 3943      5900
+ 3944              	.LASF42:
+ 3945 0198 4F75745F 		.ascii	"Out_Z\000"
+ 3945      5A00
+ 3946              	.LASF10:
+ 3947 019e 6C6F6E67 		.ascii	"long int\000"
+ 3947      20696E74 
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\cchSPHFZ.s 			page 83
 
 
- 3947 01a7 696E7431 		.ascii	"int1_src_reg\000"
- 3947      5F737263 
- 3947      5F726567 
  3947      00
- 3948              	.LASF76:
- 3949 01b4 43535F4C 		.ascii	"CS_LIS3DH_Write\000"
- 3949      49533344 
- 3949      485F5772 
- 3949      69746500 
- 3950              	.LASF5:
- 3951 01c4 5F5F7569 		.ascii	"__uint8_t\000"
- 3951      6E74385F 
- 3951      7400
- 3952              	.LASF80:
- 3953 01ce 6973725F 		.ascii	"isr_TIMER_StartEx\000"
- 3953      54494D45 
- 3953      525F5374 
- 3953      61727445 
- 3953      7800
- 3954              	.LASF24:
- 3955 01e0 4552524F 		.ascii	"ERROR\000"
- 3955      5200
- 3956              	.LASF35:
- 3957 01e6 6669666F 		.ascii	"fifo_ctrl_reg\000"
- 3957      5F637472 
- 3957      6C5F7265 
- 3957      6700
- 3958              	.LASF26:
- 3959 01f4 6C6F6E67 		.ascii	"long double\000"
- 3959      20646F75 
- 3959      626C6500 
- 3960              	.LASF4:
- 3961 0200 756E7369 		.ascii	"unsigned char\000"
- 3961      676E6564 
- 3961      20636861 
- 3961      7200
- 3962              	.LASF62:
- 3963 020e 636F756E 		.ascii	"counter\000"
- 3963      74657200 
- 3964              	.LASF73:
- 3965 0216 73707269 		.ascii	"sprintf\000"
- 3965      6E746600 
- 3966              	.LASF83:
- 3967 021e 4932435F 		.ascii	"I2C_Peripheral_ReadRegister\000"
- 3967      50657269 
- 3967      70686572 
- 3967      616C5F52 
- 3967      65616452 
- 3968              	.LASF57:
- 3969 023a 6D65616E 		.ascii	"mean_X_mg\000"
- 3969      5F585F6D 
- 3969      6700
- 3970              	.LASF3:
- 3971 0244 7369676E 		.ascii	"signed char\000"
- 3971      65642063 
- 3971      68617200 
- 3972              	.LASF85:
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 84
+ 3948              	.LASF63:
+ 3949 01a7 696E7431 		.ascii	"int1_src_reg\000"
+ 3949      5F737263 
+ 3949      5F726567 
+ 3949      00
+ 3950              	.LASF76:
+ 3951 01b4 43535F4C 		.ascii	"CS_LIS3DH_Write\000"
+ 3951      49533344 
+ 3951      485F5772 
+ 3951      69746500 
+ 3952              	.LASF5:
+ 3953 01c4 5F5F7569 		.ascii	"__uint8_t\000"
+ 3953      6E74385F 
+ 3953      7400
+ 3954              	.LASF80:
+ 3955 01ce 6973725F 		.ascii	"isr_TIMER_StartEx\000"
+ 3955      54494D45 
+ 3955      525F5374 
+ 3955      61727445 
+ 3955      7800
+ 3956              	.LASF24:
+ 3957 01e0 4552524F 		.ascii	"ERROR\000"
+ 3957      5200
+ 3958              	.LASF35:
+ 3959 01e6 6669666F 		.ascii	"fifo_ctrl_reg\000"
+ 3959      5F637472 
+ 3959      6C5F7265 
+ 3959      6700
+ 3960              	.LASF26:
+ 3961 01f4 6C6F6E67 		.ascii	"long double\000"
+ 3961      20646F75 
+ 3961      626C6500 
+ 3962              	.LASF4:
+ 3963 0200 756E7369 		.ascii	"unsigned char\000"
+ 3963      676E6564 
+ 3963      20636861 
+ 3963      7200
+ 3964              	.LASF62:
+ 3965 020e 636F756E 		.ascii	"counter\000"
+ 3965      74657200 
+ 3966              	.LASF73:
+ 3967 0216 73707269 		.ascii	"sprintf\000"
+ 3967      6E746600 
+ 3968              	.LASF83:
+ 3969 021e 4932435F 		.ascii	"I2C_Peripheral_ReadRegister\000"
+ 3969      50657269 
+ 3969      70686572 
+ 3969      616C5F52 
+ 3969      65616452 
+ 3970              	.LASF57:
+ 3971 023a 6D65616E 		.ascii	"mean_X_mg\000"
+ 3971      5F585F6D 
+ 3971      6700
+ 3972              	.LASF3:
+ 3973 0244 7369676E 		.ascii	"signed char\000"
+ 3973      65642063 
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\cchSPHFZ.s 			page 84
 
 
- 3973 0250 4932435F 		.ascii	"I2C_Peripheral_ReadRegisterMulti\000"
- 3973      50657269 
- 3973      70686572 
- 3973      616C5F52 
- 3973      65616452 
- 3974              	.LASF13:
- 3975 0271 6C6F6E67 		.ascii	"long long unsigned int\000"
- 3975      206C6F6E 
- 3975      6720756E 
- 3975      7369676E 
- 3975      65642069 
- 3976              	.LASF84:
- 3977 0288 4932435F 		.ascii	"I2C_Peripheral_WriteRegister\000"
- 3977      50657269 
- 3977      70686572 
- 3977      616C5F57 
- 3977      72697465 
- 3978              	.LASF14:
- 3979 02a5 756E7369 		.ascii	"unsigned int\000"
- 3979      676E6564 
- 3979      20696E74 
- 3979      00
- 3980              	.LASF17:
- 3981 02b2 75696E74 		.ascii	"uint16_t\000"
- 3981      31365F74 
+ 3973      68617200 
+ 3974              	.LASF85:
+ 3975 0250 4932435F 		.ascii	"I2C_Peripheral_ReadRegisterMulti\000"
+ 3975      50657269 
+ 3975      70686572 
+ 3975      616C5F52 
+ 3975      65616452 
+ 3976              	.LASF13:
+ 3977 0271 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 3977      206C6F6E 
+ 3977      6720756E 
+ 3977      7369676E 
+ 3977      65642069 
+ 3978              	.LASF84:
+ 3979 0288 4932435F 		.ascii	"I2C_Peripheral_WriteRegister\000"
+ 3979      50657269 
+ 3979      70686572 
+ 3979      616C5F57 
+ 3979      72697465 
+ 3980              	.LASF14:
+ 3981 02a5 756E7369 		.ascii	"unsigned int\000"
+ 3981      676E6564 
+ 3981      20696E74 
  3981      00
- 3982              	.LASF47:
- 3983 02bb 4F75745F 		.ascii	"Out_Y_ms2\000"
- 3983      595F6D73 
- 3983      3200
- 3984              	.LASF11:
- 3985 02c5 6C6F6E67 		.ascii	"long unsigned int\000"
- 3985      20756E73 
- 3985      69676E65 
- 3985      6420696E 
- 3985      7400
- 3986              	.LASF78:
- 3987 02d7 4932435F 		.ascii	"I2C_Peripheral_Start\000"
- 3987      50657269 
- 3987      70686572 
- 3987      616C5F53 
- 3987      74617274 
- 3988              	.LASF8:
- 3989 02ec 73686F72 		.ascii	"short unsigned int\000"
- 3989      7420756E 
- 3989      7369676E 
- 3989      65642069 
- 3989      6E7400
- 3990              	.LASF22:
- 3991 02ff 63686172 		.ascii	"char\000"
- 3991      00
- 3992              	.LASF43:
- 3993 0304 4F75745F 		.ascii	"Out_X_mg\000"
- 3993      585F6D67 
+ 3982              	.LASF17:
+ 3983 02b2 75696E74 		.ascii	"uint16_t\000"
+ 3983      31365F74 
+ 3983      00
+ 3984              	.LASF47:
+ 3985 02bb 4F75745F 		.ascii	"Out_Y_ms2\000"
+ 3985      595F6D73 
+ 3985      3200
+ 3986              	.LASF11:
+ 3987 02c5 6C6F6E67 		.ascii	"long unsigned int\000"
+ 3987      20756E73 
+ 3987      69676E65 
+ 3987      6420696E 
+ 3987      7400
+ 3988              	.LASF78:
+ 3989 02d7 4932435F 		.ascii	"I2C_Peripheral_Start\000"
+ 3989      50657269 
+ 3989      70686572 
+ 3989      616C5F53 
+ 3989      74617274 
+ 3990              	.LASF8:
+ 3991 02ec 73686F72 		.ascii	"short unsigned int\000"
+ 3991      7420756E 
+ 3991      7369676E 
+ 3991      65642069 
+ 3991      6E7400
+ 3992              	.LASF22:
+ 3993 02ff 63686172 		.ascii	"char\000"
  3993      00
- 3994              	.LASF77:
- 3995 030d 53444F5F 		.ascii	"SDO_LIS3DH_Write\000"
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 85
-
-
- 3995      4C495333 
- 3995      44485F57 
- 3995      72697465 
+ 3994              	.LASF43:
+ 3995 0304 4F75745F 		.ascii	"Out_X_mg\000"
+ 3995      585F6D67 
  3995      00
- 3996              	.LASF18:
- 3997 031e 696E7433 		.ascii	"int32_t\000"
- 3997      325F7400 
- 3998              	.LASF58:
- 3999 0326 6D65616E 		.ascii	"mean_Y_mg\000"
- 3999      5F595F6D 
- 3999      6700
- 4000              	.LASF70:
- 4001 0330 636F756E 		.ascii	"counter_green\000"
- 4001      7465725F 
- 4001      67726565 
- 4001      6E00
- 4002              	.LASF16:
- 4003 033e 696E7431 		.ascii	"int16_t\000"
- 4003      365F7400 
- 4004              	.LASF88:
- 4005 0346 433A5C55 		.ascii	"C:\\Users\\Simone\\Desktop\\PSOC_final-project\\Fin"
- 4005      73657273 
- 4005      5C53696D 
- 4005      6F6E655C 
- 4005      4465736B 
- 4006 0374 616C5F50 		.ascii	"al_Project.cydsn\000"
- 4006      726F6A65 
- 4006      63742E63 
- 4006      7964736E 
- 4006      00
- 4007              	.LASF87:
- 4008 0385 6D61696E 		.ascii	"main.c\000"
- 4008      2E6300
- 4009              	.LASF28:
- 4010 038c 6D657373 		.ascii	"message\000"
- 4010      61676500 
- 4011              	.LASF20:
- 4012 0394 696E7433 		.ascii	"int32\000"
- 4012      3200
- 4013              	.LASF0:
- 4014 039a 646F7562 		.ascii	"double\000"
- 4014      6C6500
- 4015              	.LASF55:
- 4016 03a1 595F4461 		.ascii	"Y_Data\000"
- 4016      746100
- 4017              	.LASF39:
- 4018 03a8 696E7431 		.ascii	"int1_duration_reg\000"
- 4018      5F647572 
- 4018      6174696F 
- 4018      6E5F7265 
- 4018      6700
- 4019              	.LASF75:
- 4020 03ba 54696D65 		.ascii	"Timer_Start\000"
- 4020      725F5374 
- 4020      61727400 
- 4021              	.LASF53:
- 4022 03c6 666F6F74 		.ascii	"footer\000"
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 86
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\cchSPHFZ.s 			page 85
 
 
- 4022      657200
- 4023              	.LASF9:
- 4024 03cd 5F5F696E 		.ascii	"__int32_t\000"
- 4024      7433325F 
- 4024      7400
- 4025              	.LASF79:
- 4026 03d7 55415254 		.ascii	"UART_Debug_Start\000"
- 4026      5F446562 
- 4026      75675F53 
- 4026      74617274 
- 4026      00
- 4027              	.LASF30:
- 4028 03e8 6572726F 		.ascii	"error\000"
- 4028      7200
- 4029              	.LASF44:
- 4030 03ee 4F75745F 		.ascii	"Out_Y_mg\000"
- 4030      595F6D67 
- 4030      00
- 4031              	.LASF81:
- 4032 03f7 6973725F 		.ascii	"isr_LIS3DH_StartEx\000"
- 4032      4C495333 
- 4032      44485F53 
- 4032      74617274 
- 4032      457800
- 4033              	.LASF51:
- 4034 040a 4F75745F 		.ascii	"Out_Z_mms2\000"
- 4034      5A5F6D6D 
- 4034      733200
- 4035              	.LASF64:
- 4036 0415 49544D5F 		.ascii	"ITM_RxBuffer\000"
- 4036      52784275 
- 4036      66666572 
- 4036      00
- 4037              	.LASF86:
- 4038 0422 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
- 4038      43313120 
- 4038      352E342E 
- 4038      31203230 
- 4038      31363036 
- 4039 0455 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
- 4039      20726576 
- 4039      6973696F 
- 4039      6E203233 
- 4039      37373135 
- 4040 0488 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
- 4040      66756E63 
- 4040      74696F6E 
- 4040      2D736563 
- 4040      74696F6E 
- 4041              	.LASF82:
- 4042 04b0 43794465 		.ascii	"CyDelay\000"
- 4042      6C617900 
- 4043              	.LASF48:
- 4044 04b8 4F75745F 		.ascii	"Out_Z_ms2\000"
- 4044      5A5F6D73 
- 4044      3200
- 4045              	.LASF68:
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\ccqUlyys.s 			page 87
+ 3996              	.LASF77:
+ 3997 030d 53444F5F 		.ascii	"SDO_LIS3DH_Write\000"
+ 3997      4C495333 
+ 3997      44485F57 
+ 3997      72697465 
+ 3997      00
+ 3998              	.LASF18:
+ 3999 031e 696E7433 		.ascii	"int32_t\000"
+ 3999      325F7400 
+ 4000              	.LASF58:
+ 4001 0326 6D65616E 		.ascii	"mean_Y_mg\000"
+ 4001      5F595F6D 
+ 4001      6700
+ 4002              	.LASF70:
+ 4003 0330 636F756E 		.ascii	"counter_green\000"
+ 4003      7465725F 
+ 4003      67726565 
+ 4003      6E00
+ 4004              	.LASF16:
+ 4005 033e 696E7431 		.ascii	"int16_t\000"
+ 4005      365F7400 
+ 4006              	.LASF88:
+ 4007 0346 433A5C55 		.ascii	"C:\\Users\\Simone\\Desktop\\PSOC_final-project\\Fin"
+ 4007      73657273 
+ 4007      5C53696D 
+ 4007      6F6E655C 
+ 4007      4465736B 
+ 4008 0374 616C5F50 		.ascii	"al_Project.cydsn\000"
+ 4008      726F6A65 
+ 4008      63742E63 
+ 4008      7964736E 
+ 4008      00
+ 4009              	.LASF87:
+ 4010 0385 6D61696E 		.ascii	"main.c\000"
+ 4010      2E6300
+ 4011              	.LASF28:
+ 4012 038c 6D657373 		.ascii	"message\000"
+ 4012      61676500 
+ 4013              	.LASF20:
+ 4014 0394 696E7433 		.ascii	"int32\000"
+ 4014      3200
+ 4015              	.LASF0:
+ 4016 039a 646F7562 		.ascii	"double\000"
+ 4016      6C6500
+ 4017              	.LASF55:
+ 4018 03a1 595F4461 		.ascii	"Y_Data\000"
+ 4018      746100
+ 4019              	.LASF39:
+ 4020 03a8 696E7431 		.ascii	"int1_duration_reg\000"
+ 4020      5F647572 
+ 4020      6174696F 
+ 4020      6E5F7265 
+ 4020      6700
+ 4021              	.LASF75:
+ 4022 03ba 54696D65 		.ascii	"Timer_Start\000"
+ 4022      725F5374 
+ 4022      61727400 
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\cchSPHFZ.s 			page 86
 
 
- 4046 04c2 70657269 		.ascii	"period_blue\000"
- 4046      6F645F62 
- 4046      6C756500 
- 4047              	.LASF25:
- 4048 04ce 4572726F 		.ascii	"ErrorCode\000"
- 4048      72436F64 
- 4048      6500
- 4049              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
+ 4023              	.LASF53:
+ 4024 03c6 666F6F74 		.ascii	"footer\000"
+ 4024      657200
+ 4025              	.LASF9:
+ 4026 03cd 5F5F696E 		.ascii	"__int32_t\000"
+ 4026      7433325F 
+ 4026      7400
+ 4027              	.LASF79:
+ 4028 03d7 55415254 		.ascii	"UART_Debug_Start\000"
+ 4028      5F446562 
+ 4028      75675F53 
+ 4028      74617274 
+ 4028      00
+ 4029              	.LASF30:
+ 4030 03e8 6572726F 		.ascii	"error\000"
+ 4030      7200
+ 4031              	.LASF44:
+ 4032 03ee 4F75745F 		.ascii	"Out_Y_mg\000"
+ 4032      595F6D67 
+ 4032      00
+ 4033              	.LASF81:
+ 4034 03f7 6973725F 		.ascii	"isr_LIS3DH_StartEx\000"
+ 4034      4C495333 
+ 4034      44485F53 
+ 4034      74617274 
+ 4034      457800
+ 4035              	.LASF51:
+ 4036 040a 4F75745F 		.ascii	"Out_Z_mms2\000"
+ 4036      5A5F6D6D 
+ 4036      733200
+ 4037              	.LASF64:
+ 4038 0415 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 4038      52784275 
+ 4038      66666572 
+ 4038      00
+ 4039              	.LASF86:
+ 4040 0422 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 4040      43313120 
+ 4040      352E342E 
+ 4040      31203230 
+ 4040      31363036 
+ 4041 0455 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 4041      20726576 
+ 4041      6973696F 
+ 4041      6E203233 
+ 4041      37373135 
+ 4042 0488 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 4042      66756E63 
+ 4042      74696F6E 
+ 4042      2D736563 
+ 4042      74696F6E 
+ 4043              	.LASF82:
+ 4044 04b0 43794465 		.ascii	"CyDelay\000"
+ 4044      6C617900 
+ 4045              	.LASF48:
+ 4046 04b8 4F75745F 		.ascii	"Out_Z_ms2\000"
+ 4046      5A5F6D73 
+ARM GAS  C:\Users\Simone\AppData\Local\Temp\cchSPHFZ.s 			page 87
+
+
+ 4046      3200
+ 4047              	.LASF68:
+ 4048 04c2 70657269 		.ascii	"period_blue\000"
+ 4048      6F645F62 
+ 4048      6C756500 
+ 4049              	.LASF25:
+ 4050 04ce 4572726F 		.ascii	"ErrorCode\000"
+ 4050      72436F64 
+ 4050      6500
+ 4051              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

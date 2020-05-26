@@ -216,7 +216,7 @@ int main(void)
      
     
    
-    uint8_t ctrl_reg_5 = FIFO_ENABLE;
+    uint8_t ctrl_reg_5 = FIFO_ENABLE_LATCH;
     
         error = I2C_Peripheral_WriteRegister(LIS3DH_DEVICE_ADDRESS,
                                              LIS3DH_CTRL_REG_5,
@@ -257,7 +257,7 @@ int main(void)
     
     
     //ENABLING FIFO INTERRUPT ON OVERRUN
-         uint8_t ctrl_reg_3 = INT_FIFO_WMK;
+         uint8_t ctrl_reg_3 = INT_FIFO_WMK_IA1;
     
         error = I2C_Peripheral_WriteRegister(LIS3DH_DEVICE_ADDRESS,
                                              LIS3DH_CTRL_REG_3,

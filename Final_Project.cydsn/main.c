@@ -488,13 +488,16 @@ int main(void)
                     int i;
                     for (i=0;i<6;i=i+2){
                     
-                        data_EEPROM_THR[i+counter]=OutArray[i+1];
-                        data_EEPROM_THR[i+counter+1]=OutArray[i+1+1];
-                        data_write = (data_EEPROM_THR[i+counter] | (data_EEPROM_THR[i+counter+1]<<8));
+                        data_EEPROM_THR[i+counter*6]=OutArray[i+1];
+                        data_EEPROM_THR[i+counter*6+1]=OutArray[i+1+1];
+                        data_write = (data_EEPROM_THR[i+counter*6] | (data_EEPROM_THR[i+counter*6+1]<<8));
+                        
                         sprintf(message, "Data write: %d \r\n",data_write);
                         UART_Debug_PutString(message);
-                        sprintf(message, "N cycle: %d\r\n\n", counter);
-                        UART_Debug_PutString(message);
+                        
+                        
+                        //sprintf(message, "N cycle: %d\r\n\n", counter);
+                        //UART_Debug_PutString(message);
                 
                     }
                     if (counter==6)
@@ -518,12 +521,17 @@ int main(void)
                         for (i=0;i<42;i=i+2)
                         {
                             data_read = (read_data_EEPROM_THR[i] | (read_data_EEPROM_THR[i+1]<<8));
-                            sprintf(message, "Data read: %d \r\n",data_read);
+                            sprintf(message, "Data read: %d\r\n",data_read);
                             UART_Debug_PutString(message);
+                            
+                            
                         }
                         data_read = (read_data_EEPROM_THR[42] | (read_data_EEPROM_THR[43]<<8) | (read_data_EEPROM_THR[43]<<16)|(read_data_EEPROM_THR[43]<<24));
                         sprintf(message, "Data read: %d \r\n",data_read);
                         UART_Debug_PutString(message);
+                        error = I2C_Peripheral_ReadRegister(LIS3DH_DEVICE_ADDRESS,
+                                     LIS3DH_INT1_SRC,
+                                     &int1_src_reg);
                     }    
                 }
                /*error = I2C_Peripheral_ReadRegister(LIS3DH_DEVICE_ADDRESS,

@@ -253,19 +253,21 @@
     <Group key="Pin">
       <Data key="02f2cf2c-2c7a-49df-9246-7a3435c21be3" value="SCL" />
       <Data key="3ea296aa-3dc7-4905-8646-423aad558b93" value="BLUE_Led" />
-      <Data key="5b3cbe2b-9a85-4d90-8a1f-16acfa56f834" value="CS_EEPROM" />
+      <Data key="5b3cbe2b-9a85-4d90-8a1f-16acfa56f834" value="CS_1" />
       <Data key="8d318d8b-cf7b-4b6b-b02c-ab1c5c49d0ba" value="ButtonPin" />
-      <Data key="83b2fde2-60ad-45b6-9e5c-cb3baa6e3f9a" value="SCLK" />
+      <Data key="83b2fde2-60ad-45b6-9e5c-cb3baa6e3f9a" value="SCLK_1" />
       <Data key="630a39df-e60c-4ddd-b9ad-455ba7c88ba1" value="CS_LIS3DH" />
       <Data key="968f5856-1b5b-49b7-ab3c-909cb47fe84f" value="INT_Led" />
-      <Data key="18694c7e-5041-41d3-a253-35f921f801a8" value="MISO" />
+      <Data key="18694c7e-5041-41d3-a253-35f921f801a8" value="MISO_1" />
       <Data key="22863ebe-a37b-476f-b252-6e49a8c00b12" value="SDA" />
       <Data key="859198ec-ee48-4ea3-89b9-61fedf837481" value="INT_LIS3DH" />
       <Data key="1425177d-0d0e-4468-8bcc-e638e5509a9b" value="Rx" />
       <Data key="77715107-f8d5-47e5-a629-0fb83101ac6b" value="Potentiometer" />
+      <Data key="a0d5b680-ba36-4197-b619-344464da52a7" value="TC" />
       <Data key="b17f685a-3b2d-476e-a10c-928e8923ca44" value="SDO_LIS3DH" />
+      <Data key="d290b41f-870b-49f7-96bf-9d3916ffbb68" value="TC" />
       <Data key="e851a3b9-efb8-48be-bbb8-b303b216c393" value="RED_Led" />
-      <Data key="e6886ca3-5f15-413c-9b34-94c3e9c5ff67" value="MOSI" />
+      <Data key="e6886ca3-5f15-413c-9b34-94c3e9c5ff67" value="MOSI_1" />
       <Data key="ed092b9b-d398-4703-be89-cebf998501f6" value="Tx" />
       <Data key="f1049d20-cbad-49db-a08f-a393cac104b3" value="GREEN_Led" />
     </Group>
@@ -3414,9 +3416,19 @@
         <Data key="Port Format" value="3,3" />
       </Group>
     </Group>
+    <Group key="a0d5b680-ba36-4197-b619-344464da52a7">
+      <Group key="0">
+        <Data key="Port Format" value="1,2" />
+      </Group>
+    </Group>
     <Group key="b17f685a-3b2d-476e-a10c-928e8923ca44">
       <Group key="0">
         <Data key="Port Format" value="12,2" />
+      </Group>
+    </Group>
+    <Group key="d290b41f-870b-49f7-96bf-9d3916ffbb68">
+      <Group key="0">
+        <Data key="Port Format" value="1,2" />
       </Group>
     </Group>
     <Group key="e851a3b9-efb8-48be-bbb8-b303b216c393">

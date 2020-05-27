@@ -5,7 +5,8 @@
  * This header file contains macros and function prototypes to interface
  * with the SPI Master (SPIM) of the PSoC.
  *
- * 
+ * @author Mattia Pesenti
+ * @date 9 April, 2020
 */
 
 /*											 

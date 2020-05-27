@@ -5,7 +5,8 @@
  * This header file contains macros and function prototypes to interface
  * with the EEPROM 25LC256.
  *
- * 
+ * @author Mattia Pesenti
+ * @date 9 April, 2020
 */
 
 #pragma once
@@ -45,9 +46,6 @@ extern uint8_t eeprom_Status;
 
 #define SPI_EEPROM_PAGE_SIZE   64
 #define SPI_EEPROM_SIZE_BYTE   0x7FFF
-
-/* Address of memory register*/
-#define EEPROM_REG_THR 0x0002
 
 /*** ========= FUNCTION DECLARATIONS ========= ***/
 

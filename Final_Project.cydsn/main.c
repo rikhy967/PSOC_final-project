@@ -10,8 +10,6 @@
 
 #define EEPROM_REG_THR 0x0002
 
-
-
 int main(void)
 {
     CyGlobalIntEnable; /* Enable global interrupts. */
@@ -21,9 +19,9 @@ int main(void)
     /***************** VARIABLES' INITIALIZATION *************/
     
     /* Initialization of blinking period of the RGB led channels in order to be set OFF */
-    period_red = THR_OFF; 
-    period_green = THR_OFF;
-    period_blue = THR_OFF;
+    period_red = THR_OFF+1; 
+    period_green = THR_OFF+1;
+    period_blue = THR_OFF+1;
     
     /* Initialization of the counter needed for toggle of RGB Led */
     counter_red = period_red;
@@ -33,21 +31,19 @@ int main(void)
     /* String to print out messages on the UART */
     char message[50];
     
-    /* Status variable for Hardware menu*/
-    
-    status=0;
     /**************** COMPONENTS' INITIALIZATION *******************/
     
     /* Timer */
     Timer_Start(); 
+    Timer_Button_Start();
     
     /* I2C communication */
     CS_LIS3DH_Write(1); 
     SDO_LIS3DH_Write(0);
     I2C_Peripheral_Start();
+    /*SPI communication*/
     SPIM_1_Start();
     CyDelay(10);
-    Timer_Button_Start();
     /* UART Debug communication*/
     UART_Debug_Start();
     
@@ -58,15 +54,15 @@ int main(void)
     //isr_LIS3DH_StartEx(ISR_LIS3DH_FIFO_OVERRUN); //LIS3DH interrupt enable
     
     /* Timer */
-    isr_TIMER_StartEx(ISR_TIMER);
+    //isr_TIMER_StartEx(ISR_TIMER);
     
     /* LIS3DH Watermark*/
-    isr_LIS3DH_StartEx(ISR_LIS3DH_FIFO_WATERMARK);
-    isr_Button_StartEx(ISR_COUNTER_BUTTON);
+    //isr_LIS3DH_StartEx(ISR_LIS3DH_FIFO_WATERMARK); 
     
     CyDelay(5); //"The boot procedure is complete about 5 milliseconds after device power-up."
     
     timestamp=0;
+    status=0;
 
     // Check which devices are present on the I2C bus
     for (int i = 0 ; i < 128; i++)
@@ -343,7 +339,43 @@ int main(void)
         }
     /*******************************************************/
     
+    /*uint16_t try[2];
+    uint16_t read_try[2];
+    try[0]=10;
+    try[1]=20;
+    EEPROM_writePage(EEPROM_REG_THR,(uint8_t*)try,2);
+    EEPROM_waitForWriteComplete();
+    EEPROM_readPage(EEPROM_REG_THR,(uint8_t*)read_try,2);    
+    sprintf(message, " Try values on 0x0002: %d %d\r\n\n", read_try[0],read_try[1]);
+    UART_Debug_PutString(message);
+    for(uint8_t i =0; i<8; i++)
+    {EEPROM_writePage(EEPROM_REG_THR,(uint8_t*)try,2);
+    EEPROM_waitForWriteComplete();
+                                     EEPROM_readPage(EEPROM_REG_THR,(uint8_t*)read_try,2);    
+                                     sprintf(message, " Try values on 0x0002: %d %d \r\n", read_try[0], read_try[1]);
+                                     UART_Debug_PutString(message);}  */ 
+    int16_t data[3] = {10, 15, 20};   
+    int16_t data_read_[3];
+    uint8_t i;
+    uint16_t address = 0x0001;
+    uint8_t data_r;
+    for(i=0; i<8; i++)
+       {//address=i;
+        EEPROM_writeByte(address, i);
+        EEPROM_waitForWriteComplete();
+        data_r= EEPROM_readByte(address);
+        sprintf(message, "** EEPROM Read = %d [%d]\r\n", data_r, i);
+        UART_Debug_PutString(message);
     
+       }
+    for (i=0; i<8; i++)
+    {EEPROM_writePage(0x0002,(uint8_t*) data, 6);
+     EEPROM_waitForWriteComplete();
+     EEPROM_readPage(0x0002, (uint8_t*) data_read_, 6);
+    sprintf(message, "** EEPROM Read = %d %d %d\r\n", data_read_[0], data_read_[1], data_read_[2]);
+    UART_Debug_PutString(message);
+    }
+        
     
     //variables to save the registers output value in digit
     int16_t Out_X; 
@@ -354,17 +386,6 @@ int main(void)
     int16_t Out_X_mg; 
     int16_t Out_Y_mg;
     int16_t Out_Z_mg;
-    
-    //float variables to save the output value in m/s^2
-    float32 Out_X_ms2;
-    float32 Out_Y_ms2;
-    float32 Out_Z_ms2;
-    
-    //int  variables for the casting of the float values, the obtained results are acceleration
-    //values in mm/s^2
-    int32_t Out_X_mms2;
-    int32_t Out_Y_mms2;
-    int32_t Out_Z_mms2;
     
     uint8_t header = 0xA0;
     uint8_t footer = 0xC0;
@@ -385,12 +406,6 @@ int main(void)
     
     
     uint8_t  fss; // Number of unread samples
-    
-    uint8_t flag_mode = 1; // 1= Stream Mode, 0= Read data
-    //uint8_t overrun_reg;
-    //uint8_t empty_reg;
-    //uint8_t wmk_reg;
-    //uint8_t flag_overrun = 0;
     uint8_t counter=0;
     uint8_t  int1_src_reg;
     uint8_t data_EEPROM_THR[46];
@@ -398,62 +413,65 @@ int main(void)
     int16 data_write;
     int16 data_read;
     int32 timestamp_read;
-    uint8_t init=0;
     
-    fifo_ctrl_reg = FIFO_MODE_THR_WMK;
-    error = I2C_Peripheral_WriteRegister(LIS3DH_DEVICE_ADDRESS,
+    isr_TIMER_StartEx(ISR_TIMER);
+    isr_Button_StartEx(ISR_COUNTER_BUTTON);
+    /*fifo_ctrl_reg = STREAM_MODE_THR_WMK;
+            error = I2C_Peripheral_WriteRegister(LIS3DH_DEVICE_ADDRESS,
                                              LIS3DH_FIFO_CTRL_REG,
-                                             fifo_ctrl_reg);
-            
-    
+                                             fifo_ctrl_reg);*/
+    uint8_t repetition=0;
     for(;;)
     {   
-        
-        
         switch (status){
-            case 0:
-            
-                RED_Led_Write(1);
-                GREEN_Led_Write(1);
-                BLUE_Led_Write(1);
-                INT_Led_Write(0);
-                
-                isr_LIS3DH_Stop();
-         
-                timestamp=0;
-                I2C_Peripheral_Stop();
-                SPIM_1_Stop();
-                //UART_Debug_Stop();
-                fifo_ctrl_reg = BYPASS_MODE;
-                error = I2C_Peripheral_WriteRegister(LIS3DH_DEVICE_ADDRESS,
-                                             LIS3DH_FIFO_CTRL_REG,
-                                             fifo_ctrl_reg);
-                
-                init=1;
-            
-            break;
-                
-            
-        
-            case 1:
-                if (init==1){
-                    fifo_ctrl_reg = STREAM_MODE_THR_WMK;
-                    error = I2C_Peripheral_WriteRegister(LIS3DH_DEVICE_ADDRESS,
-                                                 LIS3DH_FIFO_CTRL_REG,
-                                                 fifo_ctrl_reg);
-                    INT_Led_Write(1);
-                    isr_LIS3DH_StartEx(ISR_LIS3DH_FIFO_WATERMARK);
+               case 0:
+            //sprintf(message, "** status = %d\r\n", status);
+                      //UART_Debug_PutString(message);
+            if (repetition==0)
+                     {I2C_Peripheral_Start();
+                      fifo_ctrl_reg = BYPASS_MODE;
+                        error = I2C_Peripheral_WriteRegister(LIS3DH_DEVICE_ADDRESS,
+                                                             LIS3DH_FIFO_CTRL_REG,
+                                                             fifo_ctrl_reg);
+                    repetition=1;
+                    isr_LIS3DH_Stop();
+                    I2C_Peripheral_Stop();
+                    SPIM_1_Stop();
+                    }
+                      
+                      RED_Led_Write(1);
+                      GREEN_Led_Write(1);
+                      BLUE_Led_Write(1);
+                      INT_Led_Write(0);
+                      
+                      
+                      timestamp=0;
+                      
+                     
                     
-                    I2C_Peripheral_Start();
-                    SPIM_1_Start();
-                    CyDelay(10);
-                    init=0;
-                }
-                
-                
-        
-        
-                while (OVR_FLAG){
+               break;
+                    
+               case 1:
+                      //sprintf(message, "** status = %d\r\n", status);
+                      //UART_Debug_PutString(message);
+                      //I2C_Peripheral_Start();
+                    if(repetition==1)
+                    {
+                      I2C_Peripheral_Start();
+                      fifo_ctrl_reg = STREAM_MODE_THR_WMK;
+                      error = I2C_Peripheral_WriteRegister(LIS3DH_DEVICE_ADDRESS,
+                                                             LIS3DH_FIFO_CTRL_REG,
+                                                             fifo_ctrl_reg);
+                      INT_Led_Write(1);  
+                      repetition=0;
+                      isr_LIS3DH_StartEx(ISR_LIS3DH_FIFO_WATERMARK);
+                      SPIM_1_Start();
+                      CyDelay(10);
+                      
+                    }
+                      
+                    
+                    while (OVR_FLAG){
             
              
             error = I2C_Peripheral_ReadRegisterMulti(LIS3DH_DEVICE_ADDRESS,
@@ -475,10 +493,10 @@ int main(void)
               {
                Out_X = (int16)((X_Data[0] | (X_Data[1]<<8)))>>6;//out_x in digit (10bit)
                Out_X_mg = Out_X*4;//out_x in mg, the sensitivity is 4mg/digit in this operation mode (13 bits needed [-4096;+4095])
-               Out_X_ms2 = Out_X_mg*9.81/1000;//out_x in m/s^2 (float variable)
+               //Out_X_ms2 = Out_X_mg*9.81/1000;//out_x in m/s^2 (float variable)
 
      //cast of the float variable to int that mantains the first 3 decimals. now the value is in mm/s^2
-               Out_X_mms2 = (int32)((Out_X_ms2*1000));//int32 needed since this value can exceed the ones covered by an int16
+               //Out_X_mms2 = (int32)((Out_X_ms2*1000));//int32 needed since this value can exceed the ones covered by an int16
                OutArray[1] = (uint8_t)(Out_X_mg & 0xFF);
                OutArray[2] = (uint8_t)(Out_X_mg >> 8);
                
@@ -488,8 +506,8 @@ int main(void)
                
                Out_Y = (int16)((Y_Data[0] | (Y_Data[1]<<8)))>>6;//out_y in digit (10bit)
                Out_Y_mg = Out_Y*4;//out_y in mg (13 bits needed)
-               Out_Y_ms2 = Out_Y_mg*9.81/1000;
-               Out_Y_mms2 = (int32)((Out_Y_ms2*1000));
+               //Out_Y_ms2 = Out_Y_mg*9.81/1000;
+               //Out_Y_mms2 = (int32)((Out_Y_ms2*1000));
                OutArray[3] = (uint8_t)(Out_Y_mg & 0xFF);
                OutArray[4] = (uint8_t)(Out_Y_mg >> 8);
                
@@ -498,8 +516,8 @@ int main(void)
             
                Out_Z = (int16)((Z_Data[0] | (Z_Data[1]<<8)))>>6;//out_z in digit (10bit)
                Out_Z_mg= Out_Z*4;//out_z in mg (13 bits needed)
-               Out_Z_ms2=Out_Z_mg*9.81/1000;
-               Out_Z_mms2= (int32)((Out_Z_ms2*1000));
+               //Out_Z_ms2=Out_Z_mg*9.81/1000;
+               //Out_Z_mms2= (int32)((Out_Z_ms2*1000));
                OutArray[5] = (uint8_t)(Out_Z_mg & 0xFF);
                OutArray[6] = (uint8_t)(Out_Z_mg>> 8);
                
@@ -507,9 +525,8 @@ int main(void)
                mean_Z_mg = mean_Z_mg+Out_Z_mg;
             
             
-                //sprintf(message, "X: %d    Y: %d     Z:%d\r\n",Out_X_mg,Out_Y_mg,Out_Z_mg);
-                //UART_Debug_PutString(message);
-                
+                sprintf(message, "X: %d    Y: %d     Z:%d\r\n",Out_X_mg,Out_Y_mg,Out_Z_mg);
+                UART_Debug_PutString(message);
                 
                 if (flag_eeprom==1){
                     isr_TIMER_Stop(); 
@@ -538,9 +555,8 @@ int main(void)
                         data_EEPROM_THR[44]=(uint8_t)(timestamp >> 16);
                         data_EEPROM_THR[45]=(uint8_t)(timestamp >> 24);
                         
-                        sprintf(message, "Timestamp : %d \r\n",timestamp);
+                        sprintf(message, "Timestamp: %d \r\n",timestamp);
                         UART_Debug_PutString(message);
-                        
                         
                         EEPROM_writePage( EEPROM_REG_THR,data_EEPROM_THR,46); 
                         EEPROM_waitForWriteComplete();
@@ -562,9 +578,8 @@ int main(void)
                             
                         }
                         timestamp_read = (read_data_EEPROM_THR[42] | (read_data_EEPROM_THR[43]<<8) | (read_data_EEPROM_THR[44]<<16)|(read_data_EEPROM_THR[45]<<24));
-                        sprintf(message, "Timestamp : %ld \r\n",timestamp_read);
+                        sprintf(message, "Data read: %ld \r\n",timestamp_read);
                         UART_Debug_PutString(message);
-                        
                         
                     }    
                     isr_TIMER_StartEx(ISR_TIMER);
@@ -573,10 +588,7 @@ int main(void)
                                      LIS3DH_INT1_SRC,
                                      &int1_src_reg);
                 }
-               /*error = I2C_Peripheral_ReadRegister(LIS3DH_DEVICE_ADDRESS,
-                                        LIS3DH_FIFO_SRC_REG_3,
-                                        &fss);
-               fss= fss & (0b00011111);*/
+               
             
             
                //UART_Debug_PutArray(OutArray, 14);
@@ -584,9 +596,7 @@ int main(void)
             
             counter++;
             
-            /*error = I2C_Peripheral_ReadRegister(LIS3DH_DEVICE_ADDRESS,
-                                        LIS3DH_FIFO_SRC_REG_3,
-                                        &wmk_reg);//&empty_reg);*/
+            
             
             if (counter>=WMK_THRESHOLD) {
                 
@@ -618,12 +628,9 @@ int main(void)
                 error = I2C_Peripheral_ReadRegister(LIS3DH_DEVICE_ADDRESS,
                                         LIS3DH_FIFO_SRC_REG_3,
                                         &fss);
-                fss= fss & (0b00011111);
-                //sprintf(message, "unread samples: %d\r\n\n", fss);
+               fss= fss & (0b00011111);
+              //sprintf(message, "unread samples: %d\r\n\n", fss);
                 //UART_Debug_PutString(message);
-                
-                
-                
                 
                 //sprintf(message, "fq_green: %d    fq_blue: %d     fq_red:%d\r\n",period_green,period_blue,period_red);
                 //UART_Debug_PutString(message);
@@ -636,20 +643,207 @@ int main(void)
               
                 
                 if(fss > 1) OVR_FLAG = 1;
-                else OVR_FLAG =0 ;
-                //flag_mode=1;
+                else 
+                OVR_FLAG =0 ;
+                
+            
+            }
+                
+        }
+       
+      }   //end while (OVR_FLAG)
+                    
+               break;
+        
+     }//end switch
+        
+        
+       
+        
+        /*while (OVR_FLAG){
+            
+             
+            error = I2C_Peripheral_ReadRegisterMulti(LIS3DH_DEVICE_ADDRESS,
+                                            LIS3DH_OUT_X_L,
+                                            2,
+                                            &X_Data[0]);
+            
+            error = I2C_Peripheral_ReadRegisterMulti(LIS3DH_DEVICE_ADDRESS,
+                                            LIS3DH_OUT_Y_L,
+                                            2,
+                                            &Y_Data[0]);
+            
+            error = I2C_Peripheral_ReadRegisterMulti(LIS3DH_DEVICE_ADDRESS,
+                                            LIS3DH_OUT_Z_L,
+                                            2,
+                                            &Z_Data[0]);
+            
+            if(error == NO_ERROR)
+              {
+               Out_X = (int16)((X_Data[0] | (X_Data[1]<<8)))>>6;//out_x in digit (10bit)
+               Out_X_mg = Out_X*4;//out_x in mg, the sensitivity is 4mg/digit in this operation mode (13 bits needed [-4096;+4095])
+               //Out_X_ms2 = Out_X_mg*9.81/1000;//out_x in m/s^2 (float variable)
+
+     //cast of the float variable to int that mantains the first 3 decimals. now the value is in mm/s^2
+               //Out_X_mms2 = (int32)((Out_X_ms2*1000));//int32 needed since this value can exceed the ones covered by an int16
+               OutArray[1] = (uint8_t)(Out_X_mg & 0xFF);
+               OutArray[2] = (uint8_t)(Out_X_mg >> 8);
+               
+            
+               mean_X_mg = mean_X_mg+Out_X_mg;
+             
+               
+               Out_Y = (int16)((Y_Data[0] | (Y_Data[1]<<8)))>>6;//out_y in digit (10bit)
+               Out_Y_mg = Out_Y*4;//out_y in mg (13 bits needed)
+               //Out_Y_ms2 = Out_Y_mg*9.81/1000;
+               //Out_Y_mms2 = (int32)((Out_Y_ms2*1000));
+               OutArray[3] = (uint8_t)(Out_Y_mg & 0xFF);
+               OutArray[4] = (uint8_t)(Out_Y_mg >> 8);
+               
+            
+               mean_Y_mg = mean_Y_mg+Out_Y_mg;
+            
+               Out_Z = (int16)((Z_Data[0] | (Z_Data[1]<<8)))>>6;//out_z in digit (10bit)
+               Out_Z_mg= Out_Z*4;//out_z in mg (13 bits needed)
+               //Out_Z_ms2=Out_Z_mg*9.81/1000;
+               //Out_Z_mms2= (int32)((Out_Z_ms2*1000));
+               OutArray[5] = (uint8_t)(Out_Z_mg & 0xFF);
+               OutArray[6] = (uint8_t)(Out_Z_mg>> 8);
+               
+            
+               mean_Z_mg = mean_Z_mg+Out_Z_mg;
+            
+            
+                //sprintf(message, "X: %d    Y: %d     Z:%d\r\n",Out_X_mg,Out_Y_mg,Out_Z_mg);
+                //UART_Debug_PutString(message);
+                
+                if (flag_eeprom==1){
+                    isr_TIMER_Stop(); 
+                    isr_LIS3DH_Stop();
+                    
+                        
+                    int i;
+                    for (i=0;i<6;i=i+2){
+                    
+                        data_EEPROM_THR[i+counter*6]=OutArray[i+1];
+                        data_EEPROM_THR[i+counter*6+1]=OutArray[i+1+1];
+                        data_write = (data_EEPROM_THR[i+counter*6] | (data_EEPROM_THR[i+counter*6+1]<<8));
+                        
+                        sprintf(message, "Data write: %d \r\n",data_write);
+                        UART_Debug_PutString(message);
+                        
+                        
+                        //sprintf(message, "N cycle: %d\r\n\n", counter);
+                        //UART_Debug_PutString(message);
+                
+                    }
+                    if (counter==6)
+                    {
+                        data_EEPROM_THR[42]=(uint8_t)(timestamp & 0xFF);
+                        data_EEPROM_THR[43]=(uint8_t)(timestamp >> 8);
+                        data_EEPROM_THR[44]=(uint8_t)(timestamp >> 16);
+                        data_EEPROM_THR[45]=(uint8_t)(timestamp >> 24);
+                        
+                        sprintf(message, "Timestamp: %d \r\n",timestamp);
+                        UART_Debug_PutString(message);
+                        
+                        EEPROM_writePage( EEPROM_REG_THR,data_EEPROM_THR,46); 
+                        EEPROM_waitForWriteComplete();
+                        
+                        sprintf(message, "End Write on EEPROM\r\n");
+                        UART_Debug_PutString(message);
+                        flag_eeprom=0;
+                        
+                        EEPROM_readPage( EEPROM_REG_THR,read_data_EEPROM_THR,46);
+                        sprintf(message,"End Read on EEPROM\r\n");
+                        UART_Debug_PutString(message);
+                        
+                        for (i=0;i<42;i=i+2)
+                        {
+                            data_read = (read_data_EEPROM_THR[i] | (read_data_EEPROM_THR[i+1]<<8));
+                            sprintf(message, "Data read: %d\r\n",data_read);
+                            UART_Debug_PutString(message);
+                            
+                            
+                        }
+                        timestamp_read = (read_data_EEPROM_THR[42] | (read_data_EEPROM_THR[43]<<8) | (read_data_EEPROM_THR[44]<<16)|(read_data_EEPROM_THR[45]<<24));
+                        sprintf(message, "Data read: %ld \r\n",timestamp_read);
+                        UART_Debug_PutString(message);
+                        
+                    }    
+                    isr_TIMER_StartEx(ISR_TIMER);
+                    isr_LIS3DH_StartEx(ISR_LIS3DH_FIFO_WATERMARK);
+                    error = I2C_Peripheral_ReadRegister(LIS3DH_DEVICE_ADDRESS,
+                                     LIS3DH_INT1_SRC,
+                                     &int1_src_reg);
+                }
+               
+            
+            
+               //UART_Debug_PutArray(OutArray, 14);
+            
+            
+            counter++;
+            
+            
+            
+            if (counter>=WMK_THRESHOLD) {
+                
+                mean_X_mg = mean_X_mg/counter;
+                mean_Y_mg = mean_Y_mg/counter;
+                mean_Z_mg = mean_Z_mg/counter;
+                
+                //sprintf(message, "meanX: %d    meanY: %d     meanZ:%d\r\n",mean_X_mg,mean_Y_mg,mean_Z_mg);
+                //UART_Debug_PutString(message);
+                
+                mean_X_mg = abs(mean_X_mg);
+                mean_Y_mg = abs(mean_Y_mg);
+                mean_Z_mg = abs(mean_Z_mg);
+                
+                //sprintf(message, "abs meanX: %d    abs meanY: %d     abs meanZ:%d\r\n",mean_X_mg,mean_Y_mg,mean_Z_mg);
+                //UART_Debug_PutString(message);
+                
+                //period_green = -49*mean_X_mg/960+1249/12;
+                //period_blue = -49*mean_Y_mg/960+1249/12;
+                //period_red =-49*mean_Z_mg/960+1249/12;
+                
+                period_green = 0.0001*mean_X_mg*mean_X_mg-0.4*mean_X_mg+402;
+                period_blue = 0.0001*mean_Y_mg*mean_Y_mg-0.4*mean_Y_mg+402;
+                period_red = 0.0001*mean_Z_mg*mean_Z_mg-0.4*mean_Z_mg+402;
+                
+                //sprintf(message, "counter: %d\r\n\n", counter);
+                //UART_Debug_PutString(message);
+                
+                error = I2C_Peripheral_ReadRegister(LIS3DH_DEVICE_ADDRESS,
+                                        LIS3DH_FIFO_SRC_REG_3,
+                                        &fss);
+               fss= fss & (0b00011111);
+              //sprintf(message, "unread samples: %d\r\n\n", fss);
+                //UART_Debug_PutString(message);
+                
+                //sprintf(message, "fq_green: %d    fq_blue: %d     fq_red:%d\r\n",period_green,period_blue,period_red);
+                //UART_Debug_PutString(message);
+                
+                mean_X_mg=0;
+                mean_Y_mg=0;
+                mean_Z_mg=0;
+                
+                counter = 0;
+              
+                
+                if(fss > 1) OVR_FLAG = 1;
+                else 
+                OVR_FLAG =0 ;
+                
             
             }
                 
         }
         
         
-    }
-                
-                break;
-        }
+    }*/
         
     
-//}
-    }
-}
+
+  }//end infinite loop
+}//end main

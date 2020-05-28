@@ -57,7 +57,7 @@ CY_ISR (ISR_TIMER)
         case 0:
             if (counter_button!=0){
                 timer_counter++;
-                if (timer_counter>2000){
+                if (timer_counter>1000){
             
                     sprintf(mex, "Counter Button: %d \r\n",counter_button);
                     UART_Debug_PutString(mex);
@@ -134,10 +134,15 @@ CY_ISR (ISR_TIMER)
                 timestamp++;
                 if (counter_button!=0){
                     timer_counter++;
-                    if (timer_counter>2000){
+                    if (timer_counter>1000){
                         
                         sprintf(mex, "Counter Button: %d \r\n",counter_button);
                         UART_Debug_PutString(mex);
+                        
+                        if (counter_button==2){
+                        status=0;
+                        
+                    }
                         
                         counter_button=0;
                         timer_counter=0;

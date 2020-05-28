@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\cc47mM1P.s 			page 1
+ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccPMMthP.s 			page 1
 
 
    1              		.syntax unified
@@ -50,20 +50,21 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\cc47mM1P.s 			page 1
   20:Interrupt_Routines.c **** uint8_t watermark;
   21:Interrupt_Routines.c **** uint8_t int1_src_reg;
   22:Interrupt_Routines.c **** volatile uint16_t counter_button=0;
-  23:Interrupt_Routines.c **** uint16_t timer_counter=0;
-  24:Interrupt_Routines.c **** 
+  23:Interrupt_Routines.c **** 
+  24:Interrupt_Routines.c **** uint16_t timer_counter=0;
   25:Interrupt_Routines.c **** 
-  26:Interrupt_Routines.c **** /* Variable that contains the message for UART debug communication*/
-  27:Interrupt_Routines.c **** char mex[50];
-  28:Interrupt_Routines.c **** 
+  26:Interrupt_Routines.c **** 
+  27:Interrupt_Routines.c **** /* Variable that contains the message for UART debug communication*/
+  28:Interrupt_Routines.c **** char mex[50];
   29:Interrupt_Routines.c **** 
-  30:Interrupt_Routines.c **** /* Custom Interrupt on FIFO watermark */
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\cc47mM1P.s 			page 2
+  30:Interrupt_Routines.c **** 
+ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccPMMthP.s 			page 2
 
 
-  31:Interrupt_Routines.c ****  CY_ISR(ISR_LIS3DH_FIFO_WATERMARK)
-  32:Interrupt_Routines.c **** {/*error = I2C_Peripheral_ReadRegister(LIS3DH_DEVICE_ADDRESS,
-  28              		.loc 1 32 0
+  31:Interrupt_Routines.c **** /* Custom Interrupt on FIFO watermark */
+  32:Interrupt_Routines.c ****  CY_ISR(ISR_LIS3DH_FIFO_WATERMARK)
+  33:Interrupt_Routines.c **** {/*error = I2C_Peripheral_ReadRegister(LIS3DH_DEVICE_ADDRESS,
+  28              		.loc 1 33 0
   29              		.cfi_startproc
   30              		@ args = 0, pretend = 0, frame = 0
   31              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -73,11 +74,11 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\cc47mM1P.s 			page 1
   35              		.cfi_offset 4, -12
   36              		.cfi_offset 5, -8
   37              		.cfi_offset 14, -4
-  33:Interrupt_Routines.c ****                                         LIS3DH_CTRL_REG4,
-  34:Interrupt_Routines.c ****                                         &watermark);
-  35:Interrupt_Routines.c **** if((watermark & 0b10000000)==0b10000000)  OVR_FLAG=1;*/
-  36:Interrupt_Routines.c **** error = I2C_Peripheral_ReadRegister(LIS3DH_DEVICE_ADDRESS,
-  38              		.loc 1 36 0
+  34:Interrupt_Routines.c ****                                         LIS3DH_CTRL_REG4,
+  35:Interrupt_Routines.c ****                                         &watermark);
+  36:Interrupt_Routines.c **** if((watermark & 0b10000000)==0b10000000)  OVR_FLAG=1;*/
+  37:Interrupt_Routines.c **** error = I2C_Peripheral_ReadRegister(LIS3DH_DEVICE_ADDRESS,
+  38              		.loc 1 37 0
   39 0002 114C     		ldr	r4, .L4
   40 0004 2246     		mov	r2, r4
   41 0006 3121     		movs	r1, #49
@@ -86,16 +87,16 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\cc47mM1P.s 			page 1
   44              	.LVL0:
   45 000e 0F4B     		ldr	r3, .L4+4
   46 0010 1870     		strb	r0, [r3]
-  37:Interrupt_Routines.c ****                                      LIS3DH_INT1_SRC,
-  38:Interrupt_Routines.c ****                                      &int1_src_reg);
-  39:Interrupt_Routines.c **** if(int1_src_reg & 0x40) //read if 1 or more interrupts have been generated on INT1_SRC_REG
-  47              		.loc 1 39 0
+  38:Interrupt_Routines.c ****                                      LIS3DH_INT1_SRC,
+  39:Interrupt_Routines.c ****                                      &int1_src_reg);
+  40:Interrupt_Routines.c **** if(int1_src_reg & 0x40) //read if 1 or more interrupts have been generated on INT1_SRC_REG
+  47              		.loc 1 40 0
   48 0012 2378     		ldrb	r3, [r4]	@ zero_extendqisi2
   49 0014 13F0400F 		tst	r3, #64
   50 0018 12D0     		beq	.L2
-  40:Interrupt_Routines.c **** {
-  41:Interrupt_Routines.c ****     sprintf(mex, "Overthreshold event \r\n");
-  51              		.loc 1 41 0
+  41:Interrupt_Routines.c **** {
+  42:Interrupt_Routines.c ****     sprintf(mex, "Overthreshold event \r\n");
+  51              		.loc 1 42 0
   52 001a 0D4D     		ldr	r5, .L4+8
   53 001c 0D4C     		ldr	r4, .L4+12
   54 001e 0FCC     		ldmia	r4!, {r0, r1, r2, r3}
@@ -109,24 +110,24 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\cc47mM1P.s 			page 1
   62 002e A379     		ldrb	r3, [r4, #6]	@ zero_extendqisi2
   63 0030 AA82     		strh	r2, [r5, #20]	@ unaligned
   64 0032 AB75     		strb	r3, [r5, #22]
-  42:Interrupt_Routines.c ****     UART_Debug_PutString(mex);
-  65              		.loc 1 42 0
+  43:Interrupt_Routines.c ****     UART_Debug_PutString(mex);
+  65              		.loc 1 43 0
   66 0034 2846     		mov	r0, r5
   67 0036 FFF7FEFF 		bl	UART_Debug_PutString
   68              	.LVL1:
-  43:Interrupt_Routines.c ****     flag_eeprom=1;
-  69              		.loc 1 43 0
+  44:Interrupt_Routines.c ****     flag_eeprom=1;
+  69              		.loc 1 44 0
   70 003a 0122     		movs	r2, #1
+ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccPMMthP.s 			page 3
+
+
   71 003c 064B     		ldr	r3, .L4+16
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\cc47mM1P.s 			page 3
-
-
   72 003e 1A70     		strb	r2, [r3]
   73              	.L2:
-  44:Interrupt_Routines.c **** }
-  45:Interrupt_Routines.c **** 
-  46:Interrupt_Routines.c **** OVR_FLAG=1;
-  74              		.loc 1 46 0
+  45:Interrupt_Routines.c **** }
+  46:Interrupt_Routines.c **** 
+  47:Interrupt_Routines.c **** OVR_FLAG=1;
+  74              		.loc 1 47 0
   75 0040 0122     		movs	r2, #1
   76 0042 064B     		ldr	r3, .L4+20
   77 0044 1A70     		strb	r2, [r3]
@@ -151,12 +152,12 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\cc47mM1P.s 			page 1
   96              		.type	ISR_TIMER, %function
   97              	ISR_TIMER:
   98              	.LFB65:
-  47:Interrupt_Routines.c **** }
-  48:Interrupt_Routines.c **** 
-  49:Interrupt_Routines.c **** /* Custom Interrupt on Timer counter */
-  50:Interrupt_Routines.c **** CY_ISR (ISR_TIMER)
-  51:Interrupt_Routines.c **** {
-  99              		.loc 1 51 0
+  48:Interrupt_Routines.c **** }
+  49:Interrupt_Routines.c **** 
+  50:Interrupt_Routines.c **** /* Custom Interrupt on Timer counter */
+  51:Interrupt_Routines.c **** CY_ISR (ISR_TIMER)
+  52:Interrupt_Routines.c **** {
+  99              		.loc 1 52 0
  100              		.cfi_startproc
  101              		@ args = 0, pretend = 0, frame = 0
  102              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -166,1588 +167,1769 @@ ARM GAS  C:\Users\Simone\AppData\Local\Temp\cc47mM1P.s 			page 1
  106              		.cfi_offset 4, -12
  107              		.cfi_offset 5, -8
  108              		.cfi_offset 14, -4
-  52:Interrupt_Routines.c ****     
-  53:Interrupt_Routines.c ****     /* Read Timer Status Register to reset the counter */
-  54:Interrupt_Routines.c ****     Timer_ReadStatusRegister();
- 109              		.loc 1 54 0
+  53:Interrupt_Routines.c ****     
+  54:Interrupt_Routines.c ****     /* Read Timer Status Register to reset the counter */
+  55:Interrupt_Routines.c ****     Timer_ReadStatusRegister();
+ 109              		.loc 1 55 0
  110 0002 FFF7FEFF 		bl	Timer_ReadStatusRegister
  111              	.LVL2:
-  55:Interrupt_Routines.c ****     
-  56:Interrupt_Routines.c ****     switch (status){
- 112              		.loc 1 56 0
- 113 0006 604B     		ldr	r3, .L22
+  56:Interrupt_Routines.c ****     
+  57:Interrupt_Routines.c ****     switch (status){
+ 112              		.loc 1 57 0
+ 113 0006 844B     		ldr	r3, .L25
  114 0008 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 115 000a 23B1     		cbz	r3, .L8
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\cc47mM1P.s 			page 4
+ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccPMMthP.s 			page 4
 
 
- 116 000c 03F0FF02 		and	r2, r3, #255
- 117 0010 012A     		cmp	r2, #1
- 118 0012 27D0     		beq	.L9
- 119 0014 38BD     		pop	{r3, r4, r5, pc}
- 120              	.L8:
-  57:Interrupt_Routines.c ****         case 0:
-  58:Interrupt_Routines.c ****             if (counter_button!=0){
- 121              		.loc 1 58 0
- 122 0016 5D4B     		ldr	r3, .L22+4
- 123 0018 1B88     		ldrh	r3, [r3]
- 124 001a 9BB2     		uxth	r3, r3
- 125 001c 002B     		cmp	r3, #0
- 126 001e 00F0B280 		beq	.L6
-  59:Interrupt_Routines.c ****                 timer_counter++;
- 127              		.loc 1 59 0
- 128 0022 5A4A     		ldr	r2, .L22+4
- 129 0024 5388     		ldrh	r3, [r2, #2]
- 130 0026 0133     		adds	r3, r3, #1
- 131 0028 9BB2     		uxth	r3, r3
- 132 002a 5380     		strh	r3, [r2, #2]	@ movhi
-  60:Interrupt_Routines.c ****                 if (timer_counter>1000){
- 133              		.loc 1 60 0
- 134 002c B3F57A7F 		cmp	r3, #1000
- 135 0030 40F2A980 		bls	.L6
-  61:Interrupt_Routines.c ****             
-  62:Interrupt_Routines.c ****                     sprintf(mex, "Counter Button: %d \r\n",counter_button);
- 136              		.loc 1 62 0
- 137 0034 1446     		mov	r4, r2
- 138 0036 1288     		ldrh	r2, [r2]
- 139 0038 554D     		ldr	r5, .L22+8
- 140 003a 92B2     		uxth	r2, r2
- 141 003c 5549     		ldr	r1, .L22+12
- 142 003e 2846     		mov	r0, r5
- 143 0040 FFF7FEFF 		bl	sprintf
- 144              	.LVL3:
-  63:Interrupt_Routines.c ****                     UART_Debug_PutString(mex);
- 145              		.loc 1 63 0
- 146 0044 2846     		mov	r0, r5
- 147 0046 FFF7FEFF 		bl	UART_Debug_PutString
- 148              	.LVL4:
+ 115 000a DBB2     		uxtb	r3, r3
+ 116 000c 012B     		cmp	r3, #1
+ 117 000e 2DD0     		beq	.L8
+ 118 0010 1BB1     		cbz	r3, .L9
+ 119 0012 022B     		cmp	r3, #2
+ 120 0014 00F0C180 		beq	.L10
+ 121 0018 38BD     		pop	{r3, r4, r5, pc}
+ 122              	.L9:
+  58:Interrupt_Routines.c ****         case 0:
+  59:Interrupt_Routines.c ****             if (counter_button!=0){
+ 123              		.loc 1 59 0
+ 124 001a 804B     		ldr	r3, .L25+4
+ 125 001c 1B88     		ldrh	r3, [r3]
+ 126 001e 9BB2     		uxth	r3, r3
+ 127 0020 002B     		cmp	r3, #0
+ 128 0022 00F0F780 		beq	.L6
+  60:Interrupt_Routines.c ****                 timer_counter++;
+ 129              		.loc 1 60 0
+ 130 0026 7D4A     		ldr	r2, .L25+4
+ 131 0028 5388     		ldrh	r3, [r2, #2]
+ 132 002a 0133     		adds	r3, r3, #1
+ 133 002c 9BB2     		uxth	r3, r3
+ 134 002e 5380     		strh	r3, [r2, #2]	@ movhi
+  61:Interrupt_Routines.c ****                 if (timer_counter>1000){
+ 135              		.loc 1 61 0
+ 136 0030 B3F57A7F 		cmp	r3, #1000
+ 137 0034 40F2EE80 		bls	.L6
+  62:Interrupt_Routines.c ****             
+  63:Interrupt_Routines.c ****                     
   64:Interrupt_Routines.c ****             
   65:Interrupt_Routines.c ****                     
   66:Interrupt_Routines.c ****                     timer_counter=0;
- 149              		.loc 1 66 0
- 150 004a 0023     		movs	r3, #0
- 151 004c 6380     		strh	r3, [r4, #2]	@ movhi
+ 138              		.loc 1 66 0
+ 139 0038 1346     		mov	r3, r2
+ 140 003a 0022     		movs	r2, #0
+ 141 003c 5A80     		strh	r2, [r3, #2]	@ movhi
   67:Interrupt_Routines.c ****                     
   68:Interrupt_Routines.c ****                     if (counter_button==2){
- 152              		.loc 1 68 0
- 153 004e 2388     		ldrh	r3, [r4]
- 154 0050 9BB2     		uxth	r3, r3
- 155 0052 022B     		cmp	r3, #2
- 156 0054 02D1     		bne	.L10
-  69:Interrupt_Routines.c ****                         status=1;
- 157              		.loc 1 69 0
- 158 0056 0122     		movs	r2, #1
- 159 0058 4B4B     		ldr	r3, .L22
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\cc47mM1P.s 			page 5
+ 142              		.loc 1 68 0
+ 143 003e 1B88     		ldrh	r3, [r3]
+ 144 0040 9BB2     		uxth	r3, r3
+ 145 0042 022B     		cmp	r3, #2
+ 146 0044 0ED1     		bne	.L11
+  69:Interrupt_Routines.c ****                         sprintf(mex, "Switch ON device \r\n");
+ 147              		.loc 1 69 0
+ 148 0046 764D     		ldr	r5, .L25+8
+ 149 0048 764C     		ldr	r4, .L25+12
+ 150 004a 0FCC     		ldmia	r4!, {r0, r1, r2, r3}
+ 151 004c 2860     		str	r0, [r5]	@ unaligned
+ 152 004e 6960     		str	r1, [r5, #4]	@ unaligned
+ 153 0050 AA60     		str	r2, [r5, #8]	@ unaligned
+ 154 0052 EB60     		str	r3, [r5, #12]	@ unaligned
+ 155 0054 2068     		ldr	r0, [r4]	@ unaligned
+ 156 0056 2861     		str	r0, [r5, #16]	@ unaligned
+  70:Interrupt_Routines.c ****                         UART_Debug_PutString(mex);
+ 157              		.loc 1 70 0
+ 158 0058 2846     		mov	r0, r5
+ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccPMMthP.s 			page 5
 
 
- 160 005a 1A70     		strb	r2, [r3]
- 161              	.L10:
-  70:Interrupt_Routines.c ****                         
-  71:Interrupt_Routines.c ****                     }
-  72:Interrupt_Routines.c ****                     counter_button=0;
- 162              		.loc 1 72 0
- 163 005c 0022     		movs	r2, #0
- 164 005e 4B4B     		ldr	r3, .L22+4
- 165 0060 1A80     		strh	r2, [r3]	@ movhi
- 166 0062 38BD     		pop	{r3, r4, r5, pc}
- 167              	.L9:
-  73:Interrupt_Routines.c ****                 }
-  74:Interrupt_Routines.c ****             }
-  75:Interrupt_Routines.c ****             break;
-  76:Interrupt_Routines.c ****         
-  77:Interrupt_Routines.c ****         case 1:
-  78:Interrupt_Routines.c ****             
-  79:Interrupt_Routines.c ****             /* Decrement the counter variable when Interrupt occurs */
-  80:Interrupt_Routines.c ****                 counter_blue--;
- 168              		.loc 1 80 0
- 169 0064 4C4A     		ldr	r2, .L22+16
- 170 0066 1388     		ldrh	r3, [r2]
- 171 0068 9BB2     		uxth	r3, r3
- 172 006a 013B     		subs	r3, r3, #1
- 173 006c 9BB2     		uxth	r3, r3
- 174 006e 1380     		strh	r3, [r2]	@ movhi
-  81:Interrupt_Routines.c ****                 counter_green--;
- 175              		.loc 1 81 0
- 176 0070 4A49     		ldr	r1, .L22+20
- 177 0072 0B88     		ldrh	r3, [r1]
- 178 0074 9BB2     		uxth	r3, r3
- 179 0076 013B     		subs	r3, r3, #1
- 180 0078 9BB2     		uxth	r3, r3
- 181 007a 0B80     		strh	r3, [r1]	@ movhi
-  82:Interrupt_Routines.c ****                 counter_red--;
- 182              		.loc 1 82 0
- 183 007c 4849     		ldr	r1, .L22+24
- 184 007e 0B88     		ldrh	r3, [r1]
- 185 0080 9BB2     		uxth	r3, r3
- 186 0082 013B     		subs	r3, r3, #1
- 187 0084 9BB2     		uxth	r3, r3
- 188 0086 0B80     		strh	r3, [r1]	@ movhi
-  83:Interrupt_Routines.c ****     
-  84:Interrupt_Routines.c ****                 /********************* BLUE LED ******************/
-  85:Interrupt_Routines.c ****                 /* If the counter variable goes to 0, the Blue channel must be toggled*/
-  86:Interrupt_Routines.c ****                 if (counter_blue==0)
- 189              		.loc 1 86 0
- 190 0088 1388     		ldrh	r3, [r2]
- 191 008a 9BB2     		uxth	r3, r3
- 192 008c 83B9     		cbnz	r3, .L11
-  87:Interrupt_Routines.c ****                     {
-  88:Interrupt_Routines.c ****                         /* Toggle the Led only if the period set is lower than the THR_OFF */
-  89:Interrupt_Routines.c ****                         if (period_blue<=THR_OFF) BLUE_Led_Write(~BLUE_Led_Read());
- 193              		.loc 1 89 0
- 194 008e 454B     		ldr	r3, .L22+28
- 195 0090 1B88     		ldrh	r3, [r3]
- 196 0092 9BB2     		uxth	r3, r3
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\cc47mM1P.s 			page 6
+ 159 005a FFF7FEFF 		bl	UART_Debug_PutString
+ 160              	.LVL3:
+  71:Interrupt_Routines.c ****                         status=1;
+ 161              		.loc 1 71 0
+ 162 005e 0122     		movs	r2, #1
+ 163 0060 6D4B     		ldr	r3, .L25
+ 164 0062 1A70     		strb	r2, [r3]
+ 165              	.L11:
+  72:Interrupt_Routines.c ****                         
+  73:Interrupt_Routines.c ****                     }
+  74:Interrupt_Routines.c ****                     counter_button=0;
+ 166              		.loc 1 74 0
+ 167 0064 0022     		movs	r2, #0
+ 168 0066 6D4B     		ldr	r3, .L25+4
+ 169 0068 1A80     		strh	r2, [r3]	@ movhi
+ 170 006a 38BD     		pop	{r3, r4, r5, pc}
+ 171              	.L8:
+  75:Interrupt_Routines.c ****                 }
+  76:Interrupt_Routines.c ****             }
+  77:Interrupt_Routines.c ****         break;
+  78:Interrupt_Routines.c ****         
+  79:Interrupt_Routines.c ****         case 1:
+  80:Interrupt_Routines.c ****             
+  81:Interrupt_Routines.c ****             /* Decrement the counter variable when Interrupt occurs */
+  82:Interrupt_Routines.c ****                 counter_blue--;
+ 172              		.loc 1 82 0
+ 173 006c 6E4A     		ldr	r2, .L25+16
+ 174 006e 1388     		ldrh	r3, [r2]
+ 175 0070 9BB2     		uxth	r3, r3
+ 176 0072 013B     		subs	r3, r3, #1
+ 177 0074 9BB2     		uxth	r3, r3
+ 178 0076 1380     		strh	r3, [r2]	@ movhi
+  83:Interrupt_Routines.c ****                 counter_green--;
+ 179              		.loc 1 83 0
+ 180 0078 6C49     		ldr	r1, .L25+20
+ 181 007a 0B88     		ldrh	r3, [r1]
+ 182 007c 9BB2     		uxth	r3, r3
+ 183 007e 013B     		subs	r3, r3, #1
+ 184 0080 9BB2     		uxth	r3, r3
+ 185 0082 0B80     		strh	r3, [r1]	@ movhi
+  84:Interrupt_Routines.c ****                 counter_red--;
+ 186              		.loc 1 84 0
+ 187 0084 6A49     		ldr	r1, .L25+24
+ 188 0086 0B88     		ldrh	r3, [r1]
+ 189 0088 9BB2     		uxth	r3, r3
+ 190 008a 013B     		subs	r3, r3, #1
+ 191 008c 9BB2     		uxth	r3, r3
+ 192 008e 0B80     		strh	r3, [r1]	@ movhi
+  85:Interrupt_Routines.c ****     
+  86:Interrupt_Routines.c ****                 /********************* BLUE LED ******************/
+  87:Interrupt_Routines.c ****                 /* If the counter variable goes to 0, the Blue channel must be toggled*/
+  88:Interrupt_Routines.c ****                 if (counter_blue==0)
+ 193              		.loc 1 88 0
+ 194 0090 1388     		ldrh	r3, [r2]
+ 195 0092 9BB2     		uxth	r3, r3
+ 196 0094 83B9     		cbnz	r3, .L12
+  89:Interrupt_Routines.c ****                     {
+ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccPMMthP.s 			page 6
 
 
- 197 0094 B3F5B67F 		cmp	r3, #364
- 198 0098 05D2     		bcs	.L12
- 199              		.loc 1 89 0 is_stmt 0 discriminator 1
- 200 009a FFF7FEFF 		bl	BLUE_Led_Read
- 201              	.LVL5:
- 202 009e C043     		mvns	r0, r0
- 203 00a0 C0B2     		uxtb	r0, r0
- 204 00a2 FFF7FEFF 		bl	BLUE_Led_Write
- 205              	.LVL6:
- 206              	.L12:
-  90:Interrupt_Routines.c ****                         /* Reset the counter to the period value */
-  91:Interrupt_Routines.c ****                         counter_blue = period_blue;
- 207              		.loc 1 91 0 is_stmt 1
- 208 00a6 3F4B     		ldr	r3, .L22+28
- 209 00a8 1B88     		ldrh	r3, [r3]
- 210 00aa 9BB2     		uxth	r3, r3
- 211 00ac 3A4A     		ldr	r2, .L22+16
- 212 00ae 1380     		strh	r3, [r2]	@ movhi
- 213              	.L11:
-  92:Interrupt_Routines.c ****                     }
-  93:Interrupt_Routines.c ****     
-  94:Interrupt_Routines.c ****                 /* In case the period is set more than THR_OFF, turn off the Led */
-  95:Interrupt_Routines.c ****                 if (period_blue>THR_OFF)
- 214              		.loc 1 95 0
- 215 00b0 3C4B     		ldr	r3, .L22+28
- 216 00b2 1B88     		ldrh	r3, [r3]
- 217 00b4 9BB2     		uxth	r3, r3
- 218 00b6 B3F5B67F 		cmp	r3, #364
- 219 00ba 02D3     		bcc	.L13
-  96:Interrupt_Routines.c ****                     {
-  97:Interrupt_Routines.c ****                         BLUE_Led_Write(1);
- 220              		.loc 1 97 0
- 221 00bc 0120     		movs	r0, #1
- 222 00be FFF7FEFF 		bl	BLUE_Led_Write
- 223              	.LVL7:
- 224              	.L13:
-  98:Interrupt_Routines.c ****                     }
-  99:Interrupt_Routines.c ****      
- 100:Interrupt_Routines.c ****     
- 101:Interrupt_Routines.c ****                 /******************** GREEN LED *******************/
- 102:Interrupt_Routines.c ****                 /* If the counter variable goes to 0, the Green channel must be toggled*/
- 103:Interrupt_Routines.c ****                 if (counter_green==0)
- 225              		.loc 1 103 0
- 226 00c2 364B     		ldr	r3, .L22+20
- 227 00c4 1B88     		ldrh	r3, [r3]
- 228 00c6 9BB2     		uxth	r3, r3
- 229 00c8 83B9     		cbnz	r3, .L14
- 104:Interrupt_Routines.c ****                 {
- 105:Interrupt_Routines.c ****                     /* Toggle the Led only if the period set is lower than the THR_OFF */
- 106:Interrupt_Routines.c ****                     if (period_green<=THR_OFF) GREEN_Led_Write(~GREEN_Led_Read());
- 230              		.loc 1 106 0
- 231 00ca 374B     		ldr	r3, .L22+32
- 232 00cc 1B88     		ldrh	r3, [r3]
- 233 00ce 9BB2     		uxth	r3, r3
- 234 00d0 B3F5B67F 		cmp	r3, #364
- 235 00d4 05D2     		bcs	.L15
- 236              		.loc 1 106 0 is_stmt 0 discriminator 1
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\cc47mM1P.s 			page 7
+  90:Interrupt_Routines.c ****                         /* Toggle the Led only if the period set is lower than the THR_OFF */
+  91:Interrupt_Routines.c ****                         if (period_blue<=THR_OFF) BLUE_Led_Write(~BLUE_Led_Read());
+ 197              		.loc 1 91 0
+ 198 0096 674B     		ldr	r3, .L25+28
+ 199 0098 1B88     		ldrh	r3, [r3]
+ 200 009a 9BB2     		uxth	r3, r3
+ 201 009c B3F5B67F 		cmp	r3, #364
+ 202 00a0 05D2     		bcs	.L13
+ 203              		.loc 1 91 0 is_stmt 0 discriminator 1
+ 204 00a2 FFF7FEFF 		bl	BLUE_Led_Read
+ 205              	.LVL4:
+ 206 00a6 C043     		mvns	r0, r0
+ 207 00a8 C0B2     		uxtb	r0, r0
+ 208 00aa FFF7FEFF 		bl	BLUE_Led_Write
+ 209              	.LVL5:
+ 210              	.L13:
+  92:Interrupt_Routines.c ****                         /* Reset the counter to the period value */
+  93:Interrupt_Routines.c ****                         counter_blue = period_blue;
+ 211              		.loc 1 93 0 is_stmt 1
+ 212 00ae 614B     		ldr	r3, .L25+28
+ 213 00b0 1B88     		ldrh	r3, [r3]
+ 214 00b2 9BB2     		uxth	r3, r3
+ 215 00b4 5C4A     		ldr	r2, .L25+16
+ 216 00b6 1380     		strh	r3, [r2]	@ movhi
+ 217              	.L12:
+  94:Interrupt_Routines.c ****                     }
+  95:Interrupt_Routines.c ****     
+  96:Interrupt_Routines.c ****                 /* In case the period is set more than THR_OFF, turn off the Led */
+  97:Interrupt_Routines.c ****                 if (period_blue>THR_OFF)
+ 218              		.loc 1 97 0
+ 219 00b8 5E4B     		ldr	r3, .L25+28
+ 220 00ba 1B88     		ldrh	r3, [r3]
+ 221 00bc 9BB2     		uxth	r3, r3
+ 222 00be B3F5B67F 		cmp	r3, #364
+ 223 00c2 02D3     		bcc	.L14
+  98:Interrupt_Routines.c ****                     {
+  99:Interrupt_Routines.c ****                         BLUE_Led_Write(1);
+ 224              		.loc 1 99 0
+ 225 00c4 0120     		movs	r0, #1
+ 226 00c6 FFF7FEFF 		bl	BLUE_Led_Write
+ 227              	.LVL6:
+ 228              	.L14:
+ 100:Interrupt_Routines.c ****                     }
+ 101:Interrupt_Routines.c ****      
+ 102:Interrupt_Routines.c ****     
+ 103:Interrupt_Routines.c ****                 /******************** GREEN LED *******************/
+ 104:Interrupt_Routines.c ****                 /* If the counter variable goes to 0, the Green channel must be toggled*/
+ 105:Interrupt_Routines.c ****                 if (counter_green==0)
+ 229              		.loc 1 105 0
+ 230 00ca 584B     		ldr	r3, .L25+20
+ 231 00cc 1B88     		ldrh	r3, [r3]
+ 232 00ce 9BB2     		uxth	r3, r3
+ 233 00d0 83B9     		cbnz	r3, .L15
+ 106:Interrupt_Routines.c ****                 {
+ 107:Interrupt_Routines.c ****                     /* Toggle the Led only if the period set is lower than the THR_OFF */
+ 108:Interrupt_Routines.c ****                     if (period_green<=THR_OFF) GREEN_Led_Write(~GREEN_Led_Read());
+ 234              		.loc 1 108 0
+ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccPMMthP.s 			page 7
 
 
- 237 00d6 FFF7FEFF 		bl	GREEN_Led_Read
- 238              	.LVL8:
- 239 00da C043     		mvns	r0, r0
- 240 00dc C0B2     		uxtb	r0, r0
- 241 00de FFF7FEFF 		bl	GREEN_Led_Write
- 242              	.LVL9:
- 243              	.L15:
- 107:Interrupt_Routines.c ****                     /* Reset the counter to the period value */
- 108:Interrupt_Routines.c ****                     counter_green = period_green;
- 244              		.loc 1 108 0 is_stmt 1
- 245 00e2 314B     		ldr	r3, .L22+32
- 246 00e4 1B88     		ldrh	r3, [r3]
- 247 00e6 9BB2     		uxth	r3, r3
- 248 00e8 2C4A     		ldr	r2, .L22+20
- 249 00ea 1380     		strh	r3, [r2]	@ movhi
- 250              	.L14:
- 109:Interrupt_Routines.c ****                 }
- 110:Interrupt_Routines.c ****                 /* In case the period is set more than THR_OFF, turn off the Led */
- 111:Interrupt_Routines.c ****                 if (period_green>THR_OFF)
- 251              		.loc 1 111 0
- 252 00ec 2E4B     		ldr	r3, .L22+32
- 253 00ee 1B88     		ldrh	r3, [r3]
- 254 00f0 9BB2     		uxth	r3, r3
- 255 00f2 B3F5B67F 		cmp	r3, #364
- 256 00f6 02D3     		bcc	.L16
- 112:Interrupt_Routines.c ****                 {
- 113:Interrupt_Routines.c ****                     GREEN_Led_Write(1);
- 257              		.loc 1 113 0
- 258 00f8 0120     		movs	r0, #1
- 259 00fa FFF7FEFF 		bl	GREEN_Led_Write
- 260              	.LVL10:
- 261              	.L16:
- 114:Interrupt_Routines.c ****                 }
- 115:Interrupt_Routines.c ****                 
- 116:Interrupt_Routines.c ****                 
- 117:Interrupt_Routines.c ****                 /******************* RED LED **********************/
- 118:Interrupt_Routines.c ****                 /* If the counter variable goes to 0, the Red channel must be toggled*/
- 119:Interrupt_Routines.c ****                 if (counter_red==0 )
- 262              		.loc 1 119 0
- 263 00fe 284B     		ldr	r3, .L22+24
- 264 0100 1B88     		ldrh	r3, [r3]
- 265 0102 9BB2     		uxth	r3, r3
- 266 0104 83B9     		cbnz	r3, .L17
- 120:Interrupt_Routines.c ****                 {
- 121:Interrupt_Routines.c ****                     /* Toggle the Led only if the period set is lower than the THR_OFF */
- 122:Interrupt_Routines.c ****                     if (period_red<=THR_OFF) RED_Led_Write(~RED_Led_Read());
- 267              		.loc 1 122 0
- 268 0106 294B     		ldr	r3, .L22+36
- 269 0108 1B88     		ldrh	r3, [r3]
- 270 010a 9BB2     		uxth	r3, r3
- 271 010c B3F5B67F 		cmp	r3, #364
- 272 0110 05D2     		bcs	.L18
- 273              		.loc 1 122 0 is_stmt 0 discriminator 1
- 274 0112 FFF7FEFF 		bl	RED_Led_Read
- 275              	.LVL11:
- 276 0116 C043     		mvns	r0, r0
- 277 0118 C0B2     		uxtb	r0, r0
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\cc47mM1P.s 			page 8
+ 235 00d2 594B     		ldr	r3, .L25+32
+ 236 00d4 1B88     		ldrh	r3, [r3]
+ 237 00d6 9BB2     		uxth	r3, r3
+ 238 00d8 B3F5B67F 		cmp	r3, #364
+ 239 00dc 05D2     		bcs	.L16
+ 240              		.loc 1 108 0 is_stmt 0 discriminator 1
+ 241 00de FFF7FEFF 		bl	GREEN_Led_Read
+ 242              	.LVL7:
+ 243 00e2 C043     		mvns	r0, r0
+ 244 00e4 C0B2     		uxtb	r0, r0
+ 245 00e6 FFF7FEFF 		bl	GREEN_Led_Write
+ 246              	.LVL8:
+ 247              	.L16:
+ 109:Interrupt_Routines.c ****                     /* Reset the counter to the period value */
+ 110:Interrupt_Routines.c ****                     counter_green = period_green;
+ 248              		.loc 1 110 0 is_stmt 1
+ 249 00ea 534B     		ldr	r3, .L25+32
+ 250 00ec 1B88     		ldrh	r3, [r3]
+ 251 00ee 9BB2     		uxth	r3, r3
+ 252 00f0 4E4A     		ldr	r2, .L25+20
+ 253 00f2 1380     		strh	r3, [r2]	@ movhi
+ 254              	.L15:
+ 111:Interrupt_Routines.c ****                 }
+ 112:Interrupt_Routines.c ****                 /* In case the period is set more than THR_OFF, turn off the Led */
+ 113:Interrupt_Routines.c ****                 if (period_green>THR_OFF)
+ 255              		.loc 1 113 0
+ 256 00f4 504B     		ldr	r3, .L25+32
+ 257 00f6 1B88     		ldrh	r3, [r3]
+ 258 00f8 9BB2     		uxth	r3, r3
+ 259 00fa B3F5B67F 		cmp	r3, #364
+ 260 00fe 02D3     		bcc	.L17
+ 114:Interrupt_Routines.c ****                 {
+ 115:Interrupt_Routines.c ****                     GREEN_Led_Write(1);
+ 261              		.loc 1 115 0
+ 262 0100 0120     		movs	r0, #1
+ 263 0102 FFF7FEFF 		bl	GREEN_Led_Write
+ 264              	.LVL9:
+ 265              	.L17:
+ 116:Interrupt_Routines.c ****                 }
+ 117:Interrupt_Routines.c ****                 
+ 118:Interrupt_Routines.c ****                 
+ 119:Interrupt_Routines.c ****                 /******************* RED LED **********************/
+ 120:Interrupt_Routines.c ****                 /* If the counter variable goes to 0, the Red channel must be toggled*/
+ 121:Interrupt_Routines.c ****                 if (counter_red==0 )
+ 266              		.loc 1 121 0
+ 267 0106 4A4B     		ldr	r3, .L25+24
+ 268 0108 1B88     		ldrh	r3, [r3]
+ 269 010a 9BB2     		uxth	r3, r3
+ 270 010c 83B9     		cbnz	r3, .L18
+ 122:Interrupt_Routines.c ****                 {
+ 123:Interrupt_Routines.c ****                     /* Toggle the Led only if the period set is lower than the THR_OFF */
+ 124:Interrupt_Routines.c ****                     if (period_red<=THR_OFF) RED_Led_Write(~RED_Led_Read());
+ 271              		.loc 1 124 0
+ 272 010e 4B4B     		ldr	r3, .L25+36
+ 273 0110 1B88     		ldrh	r3, [r3]
+ 274 0112 9BB2     		uxth	r3, r3
+ 275 0114 B3F5B67F 		cmp	r3, #364
+ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccPMMthP.s 			page 8
 
 
- 278 011a FFF7FEFF 		bl	RED_Led_Write
- 279              	.LVL12:
- 280              	.L18:
- 123:Interrupt_Routines.c ****                     /* Reset the counter to the period value */
- 124:Interrupt_Routines.c ****                     counter_red = period_red;
- 281              		.loc 1 124 0 is_stmt 1
- 282 011e 234B     		ldr	r3, .L22+36
- 283 0120 1B88     		ldrh	r3, [r3]
- 284 0122 9BB2     		uxth	r3, r3
- 285 0124 1E4A     		ldr	r2, .L22+24
- 286 0126 1380     		strh	r3, [r2]	@ movhi
- 287              	.L17:
- 125:Interrupt_Routines.c ****                 }
- 126:Interrupt_Routines.c ****                 /* In case the period is set more than THR_OFF, turn off the Led */
- 127:Interrupt_Routines.c ****                 if (period_red>THR_OFF)
- 288              		.loc 1 127 0
- 289 0128 204B     		ldr	r3, .L22+36
- 290 012a 1B88     		ldrh	r3, [r3]
- 291 012c 9BB2     		uxth	r3, r3
- 292 012e B3F5B67F 		cmp	r3, #364
- 293 0132 02D3     		bcc	.L19
- 128:Interrupt_Routines.c ****                 {
- 129:Interrupt_Routines.c ****                     RED_Led_Write(1);
- 294              		.loc 1 129 0
- 295 0134 0120     		movs	r0, #1
- 296 0136 FFF7FEFF 		bl	RED_Led_Write
- 297              	.LVL13:
- 298              	.L19:
- 130:Interrupt_Routines.c ****                 }
- 131:Interrupt_Routines.c ****                 
- 132:Interrupt_Routines.c ****                 /******************* TIMESTAMP ********************/
+ 276 0118 05D2     		bcs	.L19
+ 277              		.loc 1 124 0 is_stmt 0 discriminator 1
+ 278 011a FFF7FEFF 		bl	RED_Led_Read
+ 279              	.LVL10:
+ 280 011e C043     		mvns	r0, r0
+ 281 0120 C0B2     		uxtb	r0, r0
+ 282 0122 FFF7FEFF 		bl	RED_Led_Write
+ 283              	.LVL11:
+ 284              	.L19:
+ 125:Interrupt_Routines.c ****                     /* Reset the counter to the period value */
+ 126:Interrupt_Routines.c ****                     counter_red = period_red;
+ 285              		.loc 1 126 0 is_stmt 1
+ 286 0126 454B     		ldr	r3, .L25+36
+ 287 0128 1B88     		ldrh	r3, [r3]
+ 288 012a 9BB2     		uxth	r3, r3
+ 289 012c 404A     		ldr	r2, .L25+24
+ 290 012e 1380     		strh	r3, [r2]	@ movhi
+ 291              	.L18:
+ 127:Interrupt_Routines.c ****                 }
+ 128:Interrupt_Routines.c ****                 /* In case the period is set more than THR_OFF, turn off the Led */
+ 129:Interrupt_Routines.c ****                 if (period_red>THR_OFF)
+ 292              		.loc 1 129 0
+ 293 0130 424B     		ldr	r3, .L25+36
+ 294 0132 1B88     		ldrh	r3, [r3]
+ 295 0134 9BB2     		uxth	r3, r3
+ 296 0136 B3F5B67F 		cmp	r3, #364
+ 297 013a 02D3     		bcc	.L20
+ 130:Interrupt_Routines.c ****                 {
+ 131:Interrupt_Routines.c ****                     RED_Led_Write(1);
+ 298              		.loc 1 131 0
+ 299 013c 0120     		movs	r0, #1
+ 300 013e FFF7FEFF 		bl	RED_Led_Write
+ 301              	.LVL12:
+ 302              	.L20:
+ 132:Interrupt_Routines.c ****                 }
  133:Interrupt_Routines.c ****                 
- 134:Interrupt_Routines.c ****                 timestamp++;
- 299              		.loc 1 134 0
- 300 013a 1D4A     		ldr	r2, .L22+40
- 301 013c 1368     		ldr	r3, [r2]
- 302 013e 0133     		adds	r3, r3, #1
- 303 0140 1360     		str	r3, [r2]
- 135:Interrupt_Routines.c ****                 if (counter_button!=0){
- 304              		.loc 1 135 0
- 305 0142 124B     		ldr	r3, .L22+4
- 306 0144 1B88     		ldrh	r3, [r3]
- 307 0146 9BB2     		uxth	r3, r3
- 308 0148 EBB1     		cbz	r3, .L6
- 136:Interrupt_Routines.c ****                     timer_counter++;
- 309              		.loc 1 136 0
- 310 014a 104A     		ldr	r2, .L22+4
- 311 014c 5388     		ldrh	r3, [r2, #2]
- 312 014e 0133     		adds	r3, r3, #1
- 313 0150 9BB2     		uxth	r3, r3
- 314 0152 5380     		strh	r3, [r2, #2]	@ movhi
- 137:Interrupt_Routines.c ****                     if (timer_counter>1000){
- 315              		.loc 1 137 0
- 316 0154 B3F57A7F 		cmp	r3, #1000
- 317 0158 15D9     		bls	.L6
- 138:Interrupt_Routines.c ****                         
- 139:Interrupt_Routines.c ****                         sprintf(mex, "Counter Button: %d \r\n",counter_button);
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\cc47mM1P.s 			page 9
+ 134:Interrupt_Routines.c ****                 /******************* TIMESTAMP ********************/
+ 135:Interrupt_Routines.c ****                 
+ 136:Interrupt_Routines.c ****                 timestamp++;
+ 303              		.loc 1 136 0
+ 304 0142 3F4A     		ldr	r2, .L25+40
+ 305 0144 1368     		ldr	r3, [r2]
+ 306 0146 0133     		adds	r3, r3, #1
+ 307 0148 1360     		str	r3, [r2]
+ 137:Interrupt_Routines.c ****                 if (counter_button!=0){
+ 308              		.loc 1 137 0
+ 309 014a 344B     		ldr	r3, .L25+4
+ 310 014c 1B88     		ldrh	r3, [r3]
+ 311 014e 9BB2     		uxth	r3, r3
+ 312 0150 002B     		cmp	r3, #0
+ 313 0152 5FD0     		beq	.L6
+ 138:Interrupt_Routines.c ****                     timer_counter++;
+ 314              		.loc 1 138 0
+ 315 0154 314A     		ldr	r2, .L25+4
+ 316 0156 5388     		ldrh	r3, [r2, #2]
+ 317 0158 0133     		adds	r3, r3, #1
+ 318 015a 9BB2     		uxth	r3, r3
+ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccPMMthP.s 			page 9
 
 
- 318              		.loc 1 139 0
- 319 015a 1446     		mov	r4, r2
- 320 015c 1288     		ldrh	r2, [r2]
- 321 015e 0C4D     		ldr	r5, .L22+8
- 322 0160 92B2     		uxth	r2, r2
- 323 0162 0C49     		ldr	r1, .L22+12
- 324 0164 2846     		mov	r0, r5
- 325 0166 FFF7FEFF 		bl	sprintf
- 326              	.LVL14:
- 140:Interrupt_Routines.c ****                         UART_Debug_PutString(mex);
- 327              		.loc 1 140 0
- 328 016a 2846     		mov	r0, r5
- 329 016c FFF7FEFF 		bl	UART_Debug_PutString
- 330              	.LVL15:
+ 319 015c 5380     		strh	r3, [r2, #2]	@ movhi
+ 139:Interrupt_Routines.c ****                     if (timer_counter>1000){
+ 320              		.loc 1 139 0
+ 321 015e B3F57A7F 		cmp	r3, #1000
+ 322 0162 57D9     		bls	.L6
+ 140:Interrupt_Routines.c ****                         
  141:Interrupt_Routines.c ****                         
- 142:Interrupt_Routines.c ****                         if (counter_button==2){
- 331              		.loc 1 142 0
- 332 0170 2388     		ldrh	r3, [r4]
- 333 0172 9BB2     		uxth	r3, r3
- 334 0174 022B     		cmp	r3, #2
- 335 0176 02D1     		bne	.L20
- 143:Interrupt_Routines.c ****                         status=0;
- 336              		.loc 1 143 0
- 337 0178 0022     		movs	r2, #0
- 338 017a 034B     		ldr	r3, .L22
- 339 017c 1A70     		strb	r2, [r3]
- 340              	.L20:
- 144:Interrupt_Routines.c ****                         
- 145:Interrupt_Routines.c ****                     }
- 146:Interrupt_Routines.c ****                         
- 147:Interrupt_Routines.c ****                         counter_button=0;
- 341              		.loc 1 147 0
- 342 017e 034B     		ldr	r3, .L22+4
- 343 0180 0022     		movs	r2, #0
- 344 0182 1A80     		strh	r2, [r3]	@ movhi
- 148:Interrupt_Routines.c ****                         timer_counter=0;
- 345              		.loc 1 148 0
- 346 0184 5A80     		strh	r2, [r3, #2]	@ movhi
- 347              	.L6:
- 348 0186 38BD     		pop	{r3, r4, r5, pc}
- 349              	.L23:
- 350              		.align	2
- 351              	.L22:
- 352 0188 00000000 		.word	status
- 353 018c 00000000 		.word	.LANCHOR0
- 354 0190 00000000 		.word	mex
- 355 0194 18000000 		.word	.LC1
- 356 0198 00000000 		.word	counter_blue
- 357 019c 00000000 		.word	counter_green
- 358 01a0 00000000 		.word	counter_red
- 359 01a4 00000000 		.word	period_blue
- 360 01a8 00000000 		.word	period_green
- 361 01ac 00000000 		.word	period_red
- 362 01b0 00000000 		.word	timestamp
- 363              		.cfi_endproc
- 364              	.LFE65:
- 365              		.size	ISR_TIMER, .-ISR_TIMER
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\cc47mM1P.s 			page 10
-
-
- 366              		.section	.text.ISR_COUNTER_BUTTON,"ax",%progbits
- 367              		.align	2
- 368              		.global	ISR_COUNTER_BUTTON
- 369              		.thumb
- 370              		.thumb_func
- 371              		.type	ISR_COUNTER_BUTTON, %function
- 372              	ISR_COUNTER_BUTTON:
- 373              	.LFB66:
+ 142:Interrupt_Routines.c ****                         
+ 143:Interrupt_Routines.c ****                         if (counter_button>2){
+ 323              		.loc 1 143 0
+ 324 0164 1388     		ldrh	r3, [r2]
+ 325 0166 9BB2     		uxth	r3, r3
+ 326 0168 022B     		cmp	r3, #2
+ 327 016a 11D9     		bls	.L21
+ 144:Interrupt_Routines.c ****                         sprintf(mex, "Switch to Configuration Mode \r\n");
+ 328              		.loc 1 144 0
+ 329 016c 2C4D     		ldr	r5, .L25+8
+ 330 016e 354C     		ldr	r4, .L25+44
+ 331 0170 0FCC     		ldmia	r4!, {r0, r1, r2, r3}
+ 332 0172 2860     		str	r0, [r5]	@ unaligned
+ 333 0174 6960     		str	r1, [r5, #4]	@ unaligned
+ 334 0176 AA60     		str	r2, [r5, #8]	@ unaligned
+ 335 0178 EB60     		str	r3, [r5, #12]	@ unaligned
+ 336 017a 0FCC     		ldmia	r4!, {r0, r1, r2, r3}
+ 337 017c 2861     		str	r0, [r5, #16]	@ unaligned
+ 338 017e 6961     		str	r1, [r5, #20]	@ unaligned
+ 339 0180 AA61     		str	r2, [r5, #24]	@ unaligned
+ 340 0182 EB61     		str	r3, [r5, #28]	@ unaligned
+ 145:Interrupt_Routines.c ****                         UART_Debug_PutString(mex);
+ 341              		.loc 1 145 0
+ 342 0184 2846     		mov	r0, r5
+ 343 0186 FFF7FEFF 		bl	UART_Debug_PutString
+ 344              	.LVL13:
+ 146:Interrupt_Routines.c ****                         status=2;
+ 345              		.loc 1 146 0
+ 346 018a 0222     		movs	r2, #2
+ 347 018c 224B     		ldr	r3, .L25
+ 348 018e 1A70     		strb	r2, [r3]
+ 349              	.L21:
+ 147:Interrupt_Routines.c ****                         
+ 148:Interrupt_Routines.c ****                     }
  149:Interrupt_Routines.c ****                         
- 150:Interrupt_Routines.c ****                         
- 151:Interrupt_Routines.c ****                     }
- 152:Interrupt_Routines.c ****                     
- 153:Interrupt_Routines.c ****                     
- 154:Interrupt_Routines.c ****                 }
- 155:Interrupt_Routines.c ****                         
- 156:Interrupt_Routines.c ****                         
- 157:Interrupt_Routines.c ****                 break;
- 158:Interrupt_Routines.c ****     
- 159:Interrupt_Routines.c ****     }
- 160:Interrupt_Routines.c **** }
- 161:Interrupt_Routines.c **** 
- 162:Interrupt_Routines.c **** 
- 163:Interrupt_Routines.c **** 
- 164:Interrupt_Routines.c ****  CY_ISR(ISR_COUNTER_BUTTON)
- 165:Interrupt_Routines.c **** {
- 374              		.loc 1 165 0
- 375              		.cfi_startproc
- 376              		@ args = 0, pretend = 0, frame = 0
- 377              		@ frame_needed = 0, uses_anonymous_args = 0
- 378 0000 38B5     		push	{r3, r4, r5, lr}
- 379              		.cfi_def_cfa_offset 16
- 380              		.cfi_offset 3, -16
- 381              		.cfi_offset 4, -12
- 382              		.cfi_offset 5, -8
- 383              		.cfi_offset 14, -4
- 166:Interrupt_Routines.c ****     Timer_Button_ReadStatusRegister();
- 384              		.loc 1 166 0
- 385 0002 FFF7FEFF 		bl	Timer_Button_ReadStatusRegister
- 386              	.LVL16:
- 167:Interrupt_Routines.c ****     counter_button++;
- 387              		.loc 1 167 0
- 388 0006 094A     		ldr	r2, .L26
- 389 0008 1388     		ldrh	r3, [r2]
- 390 000a 9BB2     		uxth	r3, r3
- 391 000c 0133     		adds	r3, r3, #1
- 392 000e 9BB2     		uxth	r3, r3
- 393 0010 1380     		strh	r3, [r2]	@ movhi
- 168:Interrupt_Routines.c ****     
- 169:Interrupt_Routines.c ****     sprintf(mex, "Button Pressed \r\n");
- 394              		.loc 1 169 0
- 395 0012 074D     		ldr	r5, .L26+4
- 396 0014 074C     		ldr	r4, .L26+8
- 397 0016 0FCC     		ldmia	r4!, {r0, r1, r2, r3}
- 398 0018 2860     		str	r0, [r5]	@ unaligned
- 399 001a 6960     		str	r1, [r5, #4]	@ unaligned
- 400 001c AA60     		str	r2, [r5, #8]	@ unaligned
- 401 001e EB60     		str	r3, [r5, #12]	@ unaligned
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\cc47mM1P.s 			page 11
+ 150:Interrupt_Routines.c ****                         counter_button=0;
+ 350              		.loc 1 150 0
+ 351 0190 224B     		ldr	r3, .L25+4
+ 352 0192 0022     		movs	r2, #0
+ 353 0194 1A80     		strh	r2, [r3]	@ movhi
+ 151:Interrupt_Routines.c ****                         timer_counter=0;
+ 354              		.loc 1 151 0
+ 355 0196 5A80     		strh	r2, [r3, #2]	@ movhi
+ 356 0198 38BD     		pop	{r3, r4, r5, pc}
+ 357              	.L10:
+ 152:Interrupt_Routines.c ****                         
+ 153:Interrupt_Routines.c ****                         
+ 154:Interrupt_Routines.c ****                     }
+ 155:Interrupt_Routines.c ****                     
+ 156:Interrupt_Routines.c ****                     
+ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccPMMthP.s 			page 10
 
 
- 402 0020 2388     		ldrh	r3, [r4]	@ unaligned
- 403 0022 2B82     		strh	r3, [r5, #16]	@ unaligned
- 170:Interrupt_Routines.c ****     UART_Debug_PutString(mex);
- 404              		.loc 1 170 0
- 405 0024 2846     		mov	r0, r5
- 406 0026 FFF7FEFF 		bl	UART_Debug_PutString
- 407              	.LVL17:
- 408 002a 38BD     		pop	{r3, r4, r5, pc}
- 409              	.L27:
- 410              		.align	2
- 411              	.L26:
- 412 002c 00000000 		.word	.LANCHOR0
- 413 0030 00000000 		.word	mex
- 414 0034 30000000 		.word	.LC2
- 415              		.cfi_endproc
- 416              	.LFE66:
- 417              		.size	ISR_COUNTER_BUTTON, .-ISR_COUNTER_BUTTON
- 418              		.comm	mex,50,4
- 419              		.global	timer_counter
- 420              		.global	counter_button
- 421              		.comm	int1_src_reg,1,1
- 422              		.comm	watermark,1,1
- 423              		.comm	error,1,1
- 424              		.comm	timestamp,4,4
- 425              		.comm	flag_eeprom,1,1
- 426              		.comm	counter_blue,2,2
- 427              		.comm	counter_green,2,2
- 428              		.comm	counter_red,2,2
- 429              		.comm	period_blue,2,2
- 430              		.comm	period_green,2,2
- 431              		.comm	period_red,2,2
- 432              		.comm	status,1,1
- 433              		.comm	OVR_FLAG,1,1
- 434              		.section	.rodata.str1.4,"aMS",%progbits,1
- 435              		.align	2
- 436              	.LC0:
- 437 0000 4F766572 		.ascii	"Overthreshold event \015\012\000"
- 437      74687265 
- 437      73686F6C 
- 437      64206576 
- 437      656E7420 
- 438 0017 00       		.space	1
- 439              	.LC1:
- 440 0018 436F756E 		.ascii	"Counter Button: %d \015\012\000"
- 440      74657220 
- 440      42757474 
- 440      6F6E3A20 
- 440      2564200D 
- 441 002e 0000     		.space	2
- 442              	.LC2:
- 443 0030 42757474 		.ascii	"Button Pressed \015\012\000"
- 443      6F6E2050 
- 443      72657373 
- 443      6564200D 
- 443      0A00
- 444              		.bss
- 445              		.align	1
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\cc47mM1P.s 			page 12
+ 157:Interrupt_Routines.c ****                 }
+ 158:Interrupt_Routines.c ****                         
+ 159:Interrupt_Routines.c ****                         
+ 160:Interrupt_Routines.c ****         break;
+ 161:Interrupt_Routines.c ****         case 2:
+ 162:Interrupt_Routines.c ****                 
+ 163:Interrupt_Routines.c ****                 
+ 164:Interrupt_Routines.c ****                 counter_int_led--;
+ 358              		.loc 1 164 0
+ 359 019a 2B4A     		ldr	r2, .L25+48
+ 360 019c 1388     		ldrh	r3, [r2]
+ 361 019e 9BB2     		uxth	r3, r3
+ 362 01a0 013B     		subs	r3, r3, #1
+ 363 01a2 9BB2     		uxth	r3, r3
+ 364 01a4 1380     		strh	r3, [r2]	@ movhi
+ 165:Interrupt_Routines.c ****                 timestamp++;
+ 365              		.loc 1 165 0
+ 366 01a6 264A     		ldr	r2, .L25+40
+ 367 01a8 1368     		ldr	r3, [r2]
+ 368 01aa 0133     		adds	r3, r3, #1
+ 369 01ac 1360     		str	r3, [r2]
+ 166:Interrupt_Routines.c ****                 
+ 167:Interrupt_Routines.c ****                 
+ 168:Interrupt_Routines.c ****                 if (counter_button!=0){
+ 370              		.loc 1 168 0
+ 371 01ae 1B4B     		ldr	r3, .L25+4
+ 372 01b0 1B88     		ldrh	r3, [r3]
+ 373 01b2 9BB2     		uxth	r3, r3
+ 374 01b4 03B3     		cbz	r3, .L22
+ 169:Interrupt_Routines.c ****                     timer_counter++;
+ 375              		.loc 1 169 0
+ 376 01b6 194A     		ldr	r2, .L25+4
+ 377 01b8 5388     		ldrh	r3, [r2, #2]
+ 378 01ba 0133     		adds	r3, r3, #1
+ 379 01bc 9BB2     		uxth	r3, r3
+ 380 01be 5380     		strh	r3, [r2, #2]	@ movhi
+ 170:Interrupt_Routines.c ****                     if (timer_counter>1000){
+ 381              		.loc 1 170 0
+ 382 01c0 B3F57A7F 		cmp	r3, #1000
+ 383 01c4 18D9     		bls	.L22
+ 171:Interrupt_Routines.c ****                         
+ 172:Interrupt_Routines.c ****                         
+ 173:Interrupt_Routines.c ****                         
+ 174:Interrupt_Routines.c ****                         if (counter_button>2){
+ 384              		.loc 1 174 0
+ 385 01c6 1388     		ldrh	r3, [r2]
+ 386 01c8 9BB2     		uxth	r3, r3
+ 387 01ca 022B     		cmp	r3, #2
+ 388 01cc 10D9     		bls	.L23
+ 175:Interrupt_Routines.c ****                             sprintf(mex, "Switch to ON Mode \r\n");
+ 389              		.loc 1 175 0
+ 390 01ce 144D     		ldr	r5, .L25+8
+ 391 01d0 1E4C     		ldr	r4, .L25+52
+ 392 01d2 0FCC     		ldmia	r4!, {r0, r1, r2, r3}
+ 393 01d4 2860     		str	r0, [r5]	@ unaligned
+ 394 01d6 6960     		str	r1, [r5, #4]	@ unaligned
+ 395 01d8 AA60     		str	r2, [r5, #8]	@ unaligned
+ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccPMMthP.s 			page 11
 
 
- 446              		.set	.LANCHOR0,. + 0
- 447              		.type	counter_button, %object
- 448              		.size	counter_button, 2
- 449              	counter_button:
- 450 0000 0000     		.space	2
- 451              		.type	timer_counter, %object
- 452              		.size	timer_counter, 2
- 453              	timer_counter:
- 454 0002 0000     		.space	2
- 455              		.text
- 456              	.Letext0:
- 457              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.3\\psoc creator\\import\\gnu\\arm\\5.4.
- 458              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.3\\psoc creator\\import\\gnu\\arm\\5.4.
- 459              		.file 4 "Generated_Source\\PSoC5/core_cm3.h"
- 460              		.file 5 "Interrupt_Routines.h"
- 461              		.file 6 "I2C_Interface.h"
- 462              		.file 7 "Generated_Source\\PSoC5/UART_Debug.h"
- 463              		.file 8 "Generated_Source\\PSoC5/Timer.h"
- 464              		.file 9 "c:\\program files (x86)\\cypress\\psoc creator\\4.3\\psoc creator\\import\\gnu\\arm\\5.4.
- 465              		.file 10 "Generated_Source\\PSoC5/BLUE_Led.h"
- 466              		.file 11 "Generated_Source\\PSoC5/GREEN_Led.h"
- 467              		.file 12 "Generated_Source\\PSoC5/RED_Led.h"
- 468              		.file 13 "Generated_Source\\PSoC5/Timer_Button.h"
- 469              		.section	.debug_info,"",%progbits
- 470              	.Ldebug_info0:
- 471 0000 FC030000 		.4byte	0x3fc
- 472 0004 0400     		.2byte	0x4
- 473 0006 00000000 		.4byte	.Ldebug_abbrev0
- 474 000a 04       		.byte	0x4
- 475 000b 01       		.uleb128 0x1
- 476 000c C9000000 		.4byte	.LASF52
- 477 0010 0C       		.byte	0xc
- 478 0011 18000000 		.4byte	.LASF53
- 479 0015 AC010000 		.4byte	.LASF54
- 480 0019 00000000 		.4byte	.Ldebug_ranges0+0
- 481 001d 00000000 		.4byte	0
- 482 0021 00000000 		.4byte	.Ldebug_line0
- 483 0025 02       		.uleb128 0x2
- 484 0026 01       		.byte	0x1
- 485 0027 06       		.byte	0x6
- 486 0028 49030000 		.4byte	.LASF0
- 487 002c 03       		.uleb128 0x3
- 488 002d 2D000000 		.4byte	.LASF3
- 489 0031 02       		.byte	0x2
- 490 0032 1D       		.byte	0x1d
- 491 0033 37000000 		.4byte	0x37
- 492 0037 02       		.uleb128 0x2
- 493 0038 01       		.byte	0x1
- 494 0039 08       		.byte	0x8
- 495 003a BB000000 		.4byte	.LASF1
- 496 003e 02       		.uleb128 0x2
- 497 003f 02       		.byte	0x2
- 498 0040 05       		.byte	0x5
- 499 0041 08030000 		.4byte	.LASF2
- 500 0045 03       		.uleb128 0x3
- 501 0046 EB010000 		.4byte	.LASF4
- 502 004a 02       		.byte	0x2
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\cc47mM1P.s 			page 13
+ 396 01da EB60     		str	r3, [r5, #12]	@ unaligned
+ 397 01dc 2068     		ldr	r0, [r4]	@ unaligned
+ 398 01de 2861     		str	r0, [r5, #16]	@ unaligned
+ 399 01e0 2379     		ldrb	r3, [r4, #4]	@ zero_extendqisi2
+ 400 01e2 2B75     		strb	r3, [r5, #20]
+ 176:Interrupt_Routines.c ****                             UART_Debug_PutString(mex);
+ 401              		.loc 1 176 0
+ 402 01e4 2846     		mov	r0, r5
+ 403 01e6 FFF7FEFF 		bl	UART_Debug_PutString
+ 404              	.LVL14:
+ 177:Interrupt_Routines.c ****                             status= 1;
+ 405              		.loc 1 177 0
+ 406 01ea 0122     		movs	r2, #1
+ 407 01ec 0A4B     		ldr	r3, .L25
+ 408 01ee 1A70     		strb	r2, [r3]
+ 409              	.L23:
+ 178:Interrupt_Routines.c **** 
+ 179:Interrupt_Routines.c ****                         
+ 180:Interrupt_Routines.c ****                         }
+ 181:Interrupt_Routines.c ****                         
+ 182:Interrupt_Routines.c ****                         counter_button=0;
+ 410              		.loc 1 182 0
+ 411 01f0 0A4B     		ldr	r3, .L25+4
+ 412 01f2 0022     		movs	r2, #0
+ 413 01f4 1A80     		strh	r2, [r3]	@ movhi
+ 183:Interrupt_Routines.c ****                         timer_counter=0;
+ 414              		.loc 1 183 0
+ 415 01f6 5A80     		strh	r2, [r3, #2]	@ movhi
+ 416              	.L22:
+ 184:Interrupt_Routines.c ****                          
+ 185:Interrupt_Routines.c ****                     }
+ 186:Interrupt_Routines.c ****                 }
+ 187:Interrupt_Routines.c ****                 /********************* INTERNAL LED ******************/
+ 188:Interrupt_Routines.c ****                 /* If the counter variable goes to 0, the Blue channel must be toggled*/
+ 189:Interrupt_Routines.c ****                 if (counter_int_led==0)
+ 417              		.loc 1 189 0
+ 418 01f8 134B     		ldr	r3, .L25+48
+ 419 01fa 1B88     		ldrh	r3, [r3]
+ 420 01fc 9BB2     		uxth	r3, r3
+ 421 01fe 4BB9     		cbnz	r3, .L6
+ 190:Interrupt_Routines.c ****                     {
+ 191:Interrupt_Routines.c ****                         /* Toggle the Led only if the period set is lower than the THR_OFF */
+ 192:Interrupt_Routines.c ****                         INT_Led_Write(~INT_Led_Read());
+ 422              		.loc 1 192 0
+ 423 0200 FFF7FEFF 		bl	INT_Led_Read
+ 424              	.LVL15:
+ 425 0204 C043     		mvns	r0, r0
+ 426 0206 C0B2     		uxtb	r0, r0
+ 427 0208 FFF7FEFF 		bl	INT_Led_Write
+ 428              	.LVL16:
+ 193:Interrupt_Routines.c ****                         /* Reset the counter to the period value */
+ 194:Interrupt_Routines.c ****                         counter_int_led = period_int_led;
+ 429              		.loc 1 194 0
+ 430 020c 104B     		ldr	r3, .L25+56
+ 431 020e 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 432 0210 0D4A     		ldr	r2, .L25+48
+ 433 0212 1380     		strh	r3, [r2]	@ movhi
+ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccPMMthP.s 			page 12
 
 
- 503 004b 2B       		.byte	0x2b
- 504 004c 50000000 		.4byte	0x50
- 505 0050 02       		.uleb128 0x2
- 506 0051 02       		.byte	0x2
- 507 0052 07       		.byte	0x7
- 508 0053 6F000000 		.4byte	.LASF5
- 509 0057 03       		.uleb128 0x3
- 510 0058 4C000000 		.4byte	.LASF6
- 511 005c 02       		.byte	0x2
- 512 005d 3F       		.byte	0x3f
- 513 005e 62000000 		.4byte	0x62
- 514 0062 02       		.uleb128 0x2
- 515 0063 04       		.byte	0x4
- 516 0064 05       		.byte	0x5
- 517 0065 34030000 		.4byte	.LASF7
- 518 0069 03       		.uleb128 0x3
- 519 006a 23020000 		.4byte	.LASF8
- 520 006e 02       		.byte	0x2
- 521 006f 41       		.byte	0x41
- 522 0070 74000000 		.4byte	0x74
- 523 0074 02       		.uleb128 0x2
- 524 0075 04       		.byte	0x4
- 525 0076 07       		.byte	0x7
- 526 0077 3D020000 		.4byte	.LASF9
- 527 007b 02       		.uleb128 0x2
- 528 007c 08       		.byte	0x8
- 529 007d 05       		.byte	0x5
- 530 007e BF020000 		.4byte	.LASF10
- 531 0082 02       		.uleb128 0x2
- 532 0083 08       		.byte	0x8
- 533 0084 07       		.byte	0x7
- 534 0085 5C020000 		.4byte	.LASF11
- 535 0089 04       		.uleb128 0x4
- 536 008a 04       		.byte	0x4
- 537 008b 05       		.byte	0x5
- 538 008c 696E7400 		.ascii	"int\000"
- 539 0090 02       		.uleb128 0x2
- 540 0091 04       		.byte	0x4
- 541 0092 07       		.byte	0x7
- 542 0093 4F020000 		.4byte	.LASF12
- 543 0097 03       		.uleb128 0x3
- 544 0098 82000000 		.4byte	.LASF13
- 545 009c 03       		.byte	0x3
- 546 009d 18       		.byte	0x18
- 547 009e 2C000000 		.4byte	0x2c
- 548 00a2 03       		.uleb128 0x3
- 549 00a3 12030000 		.4byte	.LASF14
- 550 00a7 03       		.byte	0x3
- 551 00a8 24       		.byte	0x24
- 552 00a9 45000000 		.4byte	0x45
- 553 00ad 03       		.uleb128 0x3
- 554 00ae A8020000 		.4byte	.LASF15
- 555 00b2 03       		.byte	0x3
- 556 00b3 2C       		.byte	0x2c
- 557 00b4 57000000 		.4byte	0x57
- 558 00b8 03       		.uleb128 0x3
- 559 00b9 2B030000 		.4byte	.LASF16
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\cc47mM1P.s 			page 14
+ 434              	.L6:
+ 435 0214 38BD     		pop	{r3, r4, r5, pc}
+ 436              	.L26:
+ 437 0216 00BF     		.align	2
+ 438              	.L25:
+ 439 0218 00000000 		.word	status
+ 440 021c 00000000 		.word	.LANCHOR0
+ 441 0220 00000000 		.word	mex
+ 442 0224 18000000 		.word	.LC1
+ 443 0228 00000000 		.word	counter_blue
+ 444 022c 00000000 		.word	counter_green
+ 445 0230 00000000 		.word	counter_red
+ 446 0234 00000000 		.word	period_blue
+ 447 0238 00000000 		.word	period_green
+ 448 023c 00000000 		.word	period_red
+ 449 0240 00000000 		.word	timestamp
+ 450 0244 2C000000 		.word	.LC2
+ 451 0248 00000000 		.word	counter_int_led
+ 452 024c 4C000000 		.word	.LC3
+ 453 0250 00000000 		.word	period_int_led
+ 454              		.cfi_endproc
+ 455              	.LFE65:
+ 456              		.size	ISR_TIMER, .-ISR_TIMER
+ 457              		.section	.text.ISR_COUNTER_BUTTON,"ax",%progbits
+ 458              		.align	2
+ 459              		.global	ISR_COUNTER_BUTTON
+ 460              		.thumb
+ 461              		.thumb_func
+ 462              		.type	ISR_COUNTER_BUTTON, %function
+ 463              	ISR_COUNTER_BUTTON:
+ 464              	.LFB66:
+ 195:Interrupt_Routines.c ****                     }
+ 196:Interrupt_Routines.c ****     
+ 197:Interrupt_Routines.c ****                
+ 198:Interrupt_Routines.c ****                 
+ 199:Interrupt_Routines.c ****      
+ 200:Interrupt_Routines.c ****     
+ 201:Interrupt_Routines.c ****                 
+ 202:Interrupt_Routines.c ****                 
+ 203:Interrupt_Routines.c ****                 
+ 204:Interrupt_Routines.c ****         break;
+ 205:Interrupt_Routines.c ****     
+ 206:Interrupt_Routines.c ****     }
+ 207:Interrupt_Routines.c **** }
+ 208:Interrupt_Routines.c **** 
+ 209:Interrupt_Routines.c **** 
+ 210:Interrupt_Routines.c ****  CY_ISR(ISR_COUNTER_BUTTON)
+ 211:Interrupt_Routines.c **** {
+ 465              		.loc 1 211 0
+ 466              		.cfi_startproc
+ 467              		@ args = 0, pretend = 0, frame = 0
+ 468              		@ frame_needed = 0, uses_anonymous_args = 0
+ 469 0000 38B5     		push	{r3, r4, r5, lr}
+ 470              		.cfi_def_cfa_offset 16
+ 471              		.cfi_offset 3, -16
+ 472              		.cfi_offset 4, -12
+ 473              		.cfi_offset 5, -8
+ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccPMMthP.s 			page 13
 
 
- 560 00bd 03       		.byte	0x3
- 561 00be 30       		.byte	0x30
- 562 00bf 69000000 		.4byte	0x69
- 563 00c3 02       		.uleb128 0x2
- 564 00c4 04       		.byte	0x4
- 565 00c5 04       		.byte	0x4
- 566 00c6 B5000000 		.4byte	.LASF17
- 567 00ca 02       		.uleb128 0x2
- 568 00cb 08       		.byte	0x8
- 569 00cc 04       		.byte	0x4
- 570 00cd 8A000000 		.4byte	.LASF18
- 571 00d1 02       		.uleb128 0x2
- 572 00d2 01       		.byte	0x1
- 573 00d3 08       		.byte	0x8
- 574 00d4 CD020000 		.4byte	.LASF19
- 575 00d8 02       		.uleb128 0x2
- 576 00d9 08       		.byte	0x8
- 577 00da 04       		.byte	0x4
- 578 00db 3D030000 		.4byte	.LASF20
- 579 00df 02       		.uleb128 0x2
- 580 00e0 04       		.byte	0x4
- 581 00e1 07       		.byte	0x7
- 582 00e2 B0020000 		.4byte	.LASF21
- 583 00e6 05       		.uleb128 0x5
- 584 00e7 B8000000 		.4byte	0xb8
- 585 00eb 05       		.uleb128 0x5
- 586 00ec 97000000 		.4byte	0x97
- 587 00f0 05       		.uleb128 0x5
- 588 00f1 A2000000 		.4byte	0xa2
- 589 00f5 06       		.uleb128 0x6
- 590 00f6 EE020000 		.4byte	.LASF22
- 591 00fa 01       		.byte	0x1
- 592 00fb 1F       		.byte	0x1f
- 593 00fc 00000000 		.4byte	.LFB64
- 594 0100 60000000 		.4byte	.LFE64-.LFB64
- 595 0104 01       		.uleb128 0x1
- 596 0105 9C       		.byte	0x9c
- 597 0106 3A010000 		.4byte	0x13a
- 598 010a 07       		.uleb128 0x7
- 599 010b 0E000000 		.4byte	.LVL0
- 600 010f 86030000 		.4byte	0x386
- 601 0113 29010000 		.4byte	0x129
- 602 0117 08       		.uleb128 0x8
- 603 0118 01       		.uleb128 0x1
- 604 0119 50       		.byte	0x50
- 605 011a 01       		.uleb128 0x1
- 606 011b 48       		.byte	0x48
- 607 011c 08       		.uleb128 0x8
- 608 011d 01       		.uleb128 0x1
- 609 011e 51       		.byte	0x51
- 610 011f 02       		.uleb128 0x2
- 611 0120 08       		.byte	0x8
- 612 0121 31       		.byte	0x31
- 613 0122 08       		.uleb128 0x8
- 614 0123 01       		.uleb128 0x1
- 615 0124 52       		.byte	0x52
- 616 0125 02       		.uleb128 0x2
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\cc47mM1P.s 			page 15
+ 474              		.cfi_offset 14, -4
+ 212:Interrupt_Routines.c ****     Timer_Button_ReadStatusRegister();
+ 475              		.loc 1 212 0
+ 476 0002 FFF7FEFF 		bl	Timer_Button_ReadStatusRegister
+ 477              	.LVL17:
+ 213:Interrupt_Routines.c ****     counter_button++;
+ 478              		.loc 1 213 0
+ 479 0006 094A     		ldr	r2, .L29
+ 480 0008 1388     		ldrh	r3, [r2]
+ 481 000a 9BB2     		uxth	r3, r3
+ 482 000c 0133     		adds	r3, r3, #1
+ 483 000e 9BB2     		uxth	r3, r3
+ 484 0010 1380     		strh	r3, [r2]	@ movhi
+ 214:Interrupt_Routines.c ****     
+ 215:Interrupt_Routines.c ****     sprintf(mex, "Button Pressed \r\n");
+ 485              		.loc 1 215 0
+ 486 0012 074D     		ldr	r5, .L29+4
+ 487 0014 074C     		ldr	r4, .L29+8
+ 488 0016 0FCC     		ldmia	r4!, {r0, r1, r2, r3}
+ 489 0018 2860     		str	r0, [r5]	@ unaligned
+ 490 001a 6960     		str	r1, [r5, #4]	@ unaligned
+ 491 001c AA60     		str	r2, [r5, #8]	@ unaligned
+ 492 001e EB60     		str	r3, [r5, #12]	@ unaligned
+ 493 0020 2388     		ldrh	r3, [r4]	@ unaligned
+ 494 0022 2B82     		strh	r3, [r5, #16]	@ unaligned
+ 216:Interrupt_Routines.c ****     UART_Debug_PutString(mex);
+ 495              		.loc 1 216 0
+ 496 0024 2846     		mov	r0, r5
+ 497 0026 FFF7FEFF 		bl	UART_Debug_PutString
+ 498              	.LVL18:
+ 499 002a 38BD     		pop	{r3, r4, r5, pc}
+ 500              	.L30:
+ 501              		.align	2
+ 502              	.L29:
+ 503 002c 00000000 		.word	.LANCHOR0
+ 504 0030 00000000 		.word	mex
+ 505 0034 64000000 		.word	.LC4
+ 506              		.cfi_endproc
+ 507              	.LFE66:
+ 508              		.size	ISR_COUNTER_BUTTON, .-ISR_COUNTER_BUTTON
+ 509              		.comm	mex,50,4
+ 510              		.global	timer_counter
+ 511              		.global	counter_button
+ 512              		.comm	int1_src_reg,1,1
+ 513              		.comm	watermark,1,1
+ 514              		.comm	error,1,1
+ 515              		.comm	timestamp,4,4
+ 516              		.comm	flag_eeprom,1,1
+ 517              		.comm	counter_int_led,2,2
+ 518              		.comm	counter_blue,2,2
+ 519              		.comm	counter_green,2,2
+ 520              		.comm	counter_red,2,2
+ 521              		.comm	period_int_led,1,1
+ 522              		.comm	period_blue,2,2
+ 523              		.comm	period_green,2,2
+ 524              		.comm	period_red,2,2
+ 525              		.comm	status,1,1
+ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccPMMthP.s 			page 14
 
 
- 617 0126 74       		.byte	0x74
- 618 0127 00       		.sleb128 0
- 619 0128 00       		.byte	0
- 620 0129 09       		.uleb128 0x9
- 621 012a 3A000000 		.4byte	.LVL1
- 622 012e 91030000 		.4byte	0x391
- 623 0132 08       		.uleb128 0x8
- 624 0133 01       		.uleb128 0x1
- 625 0134 50       		.byte	0x50
- 626 0135 02       		.uleb128 0x2
- 627 0136 75       		.byte	0x75
- 628 0137 00       		.sleb128 0
- 629 0138 00       		.byte	0
- 630 0139 00       		.byte	0
- 631 013a 06       		.uleb128 0x6
- 632 013b F6010000 		.4byte	.LASF23
- 633 013f 01       		.byte	0x1
- 634 0140 32       		.byte	0x32
- 635 0141 00000000 		.4byte	.LFB65
- 636 0145 B4010000 		.4byte	.LFE65-.LFB65
- 637 0149 01       		.uleb128 0x1
- 638 014a 9C       		.byte	0x9c
- 639 014b 26020000 		.4byte	0x226
- 640 014f 0A       		.uleb128 0xa
- 641 0150 06000000 		.4byte	.LVL2
- 642 0154 9C030000 		.4byte	0x39c
- 643 0158 07       		.uleb128 0x7
- 644 0159 44000000 		.4byte	.LVL3
- 645 015d A7030000 		.4byte	0x3a7
- 646 0161 75010000 		.4byte	0x175
- 647 0165 08       		.uleb128 0x8
- 648 0166 01       		.uleb128 0x1
- 649 0167 50       		.byte	0x50
- 650 0168 02       		.uleb128 0x2
- 651 0169 75       		.byte	0x75
- 652 016a 00       		.sleb128 0
- 653 016b 08       		.uleb128 0x8
- 654 016c 01       		.uleb128 0x1
- 655 016d 51       		.byte	0x51
- 656 016e 05       		.uleb128 0x5
- 657 016f 03       		.byte	0x3
- 658 0170 18000000 		.4byte	.LC1
- 659 0174 00       		.byte	0
- 660 0175 07       		.uleb128 0x7
- 661 0176 4A000000 		.4byte	.LVL4
- 662 017a 91030000 		.4byte	0x391
- 663 017e 89010000 		.4byte	0x189
- 664 0182 08       		.uleb128 0x8
- 665 0183 01       		.uleb128 0x1
- 666 0184 50       		.byte	0x50
- 667 0185 02       		.uleb128 0x2
- 668 0186 75       		.byte	0x75
- 669 0187 00       		.sleb128 0
- 670 0188 00       		.byte	0
- 671 0189 0A       		.uleb128 0xa
- 672 018a 9E000000 		.4byte	.LVL5
- 673 018e B2030000 		.4byte	0x3b2
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\cc47mM1P.s 			page 16
+ 526              		.comm	OVR_FLAG,1,1
+ 527              		.section	.rodata.str1.4,"aMS",%progbits,1
+ 528              		.align	2
+ 529              	.LC0:
+ 530 0000 4F766572 		.ascii	"Overthreshold event \015\012\000"
+ 530      74687265 
+ 530      73686F6C 
+ 530      64206576 
+ 530      656E7420 
+ 531 0017 00       		.space	1
+ 532              	.LC1:
+ 533 0018 53776974 		.ascii	"Switch ON device \015\012\000"
+ 533      6368204F 
+ 533      4E206465 
+ 533      76696365 
+ 533      200D0A00 
+ 534              	.LC2:
+ 535 002c 53776974 		.ascii	"Switch to Configuration Mode \015\012\000"
+ 535      63682074 
+ 535      6F20436F 
+ 535      6E666967 
+ 535      75726174 
+ 536              	.LC3:
+ 537 004c 53776974 		.ascii	"Switch to ON Mode \015\012\000"
+ 537      63682074 
+ 537      6F204F4E 
+ 537      204D6F64 
+ 537      65200D0A 
+ 538 0061 000000   		.space	3
+ 539              	.LC4:
+ 540 0064 42757474 		.ascii	"Button Pressed \015\012\000"
+ 540      6F6E2050 
+ 540      72657373 
+ 540      6564200D 
+ 540      0A00
+ 541              		.bss
+ 542              		.align	1
+ 543              		.set	.LANCHOR0,. + 0
+ 544              		.type	counter_button, %object
+ 545              		.size	counter_button, 2
+ 546              	counter_button:
+ 547 0000 0000     		.space	2
+ 548              		.type	timer_counter, %object
+ 549              		.size	timer_counter, 2
+ 550              	timer_counter:
+ 551 0002 0000     		.space	2
+ 552              		.text
+ 553              	.Letext0:
+ 554              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.3\\psoc creator\\import\\gnu\\arm\\5.4.
+ 555              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.3\\psoc creator\\import\\gnu\\arm\\5.4.
+ 556              		.file 4 "Generated_Source\\PSoC5/core_cm3.h"
+ 557              		.file 5 "Interrupt_Routines.h"
+ 558              		.file 6 "I2C_Interface.h"
+ 559              		.file 7 "Generated_Source\\PSoC5/UART_Debug.h"
+ 560              		.file 8 "Generated_Source\\PSoC5/Timer.h"
+ 561              		.file 9 "Generated_Source\\PSoC5/BLUE_Led.h"
+ 562              		.file 10 "Generated_Source\\PSoC5/GREEN_Led.h"
+ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccPMMthP.s 			page 15
 
 
- 674 0192 0A       		.uleb128 0xa
- 675 0193 A6000000 		.4byte	.LVL6
- 676 0197 BD030000 		.4byte	0x3bd
- 677 019b 07       		.uleb128 0x7
- 678 019c C2000000 		.4byte	.LVL7
- 679 01a0 BD030000 		.4byte	0x3bd
- 680 01a4 AE010000 		.4byte	0x1ae
- 681 01a8 08       		.uleb128 0x8
- 682 01a9 01       		.uleb128 0x1
- 683 01aa 50       		.byte	0x50
- 684 01ab 01       		.uleb128 0x1
- 685 01ac 31       		.byte	0x31
- 686 01ad 00       		.byte	0
- 687 01ae 0A       		.uleb128 0xa
- 688 01af DA000000 		.4byte	.LVL8
- 689 01b3 C8030000 		.4byte	0x3c8
- 690 01b7 0A       		.uleb128 0xa
- 691 01b8 E2000000 		.4byte	.LVL9
- 692 01bc D3030000 		.4byte	0x3d3
- 693 01c0 07       		.uleb128 0x7
- 694 01c1 FE000000 		.4byte	.LVL10
- 695 01c5 D3030000 		.4byte	0x3d3
- 696 01c9 D3010000 		.4byte	0x1d3
- 697 01cd 08       		.uleb128 0x8
- 698 01ce 01       		.uleb128 0x1
- 699 01cf 50       		.byte	0x50
- 700 01d0 01       		.uleb128 0x1
- 701 01d1 31       		.byte	0x31
- 702 01d2 00       		.byte	0
- 703 01d3 0A       		.uleb128 0xa
- 704 01d4 16010000 		.4byte	.LVL11
- 705 01d8 DE030000 		.4byte	0x3de
- 706 01dc 0A       		.uleb128 0xa
- 707 01dd 1E010000 		.4byte	.LVL12
- 708 01e1 E9030000 		.4byte	0x3e9
- 709 01e5 07       		.uleb128 0x7
- 710 01e6 3A010000 		.4byte	.LVL13
- 711 01ea E9030000 		.4byte	0x3e9
- 712 01ee F8010000 		.4byte	0x1f8
- 713 01f2 08       		.uleb128 0x8
- 714 01f3 01       		.uleb128 0x1
- 715 01f4 50       		.byte	0x50
- 716 01f5 01       		.uleb128 0x1
- 717 01f6 31       		.byte	0x31
- 718 01f7 00       		.byte	0
- 719 01f8 07       		.uleb128 0x7
- 720 01f9 6A010000 		.4byte	.LVL14
- 721 01fd A7030000 		.4byte	0x3a7
- 722 0201 15020000 		.4byte	0x215
- 723 0205 08       		.uleb128 0x8
- 724 0206 01       		.uleb128 0x1
- 725 0207 50       		.byte	0x50
- 726 0208 02       		.uleb128 0x2
- 727 0209 75       		.byte	0x75
- 728 020a 00       		.sleb128 0
- 729 020b 08       		.uleb128 0x8
- 730 020c 01       		.uleb128 0x1
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\cc47mM1P.s 			page 17
+ 563              		.file 11 "Generated_Source\\PSoC5/RED_Led.h"
+ 564              		.file 12 "Generated_Source\\PSoC5/INT_Led.h"
+ 565              		.file 13 "Generated_Source\\PSoC5/Timer_Button.h"
+ 566              		.section	.debug_info,"",%progbits
+ 567              	.Ldebug_info0:
+ 568 0000 19040000 		.4byte	0x419
+ 569 0004 0400     		.2byte	0x4
+ 570 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 571 000a 04       		.byte	0x4
+ 572 000b 01       		.uleb128 0x1
+ 573 000c 4A010000 		.4byte	.LASF55
+ 574 0010 0C       		.byte	0xc
+ 575 0011 18000000 		.4byte	.LASF56
+ 576 0015 44000000 		.4byte	.LASF57
+ 577 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 578 001d 00000000 		.4byte	0
+ 579 0021 00000000 		.4byte	.Ldebug_line0
+ 580 0025 02       		.uleb128 0x2
+ 581 0026 01       		.byte	0x1
+ 582 0027 06       		.byte	0x6
+ 583 0028 8A030000 		.4byte	.LASF0
+ 584 002c 03       		.uleb128 0x3
+ 585 002d 3A000000 		.4byte	.LASF3
+ 586 0031 02       		.byte	0x2
+ 587 0032 1D       		.byte	0x1d
+ 588 0033 37000000 		.4byte	0x37
+ 589 0037 02       		.uleb128 0x2
+ 590 0038 01       		.byte	0x1
+ 591 0039 08       		.byte	0x8
+ 592 003a 3C010000 		.4byte	.LASF1
+ 593 003e 02       		.uleb128 0x2
+ 594 003f 02       		.byte	0x2
+ 595 0040 05       		.byte	0x5
+ 596 0041 49030000 		.4byte	.LASF2
+ 597 0045 03       		.uleb128 0x3
+ 598 0046 2D020000 		.4byte	.LASF4
+ 599 004a 02       		.byte	0x2
+ 600 004b 2B       		.byte	0x2b
+ 601 004c 50000000 		.4byte	0x50
+ 602 0050 02       		.uleb128 0x2
+ 603 0051 02       		.byte	0x2
+ 604 0052 07       		.byte	0x7
+ 605 0053 E0000000 		.4byte	.LASF5
+ 606 0057 03       		.uleb128 0x3
+ 607 0058 BD000000 		.4byte	.LASF6
+ 608 005c 02       		.byte	0x2
+ 609 005d 3F       		.byte	0x3f
+ 610 005e 62000000 		.4byte	0x62
+ 611 0062 02       		.uleb128 0x2
+ 612 0063 04       		.byte	0x4
+ 613 0064 05       		.byte	0x5
+ 614 0065 75030000 		.4byte	.LASF7
+ 615 0069 03       		.uleb128 0x3
+ 616 006a 65020000 		.4byte	.LASF8
+ 617 006e 02       		.byte	0x2
+ 618 006f 41       		.byte	0x41
+ 619 0070 74000000 		.4byte	0x74
+ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccPMMthP.s 			page 16
 
 
- 731 020d 51       		.byte	0x51
- 732 020e 05       		.uleb128 0x5
- 733 020f 03       		.byte	0x3
- 734 0210 18000000 		.4byte	.LC1
- 735 0214 00       		.byte	0
- 736 0215 09       		.uleb128 0x9
- 737 0216 70010000 		.4byte	.LVL15
- 738 021a 91030000 		.4byte	0x391
- 739 021e 08       		.uleb128 0x8
- 740 021f 01       		.uleb128 0x1
- 741 0220 50       		.byte	0x50
- 742 0221 02       		.uleb128 0x2
- 743 0222 75       		.byte	0x75
- 744 0223 00       		.sleb128 0
- 745 0224 00       		.byte	0
- 746 0225 00       		.byte	0
- 747 0226 06       		.uleb128 0x6
- 748 0227 77010000 		.4byte	.LASF24
- 749 022b 01       		.byte	0x1
- 750 022c A4       		.byte	0xa4
- 751 022d 00000000 		.4byte	.LFB66
- 752 0231 38000000 		.4byte	.LFE66-.LFB66
- 753 0235 01       		.uleb128 0x1
- 754 0236 9C       		.byte	0x9c
- 755 0237 55020000 		.4byte	0x255
- 756 023b 0A       		.uleb128 0xa
- 757 023c 06000000 		.4byte	.LVL16
- 758 0240 F4030000 		.4byte	0x3f4
- 759 0244 09       		.uleb128 0x9
- 760 0245 2A000000 		.4byte	.LVL17
- 761 0249 91030000 		.4byte	0x391
- 762 024d 08       		.uleb128 0x8
- 763 024e 01       		.uleb128 0x1
- 764 024f 50       		.byte	0x50
- 765 0250 02       		.uleb128 0x2
- 766 0251 75       		.byte	0x75
- 767 0252 00       		.sleb128 0
- 768 0253 00       		.byte	0
- 769 0254 00       		.byte	0
- 770 0255 0B       		.uleb128 0xb
- 771 0256 9F010000 		.4byte	.LASF25
- 772 025a 04       		.byte	0x4
- 773 025b 1207     		.2byte	0x712
- 774 025d 61020000 		.4byte	0x261
- 775 0261 05       		.uleb128 0x5
- 776 0262 AD000000 		.4byte	0xad
- 777 0266 0C       		.uleb128 0xc
- 778 0267 8A010000 		.4byte	.LASF26
- 779 026b 05       		.byte	0x5
- 780 026c 1C       		.byte	0x1c
- 781 026d EB000000 		.4byte	0xeb
- 782 0271 05       		.uleb128 0x5
- 783 0272 03       		.byte	0x3
- 784 0273 00000000 		.4byte	OVR_FLAG
- 785 0277 0C       		.uleb128 0xc
- 786 0278 37000000 		.4byte	.LASF27
- 787 027c 05       		.byte	0x5
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\cc47mM1P.s 			page 18
+ 620 0074 02       		.uleb128 0x2
+ 621 0075 04       		.byte	0x4
+ 622 0076 07       		.byte	0x7
+ 623 0077 8D020000 		.4byte	.LASF9
+ 624 007b 02       		.uleb128 0x2
+ 625 007c 08       		.byte	0x8
+ 626 007d 05       		.byte	0x5
+ 627 007e 00030000 		.4byte	.LASF10
+ 628 0082 02       		.uleb128 0x2
+ 629 0083 08       		.byte	0x8
+ 630 0084 07       		.byte	0x7
+ 631 0085 AC020000 		.4byte	.LASF11
+ 632 0089 04       		.uleb128 0x4
+ 633 008a 04       		.byte	0x4
+ 634 008b 05       		.byte	0x5
+ 635 008c 696E7400 		.ascii	"int\000"
+ 636 0090 02       		.uleb128 0x2
+ 637 0091 04       		.byte	0x4
+ 638 0092 07       		.byte	0x7
+ 639 0093 9F020000 		.4byte	.LASF12
+ 640 0097 03       		.uleb128 0x3
+ 641 0098 F3000000 		.4byte	.LASF13
+ 642 009c 03       		.byte	0x3
+ 643 009d 18       		.byte	0x18
+ 644 009e 2C000000 		.4byte	0x2c
+ 645 00a2 03       		.uleb128 0x3
+ 646 00a3 53030000 		.4byte	.LASF14
+ 647 00a7 03       		.byte	0x3
+ 648 00a8 24       		.byte	0x24
+ 649 00a9 45000000 		.4byte	0x45
+ 650 00ad 03       		.uleb128 0x3
+ 651 00ae E9020000 		.4byte	.LASF15
+ 652 00b2 03       		.byte	0x3
+ 653 00b3 2C       		.byte	0x2c
+ 654 00b4 57000000 		.4byte	0x57
+ 655 00b8 03       		.uleb128 0x3
+ 656 00b9 6C030000 		.4byte	.LASF16
+ 657 00bd 03       		.byte	0x3
+ 658 00be 30       		.byte	0x30
+ 659 00bf 69000000 		.4byte	0x69
+ 660 00c3 02       		.uleb128 0x2
+ 661 00c4 04       		.byte	0x4
+ 662 00c5 04       		.byte	0x4
+ 663 00c6 26010000 		.4byte	.LASF17
+ 664 00ca 02       		.uleb128 0x2
+ 665 00cb 08       		.byte	0x8
+ 666 00cc 04       		.byte	0x4
+ 667 00cd FB000000 		.4byte	.LASF18
+ 668 00d1 02       		.uleb128 0x2
+ 669 00d2 01       		.byte	0x1
+ 670 00d3 08       		.byte	0x8
+ 671 00d4 0E030000 		.4byte	.LASF19
+ 672 00d8 02       		.uleb128 0x2
+ 673 00d9 08       		.byte	0x8
+ 674 00da 04       		.byte	0x4
+ 675 00db 7E030000 		.4byte	.LASF20
+ 676 00df 02       		.uleb128 0x2
+ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccPMMthP.s 			page 17
 
 
- 788 027d 1E       		.byte	0x1e
- 789 027e EB000000 		.4byte	0xeb
- 790 0282 05       		.uleb128 0x5
- 791 0283 03       		.byte	0x3
- 792 0284 00000000 		.4byte	status
- 793 0288 0C       		.uleb128 0xc
- 794 0289 55030000 		.4byte	.LASF28
- 795 028d 05       		.byte	0x5
- 796 028e 25       		.byte	0x25
- 797 028f F0000000 		.4byte	0xf0
- 798 0293 05       		.uleb128 0x5
- 799 0294 03       		.byte	0x3
- 800 0295 00000000 		.4byte	period_red
- 801 0299 0C       		.uleb128 0xc
- 802 029a 6D030000 		.4byte	.LASF29
- 803 029e 05       		.byte	0x5
- 804 029f 26       		.byte	0x26
- 805 02a0 F0000000 		.4byte	0xf0
- 806 02a4 05       		.uleb128 0x5
- 807 02a5 03       		.byte	0x3
- 808 02a6 00000000 		.4byte	period_green
- 809 02aa 0C       		.uleb128 0xc
- 810 02ab 93010000 		.4byte	.LASF30
- 811 02af 05       		.byte	0x5
- 812 02b0 27       		.byte	0x27
- 813 02b1 F0000000 		.4byte	0xf0
- 814 02b5 05       		.uleb128 0x5
- 815 02b6 03       		.byte	0x3
- 816 02b7 00000000 		.4byte	period_blue
- 817 02bb 0C       		.uleb128 0xc
- 818 02bc 73020000 		.4byte	.LASF31
- 819 02c0 05       		.byte	0x5
- 820 02c1 29       		.byte	0x29
- 821 02c2 F0000000 		.4byte	0xf0
- 822 02c6 05       		.uleb128 0x5
- 823 02c7 03       		.byte	0x3
- 824 02c8 00000000 		.4byte	counter_red
- 825 02cc 0C       		.uleb128 0xc
- 826 02cd 00000000 		.4byte	.LASF32
- 827 02d1 05       		.byte	0x5
- 828 02d2 2A       		.byte	0x2a
- 829 02d3 F0000000 		.4byte	0xf0
- 830 02d7 05       		.uleb128 0x5
- 831 02d8 03       		.byte	0x3
- 832 02d9 00000000 		.4byte	counter_green
- 833 02dd 0C       		.uleb128 0xc
- 834 02de 9B000000 		.4byte	.LASF33
- 835 02e2 05       		.byte	0x5
- 836 02e3 2B       		.byte	0x2b
- 837 02e4 F0000000 		.4byte	0xf0
- 838 02e8 05       		.uleb128 0x5
- 839 02e9 03       		.byte	0x3
- 840 02ea 00000000 		.4byte	counter_blue
- 841 02ee 0C       		.uleb128 0xc
- 842 02ef 9C020000 		.4byte	.LASF34
- 843 02f3 05       		.byte	0x5
- 844 02f4 2D       		.byte	0x2d
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\cc47mM1P.s 			page 19
+ 677 00e0 04       		.byte	0x4
+ 678 00e1 07       		.byte	0x7
+ 679 00e2 F1020000 		.4byte	.LASF21
+ 680 00e6 05       		.uleb128 0x5
+ 681 00e7 B8000000 		.4byte	0xb8
+ 682 00eb 05       		.uleb128 0x5
+ 683 00ec 97000000 		.4byte	0x97
+ 684 00f0 05       		.uleb128 0x5
+ 685 00f1 A2000000 		.4byte	0xa2
+ 686 00f5 06       		.uleb128 0x6
+ 687 00f6 2F030000 		.4byte	.LASF22
+ 688 00fa 01       		.byte	0x1
+ 689 00fb 20       		.byte	0x20
+ 690 00fc 00000000 		.4byte	.LFB64
+ 691 0100 60000000 		.4byte	.LFE64-.LFB64
+ 692 0104 01       		.uleb128 0x1
+ 693 0105 9C       		.byte	0x9c
+ 694 0106 3A010000 		.4byte	0x13a
+ 695 010a 07       		.uleb128 0x7
+ 696 010b 0E000000 		.4byte	.LVL0
+ 697 010f 98030000 		.4byte	0x398
+ 698 0113 29010000 		.4byte	0x129
+ 699 0117 08       		.uleb128 0x8
+ 700 0118 01       		.uleb128 0x1
+ 701 0119 50       		.byte	0x50
+ 702 011a 01       		.uleb128 0x1
+ 703 011b 48       		.byte	0x48
+ 704 011c 08       		.uleb128 0x8
+ 705 011d 01       		.uleb128 0x1
+ 706 011e 51       		.byte	0x51
+ 707 011f 02       		.uleb128 0x2
+ 708 0120 08       		.byte	0x8
+ 709 0121 31       		.byte	0x31
+ 710 0122 08       		.uleb128 0x8
+ 711 0123 01       		.uleb128 0x1
+ 712 0124 52       		.byte	0x52
+ 713 0125 02       		.uleb128 0x2
+ 714 0126 74       		.byte	0x74
+ 715 0127 00       		.sleb128 0
+ 716 0128 00       		.byte	0
+ 717 0129 09       		.uleb128 0x9
+ 718 012a 3A000000 		.4byte	.LVL1
+ 719 012e A3030000 		.4byte	0x3a3
+ 720 0132 08       		.uleb128 0x8
+ 721 0133 01       		.uleb128 0x1
+ 722 0134 50       		.byte	0x50
+ 723 0135 02       		.uleb128 0x2
+ 724 0136 75       		.byte	0x75
+ 725 0137 00       		.sleb128 0
+ 726 0138 00       		.byte	0
+ 727 0139 00       		.byte	0
+ 728 013a 06       		.uleb128 0x6
+ 729 013b 38020000 		.4byte	.LASF23
+ 730 013f 01       		.byte	0x1
+ 731 0140 33       		.byte	0x33
+ 732 0141 00000000 		.4byte	.LFB65
+ 733 0145 54020000 		.4byte	.LFE65-.LFB65
+ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccPMMthP.s 			page 18
 
 
- 845 02f5 EB000000 		.4byte	0xeb
- 846 02f9 05       		.uleb128 0x5
- 847 02fa 03       		.byte	0x3
- 848 02fb 00000000 		.4byte	flag_eeprom
- 849 02ff 0C       		.uleb128 0xc
- 850 0300 0E000000 		.4byte	.LASF35
- 851 0304 05       		.byte	0x5
- 852 0305 2E       		.byte	0x2e
- 853 0306 E6000000 		.4byte	0xe6
- 854 030a 05       		.uleb128 0x5
- 855 030b 03       		.byte	0x3
- 856 030c 00000000 		.4byte	timestamp
- 857 0310 0C       		.uleb128 0xc
- 858 0311 B9020000 		.4byte	.LASF36
- 859 0315 01       		.byte	0x1
- 860 0316 13       		.byte	0x13
- 861 0317 97000000 		.4byte	0x97
- 862 031b 05       		.uleb128 0x5
- 863 031c 03       		.byte	0x3
- 864 031d 00000000 		.4byte	error
- 865 0321 0C       		.uleb128 0xc
- 866 0322 91000000 		.4byte	.LASF37
- 867 0326 01       		.byte	0x1
- 868 0327 14       		.byte	0x14
- 869 0328 97000000 		.4byte	0x97
- 870 032c 05       		.uleb128 0x5
- 871 032d 03       		.byte	0x3
- 872 032e 00000000 		.4byte	watermark
- 873 0332 0C       		.uleb128 0xc
- 874 0333 60030000 		.4byte	.LASF38
- 875 0337 01       		.byte	0x1
- 876 0338 15       		.byte	0x15
- 877 0339 97000000 		.4byte	0x97
- 878 033d 05       		.uleb128 0x5
- 879 033e 03       		.byte	0x3
- 880 033f 00000000 		.4byte	int1_src_reg
- 881 0343 0C       		.uleb128 0xc
- 882 0344 8D020000 		.4byte	.LASF39
- 883 0348 01       		.byte	0x1
- 884 0349 16       		.byte	0x16
- 885 034a F0000000 		.4byte	0xf0
- 886 034e 05       		.uleb128 0x5
- 887 034f 03       		.byte	0x3
- 888 0350 00000000 		.4byte	counter_button
- 889 0354 0C       		.uleb128 0xc
- 890 0355 15020000 		.4byte	.LASF40
- 891 0359 01       		.byte	0x1
- 892 035a 17       		.byte	0x17
- 893 035b A2000000 		.4byte	0xa2
- 894 035f 05       		.uleb128 0x5
- 895 0360 03       		.byte	0x3
- 896 0361 00000000 		.4byte	timer_counter
- 897 0365 0D       		.uleb128 0xd
- 898 0366 D1000000 		.4byte	0xd1
- 899 036a 75030000 		.4byte	0x375
- 900 036e 0E       		.uleb128 0xe
- 901 036f DF000000 		.4byte	0xdf
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\cc47mM1P.s 			page 20
+ 734 0149 01       		.uleb128 0x1
+ 735 014a 9C       		.byte	0x9c
+ 736 014b 16020000 		.4byte	0x216
+ 737 014f 0A       		.uleb128 0xa
+ 738 0150 06000000 		.4byte	.LVL2
+ 739 0154 AE030000 		.4byte	0x3ae
+ 740 0158 07       		.uleb128 0x7
+ 741 0159 5E000000 		.4byte	.LVL3
+ 742 015d A3030000 		.4byte	0x3a3
+ 743 0161 6C010000 		.4byte	0x16c
+ 744 0165 08       		.uleb128 0x8
+ 745 0166 01       		.uleb128 0x1
+ 746 0167 50       		.byte	0x50
+ 747 0168 02       		.uleb128 0x2
+ 748 0169 75       		.byte	0x75
+ 749 016a 00       		.sleb128 0
+ 750 016b 00       		.byte	0
+ 751 016c 0A       		.uleb128 0xa
+ 752 016d A6000000 		.4byte	.LVL4
+ 753 0171 B9030000 		.4byte	0x3b9
+ 754 0175 0A       		.uleb128 0xa
+ 755 0176 AE000000 		.4byte	.LVL5
+ 756 017a C4030000 		.4byte	0x3c4
+ 757 017e 07       		.uleb128 0x7
+ 758 017f CA000000 		.4byte	.LVL6
+ 759 0183 C4030000 		.4byte	0x3c4
+ 760 0187 91010000 		.4byte	0x191
+ 761 018b 08       		.uleb128 0x8
+ 762 018c 01       		.uleb128 0x1
+ 763 018d 50       		.byte	0x50
+ 764 018e 01       		.uleb128 0x1
+ 765 018f 31       		.byte	0x31
+ 766 0190 00       		.byte	0
+ 767 0191 0A       		.uleb128 0xa
+ 768 0192 E2000000 		.4byte	.LVL7
+ 769 0196 CF030000 		.4byte	0x3cf
+ 770 019a 0A       		.uleb128 0xa
+ 771 019b EA000000 		.4byte	.LVL8
+ 772 019f DA030000 		.4byte	0x3da
+ 773 01a3 07       		.uleb128 0x7
+ 774 01a4 06010000 		.4byte	.LVL9
+ 775 01a8 DA030000 		.4byte	0x3da
+ 776 01ac B6010000 		.4byte	0x1b6
+ 777 01b0 08       		.uleb128 0x8
+ 778 01b1 01       		.uleb128 0x1
+ 779 01b2 50       		.byte	0x50
+ 780 01b3 01       		.uleb128 0x1
+ 781 01b4 31       		.byte	0x31
+ 782 01b5 00       		.byte	0
+ 783 01b6 0A       		.uleb128 0xa
+ 784 01b7 1E010000 		.4byte	.LVL10
+ 785 01bb E5030000 		.4byte	0x3e5
+ 786 01bf 0A       		.uleb128 0xa
+ 787 01c0 26010000 		.4byte	.LVL11
+ 788 01c4 F0030000 		.4byte	0x3f0
+ 789 01c8 07       		.uleb128 0x7
+ 790 01c9 42010000 		.4byte	.LVL12
+ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccPMMthP.s 			page 19
 
 
- 902 0373 31       		.byte	0x31
- 903 0374 00       		.byte	0
- 904 0375 0F       		.uleb128 0xf
- 905 0376 6D657800 		.ascii	"mex\000"
- 906 037a 01       		.byte	0x1
- 907 037b 1B       		.byte	0x1b
- 908 037c 65030000 		.4byte	0x365
- 909 0380 05       		.uleb128 0x5
- 910 0381 03       		.byte	0x3
- 911 0382 00000000 		.4byte	mex
- 912 0386 10       		.uleb128 0x10
- 913 0387 D2020000 		.4byte	.LASF41
- 914 038b D2020000 		.4byte	.LASF41
- 915 038f 06       		.byte	0x6
- 916 0390 1E       		.byte	0x1e
- 917 0391 10       		.uleb128 0x10
- 918 0392 00020000 		.4byte	.LASF42
- 919 0396 00020000 		.4byte	.LASF42
- 920 039a 07       		.byte	0x7
- 921 039b 8B       		.byte	0x8b
- 922 039c 10       		.uleb128 0x10
- 923 039d 56000000 		.4byte	.LASF43
- 924 03a1 56000000 		.4byte	.LASF43
- 925 03a5 08       		.byte	0x8
- 926 03a6 5E       		.byte	0x5e
- 927 03a7 10       		.uleb128 0x10
- 928 03a8 7A030000 		.4byte	.LASF44
- 929 03ac 7A030000 		.4byte	.LASF44
- 930 03b0 09       		.byte	0x9
- 931 03b1 E7       		.byte	0xe7
- 932 03b2 10       		.uleb128 0x10
- 933 03b3 7F020000 		.4byte	.LASF45
- 934 03b7 7F020000 		.4byte	.LASF45
- 935 03bb 0A       		.byte	0xa
- 936 03bc 29       		.byte	0x29
- 937 03bd 10       		.uleb128 0x10
- 938 03be 82030000 		.4byte	.LASF46
- 939 03c2 82030000 		.4byte	.LASF46
- 940 03c6 0A       		.byte	0xa
- 941 03c7 26       		.byte	0x26
- 942 03c8 10       		.uleb128 0x10
- 943 03c9 2E020000 		.4byte	.LASF47
- 944 03cd 2E020000 		.4byte	.LASF47
- 945 03d1 0B       		.byte	0xb
- 946 03d2 29       		.byte	0x29
- 947 03d3 10       		.uleb128 0x10
- 948 03d4 1B030000 		.4byte	.LASF48
- 949 03d8 1B030000 		.4byte	.LASF48
- 950 03dc 0B       		.byte	0xb
- 951 03dd 26       		.byte	0x26
- 952 03de 10       		.uleb128 0x10
- 953 03df A8000000 		.4byte	.LASF49
- 954 03e3 A8000000 		.4byte	.LASF49
- 955 03e7 0C       		.byte	0xc
- 956 03e8 29       		.byte	0x29
- 957 03e9 10       		.uleb128 0x10
- 958 03ea 3E000000 		.4byte	.LASF50
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\cc47mM1P.s 			page 21
+ 791 01cd F0030000 		.4byte	0x3f0
+ 792 01d1 DB010000 		.4byte	0x1db
+ 793 01d5 08       		.uleb128 0x8
+ 794 01d6 01       		.uleb128 0x1
+ 795 01d7 50       		.byte	0x50
+ 796 01d8 01       		.uleb128 0x1
+ 797 01d9 31       		.byte	0x31
+ 798 01da 00       		.byte	0
+ 799 01db 07       		.uleb128 0x7
+ 800 01dc 8A010000 		.4byte	.LVL13
+ 801 01e0 A3030000 		.4byte	0x3a3
+ 802 01e4 EF010000 		.4byte	0x1ef
+ 803 01e8 08       		.uleb128 0x8
+ 804 01e9 01       		.uleb128 0x1
+ 805 01ea 50       		.byte	0x50
+ 806 01eb 02       		.uleb128 0x2
+ 807 01ec 75       		.byte	0x75
+ 808 01ed 00       		.sleb128 0
+ 809 01ee 00       		.byte	0
+ 810 01ef 07       		.uleb128 0x7
+ 811 01f0 EA010000 		.4byte	.LVL14
+ 812 01f4 A3030000 		.4byte	0x3a3
+ 813 01f8 03020000 		.4byte	0x203
+ 814 01fc 08       		.uleb128 0x8
+ 815 01fd 01       		.uleb128 0x1
+ 816 01fe 50       		.byte	0x50
+ 817 01ff 02       		.uleb128 0x2
+ 818 0200 75       		.byte	0x75
+ 819 0201 00       		.sleb128 0
+ 820 0202 00       		.byte	0
+ 821 0203 0A       		.uleb128 0xa
+ 822 0204 04020000 		.4byte	.LVL15
+ 823 0208 FB030000 		.4byte	0x3fb
+ 824 020c 0A       		.uleb128 0xa
+ 825 020d 0C020000 		.4byte	.LVL16
+ 826 0211 06040000 		.4byte	0x406
+ 827 0215 00       		.byte	0
+ 828 0216 06       		.uleb128 0x6
+ 829 0217 F8010000 		.4byte	.LASF24
+ 830 021b 01       		.byte	0x1
+ 831 021c D2       		.byte	0xd2
+ 832 021d 00000000 		.4byte	.LFB66
+ 833 0221 38000000 		.4byte	.LFE66-.LFB66
+ 834 0225 01       		.uleb128 0x1
+ 835 0226 9C       		.byte	0x9c
+ 836 0227 45020000 		.4byte	0x245
+ 837 022b 0A       		.uleb128 0xa
+ 838 022c 06000000 		.4byte	.LVL17
+ 839 0230 11040000 		.4byte	0x411
+ 840 0234 09       		.uleb128 0x9
+ 841 0235 2A000000 		.4byte	.LVL18
+ 842 0239 A3030000 		.4byte	0x3a3
+ 843 023d 08       		.uleb128 0x8
+ 844 023e 01       		.uleb128 0x1
+ 845 023f 50       		.byte	0x50
+ 846 0240 02       		.uleb128 0x2
+ 847 0241 75       		.byte	0x75
+ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccPMMthP.s 			page 20
 
 
- 959 03ee 3E000000 		.4byte	.LASF50
- 960 03f2 0C       		.byte	0xc
- 961 03f3 26       		.byte	0x26
- 962 03f4 10       		.uleb128 0x10
- 963 03f5 57010000 		.4byte	.LASF51
- 964 03f9 57010000 		.4byte	.LASF51
- 965 03fd 0D       		.byte	0xd
- 966 03fe 5E       		.byte	0x5e
- 967 03ff 00       		.byte	0
- 968              		.section	.debug_abbrev,"",%progbits
- 969              	.Ldebug_abbrev0:
- 970 0000 01       		.uleb128 0x1
- 971 0001 11       		.uleb128 0x11
- 972 0002 01       		.byte	0x1
- 973 0003 25       		.uleb128 0x25
- 974 0004 0E       		.uleb128 0xe
- 975 0005 13       		.uleb128 0x13
- 976 0006 0B       		.uleb128 0xb
- 977 0007 03       		.uleb128 0x3
- 978 0008 0E       		.uleb128 0xe
- 979 0009 1B       		.uleb128 0x1b
- 980 000a 0E       		.uleb128 0xe
- 981 000b 55       		.uleb128 0x55
- 982 000c 17       		.uleb128 0x17
- 983 000d 11       		.uleb128 0x11
- 984 000e 01       		.uleb128 0x1
- 985 000f 10       		.uleb128 0x10
- 986 0010 17       		.uleb128 0x17
- 987 0011 00       		.byte	0
- 988 0012 00       		.byte	0
- 989 0013 02       		.uleb128 0x2
- 990 0014 24       		.uleb128 0x24
- 991 0015 00       		.byte	0
- 992 0016 0B       		.uleb128 0xb
- 993 0017 0B       		.uleb128 0xb
- 994 0018 3E       		.uleb128 0x3e
- 995 0019 0B       		.uleb128 0xb
- 996 001a 03       		.uleb128 0x3
- 997 001b 0E       		.uleb128 0xe
- 998 001c 00       		.byte	0
- 999 001d 00       		.byte	0
- 1000 001e 03       		.uleb128 0x3
- 1001 001f 16       		.uleb128 0x16
- 1002 0020 00       		.byte	0
- 1003 0021 03       		.uleb128 0x3
- 1004 0022 0E       		.uleb128 0xe
- 1005 0023 3A       		.uleb128 0x3a
- 1006 0024 0B       		.uleb128 0xb
- 1007 0025 3B       		.uleb128 0x3b
- 1008 0026 0B       		.uleb128 0xb
- 1009 0027 49       		.uleb128 0x49
- 1010 0028 13       		.uleb128 0x13
- 1011 0029 00       		.byte	0
- 1012 002a 00       		.byte	0
- 1013 002b 04       		.uleb128 0x4
- 1014 002c 24       		.uleb128 0x24
- 1015 002d 00       		.byte	0
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\cc47mM1P.s 			page 22
+ 848 0242 00       		.sleb128 0
+ 849 0243 00       		.byte	0
+ 850 0244 00       		.byte	0
+ 851 0245 0B       		.uleb128 0xb
+ 852 0246 20020000 		.4byte	.LASF25
+ 853 024a 04       		.byte	0x4
+ 854 024b 1207     		.2byte	0x712
+ 855 024d 51020000 		.4byte	0x251
+ 856 0251 05       		.uleb128 0x5
+ 857 0252 AD000000 		.4byte	0xad
+ 858 0256 0C       		.uleb128 0xc
+ 859 0257 0B020000 		.4byte	.LASF26
+ 860 025b 05       		.byte	0x5
+ 861 025c 1C       		.byte	0x1c
+ 862 025d EB000000 		.4byte	0xeb
+ 863 0261 05       		.uleb128 0x5
+ 864 0262 03       		.byte	0x3
+ 865 0263 00000000 		.4byte	OVR_FLAG
+ 866 0267 0C       		.uleb128 0xc
+ 867 0268 8E000000 		.4byte	.LASF27
+ 868 026c 05       		.byte	0x5
+ 869 026d 1E       		.byte	0x1e
+ 870 026e EB000000 		.4byte	0xeb
+ 871 0272 05       		.uleb128 0x5
+ 872 0273 03       		.byte	0x3
+ 873 0274 00000000 		.4byte	status
+ 874 0278 0C       		.uleb128 0xc
+ 875 0279 A4000000 		.4byte	.LASF28
+ 876 027d 05       		.byte	0x5
+ 877 027e 25       		.byte	0x25
+ 878 027f F0000000 		.4byte	0xf0
+ 879 0283 05       		.uleb128 0x5
+ 880 0284 03       		.byte	0x3
+ 881 0285 00000000 		.4byte	period_red
+ 882 0289 0C       		.uleb128 0xc
+ 883 028a B2030000 		.4byte	.LASF29
+ 884 028e 05       		.byte	0x5
+ 885 028f 26       		.byte	0x26
+ 886 0290 F0000000 		.4byte	0xf0
+ 887 0294 05       		.uleb128 0x5
+ 888 0295 03       		.byte	0x3
+ 889 0296 00000000 		.4byte	period_green
+ 890 029a 0C       		.uleb128 0xc
+ 891 029b 14020000 		.4byte	.LASF30
+ 892 029f 05       		.byte	0x5
+ 893 02a0 27       		.byte	0x27
+ 894 02a1 F0000000 		.4byte	0xf0
+ 895 02a5 05       		.uleb128 0x5
+ 896 02a6 03       		.byte	0x3
+ 897 02a7 00000000 		.4byte	period_blue
+ 898 02ab 0C       		.uleb128 0xc
+ 899 02ac 95000000 		.4byte	.LASF31
+ 900 02b0 05       		.byte	0x5
+ 901 02b1 28       		.byte	0x28
+ 902 02b2 EB000000 		.4byte	0xeb
+ 903 02b6 05       		.uleb128 0x5
+ 904 02b7 03       		.byte	0x3
+ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccPMMthP.s 			page 21
 
 
- 1016 002e 0B       		.uleb128 0xb
- 1017 002f 0B       		.uleb128 0xb
- 1018 0030 3E       		.uleb128 0x3e
- 1019 0031 0B       		.uleb128 0xb
- 1020 0032 03       		.uleb128 0x3
- 1021 0033 08       		.uleb128 0x8
- 1022 0034 00       		.byte	0
- 1023 0035 00       		.byte	0
- 1024 0036 05       		.uleb128 0x5
- 1025 0037 35       		.uleb128 0x35
- 1026 0038 00       		.byte	0
- 1027 0039 49       		.uleb128 0x49
- 1028 003a 13       		.uleb128 0x13
- 1029 003b 00       		.byte	0
- 1030 003c 00       		.byte	0
- 1031 003d 06       		.uleb128 0x6
- 1032 003e 2E       		.uleb128 0x2e
- 1033 003f 01       		.byte	0x1
- 1034 0040 3F       		.uleb128 0x3f
- 1035 0041 19       		.uleb128 0x19
- 1036 0042 03       		.uleb128 0x3
- 1037 0043 0E       		.uleb128 0xe
- 1038 0044 3A       		.uleb128 0x3a
- 1039 0045 0B       		.uleb128 0xb
- 1040 0046 3B       		.uleb128 0x3b
- 1041 0047 0B       		.uleb128 0xb
- 1042 0048 27       		.uleb128 0x27
- 1043 0049 19       		.uleb128 0x19
- 1044 004a 11       		.uleb128 0x11
- 1045 004b 01       		.uleb128 0x1
- 1046 004c 12       		.uleb128 0x12
- 1047 004d 06       		.uleb128 0x6
- 1048 004e 40       		.uleb128 0x40
- 1049 004f 18       		.uleb128 0x18
- 1050 0050 9742     		.uleb128 0x2117
- 1051 0052 19       		.uleb128 0x19
- 1052 0053 01       		.uleb128 0x1
- 1053 0054 13       		.uleb128 0x13
- 1054 0055 00       		.byte	0
- 1055 0056 00       		.byte	0
- 1056 0057 07       		.uleb128 0x7
- 1057 0058 898201   		.uleb128 0x4109
- 1058 005b 01       		.byte	0x1
- 1059 005c 11       		.uleb128 0x11
- 1060 005d 01       		.uleb128 0x1
- 1061 005e 31       		.uleb128 0x31
- 1062 005f 13       		.uleb128 0x13
- 1063 0060 01       		.uleb128 0x1
- 1064 0061 13       		.uleb128 0x13
- 1065 0062 00       		.byte	0
- 1066 0063 00       		.byte	0
- 1067 0064 08       		.uleb128 0x8
- 1068 0065 8A8201   		.uleb128 0x410a
- 1069 0068 00       		.byte	0
- 1070 0069 02       		.uleb128 0x2
- 1071 006a 18       		.uleb128 0x18
- 1072 006b 9142     		.uleb128 0x2111
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\cc47mM1P.s 			page 23
+ 905 02b8 00000000 		.4byte	period_int_led
+ 906 02bc 0C       		.uleb128 0xc
+ 907 02bd C3020000 		.4byte	.LASF32
+ 908 02c1 05       		.byte	0x5
+ 909 02c2 2A       		.byte	0x2a
+ 910 02c3 F0000000 		.4byte	0xf0
+ 911 02c7 05       		.uleb128 0x5
+ 912 02c8 03       		.byte	0x3
+ 913 02c9 00000000 		.4byte	counter_red
+ 914 02cd 0C       		.uleb128 0xc
+ 915 02ce 00000000 		.4byte	.LASF33
+ 916 02d2 05       		.byte	0x5
+ 917 02d3 2B       		.byte	0x2b
+ 918 02d4 F0000000 		.4byte	0xf0
+ 919 02d8 05       		.uleb128 0x5
+ 920 02d9 03       		.byte	0x3
+ 921 02da 00000000 		.4byte	counter_green
+ 922 02de 0C       		.uleb128 0xc
+ 923 02df 0C010000 		.4byte	.LASF34
+ 924 02e3 05       		.byte	0x5
+ 925 02e4 2C       		.byte	0x2c
+ 926 02e5 F0000000 		.4byte	0xf0
+ 927 02e9 05       		.uleb128 0x5
+ 928 02ea 03       		.byte	0x3
+ 929 02eb 00000000 		.4byte	counter_blue
+ 930 02ef 0C       		.uleb128 0xc
+ 931 02f0 2C010000 		.4byte	.LASF35
+ 932 02f4 05       		.byte	0x5
+ 933 02f5 2D       		.byte	0x2d
+ 934 02f6 F0000000 		.4byte	0xf0
+ 935 02fa 05       		.uleb128 0x5
+ 936 02fb 03       		.byte	0x3
+ 937 02fc 00000000 		.4byte	counter_int_led
+ 938 0300 0C       		.uleb128 0xc
+ 939 0301 DD020000 		.4byte	.LASF36
+ 940 0305 05       		.byte	0x5
+ 941 0306 2F       		.byte	0x2f
+ 942 0307 EB000000 		.4byte	0xeb
+ 943 030b 05       		.uleb128 0x5
+ 944 030c 03       		.byte	0x3
+ 945 030d 00000000 		.4byte	flag_eeprom
+ 946 0311 0C       		.uleb128 0xc
+ 947 0312 0E000000 		.4byte	.LASF37
+ 948 0316 05       		.byte	0x5
+ 949 0317 30       		.byte	0x30
+ 950 0318 E6000000 		.4byte	0xe6
+ 951 031c 05       		.uleb128 0x5
+ 952 031d 03       		.byte	0x3
+ 953 031e 00000000 		.4byte	timestamp
+ 954 0322 0C       		.uleb128 0xc
+ 955 0323 FA020000 		.4byte	.LASF38
+ 956 0327 01       		.byte	0x1
+ 957 0328 13       		.byte	0x13
+ 958 0329 97000000 		.4byte	0x97
+ 959 032d 05       		.uleb128 0x5
+ 960 032e 03       		.byte	0x3
+ 961 032f 00000000 		.4byte	error
+ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccPMMthP.s 			page 22
 
 
- 1073 006d 18       		.uleb128 0x18
- 1074 006e 00       		.byte	0
- 1075 006f 00       		.byte	0
- 1076 0070 09       		.uleb128 0x9
- 1077 0071 898201   		.uleb128 0x4109
- 1078 0074 01       		.byte	0x1
- 1079 0075 11       		.uleb128 0x11
- 1080 0076 01       		.uleb128 0x1
- 1081 0077 31       		.uleb128 0x31
- 1082 0078 13       		.uleb128 0x13
- 1083 0079 00       		.byte	0
- 1084 007a 00       		.byte	0
- 1085 007b 0A       		.uleb128 0xa
- 1086 007c 898201   		.uleb128 0x4109
- 1087 007f 00       		.byte	0
- 1088 0080 11       		.uleb128 0x11
- 1089 0081 01       		.uleb128 0x1
- 1090 0082 31       		.uleb128 0x31
- 1091 0083 13       		.uleb128 0x13
- 1092 0084 00       		.byte	0
- 1093 0085 00       		.byte	0
- 1094 0086 0B       		.uleb128 0xb
- 1095 0087 34       		.uleb128 0x34
- 1096 0088 00       		.byte	0
- 1097 0089 03       		.uleb128 0x3
- 1098 008a 0E       		.uleb128 0xe
- 1099 008b 3A       		.uleb128 0x3a
- 1100 008c 0B       		.uleb128 0xb
- 1101 008d 3B       		.uleb128 0x3b
- 1102 008e 05       		.uleb128 0x5
- 1103 008f 49       		.uleb128 0x49
- 1104 0090 13       		.uleb128 0x13
- 1105 0091 3F       		.uleb128 0x3f
- 1106 0092 19       		.uleb128 0x19
- 1107 0093 3C       		.uleb128 0x3c
- 1108 0094 19       		.uleb128 0x19
- 1109 0095 00       		.byte	0
- 1110 0096 00       		.byte	0
- 1111 0097 0C       		.uleb128 0xc
- 1112 0098 34       		.uleb128 0x34
- 1113 0099 00       		.byte	0
- 1114 009a 03       		.uleb128 0x3
- 1115 009b 0E       		.uleb128 0xe
- 1116 009c 3A       		.uleb128 0x3a
- 1117 009d 0B       		.uleb128 0xb
- 1118 009e 3B       		.uleb128 0x3b
- 1119 009f 0B       		.uleb128 0xb
- 1120 00a0 49       		.uleb128 0x49
- 1121 00a1 13       		.uleb128 0x13
- 1122 00a2 3F       		.uleb128 0x3f
- 1123 00a3 19       		.uleb128 0x19
- 1124 00a4 02       		.uleb128 0x2
- 1125 00a5 18       		.uleb128 0x18
- 1126 00a6 00       		.byte	0
- 1127 00a7 00       		.byte	0
- 1128 00a8 0D       		.uleb128 0xd
- 1129 00a9 01       		.uleb128 0x1
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\cc47mM1P.s 			page 24
+ 962 0333 0C       		.uleb128 0xc
+ 963 0334 02010000 		.4byte	.LASF39
+ 964 0338 01       		.byte	0x1
+ 965 0339 14       		.byte	0x14
+ 966 033a 97000000 		.4byte	0x97
+ 967 033e 05       		.uleb128 0x5
+ 968 033f 03       		.byte	0x3
+ 969 0340 00000000 		.4byte	watermark
+ 970 0344 0C       		.uleb128 0xc
+ 971 0345 A5030000 		.4byte	.LASF40
+ 972 0349 01       		.byte	0x1
+ 973 034a 15       		.byte	0x15
+ 974 034b 97000000 		.4byte	0x97
+ 975 034f 05       		.uleb128 0x5
+ 976 0350 03       		.byte	0x3
+ 977 0351 00000000 		.4byte	int1_src_reg
+ 978 0355 0C       		.uleb128 0xc
+ 979 0356 96030000 		.4byte	.LASF41
+ 980 035a 01       		.byte	0x1
+ 981 035b 16       		.byte	0x16
+ 982 035c F0000000 		.4byte	0xf0
+ 983 0360 05       		.uleb128 0x5
+ 984 0361 03       		.byte	0x3
+ 985 0362 00000000 		.4byte	counter_button
+ 986 0366 0C       		.uleb128 0xc
+ 987 0367 57020000 		.4byte	.LASF42
+ 988 036b 01       		.byte	0x1
+ 989 036c 18       		.byte	0x18
+ 990 036d A2000000 		.4byte	0xa2
+ 991 0371 05       		.uleb128 0x5
+ 992 0372 03       		.byte	0x3
+ 993 0373 00000000 		.4byte	timer_counter
+ 994 0377 0D       		.uleb128 0xd
+ 995 0378 D1000000 		.4byte	0xd1
+ 996 037c 87030000 		.4byte	0x387
+ 997 0380 0E       		.uleb128 0xe
+ 998 0381 DF000000 		.4byte	0xdf
+ 999 0385 31       		.byte	0x31
+ 1000 0386 00       		.byte	0
+ 1001 0387 0F       		.uleb128 0xf
+ 1002 0388 6D657800 		.ascii	"mex\000"
+ 1003 038c 01       		.byte	0x1
+ 1004 038d 1C       		.byte	0x1c
+ 1005 038e 77030000 		.4byte	0x377
+ 1006 0392 05       		.uleb128 0x5
+ 1007 0393 03       		.byte	0x3
+ 1008 0394 00000000 		.4byte	mex
+ 1009 0398 10       		.uleb128 0x10
+ 1010 0399 13030000 		.4byte	.LASF43
+ 1011 039d 13030000 		.4byte	.LASF43
+ 1012 03a1 06       		.byte	0x6
+ 1013 03a2 1E       		.byte	0x1e
+ 1014 03a3 10       		.uleb128 0x10
+ 1015 03a4 42020000 		.4byte	.LASF44
+ 1016 03a8 42020000 		.4byte	.LASF44
+ 1017 03ac 07       		.byte	0x7
+ 1018 03ad 8B       		.byte	0x8b
+ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccPMMthP.s 			page 23
 
 
- 1130 00aa 01       		.byte	0x1
- 1131 00ab 49       		.uleb128 0x49
- 1132 00ac 13       		.uleb128 0x13
- 1133 00ad 01       		.uleb128 0x1
- 1134 00ae 13       		.uleb128 0x13
- 1135 00af 00       		.byte	0
- 1136 00b0 00       		.byte	0
- 1137 00b1 0E       		.uleb128 0xe
- 1138 00b2 21       		.uleb128 0x21
- 1139 00b3 00       		.byte	0
- 1140 00b4 49       		.uleb128 0x49
- 1141 00b5 13       		.uleb128 0x13
- 1142 00b6 2F       		.uleb128 0x2f
- 1143 00b7 0B       		.uleb128 0xb
- 1144 00b8 00       		.byte	0
- 1145 00b9 00       		.byte	0
- 1146 00ba 0F       		.uleb128 0xf
- 1147 00bb 34       		.uleb128 0x34
- 1148 00bc 00       		.byte	0
- 1149 00bd 03       		.uleb128 0x3
- 1150 00be 08       		.uleb128 0x8
- 1151 00bf 3A       		.uleb128 0x3a
- 1152 00c0 0B       		.uleb128 0xb
- 1153 00c1 3B       		.uleb128 0x3b
- 1154 00c2 0B       		.uleb128 0xb
- 1155 00c3 49       		.uleb128 0x49
- 1156 00c4 13       		.uleb128 0x13
- 1157 00c5 3F       		.uleb128 0x3f
- 1158 00c6 19       		.uleb128 0x19
- 1159 00c7 02       		.uleb128 0x2
- 1160 00c8 18       		.uleb128 0x18
- 1161 00c9 00       		.byte	0
- 1162 00ca 00       		.byte	0
- 1163 00cb 10       		.uleb128 0x10
- 1164 00cc 2E       		.uleb128 0x2e
- 1165 00cd 00       		.byte	0
- 1166 00ce 3F       		.uleb128 0x3f
- 1167 00cf 19       		.uleb128 0x19
- 1168 00d0 3C       		.uleb128 0x3c
- 1169 00d1 19       		.uleb128 0x19
- 1170 00d2 6E       		.uleb128 0x6e
- 1171 00d3 0E       		.uleb128 0xe
- 1172 00d4 03       		.uleb128 0x3
- 1173 00d5 0E       		.uleb128 0xe
- 1174 00d6 3A       		.uleb128 0x3a
- 1175 00d7 0B       		.uleb128 0xb
- 1176 00d8 3B       		.uleb128 0x3b
- 1177 00d9 0B       		.uleb128 0xb
- 1178 00da 00       		.byte	0
- 1179 00db 00       		.byte	0
- 1180 00dc 00       		.byte	0
- 1181              		.section	.debug_aranges,"",%progbits
- 1182 0000 2C000000 		.4byte	0x2c
- 1183 0004 0200     		.2byte	0x2
- 1184 0006 00000000 		.4byte	.Ldebug_info0
- 1185 000a 04       		.byte	0x4
- 1186 000b 00       		.byte	0
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\cc47mM1P.s 			page 25
+ 1019 03ae 10       		.uleb128 0x10
+ 1020 03af C7000000 		.4byte	.LASF45
+ 1021 03b3 C7000000 		.4byte	.LASF45
+ 1022 03b7 08       		.byte	0x8
+ 1023 03b8 5E       		.byte	0x5e
+ 1024 03b9 10       		.uleb128 0x10
+ 1025 03ba CF020000 		.4byte	.LASF46
+ 1026 03be CF020000 		.4byte	.LASF46
+ 1027 03c2 09       		.byte	0x9
+ 1028 03c3 29       		.byte	0x29
+ 1029 03c4 10       		.uleb128 0x10
+ 1030 03c5 BF030000 		.4byte	.LASF47
+ 1031 03c9 BF030000 		.4byte	.LASF47
+ 1032 03cd 09       		.byte	0x9
+ 1033 03ce 26       		.byte	0x26
+ 1034 03cf 10       		.uleb128 0x10
+ 1035 03d0 70020000 		.4byte	.LASF48
+ 1036 03d4 70020000 		.4byte	.LASF48
+ 1037 03d8 0A       		.byte	0xa
+ 1038 03d9 29       		.byte	0x29
+ 1039 03da 10       		.uleb128 0x10
+ 1040 03db 5C030000 		.4byte	.LASF49
+ 1041 03df 5C030000 		.4byte	.LASF49
+ 1042 03e3 0A       		.byte	0xa
+ 1043 03e4 26       		.byte	0x26
+ 1044 03e5 10       		.uleb128 0x10
+ 1045 03e6 19010000 		.4byte	.LASF50
+ 1046 03ea 19010000 		.4byte	.LASF50
+ 1047 03ee 0B       		.byte	0xb
+ 1048 03ef 29       		.byte	0x29
+ 1049 03f0 10       		.uleb128 0x10
+ 1050 03f1 AF000000 		.4byte	.LASF51
+ 1051 03f5 AF000000 		.4byte	.LASF51
+ 1052 03f9 0B       		.byte	0xb
+ 1053 03fa 26       		.byte	0x26
+ 1054 03fb 10       		.uleb128 0x10
+ 1055 03fc 2D000000 		.4byte	.LASF52
+ 1056 0400 2D000000 		.4byte	.LASF52
+ 1057 0404 0C       		.byte	0xc
+ 1058 0405 29       		.byte	0x29
+ 1059 0406 10       		.uleb128 0x10
+ 1060 0407 7F020000 		.4byte	.LASF53
+ 1061 040b 7F020000 		.4byte	.LASF53
+ 1062 040f 0C       		.byte	0xc
+ 1063 0410 26       		.byte	0x26
+ 1064 0411 10       		.uleb128 0x10
+ 1065 0412 D8010000 		.4byte	.LASF54
+ 1066 0416 D8010000 		.4byte	.LASF54
+ 1067 041a 0D       		.byte	0xd
+ 1068 041b 5E       		.byte	0x5e
+ 1069 041c 00       		.byte	0
+ 1070              		.section	.debug_abbrev,"",%progbits
+ 1071              	.Ldebug_abbrev0:
+ 1072 0000 01       		.uleb128 0x1
+ 1073 0001 11       		.uleb128 0x11
+ 1074 0002 01       		.byte	0x1
+ 1075 0003 25       		.uleb128 0x25
+ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccPMMthP.s 			page 24
 
 
- 1187 000c 0000     		.2byte	0
- 1188 000e 0000     		.2byte	0
- 1189 0010 00000000 		.4byte	.LFB64
- 1190 0014 60000000 		.4byte	.LFE64-.LFB64
- 1191 0018 00000000 		.4byte	.LFB65
- 1192 001c B4010000 		.4byte	.LFE65-.LFB65
- 1193 0020 00000000 		.4byte	.LFB66
- 1194 0024 38000000 		.4byte	.LFE66-.LFB66
- 1195 0028 00000000 		.4byte	0
- 1196 002c 00000000 		.4byte	0
- 1197              		.section	.debug_ranges,"",%progbits
- 1198              	.Ldebug_ranges0:
- 1199 0000 00000000 		.4byte	.LFB64
- 1200 0004 60000000 		.4byte	.LFE64
- 1201 0008 00000000 		.4byte	.LFB65
- 1202 000c B4010000 		.4byte	.LFE65
- 1203 0010 00000000 		.4byte	.LFB66
- 1204 0014 38000000 		.4byte	.LFE66
- 1205 0018 00000000 		.4byte	0
- 1206 001c 00000000 		.4byte	0
- 1207              		.section	.debug_line,"",%progbits
- 1208              	.Ldebug_line0:
- 1209 0000 BC020000 		.section	.debug_str,"MS",%progbits,1
- 1209      02004202 
- 1209      00000201 
- 1209      FB0E0D00 
- 1209      01010101 
- 1210              	.LASF32:
- 1211 0000 636F756E 		.ascii	"counter_green\000"
- 1211      7465725F 
- 1211      67726565 
- 1211      6E00
- 1212              	.LASF35:
- 1213 000e 74696D65 		.ascii	"timestamp\000"
- 1213      7374616D 
- 1213      7000
- 1214              	.LASF53:
- 1215 0018 496E7465 		.ascii	"Interrupt_Routines.c\000"
- 1215      72727570 
- 1215      745F526F 
- 1215      7574696E 
- 1215      65732E63 
- 1216              	.LASF3:
- 1217 002d 5F5F7569 		.ascii	"__uint8_t\000"
- 1217      6E74385F 
- 1217      7400
- 1218              	.LASF27:
- 1219 0037 73746174 		.ascii	"status\000"
- 1219      757300
- 1220              	.LASF50:
- 1221 003e 5245445F 		.ascii	"RED_Led_Write\000"
- 1221      4C65645F 
- 1221      57726974 
- 1221      6500
- 1222              	.LASF6:
- 1223 004c 5F5F696E 		.ascii	"__int32_t\000"
- 1223      7433325F 
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\cc47mM1P.s 			page 26
+ 1076 0004 0E       		.uleb128 0xe
+ 1077 0005 13       		.uleb128 0x13
+ 1078 0006 0B       		.uleb128 0xb
+ 1079 0007 03       		.uleb128 0x3
+ 1080 0008 0E       		.uleb128 0xe
+ 1081 0009 1B       		.uleb128 0x1b
+ 1082 000a 0E       		.uleb128 0xe
+ 1083 000b 55       		.uleb128 0x55
+ 1084 000c 17       		.uleb128 0x17
+ 1085 000d 11       		.uleb128 0x11
+ 1086 000e 01       		.uleb128 0x1
+ 1087 000f 10       		.uleb128 0x10
+ 1088 0010 17       		.uleb128 0x17
+ 1089 0011 00       		.byte	0
+ 1090 0012 00       		.byte	0
+ 1091 0013 02       		.uleb128 0x2
+ 1092 0014 24       		.uleb128 0x24
+ 1093 0015 00       		.byte	0
+ 1094 0016 0B       		.uleb128 0xb
+ 1095 0017 0B       		.uleb128 0xb
+ 1096 0018 3E       		.uleb128 0x3e
+ 1097 0019 0B       		.uleb128 0xb
+ 1098 001a 03       		.uleb128 0x3
+ 1099 001b 0E       		.uleb128 0xe
+ 1100 001c 00       		.byte	0
+ 1101 001d 00       		.byte	0
+ 1102 001e 03       		.uleb128 0x3
+ 1103 001f 16       		.uleb128 0x16
+ 1104 0020 00       		.byte	0
+ 1105 0021 03       		.uleb128 0x3
+ 1106 0022 0E       		.uleb128 0xe
+ 1107 0023 3A       		.uleb128 0x3a
+ 1108 0024 0B       		.uleb128 0xb
+ 1109 0025 3B       		.uleb128 0x3b
+ 1110 0026 0B       		.uleb128 0xb
+ 1111 0027 49       		.uleb128 0x49
+ 1112 0028 13       		.uleb128 0x13
+ 1113 0029 00       		.byte	0
+ 1114 002a 00       		.byte	0
+ 1115 002b 04       		.uleb128 0x4
+ 1116 002c 24       		.uleb128 0x24
+ 1117 002d 00       		.byte	0
+ 1118 002e 0B       		.uleb128 0xb
+ 1119 002f 0B       		.uleb128 0xb
+ 1120 0030 3E       		.uleb128 0x3e
+ 1121 0031 0B       		.uleb128 0xb
+ 1122 0032 03       		.uleb128 0x3
+ 1123 0033 08       		.uleb128 0x8
+ 1124 0034 00       		.byte	0
+ 1125 0035 00       		.byte	0
+ 1126 0036 05       		.uleb128 0x5
+ 1127 0037 35       		.uleb128 0x35
+ 1128 0038 00       		.byte	0
+ 1129 0039 49       		.uleb128 0x49
+ 1130 003a 13       		.uleb128 0x13
+ 1131 003b 00       		.byte	0
+ 1132 003c 00       		.byte	0
+ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccPMMthP.s 			page 25
 
 
- 1223      7400
- 1224              	.LASF43:
- 1225 0056 54696D65 		.ascii	"Timer_ReadStatusRegister\000"
- 1225      725F5265 
- 1225      61645374 
- 1225      61747573 
- 1225      52656769 
- 1226              	.LASF5:
- 1227 006f 73686F72 		.ascii	"short unsigned int\000"
- 1227      7420756E 
- 1227      7369676E 
- 1227      65642069 
- 1227      6E7400
- 1228              	.LASF13:
- 1229 0082 75696E74 		.ascii	"uint8_t\000"
- 1229      385F7400 
- 1230              	.LASF18:
- 1231 008a 646F7562 		.ascii	"double\000"
- 1231      6C6500
- 1232              	.LASF37:
- 1233 0091 77617465 		.ascii	"watermark\000"
- 1233      726D6172 
- 1233      6B00
- 1234              	.LASF33:
- 1235 009b 636F756E 		.ascii	"counter_blue\000"
- 1235      7465725F 
- 1235      626C7565 
- 1235      00
- 1236              	.LASF49:
- 1237 00a8 5245445F 		.ascii	"RED_Led_Read\000"
- 1237      4C65645F 
- 1237      52656164 
- 1237      00
- 1238              	.LASF17:
- 1239 00b5 666C6F61 		.ascii	"float\000"
- 1239      7400
- 1240              	.LASF1:
- 1241 00bb 756E7369 		.ascii	"unsigned char\000"
- 1241      676E6564 
- 1241      20636861 
- 1241      7200
- 1242              	.LASF52:
- 1243 00c9 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
- 1243      43313120 
- 1243      352E342E 
- 1243      31203230 
- 1243      31363036 
- 1244 00fc 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
- 1244      20726576 
- 1244      6973696F 
- 1244      6E203233 
- 1244      37373135 
- 1245 012f 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
- 1245      66756E63 
- 1245      74696F6E 
- 1245      2D736563 
- 1245      74696F6E 
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\cc47mM1P.s 			page 27
+ 1133 003d 06       		.uleb128 0x6
+ 1134 003e 2E       		.uleb128 0x2e
+ 1135 003f 01       		.byte	0x1
+ 1136 0040 3F       		.uleb128 0x3f
+ 1137 0041 19       		.uleb128 0x19
+ 1138 0042 03       		.uleb128 0x3
+ 1139 0043 0E       		.uleb128 0xe
+ 1140 0044 3A       		.uleb128 0x3a
+ 1141 0045 0B       		.uleb128 0xb
+ 1142 0046 3B       		.uleb128 0x3b
+ 1143 0047 0B       		.uleb128 0xb
+ 1144 0048 27       		.uleb128 0x27
+ 1145 0049 19       		.uleb128 0x19
+ 1146 004a 11       		.uleb128 0x11
+ 1147 004b 01       		.uleb128 0x1
+ 1148 004c 12       		.uleb128 0x12
+ 1149 004d 06       		.uleb128 0x6
+ 1150 004e 40       		.uleb128 0x40
+ 1151 004f 18       		.uleb128 0x18
+ 1152 0050 9742     		.uleb128 0x2117
+ 1153 0052 19       		.uleb128 0x19
+ 1154 0053 01       		.uleb128 0x1
+ 1155 0054 13       		.uleb128 0x13
+ 1156 0055 00       		.byte	0
+ 1157 0056 00       		.byte	0
+ 1158 0057 07       		.uleb128 0x7
+ 1159 0058 898201   		.uleb128 0x4109
+ 1160 005b 01       		.byte	0x1
+ 1161 005c 11       		.uleb128 0x11
+ 1162 005d 01       		.uleb128 0x1
+ 1163 005e 31       		.uleb128 0x31
+ 1164 005f 13       		.uleb128 0x13
+ 1165 0060 01       		.uleb128 0x1
+ 1166 0061 13       		.uleb128 0x13
+ 1167 0062 00       		.byte	0
+ 1168 0063 00       		.byte	0
+ 1169 0064 08       		.uleb128 0x8
+ 1170 0065 8A8201   		.uleb128 0x410a
+ 1171 0068 00       		.byte	0
+ 1172 0069 02       		.uleb128 0x2
+ 1173 006a 18       		.uleb128 0x18
+ 1174 006b 9142     		.uleb128 0x2111
+ 1175 006d 18       		.uleb128 0x18
+ 1176 006e 00       		.byte	0
+ 1177 006f 00       		.byte	0
+ 1178 0070 09       		.uleb128 0x9
+ 1179 0071 898201   		.uleb128 0x4109
+ 1180 0074 01       		.byte	0x1
+ 1181 0075 11       		.uleb128 0x11
+ 1182 0076 01       		.uleb128 0x1
+ 1183 0077 31       		.uleb128 0x31
+ 1184 0078 13       		.uleb128 0x13
+ 1185 0079 00       		.byte	0
+ 1186 007a 00       		.byte	0
+ 1187 007b 0A       		.uleb128 0xa
+ 1188 007c 898201   		.uleb128 0x4109
+ 1189 007f 00       		.byte	0
+ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccPMMthP.s 			page 26
 
 
- 1246              	.LASF51:
- 1247 0157 54696D65 		.ascii	"Timer_Button_ReadStatusRegister\000"
- 1247      725F4275 
- 1247      74746F6E 
- 1247      5F526561 
- 1247      64537461 
- 1248              	.LASF24:
- 1249 0177 4953525F 		.ascii	"ISR_COUNTER_BUTTON\000"
- 1249      434F554E 
- 1249      5445525F 
- 1249      42555454 
- 1249      4F4E00
- 1250              	.LASF26:
- 1251 018a 4F56525F 		.ascii	"OVR_FLAG\000"
- 1251      464C4147 
- 1251      00
- 1252              	.LASF30:
- 1253 0193 70657269 		.ascii	"period_blue\000"
- 1253      6F645F62 
- 1253      6C756500 
- 1254              	.LASF25:
- 1255 019f 49544D5F 		.ascii	"ITM_RxBuffer\000"
- 1255      52784275 
- 1255      66666572 
- 1255      00
- 1256              	.LASF54:
- 1257 01ac 433A5C55 		.ascii	"C:\\Users\\Simone\\Desktop\\PSOC_final-project\\Fin"
- 1257      73657273 
- 1257      5C53696D 
- 1257      6F6E655C 
- 1257      4465736B 
- 1258 01da 616C5F50 		.ascii	"al_Project.cydsn\000"
- 1258      726F6A65 
- 1258      63742E63 
- 1258      7964736E 
- 1258      00
- 1259              	.LASF4:
- 1260 01eb 5F5F7569 		.ascii	"__uint16_t\000"
- 1260      6E743136 
- 1260      5F7400
- 1261              	.LASF23:
- 1262 01f6 4953525F 		.ascii	"ISR_TIMER\000"
- 1262      54494D45 
- 1262      5200
- 1263              	.LASF42:
- 1264 0200 55415254 		.ascii	"UART_Debug_PutString\000"
- 1264      5F446562 
- 1264      75675F50 
- 1264      75745374 
- 1264      72696E67 
- 1265              	.LASF40:
- 1266 0215 74696D65 		.ascii	"timer_counter\000"
- 1266      725F636F 
- 1266      756E7465 
- 1266      7200
- 1267              	.LASF8:
- 1268 0223 5F5F7569 		.ascii	"__uint32_t\000"
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\cc47mM1P.s 			page 28
+ 1190 0080 11       		.uleb128 0x11
+ 1191 0081 01       		.uleb128 0x1
+ 1192 0082 31       		.uleb128 0x31
+ 1193 0083 13       		.uleb128 0x13
+ 1194 0084 00       		.byte	0
+ 1195 0085 00       		.byte	0
+ 1196 0086 0B       		.uleb128 0xb
+ 1197 0087 34       		.uleb128 0x34
+ 1198 0088 00       		.byte	0
+ 1199 0089 03       		.uleb128 0x3
+ 1200 008a 0E       		.uleb128 0xe
+ 1201 008b 3A       		.uleb128 0x3a
+ 1202 008c 0B       		.uleb128 0xb
+ 1203 008d 3B       		.uleb128 0x3b
+ 1204 008e 05       		.uleb128 0x5
+ 1205 008f 49       		.uleb128 0x49
+ 1206 0090 13       		.uleb128 0x13
+ 1207 0091 3F       		.uleb128 0x3f
+ 1208 0092 19       		.uleb128 0x19
+ 1209 0093 3C       		.uleb128 0x3c
+ 1210 0094 19       		.uleb128 0x19
+ 1211 0095 00       		.byte	0
+ 1212 0096 00       		.byte	0
+ 1213 0097 0C       		.uleb128 0xc
+ 1214 0098 34       		.uleb128 0x34
+ 1215 0099 00       		.byte	0
+ 1216 009a 03       		.uleb128 0x3
+ 1217 009b 0E       		.uleb128 0xe
+ 1218 009c 3A       		.uleb128 0x3a
+ 1219 009d 0B       		.uleb128 0xb
+ 1220 009e 3B       		.uleb128 0x3b
+ 1221 009f 0B       		.uleb128 0xb
+ 1222 00a0 49       		.uleb128 0x49
+ 1223 00a1 13       		.uleb128 0x13
+ 1224 00a2 3F       		.uleb128 0x3f
+ 1225 00a3 19       		.uleb128 0x19
+ 1226 00a4 02       		.uleb128 0x2
+ 1227 00a5 18       		.uleb128 0x18
+ 1228 00a6 00       		.byte	0
+ 1229 00a7 00       		.byte	0
+ 1230 00a8 0D       		.uleb128 0xd
+ 1231 00a9 01       		.uleb128 0x1
+ 1232 00aa 01       		.byte	0x1
+ 1233 00ab 49       		.uleb128 0x49
+ 1234 00ac 13       		.uleb128 0x13
+ 1235 00ad 01       		.uleb128 0x1
+ 1236 00ae 13       		.uleb128 0x13
+ 1237 00af 00       		.byte	0
+ 1238 00b0 00       		.byte	0
+ 1239 00b1 0E       		.uleb128 0xe
+ 1240 00b2 21       		.uleb128 0x21
+ 1241 00b3 00       		.byte	0
+ 1242 00b4 49       		.uleb128 0x49
+ 1243 00b5 13       		.uleb128 0x13
+ 1244 00b6 2F       		.uleb128 0x2f
+ 1245 00b7 0B       		.uleb128 0xb
+ 1246 00b8 00       		.byte	0
+ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccPMMthP.s 			page 27
 
 
- 1268      6E743332 
- 1268      5F7400
- 1269              	.LASF47:
- 1270 022e 47524545 		.ascii	"GREEN_Led_Read\000"
- 1270      4E5F4C65 
- 1270      645F5265 
- 1270      616400
- 1271              	.LASF9:
- 1272 023d 6C6F6E67 		.ascii	"long unsigned int\000"
- 1272      20756E73 
- 1272      69676E65 
- 1272      6420696E 
- 1272      7400
- 1273              	.LASF12:
- 1274 024f 756E7369 		.ascii	"unsigned int\000"
- 1274      676E6564 
- 1274      20696E74 
- 1274      00
- 1275              	.LASF11:
- 1276 025c 6C6F6E67 		.ascii	"long long unsigned int\000"
- 1276      206C6F6E 
- 1276      6720756E 
- 1276      7369676E 
- 1276      65642069 
- 1277              	.LASF31:
- 1278 0273 636F756E 		.ascii	"counter_red\000"
- 1278      7465725F 
- 1278      72656400 
- 1279              	.LASF45:
- 1280 027f 424C5545 		.ascii	"BLUE_Led_Read\000"
- 1280      5F4C6564 
- 1280      5F526561 
- 1280      6400
- 1281              	.LASF39:
- 1282 028d 636F756E 		.ascii	"counter_button\000"
- 1282      7465725F 
- 1282      62757474 
- 1282      6F6E00
- 1283              	.LASF34:
- 1284 029c 666C6167 		.ascii	"flag_eeprom\000"
- 1284      5F656570 
- 1284      726F6D00 
- 1285              	.LASF15:
- 1286 02a8 696E7433 		.ascii	"int32_t\000"
- 1286      325F7400 
- 1287              	.LASF21:
- 1288 02b0 73697A65 		.ascii	"sizetype\000"
- 1288      74797065 
- 1288      00
- 1289              	.LASF36:
- 1290 02b9 6572726F 		.ascii	"error\000"
- 1290      7200
- 1291              	.LASF10:
- 1292 02bf 6C6F6E67 		.ascii	"long long int\000"
- 1292      206C6F6E 
- 1292      6720696E 
- 1292      7400
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\cc47mM1P.s 			page 29
+ 1247 00b9 00       		.byte	0
+ 1248 00ba 0F       		.uleb128 0xf
+ 1249 00bb 34       		.uleb128 0x34
+ 1250 00bc 00       		.byte	0
+ 1251 00bd 03       		.uleb128 0x3
+ 1252 00be 08       		.uleb128 0x8
+ 1253 00bf 3A       		.uleb128 0x3a
+ 1254 00c0 0B       		.uleb128 0xb
+ 1255 00c1 3B       		.uleb128 0x3b
+ 1256 00c2 0B       		.uleb128 0xb
+ 1257 00c3 49       		.uleb128 0x49
+ 1258 00c4 13       		.uleb128 0x13
+ 1259 00c5 3F       		.uleb128 0x3f
+ 1260 00c6 19       		.uleb128 0x19
+ 1261 00c7 02       		.uleb128 0x2
+ 1262 00c8 18       		.uleb128 0x18
+ 1263 00c9 00       		.byte	0
+ 1264 00ca 00       		.byte	0
+ 1265 00cb 10       		.uleb128 0x10
+ 1266 00cc 2E       		.uleb128 0x2e
+ 1267 00cd 00       		.byte	0
+ 1268 00ce 3F       		.uleb128 0x3f
+ 1269 00cf 19       		.uleb128 0x19
+ 1270 00d0 3C       		.uleb128 0x3c
+ 1271 00d1 19       		.uleb128 0x19
+ 1272 00d2 6E       		.uleb128 0x6e
+ 1273 00d3 0E       		.uleb128 0xe
+ 1274 00d4 03       		.uleb128 0x3
+ 1275 00d5 0E       		.uleb128 0xe
+ 1276 00d6 3A       		.uleb128 0x3a
+ 1277 00d7 0B       		.uleb128 0xb
+ 1278 00d8 3B       		.uleb128 0x3b
+ 1279 00d9 0B       		.uleb128 0xb
+ 1280 00da 00       		.byte	0
+ 1281 00db 00       		.byte	0
+ 1282 00dc 00       		.byte	0
+ 1283              		.section	.debug_aranges,"",%progbits
+ 1284 0000 2C000000 		.4byte	0x2c
+ 1285 0004 0200     		.2byte	0x2
+ 1286 0006 00000000 		.4byte	.Ldebug_info0
+ 1287 000a 04       		.byte	0x4
+ 1288 000b 00       		.byte	0
+ 1289 000c 0000     		.2byte	0
+ 1290 000e 0000     		.2byte	0
+ 1291 0010 00000000 		.4byte	.LFB64
+ 1292 0014 60000000 		.4byte	.LFE64-.LFB64
+ 1293 0018 00000000 		.4byte	.LFB65
+ 1294 001c 54020000 		.4byte	.LFE65-.LFB65
+ 1295 0020 00000000 		.4byte	.LFB66
+ 1296 0024 38000000 		.4byte	.LFE66-.LFB66
+ 1297 0028 00000000 		.4byte	0
+ 1298 002c 00000000 		.4byte	0
+ 1299              		.section	.debug_ranges,"",%progbits
+ 1300              	.Ldebug_ranges0:
+ 1301 0000 00000000 		.4byte	.LFB64
+ 1302 0004 60000000 		.4byte	.LFE64
+ 1303 0008 00000000 		.4byte	.LFB65
+ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccPMMthP.s 			page 28
 
 
- 1293              	.LASF19:
- 1294 02cd 63686172 		.ascii	"char\000"
- 1294      00
- 1295              	.LASF41:
- 1296 02d2 4932435F 		.ascii	"I2C_Peripheral_ReadRegister\000"
- 1296      50657269 
- 1296      70686572 
- 1296      616C5F52 
- 1296      65616452 
- 1297              	.LASF22:
- 1298 02ee 4953525F 		.ascii	"ISR_LIS3DH_FIFO_WATERMARK\000"
- 1298      4C495333 
- 1298      44485F46 
- 1298      49464F5F 
- 1298      57415445 
- 1299              	.LASF2:
- 1300 0308 73686F72 		.ascii	"short int\000"
- 1300      7420696E 
- 1300      7400
- 1301              	.LASF14:
- 1302 0312 75696E74 		.ascii	"uint16_t\000"
- 1302      31365F74 
- 1302      00
- 1303              	.LASF48:
- 1304 031b 47524545 		.ascii	"GREEN_Led_Write\000"
- 1304      4E5F4C65 
- 1304      645F5772 
- 1304      69746500 
- 1305              	.LASF16:
- 1306 032b 75696E74 		.ascii	"uint32_t\000"
- 1306      33325F74 
- 1306      00
- 1307              	.LASF7:
- 1308 0334 6C6F6E67 		.ascii	"long int\000"
- 1308      20696E74 
- 1308      00
- 1309              	.LASF20:
- 1310 033d 6C6F6E67 		.ascii	"long double\000"
- 1310      20646F75 
- 1310      626C6500 
- 1311              	.LASF0:
- 1312 0349 7369676E 		.ascii	"signed char\000"
- 1312      65642063 
- 1312      68617200 
- 1313              	.LASF28:
- 1314 0355 70657269 		.ascii	"period_red\000"
- 1314      6F645F72 
- 1314      656400
- 1315              	.LASF38:
- 1316 0360 696E7431 		.ascii	"int1_src_reg\000"
- 1316      5F737263 
- 1316      5F726567 
- 1316      00
- 1317              	.LASF29:
- 1318 036d 70657269 		.ascii	"period_green\000"
- 1318      6F645F67 
- 1318      7265656E 
-ARM GAS  C:\Users\Simone\AppData\Local\Temp\cc47mM1P.s 			page 30
+ 1304 000c 54020000 		.4byte	.LFE65
+ 1305 0010 00000000 		.4byte	.LFB66
+ 1306 0014 38000000 		.4byte	.LFE66
+ 1307 0018 00000000 		.4byte	0
+ 1308 001c 00000000 		.4byte	0
+ 1309              		.section	.debug_line,"",%progbits
+ 1310              	.Ldebug_line0:
+ 1311 0000 66020000 		.section	.debug_str,"MS",%progbits,1
+ 1311      0200DC01 
+ 1311      00000201 
+ 1311      FB0E0D00 
+ 1311      01010101 
+ 1312              	.LASF33:
+ 1313 0000 636F756E 		.ascii	"counter_green\000"
+ 1313      7465725F 
+ 1313      67726565 
+ 1313      6E00
+ 1314              	.LASF37:
+ 1315 000e 74696D65 		.ascii	"timestamp\000"
+ 1315      7374616D 
+ 1315      7000
+ 1316              	.LASF56:
+ 1317 0018 496E7465 		.ascii	"Interrupt_Routines.c\000"
+ 1317      72727570 
+ 1317      745F526F 
+ 1317      7574696E 
+ 1317      65732E63 
+ 1318              	.LASF52:
+ 1319 002d 494E545F 		.ascii	"INT_Led_Read\000"
+ 1319      4C65645F 
+ 1319      52656164 
+ 1319      00
+ 1320              	.LASF3:
+ 1321 003a 5F5F7569 		.ascii	"__uint8_t\000"
+ 1321      6E74385F 
+ 1321      7400
+ 1322              	.LASF57:
+ 1323 0044 433A5C55 		.ascii	"C:\\Users\\Riccardo\\Desktop\\Final Project\\Final_"
+ 1323      73657273 
+ 1323      5C526963 
+ 1323      63617264 
+ 1323      6F5C4465 
+ 1324 0072 50726F6A 		.ascii	"Project\\Final_Project.cydsn\000"
+ 1324      6563745C 
+ 1324      46696E61 
+ 1324      6C5F5072 
+ 1324      6F6A6563 
+ 1325              	.LASF27:
+ 1326 008e 73746174 		.ascii	"status\000"
+ 1326      757300
+ 1327              	.LASF31:
+ 1328 0095 70657269 		.ascii	"period_int_led\000"
+ 1328      6F645F69 
+ 1328      6E745F6C 
+ 1328      656400
+ 1329              	.LASF28:
+ 1330 00a4 70657269 		.ascii	"period_red\000"
+ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccPMMthP.s 			page 29
 
 
- 1318      00
- 1319              	.LASF44:
- 1320 037a 73707269 		.ascii	"sprintf\000"
- 1320      6E746600 
- 1321              	.LASF46:
- 1322 0382 424C5545 		.ascii	"BLUE_Led_Write\000"
- 1322      5F4C6564 
- 1322      5F577269 
- 1322      746500
- 1323              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
+ 1330      6F645F72 
+ 1330      656400
+ 1331              	.LASF51:
+ 1332 00af 5245445F 		.ascii	"RED_Led_Write\000"
+ 1332      4C65645F 
+ 1332      57726974 
+ 1332      6500
+ 1333              	.LASF6:
+ 1334 00bd 5F5F696E 		.ascii	"__int32_t\000"
+ 1334      7433325F 
+ 1334      7400
+ 1335              	.LASF45:
+ 1336 00c7 54696D65 		.ascii	"Timer_ReadStatusRegister\000"
+ 1336      725F5265 
+ 1336      61645374 
+ 1336      61747573 
+ 1336      52656769 
+ 1337              	.LASF5:
+ 1338 00e0 73686F72 		.ascii	"short unsigned int\000"
+ 1338      7420756E 
+ 1338      7369676E 
+ 1338      65642069 
+ 1338      6E7400
+ 1339              	.LASF13:
+ 1340 00f3 75696E74 		.ascii	"uint8_t\000"
+ 1340      385F7400 
+ 1341              	.LASF18:
+ 1342 00fb 646F7562 		.ascii	"double\000"
+ 1342      6C6500
+ 1343              	.LASF39:
+ 1344 0102 77617465 		.ascii	"watermark\000"
+ 1344      726D6172 
+ 1344      6B00
+ 1345              	.LASF34:
+ 1346 010c 636F756E 		.ascii	"counter_blue\000"
+ 1346      7465725F 
+ 1346      626C7565 
+ 1346      00
+ 1347              	.LASF50:
+ 1348 0119 5245445F 		.ascii	"RED_Led_Read\000"
+ 1348      4C65645F 
+ 1348      52656164 
+ 1348      00
+ 1349              	.LASF17:
+ 1350 0126 666C6F61 		.ascii	"float\000"
+ 1350      7400
+ 1351              	.LASF35:
+ 1352 012c 636F756E 		.ascii	"counter_int_led\000"
+ 1352      7465725F 
+ 1352      696E745F 
+ 1352      6C656400 
+ 1353              	.LASF1:
+ 1354 013c 756E7369 		.ascii	"unsigned char\000"
+ 1354      676E6564 
+ 1354      20636861 
+ 1354      7200
+ 1355              	.LASF55:
+ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccPMMthP.s 			page 30
+
+
+ 1356 014a 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 1356      43313120 
+ 1356      352E342E 
+ 1356      31203230 
+ 1356      31363036 
+ 1357 017d 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 1357      20726576 
+ 1357      6973696F 
+ 1357      6E203233 
+ 1357      37373135 
+ 1358 01b0 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 1358      66756E63 
+ 1358      74696F6E 
+ 1358      2D736563 
+ 1358      74696F6E 
+ 1359              	.LASF54:
+ 1360 01d8 54696D65 		.ascii	"Timer_Button_ReadStatusRegister\000"
+ 1360      725F4275 
+ 1360      74746F6E 
+ 1360      5F526561 
+ 1360      64537461 
+ 1361              	.LASF24:
+ 1362 01f8 4953525F 		.ascii	"ISR_COUNTER_BUTTON\000"
+ 1362      434F554E 
+ 1362      5445525F 
+ 1362      42555454 
+ 1362      4F4E00
+ 1363              	.LASF26:
+ 1364 020b 4F56525F 		.ascii	"OVR_FLAG\000"
+ 1364      464C4147 
+ 1364      00
+ 1365              	.LASF30:
+ 1366 0214 70657269 		.ascii	"period_blue\000"
+ 1366      6F645F62 
+ 1366      6C756500 
+ 1367              	.LASF25:
+ 1368 0220 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 1368      52784275 
+ 1368      66666572 
+ 1368      00
+ 1369              	.LASF4:
+ 1370 022d 5F5F7569 		.ascii	"__uint16_t\000"
+ 1370      6E743136 
+ 1370      5F7400
+ 1371              	.LASF23:
+ 1372 0238 4953525F 		.ascii	"ISR_TIMER\000"
+ 1372      54494D45 
+ 1372      5200
+ 1373              	.LASF44:
+ 1374 0242 55415254 		.ascii	"UART_Debug_PutString\000"
+ 1374      5F446562 
+ 1374      75675F50 
+ 1374      75745374 
+ 1374      72696E67 
+ 1375              	.LASF42:
+ 1376 0257 74696D65 		.ascii	"timer_counter\000"
+ 1376      725F636F 
+ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccPMMthP.s 			page 31
+
+
+ 1376      756E7465 
+ 1376      7200
+ 1377              	.LASF8:
+ 1378 0265 5F5F7569 		.ascii	"__uint32_t\000"
+ 1378      6E743332 
+ 1378      5F7400
+ 1379              	.LASF48:
+ 1380 0270 47524545 		.ascii	"GREEN_Led_Read\000"
+ 1380      4E5F4C65 
+ 1380      645F5265 
+ 1380      616400
+ 1381              	.LASF53:
+ 1382 027f 494E545F 		.ascii	"INT_Led_Write\000"
+ 1382      4C65645F 
+ 1382      57726974 
+ 1382      6500
+ 1383              	.LASF9:
+ 1384 028d 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1384      20756E73 
+ 1384      69676E65 
+ 1384      6420696E 
+ 1384      7400
+ 1385              	.LASF12:
+ 1386 029f 756E7369 		.ascii	"unsigned int\000"
+ 1386      676E6564 
+ 1386      20696E74 
+ 1386      00
+ 1387              	.LASF11:
+ 1388 02ac 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1388      206C6F6E 
+ 1388      6720756E 
+ 1388      7369676E 
+ 1388      65642069 
+ 1389              	.LASF32:
+ 1390 02c3 636F756E 		.ascii	"counter_red\000"
+ 1390      7465725F 
+ 1390      72656400 
+ 1391              	.LASF46:
+ 1392 02cf 424C5545 		.ascii	"BLUE_Led_Read\000"
+ 1392      5F4C6564 
+ 1392      5F526561 
+ 1392      6400
+ 1393              	.LASF36:
+ 1394 02dd 666C6167 		.ascii	"flag_eeprom\000"
+ 1394      5F656570 
+ 1394      726F6D00 
+ 1395              	.LASF15:
+ 1396 02e9 696E7433 		.ascii	"int32_t\000"
+ 1396      325F7400 
+ 1397              	.LASF21:
+ 1398 02f1 73697A65 		.ascii	"sizetype\000"
+ 1398      74797065 
+ 1398      00
+ 1399              	.LASF38:
+ 1400 02fa 6572726F 		.ascii	"error\000"
+ 1400      7200
+ 1401              	.LASF10:
+ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccPMMthP.s 			page 32
+
+
+ 1402 0300 6C6F6E67 		.ascii	"long long int\000"
+ 1402      206C6F6E 
+ 1402      6720696E 
+ 1402      7400
+ 1403              	.LASF19:
+ 1404 030e 63686172 		.ascii	"char\000"
+ 1404      00
+ 1405              	.LASF43:
+ 1406 0313 4932435F 		.ascii	"I2C_Peripheral_ReadRegister\000"
+ 1406      50657269 
+ 1406      70686572 
+ 1406      616C5F52 
+ 1406      65616452 
+ 1407              	.LASF22:
+ 1408 032f 4953525F 		.ascii	"ISR_LIS3DH_FIFO_WATERMARK\000"
+ 1408      4C495333 
+ 1408      44485F46 
+ 1408      49464F5F 
+ 1408      57415445 
+ 1409              	.LASF2:
+ 1410 0349 73686F72 		.ascii	"short int\000"
+ 1410      7420696E 
+ 1410      7400
+ 1411              	.LASF14:
+ 1412 0353 75696E74 		.ascii	"uint16_t\000"
+ 1412      31365F74 
+ 1412      00
+ 1413              	.LASF49:
+ 1414 035c 47524545 		.ascii	"GREEN_Led_Write\000"
+ 1414      4E5F4C65 
+ 1414      645F5772 
+ 1414      69746500 
+ 1415              	.LASF16:
+ 1416 036c 75696E74 		.ascii	"uint32_t\000"
+ 1416      33325F74 
+ 1416      00
+ 1417              	.LASF7:
+ 1418 0375 6C6F6E67 		.ascii	"long int\000"
+ 1418      20696E74 
+ 1418      00
+ 1419              	.LASF20:
+ 1420 037e 6C6F6E67 		.ascii	"long double\000"
+ 1420      20646F75 
+ 1420      626C6500 
+ 1421              	.LASF0:
+ 1422 038a 7369676E 		.ascii	"signed char\000"
+ 1422      65642063 
+ 1422      68617200 
+ 1423              	.LASF41:
+ 1424 0396 636F756E 		.ascii	"counter_button\000"
+ 1424      7465725F 
+ 1424      62757474 
+ 1424      6F6E00
+ 1425              	.LASF40:
+ 1426 03a5 696E7431 		.ascii	"int1_src_reg\000"
+ 1426      5F737263 
+ 1426      5F726567 
+ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccPMMthP.s 			page 33
+
+
+ 1426      00
+ 1427              	.LASF29:
+ 1428 03b2 70657269 		.ascii	"period_green\000"
+ 1428      6F645F67 
+ 1428      7265656E 
+ 1428      00
+ 1429              	.LASF47:
+ 1430 03bf 424C5545 		.ascii	"BLUE_Led_Write\000"
+ 1430      5F4C6564 
+ 1430      5F577269 
+ 1430      746500
+ 1431              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

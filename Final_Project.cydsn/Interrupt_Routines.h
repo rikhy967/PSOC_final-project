@@ -37,10 +37,12 @@
     volatile uint16_t period_red;
     volatile uint16_t period_green;
     volatile uint16_t period_blue;
+    volatile uint8_t period_int_led;
     /* Global variables that contains the counters for toggle RGB Led channels */
     volatile uint16_t counter_red;
     volatile uint16_t counter_green;
     volatile uint16_t counter_blue;
+    volatile uint16_t counter_int_led;
     /* Global variable flag to send data to EEPROM during threshold interrupt*/
     volatile uint8_t flag_eeprom;
     volatile uint32_t timestamp;

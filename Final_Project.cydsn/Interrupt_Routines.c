@@ -20,6 +20,7 @@ uint8_t error;
 uint8_t watermark;
 uint8_t int1_src_reg;
 volatile uint16_t counter_button=0;
+
 uint16_t timer_counter=0;
 
 
@@ -59,20 +60,21 @@ CY_ISR (ISR_TIMER)
                 timer_counter++;
                 if (timer_counter>1000){
             
-                    sprintf(mex, "Counter Button: %d \r\n",counter_button);
-                    UART_Debug_PutString(mex);
+                    
             
                     
                     timer_counter=0;
                     
                     if (counter_button==2){
+                        sprintf(mex, "Switch ON device \r\n");
+                        UART_Debug_PutString(mex);
                         status=1;
                         
                     }
                     counter_button=0;
                 }
             }
-            break;
+        break;
         
         case 1:
             
@@ -136,11 +138,12 @@ CY_ISR (ISR_TIMER)
                     timer_counter++;
                     if (timer_counter>1000){
                         
-                        sprintf(mex, "Counter Button: %d \r\n",counter_button);
-                        UART_Debug_PutString(mex);
                         
-                        if (counter_button==2){
-                        status=0;
+                        
+                        if (counter_button>2){
+                        sprintf(mex, "Switch to Configuration Mode \r\n");
+                        UART_Debug_PutString(mex);
+                        status=2;
                         
                     }
                         
@@ -154,11 +157,54 @@ CY_ISR (ISR_TIMER)
                 }
                         
                         
-                break;
+        break;
+        case 2:
+                
+                
+                counter_int_led--;
+                timestamp++;
+                
+                
+                if (counter_button!=0){
+                    timer_counter++;
+                    if (timer_counter>1000){
+                        
+                        
+                        
+                        if (counter_button>2){
+                            sprintf(mex, "Switch to ON Mode \r\n");
+                            UART_Debug_PutString(mex);
+                            status= 1;
+
+                        
+                        }
+                        
+                        counter_button=0;
+                        timer_counter=0;
+                         
+                    }
+                }
+                /********************* INTERNAL LED ******************/
+                /* If the counter variable goes to 0, the Blue channel must be toggled*/
+                if (counter_int_led==0)
+                    {
+                        /* Toggle the Led only if the period set is lower than the THR_OFF */
+                        INT_Led_Write(~INT_Led_Read());
+                        /* Reset the counter to the period value */
+                        counter_int_led = period_int_led;
+                    }
+    
+               
+                
+     
+    
+                
+                
+                
+        break;
     
     }
 }
-
 
 
  CY_ISR(ISR_COUNTER_BUTTON)

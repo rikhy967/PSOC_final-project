@@ -21,9 +21,13 @@
     CY_ISR_PROTO(ISR_LIS3DH_FIFO_WATERMARK);
     /* Interrupt on Timer counter */
     CY_ISR_PROTO (ISR_TIMER);
+    /* Interrupt on Counter button  */
+    CY_ISR_PROTO (ISR_COUNTER_BUTTON);
     
     /* Flag that is set to 1 when an overrun occurs on LIS3DH FIFO*/
     volatile uint8_t OVR_FLAG;
+    
+    volatile uint8_t status;
     
     
     /* Threshold that defines when the RGB channel is set OFF */

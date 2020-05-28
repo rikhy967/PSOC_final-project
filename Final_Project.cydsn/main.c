@@ -10,6 +10,8 @@
 
 #define EEPROM_REG_THR 0x0002
 
+
+
 int main(void)
 {
     CyGlobalIntEnable; /* Enable global interrupts. */
@@ -31,6 +33,9 @@ int main(void)
     /* String to print out messages on the UART */
     char message[50];
     
+    /* Status variable for Hardware menu*/
+    
+    status=0;
     /**************** COMPONENTS' INITIALIZATION *******************/
     
     /* Timer */
@@ -42,6 +47,7 @@ int main(void)
     I2C_Peripheral_Start();
     SPIM_1_Start();
     CyDelay(10);
+    Timer_Button_Start();
     /* UART Debug communication*/
     UART_Debug_Start();
     
@@ -52,10 +58,11 @@ int main(void)
     //isr_LIS3DH_StartEx(ISR_LIS3DH_FIFO_OVERRUN); //LIS3DH interrupt enable
     
     /* Timer */
-    //isr_TIMER_StartEx(ISR_TIMER);
+    isr_TIMER_StartEx(ISR_TIMER);
     
     /* LIS3DH Watermark*/
-    isr_LIS3DH_StartEx(ISR_LIS3DH_FIFO_WATERMARK); 
+    isr_LIS3DH_StartEx(ISR_LIS3DH_FIFO_WATERMARK);
+    isr_Button_StartEx(ISR_COUNTER_BUTTON);
     
     CyDelay(5); //"The boot procedure is complete about 5 milliseconds after device power-up."
     
@@ -336,43 +343,7 @@ int main(void)
         }
     /*******************************************************/
     
-    /*uint16_t try[2];
-    uint16_t read_try[2];
-    try[0]=10;
-    try[1]=20;
-    EEPROM_writePage(EEPROM_REG_THR,(uint8_t*)try,2);
-    EEPROM_waitForWriteComplete();
-    EEPROM_readPage(EEPROM_REG_THR,(uint8_t*)read_try,2);    
-    sprintf(message, " Try values on 0x0002: %d %d\r\n\n", read_try[0],read_try[1]);
-    UART_Debug_PutString(message);
-    for(uint8_t i =0; i<8; i++)
-    {EEPROM_writePage(EEPROM_REG_THR,(uint8_t*)try,2);
-    EEPROM_waitForWriteComplete();
-                                     EEPROM_readPage(EEPROM_REG_THR,(uint8_t*)read_try,2);    
-                                     sprintf(message, " Try values on 0x0002: %d %d \r\n", read_try[0], read_try[1]);
-                                     UART_Debug_PutString(message);}  */ 
-    int16_t data[3] = {10, 15, 20};   
-    int16_t data_read_[3];
-    uint8_t i;
-    uint16_t address = 0x0001;
-    uint8_t data_r;
-    for(i=0; i<8; i++)
-       {//address=i;
-        EEPROM_writeByte(address, i);
-        EEPROM_waitForWriteComplete();
-        data_r= EEPROM_readByte(address);
-        sprintf(message, "** EEPROM Read = %d [%d]\r\n", data_r, i);
-        UART_Debug_PutString(message);
     
-       }
-    for (i=0; i<8; i++)
-    {EEPROM_writePage(0x0002,(uint8_t*) data, 6);
-     EEPROM_waitForWriteComplete();
-     EEPROM_readPage(0x0002, (uint8_t*) data_read_, 6);
-    sprintf(message, "** EEPROM Read = %d %d %d\r\n", data_read_[0], data_read_[1], data_read_[2]);
-    UART_Debug_PutString(message);
-    }
-        
     
     //variables to save the registers output value in digit
     int16_t Out_X; 
@@ -426,44 +397,63 @@ int main(void)
     uint8_t read_data_EEPROM_THR[46];
     int16 data_write;
     int16 data_read;
+    int32 timestamp_read;
+    uint8_t init=0;
     
-    isr_TIMER_StartEx(ISR_TIMER);
     fifo_ctrl_reg = FIFO_MODE_THR_WMK;
-            error = I2C_Peripheral_WriteRegister(LIS3DH_DEVICE_ADDRESS,
+    error = I2C_Peripheral_WriteRegister(LIS3DH_DEVICE_ADDRESS,
                                              LIS3DH_FIFO_CTRL_REG,
                                              fifo_ctrl_reg);
+            
+    
     for(;;)
-    {   /*if(Timer_ReadStatusRegister() & 0b10000000)
-        timestamp++;*/
-    
-    
-        /*if (flag_mode ==1){
-            fifo_ctrl_reg = FIFO_MODE_THR_WMK;
-            error = I2C_Peripheral_WriteRegister(LIS3DH_DEVICE_ADDRESS,
+    {   
+        
+        
+        switch (status){
+            case 0:
+            
+                RED_Led_Write(1);
+                GREEN_Led_Write(1);
+                BLUE_Led_Write(1);
+                INT_Led_Write(0);
+                
+                isr_LIS3DH_Stop();
+         
+                timestamp=0;
+                I2C_Peripheral_Stop();
+                SPIM_1_Stop();
+                //UART_Debug_Stop();
+                fifo_ctrl_reg = BYPASS_MODE;
+                error = I2C_Peripheral_WriteRegister(LIS3DH_DEVICE_ADDRESS,
                                              LIS3DH_FIFO_CTRL_REG,
                                              fifo_ctrl_reg);
-            //sprintf(message, "Enter FIFO mode!!\r\n");
-            //UART_Debug_PutString(message);
-            flag_mode=0;
-        }*/
-        
-        
-        
-       /*if (flag_mode ==0){
-        error = I2C_Peripheral_ReadRegister(LIS3DH_DEVICE_ADDRESS,
-                                        LIS3DH_FIFO_SRC_REG_3,
-                                        &overrun_reg);
-        }
-        
-        if ((overrun_reg & 0x40)==0x40){
+                
+                init=1;
             
-            flag_overrun = 1;   
-            sprintf(message, "Overrun!!\r\n");
-            UART_Debug_PutString(message);
+            break;
+                
             
-        }*/ 
         
-        while (OVR_FLAG){
+            case 1:
+                if (init==1){
+                    fifo_ctrl_reg = STREAM_MODE_THR_WMK;
+                    error = I2C_Peripheral_WriteRegister(LIS3DH_DEVICE_ADDRESS,
+                                                 LIS3DH_FIFO_CTRL_REG,
+                                                 fifo_ctrl_reg);
+                    INT_Led_Write(1);
+                    isr_LIS3DH_StartEx(ISR_LIS3DH_FIFO_WATERMARK);
+                    
+                    I2C_Peripheral_Start();
+                    SPIM_1_Start();
+                    CyDelay(10);
+                    init=0;
+                }
+                
+                
+        
+        
+                while (OVR_FLAG){
             
              
             error = I2C_Peripheral_ReadRegisterMulti(LIS3DH_DEVICE_ADDRESS,
@@ -519,19 +509,12 @@ int main(void)
             
                 //sprintf(message, "X: %d    Y: %d     Z:%d\r\n",Out_X_mg,Out_Y_mg,Out_Z_mg);
                 //UART_Debug_PutString(message);
-                uint8_t try[2];
-                uint8_t read_try[2];
-                try[0]=10;
-                try[1]=20;
-                //try[1]=21;
-                if (flag_eeprom==1){isr_TIMER_Stop(); 
-                                    isr_LIS3DH_Stop();
-                    /*EEPROM_writePage(EEPROM_REG_THR,try,2);
-                                     EEPROM_waitForWriteComplete();
-                                     EEPROM_readPage(EEPROM_REG_THR, read_try,2);    
-                                     sprintf(message, " Try values on 0x0002: %d %d \r\n", read_try[0], read_try[1]);
-                                     UART_Debug_PutString(message);
-                                    isr_TIMER_StartEx(ISR_TIMER);*/
+                
+                
+                if (flag_eeprom==1){
+                    isr_TIMER_Stop(); 
+                    isr_LIS3DH_Stop();
+                    
                         
                     int i;
                     for (i=0;i<6;i=i+2){
@@ -555,8 +538,9 @@ int main(void)
                         data_EEPROM_THR[44]=(uint8_t)(timestamp >> 16);
                         data_EEPROM_THR[45]=(uint8_t)(timestamp >> 24);
                         
-                        sprintf(message, "Timestamp: %d \r\n",timestamp);
+                        sprintf(message, "Timestamp : %d \r\n",timestamp);
                         UART_Debug_PutString(message);
+                        
                         
                         EEPROM_writePage( EEPROM_REG_THR,data_EEPROM_THR,46); 
                         EEPROM_waitForWriteComplete();
@@ -577,12 +561,11 @@ int main(void)
                             
                             
                         }
-                        data_read = (read_data_EEPROM_THR[42] | (read_data_EEPROM_THR[43]<<8) | (read_data_EEPROM_THR[43]<<16)|(read_data_EEPROM_THR[43]<<24));
-                        sprintf(message, "Data read: %d \r\n",data_read);
+                        timestamp_read = (read_data_EEPROM_THR[42] | (read_data_EEPROM_THR[43]<<8) | (read_data_EEPROM_THR[44]<<16)|(read_data_EEPROM_THR[45]<<24));
+                        sprintf(message, "Timestamp : %ld \r\n",timestamp_read);
                         UART_Debug_PutString(message);
-                        /*error = I2C_Peripheral_ReadRegister(LIS3DH_DEVICE_ADDRESS,
-                                     LIS3DH_INT1_SRC,
-                                     &int1_src_reg);*/
+                        
+                        
                     }    
                     isr_TIMER_StartEx(ISR_TIMER);
                     isr_LIS3DH_StartEx(ISR_LIS3DH_FIFO_WATERMARK);
@@ -635,9 +618,12 @@ int main(void)
                 error = I2C_Peripheral_ReadRegister(LIS3DH_DEVICE_ADDRESS,
                                         LIS3DH_FIFO_SRC_REG_3,
                                         &fss);
-               fss= fss & (0b00011111);
-              sprintf(message, "unread samples: %d\r\n\n", fss);
-                UART_Debug_PutString(message);
+                fss= fss & (0b00011111);
+                //sprintf(message, "unread samples: %d\r\n\n", fss);
+                //UART_Debug_PutString(message);
+                
+                
+                
                 
                 //sprintf(message, "fq_green: %d    fq_blue: %d     fq_red:%d\r\n",period_green,period_blue,period_red);
                 //UART_Debug_PutString(message);
@@ -657,20 +643,13 @@ int main(void)
                 
         }
         
-        /*if (flag_mode ==1){
-            fifo_ctrl_reg = BYPASS_MODE;
-            error = I2C_Peripheral_WriteRegister(LIS3DH_DEVICE_ADDRESS,
-                                             LIS3DH_FIFO_CTRL_REG,
-                                             fifo_ctrl_reg);
-            //sprintf(message, "N cycles: %d\r\n",counter);
-            //UART_Debug_PutString(message);
-            //sprintf(message, "Bypass Mode!!\r\n");
-            //UART_Debug_PutString(message);
-            counter=0;
-        }*/
+        
     }
+                
+                break;
+        }
         
     
 //}
-}
+    }
 }

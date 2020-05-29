@@ -2,6 +2,7 @@
 #include "project.h"
 #include "stdio.h"
 #include "math.h"
+#include "stdlib.h"
 #include "LIS3DH_Registers.h"
 #include "LIS3DH_Registers_Settings.h"
 #include "Interrupt_Routines.h"
@@ -48,7 +49,7 @@ int main(void)
     CyDelay(10);
     /* UART Debug communication*/
     UART_Debug_Start();
-    
+    ADC_flag=0;
     
     
     /***************** CUSTOM ISR INITIALIZATION ******************/
@@ -380,7 +381,9 @@ int main(void)
     int16 data_write;
     int16 data_read;
     int32 timestamp_read;
-    int16_t pot;
+    int32 pot_digit;
+    int32 pot_mv;
+    uint16_t data_rate;
     
     isr_TIMER_StartEx(ISR_TIMER);
     isr_Button_StartEx(ISR_COUNTER_BUTTON);
@@ -388,21 +391,27 @@ int main(void)
             error = I2C_Peripheral_WriteRegister(LIS3DH_DEVICE_ADDRESS,
                                              LIS3DH_FIFO_CTRL_REG,
                                              fifo_ctrl_reg);*/
-    uint8_t repetition=0;
+    repetition=0;
+    
     for(;;)
     {   
         switch (status){
             case 0:
-                if (repetition==0){   
+                if (repetition==0){
+                    sprintf(message, "Repetition flag: %d \r\n",repetition);
+                    UART_Debug_PutString(message);
                     I2C_Peripheral_Start();
                     fifo_ctrl_reg = BYPASS_MODE;
                     error = I2C_Peripheral_WriteRegister(LIS3DH_DEVICE_ADDRESS,
                                                                  LIS3DH_FIFO_CTRL_REG,
                                                                  fifo_ctrl_reg);
-                    repetition=1;
+                    
                     isr_LIS3DH_Stop();
                     I2C_Peripheral_Stop();
                     SPIM_1_Stop();
+                    ADC_DelSig_Stop();
+                    
+                    repetition=1;
                 }
                           
                 RED_Led_Write(1);
@@ -421,19 +430,23 @@ int main(void)
                       //sprintf(message, "** status = %d\r\n", status);
                       //UART_Debug_PutString(message);
                       //I2C_Peripheral_Start();
-                if(repetition==1){
+                if(repetition==0){
+                    sprintf(message, "Repetition flag: %d \r\n",repetition);
+                    UART_Debug_PutString(message);
                     I2C_Peripheral_Start();
                     
-                    UART_Debug_PutString(message);
+
                     fifo_ctrl_reg = STREAM_MODE_THR_WMK;
                     error = I2C_Peripheral_WriteRegister(LIS3DH_DEVICE_ADDRESS,
                                                              LIS3DH_FIFO_CTRL_REG,
                                                              fifo_ctrl_reg);
+                    ADC_DelSig_Stop();
                     INT_Led_Write(1);  
-                    repetition=0;
+                    repetition=1;
                     isr_LIS3DH_StartEx(ISR_LIS3DH_FIFO_WATERMARK);
                     SPIM_1_Start();
                     CyDelay(10);
+                    
                       
                     }
                       
@@ -615,24 +628,56 @@ int main(void)
             case 2:
                 
                 if (repetition==0){
+                    sprintf(message, "Repetition flag: %d \r\n",repetition);
+                    UART_Debug_PutString(message);
                     RED_Led_Write(1);
                     GREEN_Led_Write(1);
-                    BLUE_Led_Write(1);
+                    I2C_Peripheral_Start();
+                    fifo_ctrl_reg = BYPASS_MODE;
+                    error = I2C_Peripheral_WriteRegister(LIS3DH_DEVICE_ADDRESS,
+                                                                 LIS3DH_FIFO_CTRL_REG,
+                                                                 fifo_ctrl_reg);
                     ADC_DelSig_Start();
                     ADC_DelSig_StartConvert();
                     isr_LIS3DH_Stop();
-                    I2C_Peripheral_Stop();
+                    ADC_flag=1;
                     SPIM_1_Stop();
                     repetition=1;
                     
                 }
                 
-                pot = ADC_DelSig_Read16();
-                sprintf(message, "Data read: %d \r\n",pot);
-                UART_Debug_PutString(message);
+                if (ADC_flag){
+                    pot_digit = ADC_DelSig_Read32();
+                    if (pot_digit < 0) pot_digit = 0;
+                    if (pot_digit > 65535) pot_digit = 65535;
+                    pot_mv = ADC_DelSig_CountsTo_mVolts(pot_digit);
+
+                    sprintf(message, "Potentiometer: %ld \r\n",pot_mv);
+                    UART_Debug_PutString(message);
+                    ADC_flag=0;
                 
-                
-                
+                    data_rate = pot_mv/700;
+                    data_rate = data_rate+1;
+                    if ((uint8_t)data_rate>=8) data_rate=7;
+                    period_blue= (8-data_rate)*100;
+                    UART_Debug_PutString(message);
+                    ctrl_reg1=((uint8_t)data_rate<<4|0b00000111);
+                    sprintf(message, "Ctrl Reg1: 0x%02X \r\n",ctrl_reg1);
+                    UART_Debug_PutString(message);
+                    error = I2C_Peripheral_WriteRegister(LIS3DH_DEVICE_ADDRESS,
+                                            LIS3DH_CTRL_REG1,
+                                            ctrl_reg1);
+        
+                    if (error == NO_ERROR)
+                    {
+                        sprintf(message, "CONTROL REGISTER 1 after overwrite operation: 0x%02X\r\n", ctrl_reg1);
+                        UART_Debug_PutString(message); 
+                    }
+                    else
+                    {
+                        UART_Debug_PutString("Error occurred during I2C comm to read control register 1\r\n");   
+                    }
+                }
                     
             break;
      

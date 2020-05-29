@@ -69,15 +69,15 @@ CY_ISR (ISR_TIMER)
                     if (counter_button==2){
                         sprintf(mex, "Switch ON device \r\n");
                         UART_Debug_PutString(mex);
-                        repetition=0;
+                        //repetition=0;
                         status=1;
                         
                     }
                     else if (counter_button>3){
-                        prev_state=status;
+                        prev_state=0;
                         sprintf(mex, "Switch to Configuration Mode \r\n");
                         UART_Debug_PutString(mex);
-                        repetition=0;
+                        //repetition=0;
                         status=2;
                         
                     }
@@ -149,24 +149,24 @@ CY_ISR (ISR_TIMER)
                     timer_counter++;
                     if (timer_counter>1000){
                         
-
-                        if (counter_button>3){
-                            prev_state=status;
-                            sprintf(mex, "Switch to Configuration Mode \r\n");
-                            UART_Debug_PutString(mex);
-                            repetition=0;
-                            status=2;
-                            
-                        
-                        }
-                        else if (counter_button==2){
+                        if (counter_button==2){
                             sprintf(mex, "Switch OFF \r\n");
                             UART_Debug_PutString(mex);
-                            repetition=0;
+                            //repetition=0;
                             status=0;
                             
                             
                         }
+                        else if (counter_button>3){
+                            prev_state=1;
+                            sprintf(mex, "Switch to Configuration Mode \r\n");
+                            UART_Debug_PutString(mex);
+                            //repetition=0;
+                            status=2;
+                            
+                        
+                        }
+                         
                         
                         counter_button=0;
                         timer_counter=0;
@@ -179,12 +179,14 @@ CY_ISR (ISR_TIMER)
                         
                         
         break;
+                
+                
         case 2:
                 
                 
                 counter_int_led--;
                 counter_blue--;
-                timestamp++;
+                //timestamp++;
                 
                 
                 
@@ -195,9 +197,9 @@ CY_ISR (ISR_TIMER)
                         
                         
                         if (counter_button>3){
-                            sprintf(mex, "Switch to ON Mode \r\n");
-                            repetition=0;
+                            sprintf(mex, "Switch to previous Mode \r\n");
                             UART_Debug_PutString(mex);
+                            //repetition=0;
                             status= prev_state;
 
                         
@@ -209,20 +211,8 @@ CY_ISR (ISR_TIMER)
                          
                     }
                 }
-                /********************* INTERNAL LED ******************/
-                /* If the counter variable goes to 0, the Blue channel must be toggled*/
-                if (counter_int_led==0)
-                    {
-                        ADC_flag=1;
-                        /* Toggle the Led only if the period set is lower than the THR_OFF */
-                        INT_Led_Write(~INT_Led_Read());
-                        /* Reset the counter to the period value */
-                        counter_int_led = period_int_led;
-                    }
-    
                 
-
-    
+   
                 /********************* BLUE LED ******************/
                 /* If the counter variable goes to 0, the Blue channel must be toggled*/
                 if (counter_blue==0)

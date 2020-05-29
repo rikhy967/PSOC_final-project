@@ -57,7 +57,7 @@
     
     /*********** LIS3DH INT1 DURATION REGISTER **********/
     /* */
-    #define INT1_DURATION 0x01 //50 ms over threshold 
+    #define INT1_DURATION 0x01 //10 ms over threshold 
     
     
     

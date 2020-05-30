@@ -184,7 +184,7 @@ CY_ISR (ISR_TIMER)
         case 2:
                 
                 
-                counter_int_led--;
+                //counter_int_led--;
                 counter_blue--;
                 //timestamp++;
                 

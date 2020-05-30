@@ -29,9 +29,9 @@
     
     volatile uint8_t status;
     
-    volatile uint8_t ADC_flag;
+    //volatile uint8_t ADC_flag;
     
-    volatile uint8_t repetition;
+    //volatile uint8_t repetition;
     
     
     /* Threshold that defines when the RGB channel is set OFF */

@@ -42,6 +42,11 @@ void INIT_STOP(void)
     isr_LIS3DH_Stop();
     I2C_Peripheral_Stop();
     SPIM_1_Stop();
+    ADC_DelSig_Stop();         
+    RED_Led_Write(1);
+    GREEN_Led_Write(1);
+    BLUE_Led_Write(1);
+    INT_Led_Write(0);
                    
 
 }
@@ -60,8 +65,9 @@ void INIT_MENU(void)
                                                  fifo_ctrl_reg);
     
     isr_LIS3DH_Stop();
-    ADC_flag=1;
     SPIM_1_Stop();
+    ADC_DelSig_Start();
+    ADC_DelSig_StartConvert();
 
 }
 /* [] END OF FILE */

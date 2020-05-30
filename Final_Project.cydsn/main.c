@@ -51,7 +51,7 @@ int main(void)
     CyDelay(10);
     /* UART Debug communication*/
     UART_Debug_Start();
-    ADC_flag=0;
+    
     
     
     /***************** CUSTOM ISR INITIALIZATION ******************/
@@ -389,22 +389,19 @@ int main(void)
     
     isr_TIMER_StartEx(ISR_TIMER);
     isr_Button_StartEx(ISR_COUNTER_BUTTON);
-    /*fifo_ctrl_reg = STREAM_MODE_THR_WMK;
-            error = I2C_Peripheral_WriteRegister(LIS3DH_DEVICE_ADDRESS,
-                                             LIS3DH_FIFO_CTRL_REG,
-                                             fifo_ctrl_reg);*/
-    //repetition=0;
-    uint8_t previous_status=4;
+    
+    uint8_t repetition_stop=0;
+    uint8_t repetition_start=0;
+    uint8_t repetition_menu=0;
     uint8_t data_byte;
     uint8_t byte_read;
     for(;;)
     {   
         switch (status){
             case 0:
-                if (previous_status!=status){
-                    sprintf(message, "Previous status: %d \r\n",previous_status);
-                    UART_Debug_PutString(message);
-                    sprintf(message, "CASE 0 Repetition flag: %d \r\n",repetition);
+                if (repetition_stop==0){
+                    
+                    sprintf(message, "CASE 0 Repetition flag: %d \r\n",repetition_stop);
                     UART_Debug_PutString(message);
                     
                       SPIM_1_Start();
@@ -418,13 +415,16 @@ int main(void)
                       
                     
                     INIT_STOP();
-                     previous_status=status;
+                    
+                    repetition_stop=1;
+                    repetition_start=0;
+                    repetition_menu=0;
                 }
-                ADC_DelSig_Stop();         
+                /*ADC_DelSig_Stop();         
                 RED_Led_Write(1);
                 GREEN_Led_Write(1);
                 BLUE_Led_Write(1);
-                INT_Led_Write(0);
+                INT_Led_Write(0);*/
                           
                           
                 timestamp=0;
@@ -435,10 +435,9 @@ int main(void)
                     
             case 1:
                       
-                if(previous_status!=status){
-                    sprintf(message, "Previous status: %d \r\n",previous_status);
-                    UART_Debug_PutString(message);
-                    sprintf(message, "CASE 1 Repetition flag: %d \r\n",repetition);
+                if(repetition_start==0){
+                    
+                    sprintf(message, "CASE 1 Repetition flag: %d \r\n",repetition_start);
                     UART_Debug_PutString(message);
                     
                        SPIM_1_Start();
@@ -452,8 +451,10 @@ int main(void)
                       
                     
                     INIT_START();
-                    previous_status=status;
-                   
+                    
+                    repetition_stop=0;
+                    repetition_start=1;
+                    repetition_menu=0;
                     
                       
                     }
@@ -635,22 +636,25 @@ int main(void)
                     
             case 2:
                 
-                if (previous_status!=status){
-                    sprintf(message, "Previous status: %d \r\n",previous_status);
-                    UART_Debug_PutString(message);
-                    sprintf(message, "CASE 2 Repetition flag: %d \r\n",repetition);
+                if (repetition_menu==0){
+                   
+                    sprintf(message, "CASE 2 Repetition flag: %d \r\n",repetition_menu);
                     UART_Debug_PutString(message);
                     INIT_MENU();
-                    previous_status=status;
-                    sprintf(message, "Repetition flag after settings: %d \r\n",repetition);
+                    
+                    repetition_stop=0;
+                    repetition_start=0;
+                    repetition_menu=1;
+                    sprintf(message, "Repetition flag after settings: %d \r\n",repetition_menu);
                     UART_Debug_PutString(message);
                 }
+                
                 INT_Led_Write(~INT_Led_Read());
                 timestamp=0;
-                ADC_DelSig_Start();
-                ADC_DelSig_StartConvert();
+                //ADC_DelSig_Start();
+                //ADC_DelSig_StartConvert();
                 //I2C_Peripheral_Start();
-                if (1){
+                
                     pot_digit = ADC_DelSig_Read32();
                     if (pot_digit < 0) pot_digit = 0;
                     if (pot_digit > 65535) pot_digit = 65535;
@@ -658,11 +662,11 @@ int main(void)
 
                     sprintf(message, "Potentiometer: %ld \r\n",pot_mv);
                     UART_Debug_PutString(message);
-                    ADC_flag=0;
+                   
                 
                     data_rate = pot_mv/700;
                     data_rate = data_rate+1;
-                    if ((uint8_t)data_rate>=8) data_rate=7;
+                    if ((uint8_t)data_rate>=7) data_rate=6;
                     period_blue= (8-data_rate)*100;
                     UART_Debug_PutString(message);
                     ctrl_reg1=((uint8_t)data_rate<<4|0b00000111);
@@ -682,7 +686,7 @@ int main(void)
                         UART_Debug_PutString("Error occurred during I2C comm to read control register 1\r\n");   
                     }
                     CyDelay(1000);
-                }
+                
                     
             break;
      

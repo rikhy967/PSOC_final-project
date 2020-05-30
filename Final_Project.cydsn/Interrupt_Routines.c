@@ -9,6 +9,10 @@
  *
  * ========================================
 */
+
+/*********************   INTERRUPT ROUTINES FILE   *************************/
+
+/* Inclusion of Header files */
 #include "project.h"
 #include "Interrupt_Routines.h"
 #include "stdio.h"
@@ -16,7 +20,10 @@
 #include "I2C_Interface.h"
 #include "LIS3DH_Registers.h"
 #include "LIS3DH_Registers_Settings.h"
-uint8_t error;
+
+/***************** VARIABLES' INITIALIZATION *************/
+
+ErrorCode error;
 uint8_t watermark;
 uint8_t int1_src_reg;
 uint8_t prev_state=0;
@@ -29,26 +36,28 @@ uint16_t timer_counter=0;
 char mex[50];
 
 
-/* Custom Interrupt on FIFO watermark */
- CY_ISR(ISR_LIS3DH_FIFO_WATERMARK)
-{/*error = I2C_Peripheral_ReadRegister(LIS3DH_DEVICE_ADDRESS,
-                                        LIS3DH_CTRL_REG4,
-                                        &watermark);
-if((watermark & 0b10000000)==0b10000000)  OVR_FLAG=1;*/
-error = I2C_Peripheral_ReadRegister(LIS3DH_DEVICE_ADDRESS,
-                                     LIS3DH_INT1_SRC,
-                                     &int1_src_reg);
-if(int1_src_reg & 0x40) //read if 1 or more interrupts have been generated on INT1_SRC_REG
-{
-    sprintf(mex, "Overthreshold event \r\n");
-    UART_Debug_PutString(mex);
-    flag_eeprom=1;
+/******************* Custom Interrupt on FIFO watermark ********************/
+
+ CY_ISR(ISR_LIS3DH_FIFO_WATERMARK){
+    
+    // Read INT1 SRC Register
+    error = I2C_Peripheral_ReadRegister(LIS3DH_DEVICE_ADDRESS,
+                                         LIS3DH_INT1_SRC,
+                                         &int1_src_reg);
+    if(int1_src_reg & 0x40) //read if 1 or more interrupts have been generated on INT1_SRC_REG
+    {
+        sprintf(mex, "Overthreshold event \r\n");
+        UART_Debug_PutString(mex);
+        flag_eeprom=1; // Write overthreshold data on EEPROM
+    }
+
+    OVR_FLAG=1; // Start reading data from LIS3DH
 }
 
-OVR_FLAG=1;
-}
+/****************** Custom Interrupt on Timer counter ************************/
 
-/* Custom Interrupt on Timer counter */
+// Period = 1ms
+
 CY_ISR (ISR_TIMER)
 {
     
@@ -56,7 +65,9 @@ CY_ISR (ISR_TIMER)
     Timer_ReadStatusRegister();
     
     switch (status){
+        /************      OFF MODE      *****************/
         case 0:
+            // Check if button has been pressed
             if (counter_button!=0){
                 timer_counter++;
                 if (timer_counter>1000){

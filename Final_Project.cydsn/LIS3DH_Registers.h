@@ -47,4 +47,4 @@
 #define LIS3DH_INT1_THS 0x32
 
 #define LIS3DH_INT1_DURATION 0x33
-/* [] END OF FILE */
+

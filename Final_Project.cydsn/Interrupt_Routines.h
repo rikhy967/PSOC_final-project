@@ -26,23 +26,21 @@
     
     /* Flag that is set to 1 when an overrun occurs on LIS3DH FIFO*/
     volatile uint8_t OVR_FLAG;
-    
+    /* Status variable that identify in which MODE the device is working*/
     volatile uint8_t status;
     
-    //volatile uint8_t ADC_flag;
     
-    //volatile uint8_t repetition;
     
     
     /* Threshold that defines when the RGB channel is set OFF */
     #define THR_OFF 363 // --> 100 mg
     
-    /* Global variables that contains each period of RGB Led channels */
+    /* Global variables that contains each period of RGB Led channels and INT Led */
     volatile uint16_t period_red;
     volatile uint16_t period_green;
     volatile uint16_t period_blue;
     volatile uint8_t period_int_led;
-    /* Global variables that contains the counters for toggle RGB Led channels */
+    /* Global variables that contains the counters for toggle RGB Led channels and INT Led */
     volatile uint16_t counter_red;
     volatile uint16_t counter_green;
     volatile uint16_t counter_blue;

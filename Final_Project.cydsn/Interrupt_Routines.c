@@ -70,7 +70,7 @@ CY_ISR (ISR_TIMER)
             // Check if button has been pressed
             if (counter_button!=0){
                 timer_counter++;
-                if (timer_counter>1000){
+                if (timer_counter>2000){
             
                     
             
@@ -97,10 +97,10 @@ CY_ISR (ISR_TIMER)
                 }
             }
         break;
-        
+        /************      ON MODE      *****************/
         case 1:
             
-            /* Decrement the counter variable when Interrupt occurs */
+                /* Decrement the counter variable when Interrupt occurs */
                 counter_blue--;
                 counter_green--;
                 counter_red--;
@@ -156,10 +156,14 @@ CY_ISR (ISR_TIMER)
                 /******************* TIMESTAMP ********************/
                 
                 timestamp++;
+                
+                /******************* INTERNAL BUTTON ********************/
+                // When the button is pressed, increment the timer counter
                 if (counter_button!=0){
                     timer_counter++;
-                    if (timer_counter>1000){
+                    if (timer_counter>2000){
                         
+                        // If button was pressed 2 times, go to OFF MODE
                         if (counter_button==2){
                             sprintf(mex, "Switch OFF \r\n");
                             UART_Debug_PutString(mex);
@@ -168,7 +172,9 @@ CY_ISR (ISR_TIMER)
                             
                             
                         }
+                        // If button was pressed more than 3 times (long press), go to CONFIGURATION MODE
                         else if (counter_button>3){
+                            
                             prev_state=1;
                             sprintf(mex, "Switch to Configuration Mode \r\n");
                             UART_Debug_PutString(mex);
@@ -178,7 +184,7 @@ CY_ISR (ISR_TIMER)
                         
                         }
                          
-                        
+                        // Reset counters
                         counter_button=0;
                         timer_counter=0;
                         
@@ -191,22 +197,24 @@ CY_ISR (ISR_TIMER)
                         
         break;
                 
-                
+        /************      CONFIGURATION MODE      *****************/        
         case 2:
                 
                 
                 //counter_int_led--;
+                /* Decrement the counter variable when Interrupt occurs */
                 counter_blue--;
-                //timestamp++;
                 
                 
                 
+                 /******************* INTERNAL BUTTON ********************/
+                // When the button is pressed, increment the timer counter
                 if (counter_button!=0){
                     timer_counter++;
-                    if (timer_counter>1000){
+                    if (timer_counter>2000){
                         
                         
-                        
+                        // If button was pressed more than 3 times (long press), go to the previous mode
                         if (counter_button>3){
                             sprintf(mex, "Switch to previous Mode \r\n");
                             UART_Debug_PutString(mex);
@@ -216,7 +224,7 @@ CY_ISR (ISR_TIMER)
                         
                         }
                         
-                        
+                        // Reset counters
                         counter_button=0;
                         timer_counter=0;
                          
@@ -233,22 +241,23 @@ CY_ISR (ISR_TIMER)
                         counter_blue = period_blue;
                     }
     
-                
-                
-     
-    
-                
-                
-                
+
         break;
     
     }
 }
 
+/****************** Custom Interrupt on Timer Button counter ************************/
+
+// When the Internal Button is pressed, the 'q' output of the Debouncer goes to 0.
+// Using a NOT port, this pression 'enable' the Timer Button coumponents, which starts
+// to increment. An interrupt is generated on its Timer Counter with a period of 100ms
 
  CY_ISR(ISR_COUNTER_BUTTON)
 {
+    // Read Status Register in order to reset it
     Timer_Button_ReadStatusRegister();
+    // Increment by 1 the counter button variable
     counter_button++;
     
     sprintf(mex, "Button Pressed \r\n");

@@ -20,9 +20,14 @@
     #include "LIS3DH_Registers_Settings.h"
     #include "Interrupt_Routines.h"
     
-    void INIT_START(void);
-    void INIT_STOP(void);
-    void INIT_MENU(void);
+    
+    /************** INITIALIZATION FUNCTIONS **************/
+    // Initialize peripherals for ON MODE 
+    void INIT_ON(void);
+    // Initialize peripherals for OFF MODE 
+    void INIT_OFF(void);
+    // Initialize peripherals for CONFIGURATION MODE 
+    void INIT_CONF(void);
     
     
 #endif

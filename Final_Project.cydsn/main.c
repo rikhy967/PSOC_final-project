@@ -461,7 +461,7 @@ int main(void)
                     UART_Debug_PutString(message);
                       
                     // Init pheripheral that are needed in this mode
-                    INIT_STOP();
+                    INIT_OFF();
                     
                     repetition_stop=1;
                     repetition_start=0;
@@ -500,7 +500,7 @@ int main(void)
                     UART_Debug_PutString(message);
                       
                     // Init pheripheral that are needed in this mode
-                    INIT_START();
+                    INIT_ON();
                     
                     repetition_stop=0;
                     repetition_start=1;
@@ -694,7 +694,7 @@ int main(void)
                     UART_Debug_PutString(message);
                     
                     // Init pheripheral that are needed in this mode
-                    INIT_MENU();
+                    INIT_CONF();
                     
                     repetition_stop=0;
                     repetition_start=0;

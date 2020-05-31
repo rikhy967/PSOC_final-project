@@ -9,13 +9,20 @@
  *
  * ========================================
 */
+
+/*********************   INTIALIZATION PERIPHERALS FILE   *************************/
+
+
 #include "Initialization.h"
 ErrorCode error;
 uint8_t fifo_ctrl_reg;
 
 
- void INIT_START(void)
-{   I2C_Peripheral_Start();
+
+// Initialize peripherals for ON MODE 
+ void INIT_ON(void){
+    
+    I2C_Peripheral_Start();
                     
 
     fifo_ctrl_reg = STREAM_MODE_THR_WMK;
@@ -31,9 +38,9 @@ uint8_t fifo_ctrl_reg;
 }
 
 
-
-void INIT_STOP(void)
-{   I2C_Peripheral_Start();
+// Initialize peripherals for OFF MODE 
+void INIT_OFF(void){
+    I2C_Peripheral_Start();
     fifo_ctrl_reg = BYPASS_MODE;
     error = I2C_Peripheral_WriteRegister(LIS3DH_DEVICE_ADDRESS,
                                                  LIS3DH_FIFO_CTRL_REG,
@@ -51,8 +58,8 @@ void INIT_STOP(void)
 
 }
     
-    
-void INIT_MENU(void)
+// Initialize peripherals for CONFIGURATION MODE     
+void INIT_CONF(void)
 {   RED_Led_Write(1);
     GREEN_Led_Write(1);
     BLUE_Led_Write(1);
@@ -70,4 +77,4 @@ void INIT_MENU(void)
     ADC_DelSig_StartConvert();
 
 }
-/* [] END OF FILE */
+

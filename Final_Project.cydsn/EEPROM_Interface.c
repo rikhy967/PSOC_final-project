@@ -5,8 +5,7 @@
  * This c file contains the API functions to interface
  * with the SPI EEPROM 25LC256.
  *
- * @author Mattia Pesenti
- * @date 24 March, 2020
+
 */
 
 #include "EEPROM_Interface.h"

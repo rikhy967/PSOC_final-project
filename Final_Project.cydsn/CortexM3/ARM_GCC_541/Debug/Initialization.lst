@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccVFAxyb.s 			page 1
+ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\cchjfHvr.s 			page 1
 
 
    1              		.syntax unified
@@ -19,13 +19,13 @@ ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccVFAxyb.s 			page 1
   16              		.text
   17              	.Ltext0:
   18              		.cfi_sections	.debug_frame
-  19              		.section	.text.INIT_START,"ax",%progbits
+  19              		.section	.text.INIT_ON,"ax",%progbits
   20              		.align	2
-  21              		.global	INIT_START
+  21              		.global	INIT_ON
   22              		.thumb
   23              		.thumb_func
-  24              		.type	INIT_START, %function
-  25              	INIT_START:
+  24              		.type	INIT_ON, %function
+  25              	INIT_ON:
   26              	.LFB63:
   27              		.file 1 "Initialization.c"
    1:Initialization.c **** /* ========================================
@@ -39,65 +39,72 @@ ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccVFAxyb.s 			page 1
    9:Initialization.c ****  *
   10:Initialization.c ****  * ========================================
   11:Initialization.c **** */
-  12:Initialization.c **** #include "Initialization.h"
-  13:Initialization.c **** ErrorCode error;
-  14:Initialization.c **** uint8_t fifo_ctrl_reg;
+  12:Initialization.c **** 
+  13:Initialization.c **** /*********************   INTIALIZATION PERIPHERALS FILE   *************************/
+  14:Initialization.c **** 
   15:Initialization.c **** 
-  16:Initialization.c **** 
-  17:Initialization.c ****  void INIT_START(void)
-  18:Initialization.c **** {   I2C_Peripheral_Start();
-  28              		.loc 1 18 0
+  16:Initialization.c **** #include "Initialization.h"
+  17:Initialization.c **** ErrorCode error;
+  18:Initialization.c **** uint8_t fifo_ctrl_reg;
+  19:Initialization.c **** 
+  20:Initialization.c **** 
+  21:Initialization.c **** 
+  22:Initialization.c **** // Initialize peripherals for ON MODE 
+  23:Initialization.c ****  void INIT_ON(void){
+  28              		.loc 1 23 0
   29              		.cfi_startproc
   30              		@ args = 0, pretend = 0, frame = 0
   31              		@ frame_needed = 0, uses_anonymous_args = 0
   32 0000 08B5     		push	{r3, lr}
   33              		.cfi_def_cfa_offset 8
   34              		.cfi_offset 3, -8
+ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\cchjfHvr.s 			page 2
+
+
   35              		.cfi_offset 14, -4
-  36              		.loc 1 18 0
+  24:Initialization.c ****     
+  25:Initialization.c ****     I2C_Peripheral_Start();
+  36              		.loc 1 25 0
   37 0002 FFF7FEFF 		bl	I2C_Peripheral_Start
   38              	.LVL0:
-  19:Initialization.c ****                     
-ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccVFAxyb.s 			page 2
-
-
-  20:Initialization.c **** 
-  21:Initialization.c ****     fifo_ctrl_reg = STREAM_MODE_THR_WMK;
-  39              		.loc 1 21 0
+  26:Initialization.c ****                     
+  27:Initialization.c **** 
+  28:Initialization.c ****     fifo_ctrl_reg = STREAM_MODE_THR_WMK;
+  39              		.loc 1 28 0
   40 0006 8622     		movs	r2, #134
   41 0008 0A4B     		ldr	r3, .L3
   42 000a 1A70     		strb	r2, [r3]
-  22:Initialization.c ****     error = I2C_Peripheral_WriteRegister(LIS3DH_DEVICE_ADDRESS,
-  43              		.loc 1 22 0
+  29:Initialization.c ****     error = I2C_Peripheral_WriteRegister(LIS3DH_DEVICE_ADDRESS,
+  43              		.loc 1 29 0
   44 000c 2E21     		movs	r1, #46
   45 000e 1820     		movs	r0, #24
   46 0010 FFF7FEFF 		bl	I2C_Peripheral_WriteRegister
   47              	.LVL1:
   48 0014 084B     		ldr	r3, .L3+4
   49 0016 1870     		strb	r0, [r3]
-  23:Initialization.c ****                                              LIS3DH_FIFO_CTRL_REG,
-  24:Initialization.c ****                                              fifo_ctrl_reg);
-  25:Initialization.c ****     ADC_DelSig_Stop();
-  50              		.loc 1 25 0
+  30:Initialization.c ****                                              LIS3DH_FIFO_CTRL_REG,
+  31:Initialization.c ****                                              fifo_ctrl_reg);
+  32:Initialization.c ****     ADC_DelSig_Stop();
+  50              		.loc 1 32 0
   51 0018 FFF7FEFF 		bl	ADC_DelSig_Stop
   52              	.LVL2:
-  26:Initialization.c ****     INT_Led_Write(1);  
-  53              		.loc 1 26 0
+  33:Initialization.c ****     INT_Led_Write(1);  
+  53              		.loc 1 33 0
   54 001c 0120     		movs	r0, #1
   55 001e FFF7FEFF 		bl	INT_Led_Write
   56              	.LVL3:
-  27:Initialization.c **** 
-  28:Initialization.c ****     isr_LIS3DH_StartEx(ISR_LIS3DH_FIFO_WATERMARK);
-  57              		.loc 1 28 0
+  34:Initialization.c **** 
+  35:Initialization.c ****     isr_LIS3DH_StartEx(ISR_LIS3DH_FIFO_WATERMARK);
+  57              		.loc 1 35 0
   58 0022 0648     		ldr	r0, .L3+8
   59 0024 FFF7FEFF 		bl	isr_LIS3DH_StartEx
   60              	.LVL4:
-  29:Initialization.c ****     SPIM_1_Start();
-  61              		.loc 1 29 0
+  36:Initialization.c ****     SPIM_1_Start();
+  61              		.loc 1 36 0
   62 0028 FFF7FEFF 		bl	SPIM_1_Start
   63              	.LVL5:
-  30:Initialization.c ****     CyDelay(10);
-  64              		.loc 1 30 0
+  37:Initialization.c ****     CyDelay(10);
+  64              		.loc 1 37 0
   65 002c 0A20     		movs	r0, #10
   66 002e FFF7FEFF 		bl	CyDelay
   67              	.LVL6:
@@ -110,25 +117,24 @@ ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccVFAxyb.s 			page 1
   74 003c 00000000 		.word	ISR_LIS3DH_FIFO_WATERMARK
   75              		.cfi_endproc
   76              	.LFE63:
-  77              		.size	INIT_START, .-INIT_START
-  78              		.section	.text.INIT_STOP,"ax",%progbits
+  77              		.size	INIT_ON, .-INIT_ON
+ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\cchjfHvr.s 			page 3
+
+
+  78              		.section	.text.INIT_OFF,"ax",%progbits
   79              		.align	2
-  80              		.global	INIT_STOP
+  80              		.global	INIT_OFF
   81              		.thumb
   82              		.thumb_func
-  83              		.type	INIT_STOP, %function
-  84              	INIT_STOP:
-ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccVFAxyb.s 			page 3
-
-
+  83              		.type	INIT_OFF, %function
+  84              	INIT_OFF:
   85              	.LFB64:
-  31:Initialization.c **** }
-  32:Initialization.c **** 
-  33:Initialization.c **** 
-  34:Initialization.c **** 
-  35:Initialization.c **** void INIT_STOP(void)
-  36:Initialization.c **** {   I2C_Peripheral_Start();
-  86              		.loc 1 36 0
+  38:Initialization.c **** }
+  39:Initialization.c **** 
+  40:Initialization.c **** 
+  41:Initialization.c **** // Initialize peripherals for OFF MODE 
+  42:Initialization.c **** void INIT_OFF(void){
+  86              		.loc 1 42 0
   87              		.cfi_startproc
   88              		@ args = 0, pretend = 0, frame = 0
   89              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -136,16 +142,17 @@ ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccVFAxyb.s 			page 1
   91              		.cfi_def_cfa_offset 8
   92              		.cfi_offset 4, -8
   93              		.cfi_offset 14, -4
-  94              		.loc 1 36 0
+  43:Initialization.c ****     I2C_Peripheral_Start();
+  94              		.loc 1 43 0
   95 0002 FFF7FEFF 		bl	I2C_Peripheral_Start
   96              	.LVL7:
-  37:Initialization.c ****     fifo_ctrl_reg = BYPASS_MODE;
-  97              		.loc 1 37 0
+  44:Initialization.c ****     fifo_ctrl_reg = BYPASS_MODE;
+  97              		.loc 1 44 0
   98 0006 0024     		movs	r4, #0
   99 0008 0E4B     		ldr	r3, .L7
  100 000a 1C70     		strb	r4, [r3]
-  38:Initialization.c ****     error = I2C_Peripheral_WriteRegister(LIS3DH_DEVICE_ADDRESS,
- 101              		.loc 1 38 0
+  45:Initialization.c ****     error = I2C_Peripheral_WriteRegister(LIS3DH_DEVICE_ADDRESS,
+ 101              		.loc 1 45 0
  102 000c 2246     		mov	r2, r4
  103 000e 2E21     		movs	r1, #46
  104 0010 1820     		movs	r0, #24
@@ -153,45 +160,45 @@ ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccVFAxyb.s 			page 1
  106              	.LVL8:
  107 0016 0C4B     		ldr	r3, .L7+4
  108 0018 1870     		strb	r0, [r3]
-  39:Initialization.c ****                                                  LIS3DH_FIFO_CTRL_REG,
-  40:Initialization.c ****                                                  fifo_ctrl_reg);
-  41:Initialization.c **** 
-  42:Initialization.c ****     isr_LIS3DH_Stop();
- 109              		.loc 1 42 0
+  46:Initialization.c ****                                                  LIS3DH_FIFO_CTRL_REG,
+  47:Initialization.c ****                                                  fifo_ctrl_reg);
+  48:Initialization.c **** 
+  49:Initialization.c ****     isr_LIS3DH_Stop();
+ 109              		.loc 1 49 0
  110 001a FFF7FEFF 		bl	isr_LIS3DH_Stop
  111              	.LVL9:
-  43:Initialization.c ****     I2C_Peripheral_Stop();
- 112              		.loc 1 43 0
+  50:Initialization.c ****     I2C_Peripheral_Stop();
+ 112              		.loc 1 50 0
  113 001e FFF7FEFF 		bl	I2C_Peripheral_Stop
  114              	.LVL10:
-  44:Initialization.c ****     SPIM_1_Stop();
- 115              		.loc 1 44 0
+  51:Initialization.c ****     SPIM_1_Stop();
+ 115              		.loc 1 51 0
  116 0022 FFF7FEFF 		bl	SPIM_1_Stop
  117              	.LVL11:
-  45:Initialization.c ****     ADC_DelSig_Stop();         
- 118              		.loc 1 45 0
+  52:Initialization.c ****     ADC_DelSig_Stop();         
+ 118              		.loc 1 52 0
  119 0026 FFF7FEFF 		bl	ADC_DelSig_Stop
+ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\cchjfHvr.s 			page 4
+
+
  120              	.LVL12:
-  46:Initialization.c ****     RED_Led_Write(1);
- 121              		.loc 1 46 0
+  53:Initialization.c ****     RED_Led_Write(1);
+ 121              		.loc 1 53 0
  122 002a 0120     		movs	r0, #1
  123 002c FFF7FEFF 		bl	RED_Led_Write
  124              	.LVL13:
-  47:Initialization.c ****     GREEN_Led_Write(1);
-ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccVFAxyb.s 			page 4
-
-
- 125              		.loc 1 47 0
+  54:Initialization.c ****     GREEN_Led_Write(1);
+ 125              		.loc 1 54 0
  126 0030 0120     		movs	r0, #1
  127 0032 FFF7FEFF 		bl	GREEN_Led_Write
  128              	.LVL14:
-  48:Initialization.c ****     BLUE_Led_Write(1);
- 129              		.loc 1 48 0
+  55:Initialization.c ****     BLUE_Led_Write(1);
+ 129              		.loc 1 55 0
  130 0036 0120     		movs	r0, #1
  131 0038 FFF7FEFF 		bl	BLUE_Led_Write
  132              	.LVL15:
-  49:Initialization.c ****     INT_Led_Write(0);
- 133              		.loc 1 49 0
+  56:Initialization.c ****     INT_Led_Write(0);
+ 133              		.loc 1 56 0
  134 003c 2046     		mov	r0, r4
  135 003e FFF7FEFF 		bl	INT_Led_Write
  136              	.LVL16:
@@ -203,23 +210,23 @@ ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccVFAxyb.s 			page 1
  142 0048 00000000 		.word	error
  143              		.cfi_endproc
  144              	.LFE64:
- 145              		.size	INIT_STOP, .-INIT_STOP
- 146              		.section	.text.INIT_MENU,"ax",%progbits
+ 145              		.size	INIT_OFF, .-INIT_OFF
+ 146              		.section	.text.INIT_CONF,"ax",%progbits
  147              		.align	2
- 148              		.global	INIT_MENU
+ 148              		.global	INIT_CONF
  149              		.thumb
  150              		.thumb_func
- 151              		.type	INIT_MENU, %function
- 152              	INIT_MENU:
+ 151              		.type	INIT_CONF, %function
+ 152              	INIT_CONF:
  153              	.LFB65:
-  50:Initialization.c ****                    
-  51:Initialization.c **** 
-  52:Initialization.c **** }
-  53:Initialization.c ****     
-  54:Initialization.c ****     
-  55:Initialization.c **** void INIT_MENU(void)
-  56:Initialization.c **** {   RED_Led_Write(1);
- 154              		.loc 1 56 0
+  57:Initialization.c ****                    
+  58:Initialization.c **** 
+  59:Initialization.c **** }
+  60:Initialization.c ****     
+  61:Initialization.c **** // Initialize peripherals for CONFIGURATION MODE     
+  62:Initialization.c **** void INIT_CONF(void)
+  63:Initialization.c **** {   RED_Led_Write(1);
+ 154              		.loc 1 63 0
  155              		.cfi_startproc
  156              		@ args = 0, pretend = 0, frame = 0
  157              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -227,59 +234,59 @@ ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccVFAxyb.s 			page 1
  159              		.cfi_def_cfa_offset 8
  160              		.cfi_offset 3, -8
  161              		.cfi_offset 14, -4
- 162              		.loc 1 56 0
+ 162              		.loc 1 63 0
  163 0002 0120     		movs	r0, #1
  164 0004 FFF7FEFF 		bl	RED_Led_Write
  165              	.LVL17:
-  57:Initialization.c ****     GREEN_Led_Write(1);
- 166              		.loc 1 57 0
+ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\cchjfHvr.s 			page 5
+
+
+  64:Initialization.c ****     GREEN_Led_Write(1);
+ 166              		.loc 1 64 0
  167 0008 0120     		movs	r0, #1
  168 000a FFF7FEFF 		bl	GREEN_Led_Write
  169              	.LVL18:
-  58:Initialization.c ****     BLUE_Led_Write(1);
- 170              		.loc 1 58 0
-ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccVFAxyb.s 			page 5
-
-
+  65:Initialization.c ****     BLUE_Led_Write(1);
+ 170              		.loc 1 65 0
  171 000e 0120     		movs	r0, #1
  172 0010 FFF7FEFF 		bl	BLUE_Led_Write
  173              	.LVL19:
-  59:Initialization.c **** 
-  60:Initialization.c **** 
-  61:Initialization.c ****     I2C_Peripheral_Start();
- 174              		.loc 1 61 0
+  66:Initialization.c **** 
+  67:Initialization.c **** 
+  68:Initialization.c ****     I2C_Peripheral_Start();
+ 174              		.loc 1 68 0
  175 0014 FFF7FEFF 		bl	I2C_Peripheral_Start
  176              	.LVL20:
-  62:Initialization.c ****     fifo_ctrl_reg = BYPASS_MODE;
- 177              		.loc 1 62 0
+  69:Initialization.c ****     fifo_ctrl_reg = BYPASS_MODE;
+ 177              		.loc 1 69 0
  178 0018 0022     		movs	r2, #0
  179 001a 084B     		ldr	r3, .L11
  180 001c 1A70     		strb	r2, [r3]
-  63:Initialization.c ****     error = I2C_Peripheral_WriteRegister(LIS3DH_DEVICE_ADDRESS,
- 181              		.loc 1 63 0
+  70:Initialization.c ****     error = I2C_Peripheral_WriteRegister(LIS3DH_DEVICE_ADDRESS,
+ 181              		.loc 1 70 0
  182 001e 2E21     		movs	r1, #46
  183 0020 1820     		movs	r0, #24
  184 0022 FFF7FEFF 		bl	I2C_Peripheral_WriteRegister
  185              	.LVL21:
  186 0026 064B     		ldr	r3, .L11+4
  187 0028 1870     		strb	r0, [r3]
-  64:Initialization.c ****                                                  LIS3DH_FIFO_CTRL_REG,
-  65:Initialization.c ****                                                  fifo_ctrl_reg);
-  66:Initialization.c ****     
-  67:Initialization.c ****     isr_LIS3DH_Stop();
- 188              		.loc 1 67 0
+  71:Initialization.c ****                                                  LIS3DH_FIFO_CTRL_REG,
+  72:Initialization.c ****                                                  fifo_ctrl_reg);
+  73:Initialization.c ****     
+  74:Initialization.c ****     isr_LIS3DH_Stop();
+ 188              		.loc 1 74 0
  189 002a FFF7FEFF 		bl	isr_LIS3DH_Stop
  190              	.LVL22:
-  68:Initialization.c ****     SPIM_1_Stop();
- 191              		.loc 1 68 0
+  75:Initialization.c ****     SPIM_1_Stop();
+ 191              		.loc 1 75 0
  192 002e FFF7FEFF 		bl	SPIM_1_Stop
  193              	.LVL23:
-  69:Initialization.c ****     ADC_DelSig_Start();
- 194              		.loc 1 69 0
+  76:Initialization.c ****     ADC_DelSig_Start();
+ 194              		.loc 1 76 0
  195 0032 FFF7FEFF 		bl	ADC_DelSig_Start
  196              	.LVL24:
-  70:Initialization.c ****     ADC_DelSig_StartConvert();
- 197              		.loc 1 70 0
+  77:Initialization.c ****     ADC_DelSig_StartConvert();
+ 197              		.loc 1 77 0
  198 0036 FFF7FEFF 		bl	ADC_DelSig_StartConvert
  199              	.LVL25:
  200 003a 08BD     		pop	{r3, pc}
@@ -290,7 +297,10 @@ ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccVFAxyb.s 			page 1
  205 0040 00000000 		.word	error
  206              		.cfi_endproc
  207              	.LFE65:
- 208              		.size	INIT_MENU, .-INIT_MENU
+ 208              		.size	INIT_CONF, .-INIT_CONF
+ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\cchjfHvr.s 			page 6
+
+
  209              		.comm	fifo_ctrl_reg,1,1
  210              		.comm	error,1,1
  211              		.comm	timestamp,4,4
@@ -298,9 +308,6 @@ ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccVFAxyb.s 			page 1
  213              		.comm	counter_int_led,2,2
  214              		.comm	counter_blue,2,2
  215              		.comm	counter_green,2,2
-ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccVFAxyb.s 			page 6
-
-
  216              		.comm	counter_red,2,2
  217              		.comm	period_int_led,1,1
  218              		.comm	period_blue,2,2
@@ -331,9 +338,9 @@ ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccVFAxyb.s 			page 1
  243 0006 00000000 		.4byte	.Ldebug_abbrev0
  244 000a 04       		.byte	0x4
  245 000b 01       		.uleb128 0x1
- 246 000c 26010000 		.4byte	.LASF58
+ 246 000c 31010000 		.4byte	.LASF58
  247 0010 0C       		.byte	0xc
- 248 0011 DB010000 		.4byte	.LASF59
+ 248 0011 E6010000 		.4byte	.LASF59
  249 0015 22000000 		.4byte	.LASF60
  250 0019 00000000 		.4byte	.Ldebug_ranges0+0
  251 001d 00000000 		.4byte	0
@@ -341,7 +348,7 @@ ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccVFAxyb.s 			page 1
  253 0025 02       		.uleb128 0x2
  254 0026 01       		.byte	0x1
  255 0027 06       		.byte	0x6
- 256 0028 6D030000 		.4byte	.LASF0
+ 256 0028 73030000 		.4byte	.LASF0
  257 002c 03       		.uleb128 0x3
  258 002d 18000000 		.4byte	.LASF3
  259 0031 02       		.byte	0x2
@@ -350,49 +357,49 @@ ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccVFAxyb.s 			page 1
  262 0037 02       		.uleb128 0x2
  263 0038 01       		.byte	0x1
  264 0039 08       		.byte	0x8
- 265 003a 18010000 		.4byte	.LASF1
+ 265 003a 23010000 		.4byte	.LASF1
+ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\cchjfHvr.s 			page 7
+
+
  266 003e 02       		.uleb128 0x2
  267 003f 02       		.byte	0x2
  268 0040 05       		.byte	0x5
- 269 0041 21030000 		.4byte	.LASF2
+ 269 0041 27030000 		.4byte	.LASF2
  270 0045 03       		.uleb128 0x3
- 271 0046 16020000 		.4byte	.LASF4
+ 271 0046 21020000 		.4byte	.LASF4
  272 004a 02       		.byte	0x2
-ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccVFAxyb.s 			page 7
-
-
  273 004b 2B       		.byte	0x2b
  274 004c 50000000 		.4byte	0x50
  275 0050 02       		.uleb128 0x2
  276 0051 02       		.byte	0x2
  277 0052 07       		.byte	0x7
- 278 0053 AA000000 		.4byte	.LASF5
+ 278 0053 AB000000 		.4byte	.LASF5
  279 0057 03       		.uleb128 0x3
- 280 0058 97000000 		.4byte	.LASF6
+ 280 0058 8E000000 		.4byte	.LASF6
  281 005c 02       		.byte	0x2
  282 005d 3F       		.byte	0x3f
  283 005e 62000000 		.4byte	0x62
  284 0062 02       		.uleb128 0x2
  285 0063 04       		.byte	0x4
  286 0064 05       		.byte	0x5
- 287 0065 A1000000 		.4byte	.LASF7
+ 287 0065 98000000 		.4byte	.LASF7
  288 0069 03       		.uleb128 0x3
- 289 006a 39020000 		.4byte	.LASF8
+ 289 006a 44020000 		.4byte	.LASF8
  290 006e 02       		.byte	0x2
  291 006f 41       		.byte	0x41
  292 0070 74000000 		.4byte	0x74
  293 0074 02       		.uleb128 0x2
  294 0075 04       		.byte	0x4
  295 0076 07       		.byte	0x7
- 296 0077 B4010000 		.4byte	.LASF9
+ 296 0077 BF010000 		.4byte	.LASF9
  297 007b 02       		.uleb128 0x2
  298 007c 08       		.byte	0x8
  299 007d 05       		.byte	0x5
- 300 007e E6020000 		.4byte	.LASF10
+ 300 007e F7020000 		.4byte	.LASF10
  301 0082 02       		.uleb128 0x2
  302 0083 08       		.byte	0x8
  303 0084 07       		.byte	0x7
- 304 0085 75020000 		.4byte	.LASF11
+ 304 0085 86020000 		.4byte	.LASF11
  305 0089 04       		.uleb128 0x4
  306 008a 04       		.byte	0x4
  307 008b 05       		.byte	0x5
@@ -400,50 +407,50 @@ ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccVFAxyb.s 			page 1
  309 0090 02       		.uleb128 0x2
  310 0091 04       		.byte	0x4
  311 0092 07       		.byte	0x7
- 312 0093 5E020000 		.4byte	.LASF12
+ 312 0093 79020000 		.4byte	.LASF12
  313 0097 03       		.uleb128 0x3
- 314 0098 BD000000 		.4byte	.LASF13
+ 314 0098 BE000000 		.4byte	.LASF13
  315 009c 03       		.byte	0x3
  316 009d 18       		.byte	0x18
  317 009e 2C000000 		.4byte	0x2c
  318 00a2 03       		.uleb128 0x3
- 319 00a3 18030000 		.4byte	.LASF14
+ 319 00a3 1E030000 		.4byte	.LASF14
  320 00a7 03       		.byte	0x3
  321 00a8 24       		.byte	0x24
  322 00a9 45000000 		.4byte	0x45
+ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\cchjfHvr.s 			page 8
+
+
  323 00ad 03       		.uleb128 0x3
- 324 00ae CF020000 		.4byte	.LASF15
+ 324 00ae E0020000 		.4byte	.LASF15
  325 00b2 03       		.byte	0x3
  326 00b3 2C       		.byte	0x2c
  327 00b4 57000000 		.4byte	0x57
  328 00b8 03       		.uleb128 0x3
- 329 00b9 52030000 		.4byte	.LASF16
-ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccVFAxyb.s 			page 8
-
-
+ 329 00b9 58030000 		.4byte	.LASF16
  330 00bd 03       		.byte	0x3
  331 00be 30       		.byte	0x30
  332 00bf 69000000 		.4byte	0x69
  333 00c3 02       		.uleb128 0x2
  334 00c4 04       		.byte	0x4
  335 00c5 04       		.byte	0x4
- 336 00c6 F2000000 		.4byte	.LASF17
+ 336 00c6 FD000000 		.4byte	.LASF17
  337 00ca 02       		.uleb128 0x2
  338 00cb 08       		.byte	0x8
  339 00cc 04       		.byte	0x4
- 340 00cd 21020000 		.4byte	.LASF18
+ 340 00cd 2C020000 		.4byte	.LASF18
  341 00d1 02       		.uleb128 0x2
  342 00d2 01       		.byte	0x1
  343 00d3 08       		.byte	0x8
- 344 00d4 FF020000 		.4byte	.LASF19
+ 344 00d4 05030000 		.4byte	.LASF19
  345 00d8 02       		.uleb128 0x2
  346 00d9 08       		.byte	0x8
  347 00da 04       		.byte	0x4
- 348 00db 61030000 		.4byte	.LASF20
+ 348 00db 67030000 		.4byte	.LASF20
  349 00df 02       		.uleb128 0x2
  350 00e0 04       		.byte	0x4
  351 00e1 07       		.byte	0x7
- 352 00e2 D7020000 		.4byte	.LASF21
+ 352 00e2 E8020000 		.4byte	.LASF21
  353 00e6 05       		.uleb128 0x5
  354 00e7 B8000000 		.4byte	0xb8
  355 00eb 05       		.uleb128 0x5
@@ -457,30 +464,30 @@ ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccVFAxyb.s 			page 1
  363 00fc 15       		.byte	0x15
  364 00fd 0E010000 		.4byte	0x10e
  365 0101 07       		.uleb128 0x7
- 366 0102 49030000 		.4byte	.LASF22
+ 366 0102 4F030000 		.4byte	.LASF22
  367 0106 00       		.byte	0
  368 0107 07       		.uleb128 0x7
- 369 0108 5B030000 		.4byte	.LASF23
+ 369 0108 61030000 		.4byte	.LASF23
  370 010c 01       		.byte	0x1
  371 010d 00       		.byte	0
  372 010e 03       		.uleb128 0x3
- 373 010f C5000000 		.4byte	.LASF24
+ 373 010f C6000000 		.4byte	.LASF24
  374 0113 04       		.byte	0x4
  375 0114 18       		.byte	0x18
  376 0115 F5000000 		.4byte	0xf5
  377 0119 08       		.uleb128 0x8
- 378 011a F4020000 		.4byte	.LASF25
+ 378 011a D0000000 		.4byte	.LASF25
  379 011e 01       		.byte	0x1
- 380 011f 11       		.byte	0x11
+ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\cchjfHvr.s 			page 9
+
+
+ 380 011f 17       		.byte	0x17
  381 0120 00000000 		.4byte	.LFB63
  382 0124 40000000 		.4byte	.LFE63-.LFB63
  383 0128 01       		.uleb128 0x1
  384 0129 9C       		.byte	0x9c
  385 012a 94010000 		.4byte	0x194
  386 012e 09       		.uleb128 0x9
-ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccVFAxyb.s 			page 9
-
-
  387 012f 06000000 		.4byte	.LVL0
  388 0133 D8030000 		.4byte	0x3d8
  389 0137 0A       		.uleb128 0xa
@@ -531,16 +538,16 @@ ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccVFAxyb.s 			page 1
  434 018e 01       		.uleb128 0x1
  435 018f 50       		.byte	0x50
  436 0190 01       		.uleb128 0x1
+ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\cchjfHvr.s 			page 10
+
+
  437 0191 3A       		.byte	0x3a
  438 0192 00       		.byte	0
  439 0193 00       		.byte	0
  440 0194 08       		.uleb128 0x8
- 441 0195 6B020000 		.4byte	.LASF26
+ 441 0195 F4000000 		.4byte	.LASF26
  442 0199 01       		.byte	0x1
- 443 019a 23       		.byte	0x23
-ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccVFAxyb.s 			page 10
-
-
+ 443 019a 2A       		.byte	0x2a
  444 019b 00000000 		.4byte	.LFB64
  445 019f 4C000000 		.4byte	.LFE64-.LFB64
  446 01a3 01       		.uleb128 0x1
@@ -591,6 +598,9 @@ ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccVFAxyb.s 			page 1
  491 0203 01       		.uleb128 0x1
  492 0204 50       		.byte	0x50
  493 0205 01       		.uleb128 0x1
+ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\cchjfHvr.s 			page 11
+
+
  494 0206 31       		.byte	0x31
  495 0207 00       		.byte	0
  496 0208 0A       		.uleb128 0xa
@@ -598,9 +608,6 @@ ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccVFAxyb.s 			page 1
  498 020d 51040000 		.4byte	0x451
  499 0211 1B020000 		.4byte	0x21b
  500 0215 0B       		.uleb128 0xb
-ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccVFAxyb.s 			page 11
-
-
  501 0216 01       		.uleb128 0x1
  502 0217 50       		.byte	0x50
  503 0218 01       		.uleb128 0x1
@@ -628,9 +635,9 @@ ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccVFAxyb.s 			page 1
  525 023d 00       		.byte	0
  526 023e 00       		.byte	0
  527 023f 08       		.uleb128 0x8
- 528 0240 91030000 		.4byte	.LASF27
+ 528 0240 A1000000 		.4byte	.LASF27
  529 0244 01       		.byte	0x1
- 530 0245 37       		.byte	0x37
+ 530 0245 3E       		.byte	0x3e
  531 0246 00000000 		.4byte	.LFB65
  532 024a 44000000 		.4byte	.LFE65-.LFB65
  533 024e 01       		.uleb128 0x1
@@ -651,6 +658,9 @@ ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccVFAxyb.s 			page 1
  548 026c 51040000 		.4byte	0x451
  549 0270 7A020000 		.4byte	0x27a
  550 0274 0B       		.uleb128 0xb
+ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\cchjfHvr.s 			page 12
+
+
  551 0275 01       		.uleb128 0x1
  552 0276 50       		.byte	0x50
  553 0277 01       		.uleb128 0x1
@@ -658,9 +668,6 @@ ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccVFAxyb.s 			page 1
  555 0279 00       		.byte	0
  556 027a 0A       		.uleb128 0xa
  557 027b 14000000 		.4byte	.LVL19
-ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccVFAxyb.s 			page 12
-
-
  558 027f 5C040000 		.4byte	0x45c
  559 0283 8D020000 		.4byte	0x28d
  560 0287 0B       		.uleb128 0xb
@@ -707,25 +714,25 @@ ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccVFAxyb.s 			page 1
  601 02d4 72040000 		.4byte	0x472
  602 02d8 00       		.byte	0
  603 02d9 0D       		.uleb128 0xd
- 604 02da 09020000 		.4byte	.LASF28
+ 604 02da 14020000 		.4byte	.LASF28
  605 02de 05       		.byte	0x5
  606 02df 1207     		.2byte	0x712
  607 02e1 E5020000 		.4byte	0x2e5
+ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\cchjfHvr.s 			page 13
+
+
  608 02e5 05       		.uleb128 0x5
  609 02e6 AD000000 		.4byte	0xad
  610 02ea 0E       		.uleb128 0xe
- 611 02eb C6010000 		.4byte	.LASF29
+ 611 02eb D1010000 		.4byte	.LASF29
  612 02ef 06       		.byte	0x6
  613 02f0 1C       		.byte	0x1c
  614 02f1 EB000000 		.4byte	0xeb
-ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccVFAxyb.s 			page 13
-
-
  615 02f5 05       		.uleb128 0x5
  616 02f6 03       		.byte	0x3
  617 02f7 00000000 		.4byte	OVR_FLAG
  618 02fb 0E       		.uleb128 0xe
- 619 02fc CF000000 		.4byte	.LASF30
+ 619 02fc 6C000000 		.4byte	.LASF30
  620 0300 06       		.byte	0x6
  621 0301 1E       		.byte	0x1e
  622 0302 EB000000 		.4byte	0xeb
@@ -733,76 +740,76 @@ ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccVFAxyb.s 			page 1
  624 0307 03       		.byte	0x3
  625 0308 00000000 		.4byte	status
  626 030c 0E       		.uleb128 0xe
- 627 030d 79030000 		.4byte	.LASF31
+ 627 030d 7F030000 		.4byte	.LASF31
  628 0311 06       		.byte	0x6
- 629 0312 29       		.byte	0x29
+ 629 0312 27       		.byte	0x27
  630 0313 F0000000 		.4byte	0xf0
  631 0317 05       		.uleb128 0x5
  632 0318 03       		.byte	0x3
  633 0319 00000000 		.4byte	period_red
  634 031d 0E       		.uleb128 0xe
- 635 031e 84030000 		.4byte	.LASF32
+ 635 031e 8A030000 		.4byte	.LASF32
  636 0322 06       		.byte	0x6
- 637 0323 2A       		.byte	0x2a
+ 637 0323 28       		.byte	0x28
  638 0324 F0000000 		.4byte	0xf0
  639 0328 05       		.uleb128 0x5
  640 0329 03       		.byte	0x3
  641 032a 00000000 		.4byte	period_green
  642 032e 0E       		.uleb128 0xe
- 643 032f CF010000 		.4byte	.LASF33
+ 643 032f DA010000 		.4byte	.LASF33
  644 0333 06       		.byte	0x6
- 645 0334 2B       		.byte	0x2b
+ 645 0334 29       		.byte	0x29
  646 0335 F0000000 		.4byte	0xf0
  647 0339 05       		.uleb128 0x5
  648 033a 03       		.byte	0x3
  649 033b 00000000 		.4byte	period_blue
  650 033f 0E       		.uleb128 0xe
- 651 0340 E3000000 		.4byte	.LASF34
+ 651 0340 E5000000 		.4byte	.LASF34
  652 0344 06       		.byte	0x6
- 653 0345 2C       		.byte	0x2c
+ 653 0345 2A       		.byte	0x2a
  654 0346 EB000000 		.4byte	0xeb
  655 034a 05       		.uleb128 0x5
  656 034b 03       		.byte	0x3
  657 034c 00000000 		.4byte	period_int_led
  658 0350 0E       		.uleb128 0xe
- 659 0351 8C020000 		.4byte	.LASF35
+ 659 0351 9D020000 		.4byte	.LASF35
  660 0355 06       		.byte	0x6
- 661 0356 2E       		.byte	0x2e
+ 661 0356 2C       		.byte	0x2c
  662 0357 F0000000 		.4byte	0xf0
  663 035b 05       		.uleb128 0x5
  664 035c 03       		.byte	0x3
+ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\cchjfHvr.s 			page 14
+
+
  665 035d 00000000 		.4byte	counter_red
  666 0361 0E       		.uleb128 0xe
  667 0362 00000000 		.4byte	.LASF36
  668 0366 06       		.byte	0x6
- 669 0367 2F       		.byte	0x2f
+ 669 0367 2D       		.byte	0x2d
  670 0368 F0000000 		.4byte	0xf0
  671 036c 05       		.uleb128 0x5
-ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccVFAxyb.s 			page 14
-
-
  672 036d 03       		.byte	0x3
  673 036e 00000000 		.4byte	counter_green
  674 0372 0E       		.uleb128 0xe
- 675 0373 D6000000 		.4byte	.LASF37
+ 675 0373 D8000000 		.4byte	.LASF37
  676 0377 06       		.byte	0x6
- 677 0378 30       		.byte	0x30
+ 677 0378 2E       		.byte	0x2e
  678 0379 F0000000 		.4byte	0xf0
  679 037d 05       		.uleb128 0x5
  680 037e 03       		.byte	0x3
  681 037f 00000000 		.4byte	counter_blue
  682 0383 0E       		.uleb128 0xe
- 683 0384 08010000 		.4byte	.LASF38
+ 683 0384 13010000 		.4byte	.LASF38
  684 0388 06       		.byte	0x6
- 685 0389 31       		.byte	0x31
+ 685 0389 2F       		.byte	0x2f
  686 038a F0000000 		.4byte	0xf0
  687 038e 05       		.uleb128 0x5
  688 038f 03       		.byte	0x3
  689 0390 00000000 		.4byte	counter_int_led
  690 0394 0E       		.uleb128 0xe
- 691 0395 98020000 		.4byte	.LASF39
+ 691 0395 A9020000 		.4byte	.LASF39
  692 0399 06       		.byte	0x6
- 693 039a 33       		.byte	0x33
+ 693 039a 31       		.byte	0x31
  694 039b EB000000 		.4byte	0xeb
  695 039f 05       		.uleb128 0x5
  696 03a0 03       		.byte	0x3
@@ -810,106 +817,106 @@ ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccVFAxyb.s 			page 1
  698 03a5 0E       		.uleb128 0xe
  699 03a6 0E000000 		.4byte	.LASF40
  700 03aa 06       		.byte	0x6
- 701 03ab 34       		.byte	0x34
+ 701 03ab 32       		.byte	0x32
  702 03ac E6000000 		.4byte	0xe6
  703 03b0 05       		.uleb128 0x5
  704 03b1 03       		.byte	0x3
  705 03b2 00000000 		.4byte	timestamp
  706 03b6 0E       		.uleb128 0xe
- 707 03b7 E0020000 		.4byte	.LASF41
+ 707 03b7 F1020000 		.4byte	.LASF41
  708 03bb 01       		.byte	0x1
- 709 03bc 0D       		.byte	0xd
+ 709 03bc 11       		.byte	0x11
  710 03bd 0E010000 		.4byte	0x10e
  711 03c1 05       		.uleb128 0x5
  712 03c2 03       		.byte	0x3
  713 03c3 00000000 		.4byte	error
  714 03c7 0E       		.uleb128 0xe
- 715 03c8 2B030000 		.4byte	.LASF42
+ 715 03c8 31030000 		.4byte	.LASF42
  716 03cc 01       		.byte	0x1
- 717 03cd 0E       		.byte	0xe
+ 717 03cd 12       		.byte	0x12
  718 03ce 97000000 		.4byte	0x97
  719 03d2 05       		.uleb128 0x5
  720 03d3 03       		.byte	0x3
  721 03d4 00000000 		.4byte	fifo_ctrl_reg
+ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\cchjfHvr.s 			page 15
+
+
  722 03d8 0F       		.uleb128 0xf
- 723 03d9 B2030000 		.4byte	.LASF43
- 724 03dd B2030000 		.4byte	.LASF43
+ 723 03d9 AE030000 		.4byte	.LASF43
+ 724 03dd AE030000 		.4byte	.LASF43
  725 03e1 07       		.byte	0x7
  726 03e2 0D       		.byte	0xd
  727 03e3 0F       		.uleb128 0xf
- 728 03e4 EC010000 		.4byte	.LASF44
-ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccVFAxyb.s 			page 15
-
-
- 729 03e8 EC010000 		.4byte	.LASF44
+ 728 03e4 F7010000 		.4byte	.LASF44
+ 729 03e8 F7010000 		.4byte	.LASF44
  730 03ec 07       		.byte	0x7
  731 03ed 39       		.byte	0x39
  732 03ee 0F       		.uleb128 0xf
- 733 03ef 6C000000 		.4byte	.LASF45
- 734 03f3 6C000000 		.4byte	.LASF45
+ 733 03ef 4F020000 		.4byte	.LASF45
+ 734 03f3 4F020000 		.4byte	.LASF45
  735 03f7 08       		.byte	0x8
  736 03f8 3B       		.byte	0x3b
  737 03f9 0F       		.uleb128 0xf
- 738 03fa 50020000 		.4byte	.LASF46
- 739 03fe 50020000 		.4byte	.LASF46
+ 738 03fa 6B020000 		.4byte	.LASF46
+ 739 03fe 6B020000 		.4byte	.LASF46
  740 0402 09       		.byte	0x9
  741 0403 26       		.byte	0x26
  742 0404 0F       		.uleb128 0xf
- 743 0405 A4020000 		.4byte	.LASF47
- 744 0409 A4020000 		.4byte	.LASF47
+ 743 0405 B5020000 		.4byte	.LASF47
+ 744 0409 B5020000 		.4byte	.LASF47
  745 040d 0A       		.byte	0xa
  746 040e 18       		.byte	0x18
  747 040f 0F       		.uleb128 0xf
- 748 0410 7C000000 		.4byte	.LASF48
- 749 0414 7C000000 		.4byte	.LASF48
+ 748 0410 73000000 		.4byte	.LASF48
+ 749 0414 73000000 		.4byte	.LASF48
  750 0418 0B       		.byte	0xb
  751 0419 4D       		.byte	0x4d
  752 041a 0F       		.uleb128 0xf
- 753 041b 9B030000 		.4byte	.LASF49
- 754 041f 9B030000 		.4byte	.LASF49
+ 753 041b 97030000 		.4byte	.LASF49
+ 754 041f 97030000 		.4byte	.LASF49
  755 0423 0C       		.byte	0xc
  756 0424 76       		.byte	0x76
  757 0425 0F       		.uleb128 0xf
- 758 0426 F8000000 		.4byte	.LASF50
- 759 042a F8000000 		.4byte	.LASF50
+ 758 0426 03010000 		.4byte	.LASF50
+ 759 042a 03010000 		.4byte	.LASF50
  760 042e 0A       		.byte	0xa
  761 042f 19       		.byte	0x19
  762 0430 0F       		.uleb128 0xf
- 763 0431 04030000 		.4byte	.LASF51
- 764 0435 04030000 		.4byte	.LASF51
+ 763 0431 0A030000 		.4byte	.LASF51
+ 764 0435 0A030000 		.4byte	.LASF51
  765 0439 07       		.byte	0x7
  766 043a 13       		.byte	0x13
  767 043b 0F       		.uleb128 0xf
- 768 043c 44020000 		.4byte	.LASF52
- 769 0440 44020000 		.4byte	.LASF52
+ 768 043c 5F020000 		.4byte	.LASF52
+ 769 0440 5F020000 		.4byte	.LASF52
  770 0444 0B       		.byte	0xb
  771 0445 4E       		.byte	0x4e
  772 0446 0F       		.uleb128 0xf
- 773 0447 89000000 		.4byte	.LASF53
- 774 044b 89000000 		.4byte	.LASF53
+ 773 0447 80000000 		.4byte	.LASF53
+ 774 044b 80000000 		.4byte	.LASF53
  775 044f 0D       		.byte	0xd
  776 0450 26       		.byte	0x26
  777 0451 0F       		.uleb128 0xf
- 778 0452 39030000 		.4byte	.LASF54
- 779 0456 39030000 		.4byte	.LASF54
+ 778 0452 3F030000 		.4byte	.LASF54
+ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\cchjfHvr.s 			page 16
+
+
+ 779 0456 3F030000 		.4byte	.LASF54
  780 045a 0E       		.byte	0xe
  781 045b 26       		.byte	0x26
  782 045c 0F       		.uleb128 0xf
- 783 045d A3030000 		.4byte	.LASF55
- 784 0461 A3030000 		.4byte	.LASF55
+ 783 045d 9F030000 		.4byte	.LASF55
+ 784 0461 9F030000 		.4byte	.LASF55
  785 0465 0F       		.byte	0xf
-ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccVFAxyb.s 			page 16
-
-
  786 0466 26       		.byte	0x26
  787 0467 0F       		.uleb128 0xf
- 788 0468 28020000 		.4byte	.LASF56
- 789 046c 28020000 		.4byte	.LASF56
+ 788 0468 33020000 		.4byte	.LASF56
+ 789 046c 33020000 		.4byte	.LASF56
  790 0470 08       		.byte	0x8
  791 0471 3A       		.byte	0x3a
  792 0472 0F       		.uleb128 0xf
- 793 0473 B7020000 		.4byte	.LASF57
- 794 0477 B7020000 		.4byte	.LASF57
+ 793 0473 C8020000 		.4byte	.LASF57
+ 794 0477 C8020000 		.4byte	.LASF57
  795 047b 08       		.byte	0x8
  796 047c 3D       		.byte	0x3d
  797 047d 00       		.byte	0
@@ -951,6 +958,9 @@ ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccVFAxyb.s 			page 1
  833 0021 03       		.uleb128 0x3
  834 0022 0E       		.uleb128 0xe
  835 0023 3A       		.uleb128 0x3a
+ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\cchjfHvr.s 			page 17
+
+
  836 0024 0B       		.uleb128 0xb
  837 0025 3B       		.uleb128 0x3b
  838 0026 0B       		.uleb128 0xb
@@ -958,9 +968,6 @@ ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccVFAxyb.s 			page 1
  840 0028 13       		.uleb128 0x13
  841 0029 00       		.byte	0
  842 002a 00       		.byte	0
-ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccVFAxyb.s 			page 17
-
-
  843 002b 04       		.uleb128 0x4
  844 002c 24       		.uleb128 0x24
  845 002d 00       		.byte	0
@@ -1011,6 +1018,9 @@ ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccVFAxyb.s 			page 1
  890 005a 03       		.uleb128 0x3
  891 005b 0E       		.uleb128 0xe
  892 005c 3A       		.uleb128 0x3a
+ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\cchjfHvr.s 			page 18
+
+
  893 005d 0B       		.uleb128 0xb
  894 005e 3B       		.uleb128 0x3b
  895 005f 0B       		.uleb128 0xb
@@ -1018,9 +1028,6 @@ ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccVFAxyb.s 			page 1
  897 0061 19       		.uleb128 0x19
  898 0062 11       		.uleb128 0x11
  899 0063 01       		.uleb128 0x1
-ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccVFAxyb.s 			page 18
-
-
  900 0064 12       		.uleb128 0x12
  901 0065 06       		.uleb128 0x6
  902 0066 40       		.uleb128 0x40
@@ -1071,6 +1078,9 @@ ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccVFAxyb.s 			page 1
  947 009d 00       		.byte	0
  948 009e 0D       		.uleb128 0xd
  949 009f 34       		.uleb128 0x34
+ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\cchjfHvr.s 			page 19
+
+
  950 00a0 00       		.byte	0
  951 00a1 03       		.uleb128 0x3
  952 00a2 0E       		.uleb128 0xe
@@ -1078,9 +1088,6 @@ ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccVFAxyb.s 			page 1
  954 00a4 0B       		.uleb128 0xb
  955 00a5 3B       		.uleb128 0x3b
  956 00a6 05       		.uleb128 0x5
-ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccVFAxyb.s 			page 19
-
-
  957 00a7 49       		.uleb128 0x49
  958 00a8 13       		.uleb128 0x13
  959 00a9 3F       		.uleb128 0x3f
@@ -1131,6 +1138,9 @@ ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccVFAxyb.s 			page 1
  1004 000a 04       		.byte	0x4
  1005 000b 00       		.byte	0
  1006 000c 0000     		.2byte	0
+ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\cchjfHvr.s 			page 20
+
+
  1007 000e 0000     		.2byte	0
  1008 0010 00000000 		.4byte	.LFB63
  1009 0014 40000000 		.4byte	.LFE63-.LFB63
@@ -1138,9 +1148,6 @@ ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccVFAxyb.s 			page 1
  1011 001c 4C000000 		.4byte	.LFE64-.LFB64
  1012 0020 00000000 		.4byte	.LFB65
  1013 0024 44000000 		.4byte	.LFE65-.LFB65
-ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccVFAxyb.s 			page 20
-
-
  1014 0028 00000000 		.4byte	0
  1015 002c 00000000 		.4byte	0
  1016              		.section	.debug_ranges,"",%progbits
@@ -1184,284 +1191,283 @@ ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccVFAxyb.s 			page 1
  1037      46696E61 
  1037      6C5F5072 
  1037      6F6A6563 
- 1038              	.LASF45:
- 1039 006c 4144435F 		.ascii	"ADC_DelSig_Stop\000"
- 1039      44656C53 
- 1039      69675F53 
- 1039      746F7000 
+ 1038              	.LASF30:
+ 1039 006c 73746174 		.ascii	"status\000"
+ 1039      757300
  1040              	.LASF48:
- 1041 007c 5350494D 		.ascii	"SPIM_1_Start\000"
+ 1041 0073 5350494D 		.ascii	"SPIM_1_Start\000"
  1041      5F315F53 
  1041      74617274 
+ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\cchjfHvr.s 			page 21
+
+
  1041      00
  1042              	.LASF53:
- 1043 0089 5245445F 		.ascii	"RED_Led_Write\000"
+ 1043 0080 5245445F 		.ascii	"RED_Led_Write\000"
  1043      4C65645F 
  1043      57726974 
-ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccVFAxyb.s 			page 21
-
-
  1043      6500
  1044              	.LASF6:
- 1045 0097 5F5F696E 		.ascii	"__int32_t\000"
+ 1045 008e 5F5F696E 		.ascii	"__int32_t\000"
  1045      7433325F 
  1045      7400
  1046              	.LASF7:
- 1047 00a1 6C6F6E67 		.ascii	"long int\000"
+ 1047 0098 6C6F6E67 		.ascii	"long int\000"
  1047      20696E74 
  1047      00
- 1048              	.LASF5:
- 1049 00aa 73686F72 		.ascii	"short unsigned int\000"
- 1049      7420756E 
- 1049      7369676E 
- 1049      65642069 
- 1049      6E7400
- 1050              	.LASF13:
- 1051 00bd 75696E74 		.ascii	"uint8_t\000"
- 1051      385F7400 
- 1052              	.LASF24:
- 1053 00c5 4572726F 		.ascii	"ErrorCode\000"
- 1053      72436F64 
- 1053      6500
- 1054              	.LASF30:
- 1055 00cf 73746174 		.ascii	"status\000"
- 1055      757300
- 1056              	.LASF37:
- 1057 00d6 636F756E 		.ascii	"counter_blue\000"
- 1057      7465725F 
- 1057      626C7565 
- 1057      00
- 1058              	.LASF34:
- 1059 00e3 70657269 		.ascii	"period_int_led\000"
- 1059      6F645F69 
- 1059      6E745F6C 
- 1059      656400
- 1060              	.LASF17:
- 1061 00f2 666C6F61 		.ascii	"float\000"
- 1061      7400
- 1062              	.LASF50:
- 1063 00f8 6973725F 		.ascii	"isr_LIS3DH_Stop\000"
- 1063      4C495333 
- 1063      44485F53 
- 1063      746F7000 
- 1064              	.LASF38:
- 1065 0108 636F756E 		.ascii	"counter_int_led\000"
- 1065      7465725F 
- 1065      696E745F 
- 1065      6C656400 
- 1066              	.LASF1:
- 1067 0118 756E7369 		.ascii	"unsigned char\000"
- 1067      676E6564 
- 1067      20636861 
- 1067      7200
- 1068              	.LASF58:
- 1069 0126 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
- 1069      43313120 
- 1069      352E342E 
-ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccVFAxyb.s 			page 22
+ 1048              	.LASF27:
+ 1049 00a1 494E4954 		.ascii	"INIT_CONF\000"
+ 1049      5F434F4E 
+ 1049      4600
+ 1050              	.LASF5:
+ 1051 00ab 73686F72 		.ascii	"short unsigned int\000"
+ 1051      7420756E 
+ 1051      7369676E 
+ 1051      65642069 
+ 1051      6E7400
+ 1052              	.LASF13:
+ 1053 00be 75696E74 		.ascii	"uint8_t\000"
+ 1053      385F7400 
+ 1054              	.LASF24:
+ 1055 00c6 4572726F 		.ascii	"ErrorCode\000"
+ 1055      72436F64 
+ 1055      6500
+ 1056              	.LASF25:
+ 1057 00d0 494E4954 		.ascii	"INIT_ON\000"
+ 1057      5F4F4E00 
+ 1058              	.LASF37:
+ 1059 00d8 636F756E 		.ascii	"counter_blue\000"
+ 1059      7465725F 
+ 1059      626C7565 
+ 1059      00
+ 1060              	.LASF34:
+ 1061 00e5 70657269 		.ascii	"period_int_led\000"
+ 1061      6F645F69 
+ 1061      6E745F6C 
+ 1061      656400
+ 1062              	.LASF26:
+ 1063 00f4 494E4954 		.ascii	"INIT_OFF\000"
+ 1063      5F4F4646 
+ 1063      00
+ 1064              	.LASF17:
+ 1065 00fd 666C6F61 		.ascii	"float\000"
+ 1065      7400
+ 1066              	.LASF50:
+ 1067 0103 6973725F 		.ascii	"isr_LIS3DH_Stop\000"
+ 1067      4C495333 
+ 1067      44485F53 
+ 1067      746F7000 
+ 1068              	.LASF38:
+ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\cchjfHvr.s 			page 22
 
 
- 1069      31203230 
- 1069      31363036 
- 1070 0159 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
- 1070      20726576 
- 1070      6973696F 
- 1070      6E203233 
- 1070      37373135 
- 1071 018c 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
- 1071      66756E63 
- 1071      74696F6E 
- 1071      2D736563 
- 1071      74696F6E 
- 1072              	.LASF9:
- 1073 01b4 6C6F6E67 		.ascii	"long unsigned int\000"
- 1073      20756E73 
- 1073      69676E65 
- 1073      6420696E 
- 1073      7400
- 1074              	.LASF29:
- 1075 01c6 4F56525F 		.ascii	"OVR_FLAG\000"
- 1075      464C4147 
- 1075      00
- 1076              	.LASF33:
- 1077 01cf 70657269 		.ascii	"period_blue\000"
- 1077      6F645F62 
- 1077      6C756500 
- 1078              	.LASF59:
- 1079 01db 496E6974 		.ascii	"Initialization.c\000"
- 1079      69616C69 
- 1079      7A617469 
- 1079      6F6E2E63 
+ 1069 0113 636F756E 		.ascii	"counter_int_led\000"
+ 1069      7465725F 
+ 1069      696E745F 
+ 1069      6C656400 
+ 1070              	.LASF1:
+ 1071 0123 756E7369 		.ascii	"unsigned char\000"
+ 1071      676E6564 
+ 1071      20636861 
+ 1071      7200
+ 1072              	.LASF58:
+ 1073 0131 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 1073      43313120 
+ 1073      352E342E 
+ 1073      31203230 
+ 1073      31363036 
+ 1074 0164 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 1074      20726576 
+ 1074      6973696F 
+ 1074      6E203233 
+ 1074      37373135 
+ 1075 0197 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 1075      66756E63 
+ 1075      74696F6E 
+ 1075      2D736563 
+ 1075      74696F6E 
+ 1076              	.LASF9:
+ 1077 01bf 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1077      20756E73 
+ 1077      69676E65 
+ 1077      6420696E 
+ 1077      7400
+ 1078              	.LASF29:
+ 1079 01d1 4F56525F 		.ascii	"OVR_FLAG\000"
+ 1079      464C4147 
  1079      00
- 1080              	.LASF44:
- 1081 01ec 4932435F 		.ascii	"I2C_Peripheral_WriteRegister\000"
- 1081      50657269 
- 1081      70686572 
- 1081      616C5F57 
- 1081      72697465 
- 1082              	.LASF28:
- 1083 0209 49544D5F 		.ascii	"ITM_RxBuffer\000"
- 1083      52784275 
- 1083      66666572 
+ 1080              	.LASF33:
+ 1081 01da 70657269 		.ascii	"period_blue\000"
+ 1081      6F645F62 
+ 1081      6C756500 
+ 1082              	.LASF59:
+ 1083 01e6 496E6974 		.ascii	"Initialization.c\000"
+ 1083      69616C69 
+ 1083      7A617469 
+ 1083      6F6E2E63 
  1083      00
- 1084              	.LASF4:
- 1085 0216 5F5F7569 		.ascii	"__uint16_t\000"
- 1085      6E743136 
- 1085      5F7400
- 1086              	.LASF18:
- 1087 0221 646F7562 		.ascii	"double\000"
- 1087      6C6500
- 1088              	.LASF56:
- 1089 0228 4144435F 		.ascii	"ADC_DelSig_Start\000"
- 1089      44656C53 
- 1089      69675F53 
- 1089      74617274 
- 1089      00
- 1090              	.LASF8:
-ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccVFAxyb.s 			page 23
+ 1084              	.LASF44:
+ 1085 01f7 4932435F 		.ascii	"I2C_Peripheral_WriteRegister\000"
+ 1085      50657269 
+ 1085      70686572 
+ 1085      616C5F57 
+ 1085      72697465 
+ 1086              	.LASF28:
+ 1087 0214 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 1087      52784275 
+ 1087      66666572 
+ 1087      00
+ 1088              	.LASF4:
+ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\cchjfHvr.s 			page 23
 
 
- 1091 0239 5F5F7569 		.ascii	"__uint32_t\000"
- 1091      6E743332 
- 1091      5F7400
- 1092              	.LASF52:
- 1093 0244 5350494D 		.ascii	"SPIM_1_Stop\000"
- 1093      5F315F53 
- 1093      746F7000 
- 1094              	.LASF46:
- 1095 0250 494E545F 		.ascii	"INT_Led_Write\000"
- 1095      4C65645F 
- 1095      57726974 
- 1095      6500
- 1096              	.LASF12:
- 1097 025e 756E7369 		.ascii	"unsigned int\000"
- 1097      676E6564 
- 1097      20696E74 
- 1097      00
- 1098              	.LASF26:
- 1099 026b 494E4954 		.ascii	"INIT_STOP\000"
- 1099      5F53544F 
- 1099      5000
- 1100              	.LASF11:
- 1101 0275 6C6F6E67 		.ascii	"long long unsigned int\000"
- 1101      206C6F6E 
- 1101      6720756E 
- 1101      7369676E 
- 1101      65642069 
- 1102              	.LASF35:
- 1103 028c 636F756E 		.ascii	"counter_red\000"
- 1103      7465725F 
- 1103      72656400 
- 1104              	.LASF39:
- 1105 0298 666C6167 		.ascii	"flag_eeprom\000"
- 1105      5F656570 
- 1105      726F6D00 
- 1106              	.LASF47:
- 1107 02a4 6973725F 		.ascii	"isr_LIS3DH_StartEx\000"
- 1107      4C495333 
- 1107      44485F53 
- 1107      74617274 
- 1107      457800
- 1108              	.LASF57:
- 1109 02b7 4144435F 		.ascii	"ADC_DelSig_StartConvert\000"
- 1109      44656C53 
- 1109      69675F53 
- 1109      74617274 
- 1109      436F6E76 
- 1110              	.LASF15:
- 1111 02cf 696E7433 		.ascii	"int32_t\000"
- 1111      325F7400 
- 1112              	.LASF21:
- 1113 02d7 73697A65 		.ascii	"sizetype\000"
- 1113      74797065 
- 1113      00
- 1114              	.LASF41:
- 1115 02e0 6572726F 		.ascii	"error\000"
- 1115      7200
-ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccVFAxyb.s 			page 24
+ 1089 0221 5F5F7569 		.ascii	"__uint16_t\000"
+ 1089      6E743136 
+ 1089      5F7400
+ 1090              	.LASF18:
+ 1091 022c 646F7562 		.ascii	"double\000"
+ 1091      6C6500
+ 1092              	.LASF56:
+ 1093 0233 4144435F 		.ascii	"ADC_DelSig_Start\000"
+ 1093      44656C53 
+ 1093      69675F53 
+ 1093      74617274 
+ 1093      00
+ 1094              	.LASF8:
+ 1095 0244 5F5F7569 		.ascii	"__uint32_t\000"
+ 1095      6E743332 
+ 1095      5F7400
+ 1096              	.LASF45:
+ 1097 024f 4144435F 		.ascii	"ADC_DelSig_Stop\000"
+ 1097      44656C53 
+ 1097      69675F53 
+ 1097      746F7000 
+ 1098              	.LASF52:
+ 1099 025f 5350494D 		.ascii	"SPIM_1_Stop\000"
+ 1099      5F315F53 
+ 1099      746F7000 
+ 1100              	.LASF46:
+ 1101 026b 494E545F 		.ascii	"INT_Led_Write\000"
+ 1101      4C65645F 
+ 1101      57726974 
+ 1101      6500
+ 1102              	.LASF12:
+ 1103 0279 756E7369 		.ascii	"unsigned int\000"
+ 1103      676E6564 
+ 1103      20696E74 
+ 1103      00
+ 1104              	.LASF11:
+ 1105 0286 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1105      206C6F6E 
+ 1105      6720756E 
+ 1105      7369676E 
+ 1105      65642069 
+ 1106              	.LASF35:
+ 1107 029d 636F756E 		.ascii	"counter_red\000"
+ 1107      7465725F 
+ 1107      72656400 
+ 1108              	.LASF39:
+ 1109 02a9 666C6167 		.ascii	"flag_eeprom\000"
+ 1109      5F656570 
+ 1109      726F6D00 
+ 1110              	.LASF47:
+ 1111 02b5 6973725F 		.ascii	"isr_LIS3DH_StartEx\000"
+ 1111      4C495333 
+ 1111      44485F53 
+ 1111      74617274 
+ 1111      457800
+ 1112              	.LASF57:
+ 1113 02c8 4144435F 		.ascii	"ADC_DelSig_StartConvert\000"
+ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\cchjfHvr.s 			page 24
 
 
- 1116              	.LASF10:
- 1117 02e6 6C6F6E67 		.ascii	"long long int\000"
- 1117      206C6F6E 
- 1117      6720696E 
- 1117      7400
- 1118              	.LASF25:
- 1119 02f4 494E4954 		.ascii	"INIT_START\000"
- 1119      5F535441 
- 1119      525400
- 1120              	.LASF19:
- 1121 02ff 63686172 		.ascii	"char\000"
- 1121      00
- 1122              	.LASF51:
- 1123 0304 4932435F 		.ascii	"I2C_Peripheral_Stop\000"
- 1123      50657269 
- 1123      70686572 
- 1123      616C5F53 
- 1123      746F7000 
- 1124              	.LASF14:
- 1125 0318 75696E74 		.ascii	"uint16_t\000"
- 1125      31365F74 
- 1125      00
- 1126              	.LASF2:
- 1127 0321 73686F72 		.ascii	"short int\000"
- 1127      7420696E 
- 1127      7400
- 1128              	.LASF42:
- 1129 032b 6669666F 		.ascii	"fifo_ctrl_reg\000"
- 1129      5F637472 
- 1129      6C5F7265 
- 1129      6700
- 1130              	.LASF54:
- 1131 0339 47524545 		.ascii	"GREEN_Led_Write\000"
- 1131      4E5F4C65 
- 1131      645F5772 
- 1131      69746500 
- 1132              	.LASF22:
- 1133 0349 4E4F5F45 		.ascii	"NO_ERROR\000"
- 1133      52524F52 
- 1133      00
- 1134              	.LASF16:
- 1135 0352 75696E74 		.ascii	"uint32_t\000"
- 1135      33325F74 
+ 1113      44656C53 
+ 1113      69675F53 
+ 1113      74617274 
+ 1113      436F6E76 
+ 1114              	.LASF15:
+ 1115 02e0 696E7433 		.ascii	"int32_t\000"
+ 1115      325F7400 
+ 1116              	.LASF21:
+ 1117 02e8 73697A65 		.ascii	"sizetype\000"
+ 1117      74797065 
+ 1117      00
+ 1118              	.LASF41:
+ 1119 02f1 6572726F 		.ascii	"error\000"
+ 1119      7200
+ 1120              	.LASF10:
+ 1121 02f7 6C6F6E67 		.ascii	"long long int\000"
+ 1121      206C6F6E 
+ 1121      6720696E 
+ 1121      7400
+ 1122              	.LASF19:
+ 1123 0305 63686172 		.ascii	"char\000"
+ 1123      00
+ 1124              	.LASF51:
+ 1125 030a 4932435F 		.ascii	"I2C_Peripheral_Stop\000"
+ 1125      50657269 
+ 1125      70686572 
+ 1125      616C5F53 
+ 1125      746F7000 
+ 1126              	.LASF14:
+ 1127 031e 75696E74 		.ascii	"uint16_t\000"
+ 1127      31365F74 
+ 1127      00
+ 1128              	.LASF2:
+ 1129 0327 73686F72 		.ascii	"short int\000"
+ 1129      7420696E 
+ 1129      7400
+ 1130              	.LASF42:
+ 1131 0331 6669666F 		.ascii	"fifo_ctrl_reg\000"
+ 1131      5F637472 
+ 1131      6C5F7265 
+ 1131      6700
+ 1132              	.LASF54:
+ 1133 033f 47524545 		.ascii	"GREEN_Led_Write\000"
+ 1133      4E5F4C65 
+ 1133      645F5772 
+ 1133      69746500 
+ 1134              	.LASF22:
+ 1135 034f 4E4F5F45 		.ascii	"NO_ERROR\000"
+ 1135      52524F52 
  1135      00
- 1136              	.LASF23:
- 1137 035b 4552524F 		.ascii	"ERROR\000"
- 1137      5200
- 1138              	.LASF20:
- 1139 0361 6C6F6E67 		.ascii	"long double\000"
- 1139      20646F75 
- 1139      626C6500 
- 1140              	.LASF0:
- 1141 036d 7369676E 		.ascii	"signed char\000"
- 1141      65642063 
- 1141      68617200 
- 1142              	.LASF31:
- 1143 0379 70657269 		.ascii	"period_red\000"
-ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\ccVFAxyb.s 			page 25
+ 1136              	.LASF16:
+ 1137 0358 75696E74 		.ascii	"uint32_t\000"
+ 1137      33325F74 
+ 1137      00
+ 1138              	.LASF23:
+ 1139 0361 4552524F 		.ascii	"ERROR\000"
+ 1139      5200
+ARM GAS  C:\Users\Riccardo\AppData\Local\Temp\cchjfHvr.s 			page 25
 
 
- 1143      6F645F72 
- 1143      656400
- 1144              	.LASF32:
- 1145 0384 70657269 		.ascii	"period_green\000"
- 1145      6F645F67 
- 1145      7265656E 
- 1145      00
- 1146              	.LASF27:
- 1147 0391 494E4954 		.ascii	"INIT_MENU\000"
- 1147      5F4D454E 
- 1147      5500
+ 1140              	.LASF20:
+ 1141 0367 6C6F6E67 		.ascii	"long double\000"
+ 1141      20646F75 
+ 1141      626C6500 
+ 1142              	.LASF0:
+ 1143 0373 7369676E 		.ascii	"signed char\000"
+ 1143      65642063 
+ 1143      68617200 
+ 1144              	.LASF31:
+ 1145 037f 70657269 		.ascii	"period_red\000"
+ 1145      6F645F72 
+ 1145      656400
+ 1146              	.LASF32:
+ 1147 038a 70657269 		.ascii	"period_green\000"
+ 1147      6F645F67 
+ 1147      7265656E 
+ 1147      00
  1148              	.LASF49:
- 1149 039b 43794465 		.ascii	"CyDelay\000"
+ 1149 0397 43794465 		.ascii	"CyDelay\000"
  1149      6C617900 
  1150              	.LASF55:
- 1151 03a3 424C5545 		.ascii	"BLUE_Led_Write\000"
+ 1151 039f 424C5545 		.ascii	"BLUE_Led_Write\000"
  1151      5F4C6564 
  1151      5F577269 
  1151      746500
  1152              	.LASF43:
- 1153 03b2 4932435F 		.ascii	"I2C_Peripheral_Start\000"
+ 1153 03ae 4932435F 		.ascii	"I2C_Peripheral_Start\000"
  1153      50657269 
  1153      70686572 
  1153      616C5F53 

@@ -203,6 +203,8 @@
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\cycodeshareimport.ld</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\cycodeshareexport.ld</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\cycodeshareimport.scat</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\isr_Debouncer.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\isr_Debouncer.h</File>
         </Files>
       </Folder>
       <Folder BuildType="STRICT" Path="C:\Users\Riccardo\Desktop\Final Project\Final_Project\Final_Project.cydsn\Export\ARM_GCC_Generic">

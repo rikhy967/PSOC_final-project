@@ -250,6 +250,15 @@
   </Group>
   <Data key="DataVersionKey" value="2" />
   <Group key="DWRInstGuidMapping">
+    <Group key="Interrupt">
+      <Data key="6a95d5c9-87e1-4690-afdb-114eb5bf0cb7" value="isr_Button" />
+      <Data key="15cb15b3-05f2-49b1-a67e-9f121bc62871/2f0e1ca3-d7f9-4fde-aef9-0b36f082c803" value="SPIM_1_TxInternalInterrupt" />
+      <Data key="15cb15b3-05f2-49b1-a67e-9f121bc62871/14fe96ba-901d-4b28-a648-bce191698c4b" value="SPIM_1_RxInternalInterrupt" />
+      <Data key="65a5434d-cc76-42c3-9728-fd5e507d4bd3/b6592af9-e743-4dfd-a597-27f9102033ee" value="ADC_DelSig_IRQ" />
+      <Data key="161ccdc0-8eda-460a-8f84-09707d1da6b7" value="isr_LIS3DH" />
+      <Data key="72463f96-822d-40d2-aad2-bc2cd379f7ff/74b069b5-d5c5-469b-a48a-44b8a12146cd" value="I2C_Master_I2C_IRQ" />
+      <Data key="b026863e-5980-40ac-9f06-4c3177e952af" value="isr_TIMER" />
+    </Group>
     <Group key="Pin">
       <Data key="02f2cf2c-2c7a-49df-9246-7a3435c21be3" value="SCL" />
       <Data key="3ea296aa-3dc7-4905-8646-423aad558b93" value="BLUE_Led" />
@@ -3352,6 +3361,15 @@
       </Group>
       <Group key="1024">
         <Data key="LevelKey" value="00" />
+      </Group>
+    </Group>
+  </Group>
+  <Group key="Interrupt">
+    <Group key="b026863e-5980-40ac-9f06-4c3177e952af">
+      <Group key="CortexM3">
+        <Data key="Assigned" value="True" />
+        <Data key="Priority" value="6" />
+        <Data key="Vector" value="-1" />
       </Group>
     </Group>
   </Group>

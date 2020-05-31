@@ -419,6 +419,7 @@ int main(void)
     /*****************************************************/
     isr_TIMER_StartEx(ISR_TIMER);
     isr_Button_StartEx(ISR_COUNTER_BUTTON);
+    isr_Debouncer_StartEx(ISR_DEBOUNCER);
     
     
     

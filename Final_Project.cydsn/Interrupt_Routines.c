@@ -27,6 +27,9 @@ ErrorCode error;
 uint8_t watermark;
 uint8_t int1_src_reg;
 uint8_t prev_state=0;
+uint8_t short_press=0;
+uint8_t long_press=0;
+
 volatile uint16_t counter_button=0;
 
 uint16_t timer_counter=0;
@@ -68,7 +71,7 @@ CY_ISR (ISR_TIMER)
         /************      OFF MODE      *****************/
         case 0:
             // Check if button has been pressed
-            if (counter_button!=0){
+            if (short_press!=0 | long_press!=0){
                 timer_counter++;
                 if (timer_counter>2000){
             
@@ -77,14 +80,14 @@ CY_ISR (ISR_TIMER)
                     
                     timer_counter=0;
                     
-                    if (counter_button==2){
+                    if (short_press==2){
                         sprintf(mex, "Switch ON device \r\n");
                         UART_Debug_PutString(mex);
                         //repetition=0;
                         status=1;
                         
                     }
-                    else if (counter_button>3){
+                    if (long_press>=1){
                         prev_state=0;
                         sprintf(mex, "Switch to Configuration Mode \r\n");
                         UART_Debug_PutString(mex);
@@ -94,8 +97,11 @@ CY_ISR (ISR_TIMER)
                     }
                     
                     counter_button=0;
+                    short_press=0;
+                    long_press=0;
                 }
             }
+            
         break;
         /************      ON MODE      *****************/
         case 1:
@@ -159,12 +165,12 @@ CY_ISR (ISR_TIMER)
                 
                 /******************* INTERNAL BUTTON ********************/
                 // When the button is pressed, increment the timer counter
-                if (counter_button!=0){
+                if (short_press!=0 | long_press!=0){
                     timer_counter++;
                     if (timer_counter>2000){
                         
                         // If button was pressed 2 times, go to OFF MODE
-                        if (counter_button==2){
+                        if (short_press==2){
                             sprintf(mex, "Switch OFF \r\n");
                             UART_Debug_PutString(mex);
                             //repetition=0;
@@ -173,7 +179,7 @@ CY_ISR (ISR_TIMER)
                             
                         }
                         // If button was pressed more than 3 times (long press), go to CONFIGURATION MODE
-                        else if (counter_button>3){
+                        else if (long_press>=1){
                             
                             prev_state=1;
                             sprintf(mex, "Switch to Configuration Mode \r\n");
@@ -187,6 +193,8 @@ CY_ISR (ISR_TIMER)
                         // Reset counters
                         counter_button=0;
                         timer_counter=0;
+                        short_press=0;
+                        long_press=0;
                         
                         
                     }
@@ -209,13 +217,13 @@ CY_ISR (ISR_TIMER)
                 
                  /******************* INTERNAL BUTTON ********************/
                 // When the button is pressed, increment the timer counter
-                if (counter_button!=0){
+                if (short_press!=0 | long_press!=0){
                     timer_counter++;
                     if (timer_counter>2000){
                         
                         
                         // If button was pressed more than 3 times (long press), go to the previous mode
-                        if (counter_button>3){
+                        if (long_press>=1){
                             sprintf(mex, "Switch to previous Mode \r\n");
                             UART_Debug_PutString(mex);
                             //repetition=0;
@@ -227,7 +235,8 @@ CY_ISR (ISR_TIMER)
                         // Reset counters
                         counter_button=0;
                         timer_counter=0;
-                         
+                        short_press=0;
+                        long_press=0;
                     }
                 }
                 
@@ -258,8 +267,21 @@ CY_ISR (ISR_TIMER)
     // Read Status Register in order to reset it
     Timer_Button_ReadStatusRegister();
     // Increment by 1 the counter button variable
-    counter_button++;
+    long_press++;
     
-    sprintf(mex, "Button Pressed \r\n");
+    sprintf(mex, "Long Button Pressed \r\n");
+    UART_Debug_PutString(mex);
+    
+    
+}
+
+CY_ISR(ISR_DEBOUNCER)
+{
+    short_press++;
+    // Read Status Register in order to reset it
+    Timer_Button_ReadStatusRegister();
+    sprintf(mex, "Short Pressed \r\n");
+    UART_Debug_PutString(mex);
+    sprintf(mex, "N press %d \r\n",short_press);
     UART_Debug_PutString(mex);
 }

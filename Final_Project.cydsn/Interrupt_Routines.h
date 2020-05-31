@@ -23,6 +23,8 @@
     CY_ISR_PROTO (ISR_TIMER);
     /* Interrupt on Counter button  */
     CY_ISR_PROTO (ISR_COUNTER_BUTTON);
+    /* Interrupt on Debouncer   */
+    CY_ISR_PROTO (ISR_DEBOUNCER);
     
     /* Flag that is set to 1 when an overrun occurs on LIS3DH FIFO*/
     volatile uint8_t OVR_FLAG;

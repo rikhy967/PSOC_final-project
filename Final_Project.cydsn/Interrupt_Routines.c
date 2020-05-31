@@ -71,7 +71,7 @@ CY_ISR (ISR_TIMER)
         /************      OFF MODE      *****************/
         case 0:
             // Check if button has been pressed
-            if (short_press!=0 | long_press!=0){
+            if ((short_press!=0) | (long_press!=0)){
                 timer_counter++;
                 if (timer_counter>2000){
             
@@ -165,7 +165,7 @@ CY_ISR (ISR_TIMER)
                 
                 /******************* INTERNAL BUTTON ********************/
                 // When the button is pressed, increment the timer counter
-                if (short_press!=0 | long_press!=0){
+                if ((short_press!=0) | (long_press!=0)){
                     timer_counter++;
                     if (timer_counter>2000){
                         
@@ -217,7 +217,7 @@ CY_ISR (ISR_TIMER)
                 
                  /******************* INTERNAL BUTTON ********************/
                 // When the button is pressed, increment the timer counter
-                if (short_press!=0 | long_press!=0){
+                if ((short_press!=0) | (long_press!=0)){
                     timer_counter++;
                     if (timer_counter>2000){
                         
@@ -280,8 +280,8 @@ CY_ISR(ISR_DEBOUNCER)
     short_press++;
     // Read Status Register in order to reset it
     Timer_Button_ReadStatusRegister();
-    sprintf(mex, "Short Pressed \r\n");
-    UART_Debug_PutString(mex);
+    //sprintf(mex, "Short Pressed \r\n");
+    //UART_Debug_PutString(mex);
     sprintf(mex, "N press %d \r\n",short_press);
     UART_Debug_PutString(mex);
 }

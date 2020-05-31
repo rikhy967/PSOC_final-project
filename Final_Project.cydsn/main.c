@@ -408,9 +408,9 @@ int main(void)
     int32 pot_mv;                             // Store Potentiometer value in mV
     uint16_t data_rate=5;                     // Initialization of data rate value (5 --> 100Hz)
     
-    uint8_t repetition_stop=0;
-    uint8_t repetition_start=0;
-    uint8_t repetition_menu=0;
+    uint8_t repetition_stop=0;//To check if we are in the first cycle of the stop condition (0 yes, 1 no)
+    uint8_t repetition_start=0;//To check if we are in the first cycle of the start condition (0 yes, 1 no)
+    uint8_t repetition_menu=0;//To check if we are in the first cycle of the configuration condition (0 yes, 1 no)
     uint8_t data_byte;
     uint8_t byte_read;
     
@@ -456,10 +456,11 @@ int main(void)
                     // Write the data rate on EEPROM register
                     EEPROM_writeByte(EEPROM_SS_PARAM, data_byte);
                     EEPROM_waitForWriteComplete();
-                    // Check if the byte has been written correctly
-                    byte_read= EEPROM_readByte(EEPROM_SS_PARAM);
+                    
+                    //UNCOMMENT THIS TO  Check if the byte has been written correctly
+                    /*byte_read= EEPROM_readByte(EEPROM_SS_PARAM);
                     sprintf(message, "Byte read: %d \r\n",byte_read);
-                    UART_Debug_PutString(message);
+                    UART_Debug_PutString(message);*/
                       
                     // Init pheripheral that are needed in this mode
                     INIT_OFF();
@@ -495,10 +496,11 @@ int main(void)
                     // Write the data rate on EEPROM register
                     EEPROM_writeByte(EEPROM_SS_PARAM, data_byte);
                     EEPROM_waitForWriteComplete();
-                    // Check if the byte has been written correctly
-                    byte_read= EEPROM_readByte(EEPROM_SS_PARAM);
+                    
+                    //UNCOMMENT THIS TO Check if the byte has been written correctly
+                    /*byte_read= EEPROM_readByte(EEPROM_SS_PARAM);
                     sprintf(message, "Byte read: %d \r\n",byte_read);
-                    UART_Debug_PutString(message);
+                    UART_Debug_PutString(message);*/
                       
                     // Init pheripheral that are needed in this mode
                     INIT_ON();
@@ -584,7 +586,7 @@ int main(void)
                                 data_EEPROM_THR[i+counter*6]=OutArray[i+1];
                                 data_EEPROM_THR[i+counter*6+1]=OutArray[i+1+1];
                                 data_write = (data_EEPROM_THR[i+counter*6] | (data_EEPROM_THR[i+counter*6+1]<<8));
-                            
+                                //print data to be written in the EEPROM
                                 sprintf(message, "Data write: %d \r\n",data_write);
                                 UART_Debug_PutString(message);
                     
@@ -595,7 +597,7 @@ int main(void)
                                 data_EEPROM_THR[43]=(uint8_t)(timestamp >> 8);
                                 data_EEPROM_THR[44]=(uint8_t)(timestamp >> 16);
                                 data_EEPROM_THR[45]=(uint8_t)(timestamp >> 24);
-                            
+                                //print timestamp value
                                 sprintf(message, "Timestamp: %d \r\n",timestamp);
                                 UART_Debug_PutString(message);
                                 
@@ -611,11 +613,13 @@ int main(void)
                                 sprintf(message,"End Read on EEPROM\r\n");
                                 UART_Debug_PutString(message);
                             
+                                //print acceleration data saved in EEPROM
                                 for (i=0;i<42;i=i+2){
                                     data_read = (read_data_EEPROM_THR[i] | (read_data_EEPROM_THR[i+1]<<8));
                                     sprintf(message, "Data read: %d\r\n",data_read);
                                     UART_Debug_PutString(message);
                                     }
+                                //print timestamp value saved in EEPROM
                                 timestamp_read = (read_data_EEPROM_THR[42] | (read_data_EEPROM_THR[43]<<8) | (read_data_EEPROM_THR[44]<<16)|(read_data_EEPROM_THR[45]<<24));
                                 sprintf(message, "Data read: %ld \r\n",timestamp_read);
                                 UART_Debug_PutString(message);
@@ -700,8 +704,7 @@ int main(void)
                     repetition_stop=0;
                     repetition_start=0;
                     repetition_menu=1;
-                    sprintf(message, "Repetition flag after settings: %d \r\n",repetition_menu);
-                    UART_Debug_PutString(message);
+                    
                 }
                 // Toggle INT led
                 INT_Led_Write(~INT_Led_Read());
@@ -717,9 +720,10 @@ int main(void)
                 if (pot_digit < 0) pot_digit = 0;
                 if (pot_digit > 65535) pot_digit = 65535;
                 pot_mv = ADC_DelSig_CountsTo_mVolts(pot_digit);
-
-                sprintf(message, "Potentiometer: %ld \r\n",pot_mv);
-                UART_Debug_PutString(message);
+                
+                //UNCOMMENT THIS TO print potentiometer values on UART
+                //sprintf(message, "Potentiometer: %ld \r\n",pot_mv);
+                //UART_Debug_PutString(message);
                    
                 // Evaluate data rate by dividing the potentiometer value by 700
                 data_rate = pot_mv/700;
@@ -730,8 +734,11 @@ int main(void)
                 
                 // Write data_rate on CONTROL Register 1
                 ctrl_reg1=((uint8_t)data_rate<<4|0b00000111);
-                sprintf(message, "Ctrl Reg1: 0x%02X \r\n",ctrl_reg1);
-                UART_Debug_PutString(message);
+                
+                //UNCOMMENT THIS TO print the value to be written on ctrl_reg_1 on UART
+                //sprintf(message, "Ctrl Reg1: 0x%02X \r\n",ctrl_reg1);
+                //UART_Debug_PutString(message);
+                
                 error = I2C_Peripheral_WriteRegister(LIS3DH_DEVICE_ADDRESS,
                                             LIS3DH_CTRL_REG1,
                                             ctrl_reg1);
